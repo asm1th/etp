@@ -7,7 +7,7 @@ import { userSlice } from './store/reducers/UserSlice';
 
 function App() {
   const dispatch = useAppDispatch()
-  //const {usesrs} = useAppSelector(state => state.userReducer)
+  const {users} = useAppSelector(state => state.userReducer)
 
   useEffect(()=>{
     dispatch(fetchUsers())
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      JSON.stringify(usesrs, null, 2)
+      {JSON.stringify(users, null, 2)}
     </div>
   );
 }

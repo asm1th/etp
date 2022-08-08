@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import {fetchOffers} from '../store/actions/offerActions';
+import { DashboardCard } from '../components/DashboardCard';
+import { useAppDispatch } from '../hook/redux';
+//import {fetchOffers} from '../store/actions/offerActions';
 
 export function Dashboard() {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
 
-    useEffect(()=>{
-        dispatch(fetchOffers)
-    }, [])
+    // useEffect(()=>{
+    //     dispatch(fetchOffers())
+    // }, [])
 
     return (
         <>
@@ -15,3 +16,4 @@ export function Dashboard() {
         </>
     );
 }
+
