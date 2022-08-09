@@ -8,6 +8,9 @@ export interface IRoute {
     exact?: boolean;
 }
 
+
+// масссив путей пока не используем
+
 export enum RouteNames {
     LOGIN = '/login',
     DASH = '/'
