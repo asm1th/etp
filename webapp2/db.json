@@ -1,0 +1,88 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server 1",
+      "body": "typicode1"
+    },
+    {
+      "id": 2,
+      "title": "json-server 2",
+      "body": "typicode2 "
+    },
+    {
+      "id": 3,
+      "title": "json-server 3",
+      "body": "typicode3"
+    },
+    {
+      "id": 4,
+      "title": "json-server 4",
+      "body": "typicode4"
+    },
+    {
+      "id": 5,
+      "title": "json-server 5",
+      "body": "typicode4"
+    },
+    {
+      "id": 6,
+      "title": "json-server 6",
+      "body": "typicode4"
+    },
+    {
+      "id": 7,
+      "title": "json-server 7",
+      "body": "typicode4"
+    },
+    {
+      "id": 8,
+      "title": "json-server 8",
+      "body": "typicode4"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "id": 1,
+      "lastname": "Test1",
+      "firstname": "Test1",
+      "patronymic": "Test1",
+      "email": "Test1@Test1.ee",
+      "resident": true,
+      "individual": true,
+      "org_fullname": "Test1",
+      "org_shortname": "Test1",
+      "org_telephone": "123123123",
+      "org_email": "Test1@Test1.ee",
+      "password": "Test1",
+      "createdAt": "2022-08-09T12:34:56.625Z",
+      "updatedAt": "2022-08-09T12:34:56.625Z"
+    },
+    {
+      "id": 2,
+      "lastname": "Test2",
+      "firstname": "Test2",
+      "patronymic": "Test2",
+      "email": "Test1@Test2.ee",
+      "resident": true,
+      "individual": true,
+      "org_fullname": "Test2",
+      "org_shortname": "Test2",
+      "org_telephone": "123123123",
+      "org_email": "Test2@Test1.ee",
+      "password": "Test2",
+      "createdAt": "2022-08-09T12:34:56.625Z",
+      "updatedAt": "2022-08-09T12:34:56.625Z"
+    }
+  ]
+}
