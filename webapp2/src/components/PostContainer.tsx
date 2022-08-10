@@ -8,7 +8,7 @@ const PostContainer = () => {
   const { data: posts, error, isLoading, refetch } = postAPI.useFetchAllPostsQuery(limit, {
     //pollingInterval: 1000
   })
-  const [createPost, { }] = postAPI.useCreatePostMutation({
+  const [createPost, {}] = postAPI.useCreatePostMutation({
     // selector = some filter
   })
   const [deletePost, {}] = postAPI.useDeletePostMutation()

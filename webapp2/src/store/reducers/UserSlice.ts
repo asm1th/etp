@@ -8,12 +8,10 @@ interface UserState {
     error: string
 }
 
-
 const initialState: UserState = {
     users: [],
     isLoading: false,
-    error: '',
-
+    error: ''
 }
 
 export const userSlice = createSlice({
