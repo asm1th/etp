@@ -9,6 +9,7 @@ import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { useForm } from "react-hook-form";
 import TextFieldCustom from "../components/TextFieldCustomJS";
 import { TextField } from "@consta/uikit/TextField";
+import { rules } from "../utils/rules";
 
 const Login: FC = () => {
     type FormData = {
@@ -22,8 +23,7 @@ const Login: FC = () => {
         alert(JSON.stringify(data, null, 2));
     });
 
-    const [value, setValue] = useState<string | null>(null);
-    const handleChange = ({ value }: { value: string | null }) => setValue(value);
+    
 
 
     return (
@@ -52,13 +52,9 @@ const Login: FC = () => {
                                 placeholder="placeholder"
                                 width="full"
                                 control={control}
-                                rules={{
-                                    minLength: {
-                                        value: 2,
-                                        message: "Имя должно быть длинее 2 символов"
-                                    },
-                                    required: "Поле обязательно для заполнения"
-                                }} defaultValue={undefined} shouldUnregister={undefined}                            />
+                                rules={rules.required("Поле обязательно для заполнения", 2)} 
+                                defaultValue={undefined} shouldUnregister={undefined}
+                            />
                         </div>
                         <Button type="submit" label="Отправить код" size="m" width="full" />
                     </form>
