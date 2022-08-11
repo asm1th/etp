@@ -1,5 +1,5 @@
-import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useAppSelector } from "../hooks/redux";
 import Dash from "../pages/Dash";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
@@ -9,12 +9,11 @@ import NotFound from "../pages/NotFound";
 // import { publicRoutes } from "../router/router";
 
 const AppRouter = () => {
-    const isLogin = true;
-
+    const {isAuth} = useAppSelector(state => state.auth)
     return (
         <Routes>
-          <Route path="/" element={isLogin ? <Dash /> : <Navigate to="/login" />} />
-          <Route path="/login" element={isLogin ? <Navigate to="/" /> : <Login />}/> 
+          <Route path="/" element={isAuth ? <Dash /> : <Navigate to="/login" />} />
+          <Route path="/login" element={isAuth ? <Navigate to="/" /> : <Login />}/> 
           <Route path="*" element={<NotFound />} />
         </Routes>
     );

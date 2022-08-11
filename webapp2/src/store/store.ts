@@ -1,15 +1,8 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { postAPI } from "../services/PostService";
-import userReducer from './reducers/UserSlice'
+import reducers from "./reducers";
 
-//https://codesandbox.io/s/github/reduxjs/redux-toolkit/tree/master/examples/query/react/authentication-with-extrareducers?from-embed=&file=/src/app/store.ts:88-139
-import { api } from './store/reducers/Auth'
-import authReducer from './store/reducers/authSlice'
-
-const rootReducer = combineReducers({
-    userReducer,
-    [postAPI.reducerPath]: postAPI.reducer,
-})
+const rootReducer = combineReducers(reducers)
 
 export const setupStore = () => {
     return configureStore({

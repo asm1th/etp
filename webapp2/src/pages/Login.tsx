@@ -33,6 +33,8 @@ const Login: FC = () => {
                         // caption="Это подпись"
                         // status="warning" 
                         width="full"
+                        caption="Это подпись"
+                        status="warning"
                         className={cnMixSpace({ mT: 's', mB: '2xl', })} />
                     <Button label="Отправить код" size="m" width="full" />
                 </Card>

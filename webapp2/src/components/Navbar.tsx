@@ -9,6 +9,7 @@ import {
 } from "@consta/uikit/Header";
 import { IconRing } from "@consta/uikit/IconRing";
 import { Text } from '@consta/uikit/Text';
+import { useAppSelector } from "../hooks/redux";
 
 const Navbar: FC = () => {
 
@@ -28,7 +29,7 @@ const Navbar: FC = () => {
         }
     ];
 
-    const isLogged = true;
+    const {isAuth} = useAppSelector (state => state.auth)
 
     return (
         <div>
@@ -58,7 +59,7 @@ const Navbar: FC = () => {
                         </HeaderModule>
                         <HeaderModule indent="s">
                             <HeaderLogin
-                                isLogged={isLogged}
+                                isLogged={isAuth}
                                 personName="Вадим Матвеев"
                                 personInfo="В другом офисе"
                                 personStatus="available"

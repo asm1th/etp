@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IUser } from "../../models/IUser";
+import { IUser } from "../../../models/IUser";
 // import { AppDispatch } from "../store";
 // import { userSlice } from "./UserSlice";
 
