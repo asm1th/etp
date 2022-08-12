@@ -29,7 +29,7 @@ const Navbar: FC = () => {
         }
     ];
 
-    const {isAuth} = useAppSelector (state => state.auth)
+    const {isAuth} = useAppSelector (state => state.authReducer)
 
     return (
         <div>

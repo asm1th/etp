@@ -9,7 +9,7 @@ import NotFound from "../pages/NotFound";
 // import { publicRoutes } from "../router/router";
 
 const AppRouter = () => {
-    const {isAuth} = useAppSelector(state => state.auth)
+    const {isAuth} = useAppSelector(state => state.authReducer)
     return (
         <Routes>
           <Route path="/" element={isAuth ? <Dash /> : <Navigate to="/login" />} />

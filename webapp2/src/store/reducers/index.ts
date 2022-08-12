@@ -1,7 +1,11 @@
 import { postAPI } from '../../services/PostService'
-import auth from './auth'
+import authReducer from './auth'
+import userReducer from './user/userSlice'
 
-export default {
-    auth,
+const reducers = {
+    userReducer,
+    authReducer,
     [postAPI.reducerPath]: postAPI.reducer
 }
+
+export default reducers;
