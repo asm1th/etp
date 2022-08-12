@@ -1,9 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IUser } from "../../../models/IUser";
+
+// axios style
 // import { AppDispatch } from "../store";
 // import { userSlice } from "./UserSlice";
-
 
 // export const fetchUsers = () => async (dispatch: AppDispatch) => {
 //     try {
@@ -15,11 +16,12 @@ import { IUser } from "../../../models/IUser";
 //     }
 // }
 
+// rtk style
 export const fetchUsers = createAsyncThunk(
     'user/fetchAll',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
+            const response = await axios.get<IUser[]>('http://109.195.85.121:5010/users');
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue("Не загрузилось")
