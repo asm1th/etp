@@ -17,7 +17,7 @@ const LoginForm: FC = () => {
         data: string;
     };
 
-    const {error, isLoading} = useAppSelector(state => state.authReducer);
+    //const {error, isLoading} = useAppSelector(state => state.auth);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {login} = useActions()
@@ -50,21 +50,22 @@ const LoginForm: FC = () => {
                 </Text>
 
                 <input type="text" value={email} onChange={(e: any) => { setEmail(e.target.value)}} />
+                <input type="text" value={password} onChange={(e: any) => { setPassword(e.target.value)}} />
 
-
-                <div className={cnMixSpace({ mT: 's', mB: '2xl', })}>
+                {/* <div className={cnMixSpace({ mT: 's', mB: '2xl', })}>
                     <TextFieldCustom
                         name="constaName"
                         type="text"
-                        placeholder="placeholder"
+                        placeholder="Введите код"
                         width="full"
                         control={control}
+                        value={password}
                         onChange={(e: any) => { setEmail(e.target.value)}}
                         rules={rules.required("Поле обязательно для заполнения", 2)}
                         defaultValue={undefined} shouldUnregister={undefined}
                     />
-                    
-                </div>
+                </div> */}
+
                 <Button type="submit" label="Отправить код" size="m" width="full" />
             </form>
             <pre>{JSON.stringify(watch(), null, 2)}</pre>
