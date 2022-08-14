@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IUser } from "../../../models/IUser";
 
-// axios style
+// axios
 // import { AppDispatch } from "../store";
 // import { userSlice } from "./UserSlice";
 
@@ -16,12 +16,11 @@ import { IUser } from "../../../models/IUser";
 //     }
 // }
 
-// rtk style
 export const fetchUsers = createAsyncThunk(
     'user/fetchAll',
     async (_, thunkAPI) => {
         try {
-            const response = await axios.get<IUser[]>('http://109.195.85.121:5010/users');
+            const response = await axios.get<IUser[]>('http://localhost:5000/users');
             return response.data;
         } catch (error) {
             return thunkAPI.rejectWithValue("Не загрузилось")

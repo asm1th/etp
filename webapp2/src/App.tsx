@@ -4,7 +4,7 @@ import AppRouter from './components/AppRouter';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
 
 import { useAppDispatch, useAppSelector } from './hooks/redux';
-import { fetchUsers } from './store/reducers/user/actionCreators';
+import { fetchUsers } from './store/reducers/user/action-creators';
 //import { userSlice } from './store/reducers/user/userSlice';
 
 

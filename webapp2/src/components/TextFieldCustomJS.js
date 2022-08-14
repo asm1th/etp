@@ -10,6 +10,7 @@ export const TextFieldCustom = ({
   defaultValue,
   control,
   shouldUnregister,
+  onChange,
   ...textFieldProps
 }) => {
   // В случае использования FormProvider, можно не передавать control,
