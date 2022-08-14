@@ -7,34 +7,58 @@ import TextFieldCustom from "../components/TextFieldCustomJS";
 //import {TextFieldCustom} from "../components/TextFieldCustom";
 //import { TextField } from "@consta/uikit/TextField";
 import { rules } from "../utils/rules";
+
 import { useDispatch } from "react-redux";
 import { AuthActionCreators } from "../store/reducers/auth/action-creators";
 import { useAppSelector } from "../hooks/redux";
 import { useActions } from "../hooks/useActions";
 
+// RTK
+import { useNavigate } from 'react-router-dom'
+import { useLoginMutation } from '../services/auth'
+import type { LoginRequest } from '../services/auth'
+
+//
+
 const LoginForm: FC = () => {
-    type FormData = {
-        data: string;
-    };
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-    //const {error, isLoading} = useAppSelector(state => state.auth);
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const {login} = useActions()
+    const [formState, setFormState] = React.useState<LoginRequest>({
+        //username: '',
+        email: '',
+        password: '',
+    })
 
-    const { register, handleSubmit, watch, formState: { errors }, control } = useForm<FormData>();
+    const [login, { isLoading }] = useLoginMutation();
 
-    //const dispatch = useDispatch()
-    const onSubmit = () => {
-        //dispatch(AuthActionCreators.setIsAuth(true))
-        debugger
-        //alert(JSON.stringify(data, null, 2));
-        login(email, password)
+    const handleChange = ({
+        target: { name, value },
+    }: React.ChangeEvent<HTMLInputElement>) =>
+        setFormState((prev) => ({ ...prev, [name]: value }))
+
+    const onSubmit = async () => {
+        try {
+            await login(formState).unwrap()
+            // Being that the result is handled in extraReducers in authSlice,
+            // we know that we're authenticated after this, so the user
+            // and token will be present in the store
+
+            //navigate('/')
+        } catch (err) {
+            console.log("error")
+            // toast({
+            //     status: 'error',
+            //     title: 'Error',
+            //     description: 'Oh no, there was an error!',
+            //     isClosable: true,
+            // })
+        }
     };
 
     return (
         <>
-            <form onSubmit={onSubmit}>
+            {/* <form onSubmit={onSubmit}> */}
                 <Text
                     as="div"
                     align="center"
@@ -49,8 +73,8 @@ const LoginForm: FC = () => {
                     Введите электронную почту, на которую поступил запрос, вам придет уникальный код для входа на платформу.
                 </Text>
 
-                <input type="text" value={email} onChange={(e: any) => { setEmail(e.target.value)}} />
-                <input type="text" value={password} onChange={(e: any) => { setPassword(e.target.value)}} />
+                <input type="text" name="email" onChange={handleChange} />
+                <input type="text" name="password" onChange={handleChange} />
 
                 {/* <div className={cnMixSpace({ mT: 's', mB: '2xl', })}>
                     <TextFieldCustom
@@ -66,9 +90,9 @@ const LoginForm: FC = () => {
                     />
                 </div> */}
 
-                <Button type="submit" label="Отправить код" size="m" width="full" />
-            </form>
-            <pre>{JSON.stringify(watch(), null, 2)}</pre>
+                <Button onClick={onSubmit} loading={isLoading} label="Отправить код" size="m" width="full" />
+            {/* </form> */}
+            {/* <pre>{JSON.stringify(watch(), null, 2)}</pre> */}
         </>
     );
 };

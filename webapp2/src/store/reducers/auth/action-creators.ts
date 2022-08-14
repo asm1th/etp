@@ -9,9 +9,12 @@ export const AuthActionCreators = {
     setIsLoading: (payload: boolean): SetIsLoadingAction => ({type: AuthActionEnum.SET_IS_LOADING, payload}),
     setError: (payload: string): SetErrorAction => ({type: AuthActionEnum.SET_ERROR, payload}),
     login: (username: string, password: string) => async (dispatch: AppDispatch) => {
+        debugger
         try {
             dispatch(AuthActionCreators.setIsLoading(true));
-            setTimeout(async () => {
+            //setTimeout(async () => {
+
+                debugger
                 const response = await UserService.getUsers()
                 const mockUser = response.data.find(user => user.username === username && user.password === password);
                 if (mockUser) {
@@ -23,7 +26,10 @@ export const AuthActionCreators = {
                     dispatch(AuthActionCreators.setError('Некорректный логин или пароль'));
                 }
                 dispatch(AuthActionCreators.setIsLoading(false));
-            }, 1000)
+
+
+                
+            //}, 1000)
         } catch (e) {
             dispatch(AuthActionCreators.setError('Произошла ошибка при логине'))
         }

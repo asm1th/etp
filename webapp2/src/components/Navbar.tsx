@@ -11,6 +11,8 @@ import { IconRing } from "@consta/uikit/IconRing";
 import { Text } from '@consta/uikit/Text';
 import { useAppSelector } from "../hooks/redux";
 
+import { useProtectedMutation } from '../services/auth'
+
 const Navbar: FC = () => {
 
     const menuItems = [
@@ -30,6 +32,14 @@ const Navbar: FC = () => {
     ];
 
     const {isAuth} = useAppSelector (state => state.authReducer)
+
+    
+
+    const handleLogout = async () => {
+        
+        
+
+    }
 
     return (
         <div>
@@ -64,7 +74,7 @@ const Navbar: FC = () => {
                                 personInfo="В другом офисе"
                                 personStatus="available"
                                 personAvatarUrl="https://www.pngarts.com/files/3/Cool-Avatar-Transparent-Image.png"
-                                //onClick={handleLogin}
+                                onClick={handleLogout}
                                 className="Login"
                             />
                         </HeaderModule>
