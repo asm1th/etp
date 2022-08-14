@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IUser } from '../../../models/IUser'
-import { authService } from '../../../services/auth'
+import { authService } from '../../../services/authService'
 import type { RootState } from '../../../store/index'
 
 type AuthState = {
@@ -9,9 +9,15 @@ type AuthState = {
     token: string | null
 }
 
+const initialState = {
+    isAuth: true, 
+    user: null, 
+    token: null
+}
+
 const slice = createSlice({
     name: 'auth',
-    initialState: { isAuth: false, user: null, token: null } as AuthState,
+    initialState: initialState as AuthState,
     reducers: {},
     extraReducers: (builder) => {
         builder.addMatcher(

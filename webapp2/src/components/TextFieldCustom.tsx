@@ -1,8 +1,6 @@
 import React, { FC } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { TextField } from "@consta/uikit/TextField";
-import { Text } from "@consta/uikit/Text";
-
 
 interface ITextFieldProps {
   name: string;

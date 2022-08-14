@@ -3,7 +3,9 @@ import React, { FC } from "react";
 import Navbar from "../components/Navbar";
 import PostContainer from "../components/PostContainer";
 
-import { useProtectedMutation } from "../services/auth"; //
+import { useProtectedMutation } from "../services/authService";
+import LoginCode from "./LoginCode";
+
 
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
@@ -11,10 +13,10 @@ const Dash: FC = () => {
         <div>
             <Navbar />
             <PostContainer />
-
+            <LoginCode />
 
             {/* test protected request */}
-            <Button label="attemptAccess" onClick={() => attemptAccess()} />
+            <Button label="attemptAccess" onClick={() => attemptAccess()} loading={isLoading}/>
             <div>
                 Данные attemptAccess:
                 {data ? (

@@ -3,7 +3,7 @@ import {EventActionCreators} from "./event/action-creators";
 //import {fetchUsers} from "./users/action-creators";
 
 export const allActionCreators = {
-    ...AuthActionCreators,
+    //...AuthActionCreators,
     //EventActionCreators
     //...fetchUsers
 }

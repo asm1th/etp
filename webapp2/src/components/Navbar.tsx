@@ -11,8 +11,6 @@ import { IconRing } from "@consta/uikit/IconRing";
 import { Text } from '@consta/uikit/Text';
 import { useAppSelector } from "../hooks/redux";
 
-import { useProtectedMutation } from '../services/auth'
-
 const Navbar: FC = () => {
 
     const menuItems = [
@@ -31,14 +29,10 @@ const Navbar: FC = () => {
         }
     ];
 
-    const {isAuth} = useAppSelector (state => state.authReducer)
-
-    
+    const { isAuth } = useAppSelector(state => state.authReducer)
 
     const handleLogout = async () => {
-        
-        
-
+        //
     }
 
     return (
