@@ -46,8 +46,11 @@ body {
   color: #6A6D70;
 }
 
-.TopBar{
+.AlignItemMiddle{
   align-items: center;
+}
+.TopBar{
+  margin: 2rem 0;
 }
 
 .App .labeltext{
@@ -66,4 +69,18 @@ body {
 
 .App .valSelect{
   width: 190px;
+}
+/**/
+/*add geneerator*/
+.mr2{
+  margin-right: 2rem;
+}
+
+/**/
+.TabsPage{
+  background: #FFFFFF;
+  padding: 2rem;
+}
+.TabsPageContainer{
+  padding: 0 2rem;
 }

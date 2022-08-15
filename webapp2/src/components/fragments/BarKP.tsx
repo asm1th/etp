@@ -32,14 +32,17 @@ const TopBar: FC = () => {
 
     return (
         <div>
-            <Card verticalSpace="m" horizontalSpace="m" shadow={false}>
-                <Layout className="TopBar">
-                    <Layout flex={1}>
-                        <Text className={`Title ${cnMixSpace({ mR: 'm', })}`}>Коммерческое предложение</Text>
+            <Card verticalSpace="m" horizontalSpace="m" shadow={false} className="TopBar">
+                <Layout className="AlignItemMiddle">
+                    <Layout flex={1} className="AlignItemMiddle">
+                        <Text 
+                            className={`Title ${cnMixSpace({ mR: 'm', })}`}>
+                                Коммерческое предложение
+                        </Text>
                         <Text size="s" className={`subTitle ${cnMixSpace({ mR: 'm', })}`}>Срок действия договора</Text>
                         <Text size="s">17.09.2023</Text>
                     </Layout>
-                    <Layout flex={1}>
+                    <Layout flex={1} className="AlignItemMiddle">
                         {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
                         <DatePicker 
                             value={value} 
@@ -57,8 +60,10 @@ const TopBar: FC = () => {
                             labelPosition="left" label="Валюта"
                             size="s"
                             className={`valSelect ${cnMixSpace({ mR: 'm', })}`}/>
+                        <Text 
+                            size="s" 
+                            className={`Title ${cnMixSpace({ mR: 'm', })}`}>Командировочные расходы</Text>
                         <Switch 
-                            label="Командировочные расходы" 
                             checked={false} 
                             size="s"/>
                     </Layout>

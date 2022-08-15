@@ -1,7 +1,6 @@
 import React, { FC } from "react";
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Text } from "@consta/uikit/Text";
-import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { Button } from "@consta/uikit/Button";
 import { IconDownload } from "@consta/uikit/IconDownload";
@@ -10,8 +9,8 @@ import { IconDownload } from "@consta/uikit/IconDownload";
 const TopBar: FC = () => {
 
     return (
-        <div>
-            <Layout className="TopBar">
+        <>
+            <Layout className="AlignItemMiddle">
                 <Layout flex={2} direction="column">
                     <Text as="div" className="label">
                         Предмет закупки
@@ -65,7 +64,7 @@ const TopBar: FC = () => {
                 </Layout>
             </Layout>
 
-        </div>
+        </>
     );
 };
 

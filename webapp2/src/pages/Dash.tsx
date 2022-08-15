@@ -4,16 +4,17 @@ import Navbar from "../components/Navbar";
 import PostContainer from "../components/PostContainer";
 import TopBar from "../components/fragments/TopBar";
 import BarKP from "../components/fragments/BarKP";
-
 import { useProtectedMutation } from "../services/authService";
+import Etaps from "../components/fragments/Etaps";
 
 
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
     return (
-        <div>
+        <>
             <TopBar />
             <BarKP />
+            <Etaps />
 
             {/* <Navbar /> */}
             {/* <PostContainer /> */}
@@ -34,7 +35,7 @@ const Dash: FC = () => {
                     </>
                 ) : null}
             </div>
-        </div>
+        </>
     );
 };
 
