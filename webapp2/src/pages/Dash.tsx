@@ -2,19 +2,23 @@ import { Button } from "@consta/uikit/Button";
 import React, { FC } from "react";
 import Navbar from "../components/Navbar";
 import PostContainer from "../components/PostContainer";
+import TopBar from "../components/fragments/TopBar";
+import BarKP from "../components/fragments/BarKP";
 
 import { useProtectedMutation } from "../services/authService";
-import LoginCode from "./LoginCode";
 
 
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
     return (
         <div>
-            <Navbar />
-            <PostContainer />
-            <LoginCode />
+            <TopBar />
+            <BarKP />
 
+            {/* <Navbar /> */}
+            {/* <PostContainer /> */}
+            
+            
             {/* test protected request */}
             <Button label="attemptAccess" onClick={() => attemptAccess()} loading={isLoading}/>
             <div>

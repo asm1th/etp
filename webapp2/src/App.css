@@ -1,7 +1,9 @@
 @import url('http://fonts.cdnfonts.com/css/pt-root-ui');
 
-
-
+body .Theme {
+  font-weight: 500;
+  font-family: 'PT Root UI', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+}
 
 .Theme_font_gpnDefault {
   --font-primary: 'PT Root UI', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -32,4 +34,36 @@ body {
   width: 100%;
   min-width: 100%;
   text-align: center;
+}
+/**/
+
+
+.App .label{
+  font-family: PT Root UI;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #6A6D70;
+}
+
+.TopBar{
+  align-items: center;
+}
+
+.App .labeltext{
+  color: #333333;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.App .valBlock{
+  width: 100px;
+}
+
+.App .rangeInput .TextField-Body{
+  width: 90px;
+} 
+
+.App .valSelect{
+  width: 190px;
 }

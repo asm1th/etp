@@ -65,7 +65,7 @@ const LoginFormCode: FC = () => {
                             name="num1"
                             type="text"
                             placeholder="0"
-                            style={{ width: '60px' }}
+                            style={{ margin: '0 5px' }}
                             onChange={handleChange}
                             value={formState.num1}
                         />
@@ -75,7 +75,7 @@ const LoginFormCode: FC = () => {
                             name="num2"
                             type="text"
                             placeholder="0"
-                            style={{ width: '60px' }}
+                            style={{ margin: '0 5px' }}
                             onChange={handleChange}
                             value={formState.num2}
                         />
@@ -85,7 +85,7 @@ const LoginFormCode: FC = () => {
                             name="num3"
                             type="text"
                             placeholder="0"
-                            style={{ width: '60px' }}
+                            style={{ margin: '0 5px' }}
                             onChange={handleChange}
                             value={formState.num3}
                         />
@@ -95,7 +95,7 @@ const LoginFormCode: FC = () => {
                             name="num4"
                             type="text"
                             placeholder="0"
-                            style={{ width: '60px', textAlign: 'center' }}
+                            style={{ margin: '0 5px', textAlign: 'center' }}
                             onChange={handleChange}
                             value={formState.num4}
                         />
