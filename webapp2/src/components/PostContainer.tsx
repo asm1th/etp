@@ -8,13 +8,13 @@ const PostContainer = () => {
   const { data: posts, error, isLoading, refetch } = postAPI.useFetchAllPostsQuery(limit, {
     //pollingInterval: 1000
   })
-  const [createPost, { }] = postAPI.useCreatePostMutation({
+  const [createPost, {}] = postAPI.useCreatePostMutation({
     // selector = some filter
   })
   const [deletePost, {}] = postAPI.useDeletePostMutation()
 
   useEffect(() => {
-    //setLimit(3)
+    setLimit(3)
   }, [])
 
   const handleCreate = async () => {
