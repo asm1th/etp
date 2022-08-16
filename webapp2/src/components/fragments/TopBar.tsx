@@ -10,7 +10,7 @@ const TopBar: FC = () => {
 
     return (
         <>
-            <Layout className="AlignItemMiddle">
+            <Layout className="aic">
                 <Layout flex={2} direction="column">
                     <Text as="div" className="label">
                         Предмет закупки
@@ -20,7 +20,7 @@ const TopBar: FC = () => {
                     </Text>
                 </Layout>
                 <Layout flex={3}>
-                    <Layout flex={2} direction="column">
+                    <Layout flex={4} direction="column">
                         <Text as="div" className="label">
                             Участник анализа рынка
                         </Text>
@@ -40,26 +40,26 @@ const TopBar: FC = () => {
                         <Text as="div" className="label">
                             Дата запроса КП
                         </Text>
-                        <Layout flex={1}>
-                            <IconCalendar size="s" view="ghost" />
+                        <Layout flex={1} className="aic">
+                            <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
                                 31.08.2022
                             </Text>
                         </Layout>
                     </Layout>
-                    <Layout flex={1} direction="column">
+                    <Layout flex={1} direction="column" >
                         <Text as="div" className="label">
                             Срок приема КП
                         </Text>
-                        <Layout flex={1}>
-                            <IconCalendar size="s" view="ghost" />
+                        <Layout flex={1} className="aic">
+                            <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
                                 10.09.2022
                             </Text>
                         </Layout>
                     </Layout>
                     <Layout flex={1} direction="column">
-                        <Button label="Скачать ТЗ" view="secondary" iconLeft={IconDownload} />
+                        <Button size="s" label="Скачать ТЗ" view="secondary" iconLeft={IconDownload} />
                     </Layout>
                 </Layout>
             </Layout>

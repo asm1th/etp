@@ -6,7 +6,8 @@ import TopBar from "../components/fragments/TopBar";
 import BarKP from "../components/fragments/BarKP";
 import { useProtectedMutation } from "../services/authService";
 import Etaps from "../components/fragments/Etaps";
-
+import EtapsItog from "../components/fragments/EtapsItog";
+import EtapFooterButtons from "../components/fragments/EtapFooterButtons";
 
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
@@ -15,6 +16,8 @@ const Dash: FC = () => {
             <TopBar />
             <BarKP />
             <Etaps />
+            <EtapsItog />
+            <EtapFooterButtons />
 
             {/* <Navbar /> */}
             {/* <PostContainer /> */}

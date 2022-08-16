@@ -1,32 +1,41 @@
-@import url('http://fonts.cdnfonts.com/css/pt-root-ui');
+@import url("http://fonts.cdnfonts.com/css/pt-root-ui");
+
+@import url("./css/margins.css");
+@import url("./css/table.css");
 
 body .Theme {
   font-weight: 500;
-  font-family: 'PT Root UI', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;;
+  font-family: "PT Root UI", "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .Theme_font_gpnDefault {
-  --font-primary: 'PT Root UI', 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  --font-primary: "PT Root UI", "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  --font-mono: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   font-family: var(--font-primary);
 }
 
 body {
-  background: #F7F7F9
+  background: #f7f7f9;
+}
+
+.App {
+  padding: 1rem;
 }
 
 /*loginform*/
 
 .Card {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
-.loginform{
+.loginform {
   max-width: 370px;
 }
 
 .Button_view_primary {
-  --color-control-bg-primary: #5066FF;
+  --color-control-bg-primary: #5066ff;
   background-color: var(--color-control-bg-primary);
 }
 
@@ -37,50 +46,148 @@ body {
 }
 /**/
 
-
-.App .label{
+.App .label {
   font-family: PT Root UI;
   font-size: 12px;
   font-weight: 500;
-  line-height: 20px;
-  color: #6A6D70;
+  line-height: 14px;
+  color: #6a6d70;
 }
 
-.AlignItemMiddle{
+.aic {
   align-items: center;
 }
-.TopBar{
+
+.acc {
+  align-content: center;
+}
+
+.tac {
+  align-items: center;
+}
+
+.jcc {
+  justify-content: center;
+}
+.jce {
+  justify-content: flex-end;
+}
+
+.TopBar {
   margin: 2rem 0;
 }
 
-.App .labeltext{
-  color: #333333;
-  font-size: 14px;
-  line-height: 20px;
+.TabsPageContainer {
+  padding: 0 0 0 1rem;
 }
 
-.App .valBlock{
+.App .labeltext {
+  color: #333333;
+  font-size: 15px;
+  line-height: 20px;
+  margin-top: 3px;
+}
+
+.App .valBlock {
   width: 100px;
 }
 
-.App .rangeInput .TextField-Body{
-  width: 90px;
-} 
-
-.App .valSelect{
-  width: 190px;
+.App .rangeInput .TextField-Body {
+  width: 120px;
 }
-/**/
-/*add geneerator*/
-.mr2{
-  margin-right: 2rem;
+
+.App .valSelect {
+  width: 130px;
 }
 
 /**/
-.TabsPage{
-  background: #FFFFFF;
+.TabsPage {
+  background: #ffffff;
   padding: 2rem;
 }
-.TabsPageContainer{
-  padding: 0 2rem;
+
+.footer {
+  border-top: 1px solid #d9d9d9;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.EtapsItog {
+  background: #e9eaff;
+  border-radius: 4px;
+  padding: 0 1rem;
+  margin-top: 1rem;
+}
+
+.EtapsItog .Collapse-LabelText {
+  color: #5066ff;
+}
+
+.EtapsItog .CollapseIcon {
+  color: #5066ff;
+}
+
+.EtapFooterButtons {
+  padding: 2rem 0;
+}
+
+.EtapFooterButtons .Button {
+  margin: 0 0.5rem;
+}
+
+.KomandBar {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.flexGrow1 {
+  flex-grow: 1 !important;
+}
+
+/* .Tabs-List .Tabs-Tab .TabsTab:after {
+  counter-increment: section;
+  content: counter(section);
+} */
+
+.Popover {
+  padding: 0.5rem 0.7rem;
+  background: #fff;
+  border: 1px solid #00416633;
+  box-shadow: 0 8px 8px #0020330a, 0 12px 28px #0020331f;
+  border-radius: 5px;
+}
+
+.SubSummFooter {
+  background: #e9eaff;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+}
+
+.EtapsItogRow {
+  align-items: center;
+  background: #fdfdff;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: #32363a;
+}
+
+.summ {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 20px;
+  color: #32363a;
+}
+
+.weight400 {
+  font-weight: 400;
+}
+
+.weight500 {
+  font-weight: 500;
+}
+
+.weight700 {
+  font-weight: 700;
 }
