@@ -1,6 +1,6 @@
 import {AuthActionEnum, SetAuthAction, SetErrorAction, SetIsLoadingAction, SetUserAction} from "./types";
 import {IUser} from "../../../models/IUser";
-import {AppDispatch} from "../../index";
+import {AppDispatch} from "../../store";
 import UserService from "../../../services/UserService";
 
 export const AuthActionCreators = {

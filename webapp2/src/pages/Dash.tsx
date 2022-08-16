@@ -9,8 +9,18 @@ import Etaps from "../components/fragments/Etaps";
 import EtapsItog from "../components/fragments/EtapsItog";
 import EtapFooterButtons from "../components/fragments/EtapFooterButtons";
 
+import {setupStore} from '../store/store'
+
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
+    
+    const store = setupStore();
+    console.log('Initial state: ', store.getState())
+
+    store.subscribe(() =>
+        console.log('State after dispatch: ', store.getState())
+    )
+    
     return (
         <>
             <TopBar />

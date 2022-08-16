@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IUser } from '../../../models/IUser'
 import { authService } from '../../../services/authService'
-import type { RootState } from '../../../store/index'
+import type { RootState } from '../../../store/store'
 
 type AuthState = {
     isAuth: boolean

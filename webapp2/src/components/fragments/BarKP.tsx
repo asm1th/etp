@@ -8,6 +8,8 @@ import { Select } from '@consta/uikit/Select';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import {tripSlice} from "../../store/reducers/trip/tripSlice";
+
 
 const TopBar: FC = () => {
     const [value, setValue] = useState<Date | null>(new Date());
@@ -32,16 +34,15 @@ const TopBar: FC = () => {
     ];
     const [val, setVal] = useState<Item | null>(items[0]);
 
-    const [komand, setKomand] = useState<boolean>(false);
-
-    const handleKomand = ({ e }: any) => {
-        console.log(e.target.checked)
-        setKomand(e.target.checked)
-    }
+    //const [komand, setKomand] = useState<boolean>(false);
 
     const dispatch = useAppDispatch()
-    const {trip} = useAppSelector(state => state.tripReducer)
+    const {trip, isLoading, error} = useAppSelector(state => state.tripReducer)
+    console.log(trip)
 
+    const handleKomand = ({ e }: any) => {
+        dispatch(tripSlice.actions.toggleChecked(e.target.checked))
+    }
 
     return (
         <div>
@@ -82,7 +83,7 @@ const TopBar: FC = () => {
                             Командировочные расходы
                         </Text>
                         <Switch
-                            checked={komand}
+                            checked={trip}
                             onChange={handleKomand}
                             size="s" />
                     </Layout>

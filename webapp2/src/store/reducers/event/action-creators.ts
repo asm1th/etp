@@ -1,7 +1,7 @@
 import {EventActionEnum, SetEventsAction, SetGuestsAction} from "./types";
 import {IUser} from "../../../models/IUser";
 import {IEvent} from "../../../models/IEvent";
-import {AppDispatch} from "../../index";
+import {AppDispatch} from "../../store";
 import UserService from "../../../services/UserService";
 
 export const EventActionCreators = {
