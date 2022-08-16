@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { JWTAuthGuard } from './auth/jwt-auth.guard';
 
 async function bootstrap() {
   const PORT = process.env.PORT || 5000
