@@ -1,0 +1,14 @@
+import {Dispatch} from '@reduxjs/toolkit'
+import axios from '../../axios'
+
+export const fetchOffers = () => {
+    return async (dispatch: Dispatch) => {
+        try{
+           const response = await axios.get('offers')
+           console.log(response)
+        }
+        catch (e) {
+
+        }
+    }
+}
