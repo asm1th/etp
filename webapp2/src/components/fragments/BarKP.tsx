@@ -53,13 +53,10 @@ const TopBar: FC = () => {
                             Коммерческое предложение
                         </Text>
                         <Text size="s" className={`subTitle ${cnMixSpace({ mR: 'm', })}`}>
-                            Срок действия договора
-                        </Text>
-                        <Text size="s">
-                            {format(dateContract, 'dd.MM.yyyy')}
+                            Срок действия договора: {format(dateContract, 'dd.MM.yyyy')}
                         </Text>
                     </Layout>
-                    <Layout flex={1} className="aic">
+                    <Layout flex={1} className="aic jcr">
                         {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
                         <DatePicker
                             value={dateKP}

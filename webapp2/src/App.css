@@ -195,6 +195,15 @@ body {
 .App .TextField-InputContainer_view_default.TextField-InputContainer_disabled{
   border-color: #d1d1d1;
 }
+
 .App .TextField-InputContainer_view_default.TextField-InputContainer_disabled .TextField-Input {
   color: #000
+}
+
+.jcr{
+  justify-content: right;
+}
+
+.aib{
+  align-items: baseline;
 }

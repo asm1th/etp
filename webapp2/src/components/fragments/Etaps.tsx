@@ -54,7 +54,7 @@ const Etaps: FC = () => {
                         linePosition="right"
                     />
                     <Layout flex={1} className="TabsPageContainer" direction="column">
-                        <Layout flex={1} direction="row" className="mb1 aic">
+                        <Layout flex={1} direction="row" className="mb1 aib">
                             <Text as="div" className="label mr2">
                                 Полное наименование этапа / услуги (работы)
                             </Text>
