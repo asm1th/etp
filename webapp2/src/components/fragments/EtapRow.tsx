@@ -6,17 +6,30 @@ import { Button } from '@consta/uikit/Button';
 import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
+import { useAppSelector } from "../../hooks/redux";
 
 const EtapRow: FC = () => {
+    const { etaps } = useAppSelector(state => state.mainReducer)
 
-    const [value, setValue] = useState("Архитектор");
     const handleChange = ({ value }: any) => {
-        setValue(value);
+        //universal function
     }
-    const [valueSub, setValueSub] = useState("Специалист по документации");
+
+    const onChangeNds = ({ value }: any) => {
+        //universal function
+    }
+
     const handleChangeSub = ({ value }: any) => {
-        setValueSub(value);
+        //universal function
     }
+
+    const handleChangeEI = ({ value }: any) => {
+        //universal function
+    }
+    const handleChangeSubClose = ({ value }: any) => {
+        //universal function
+    }
+
     type Item = {
         label: string;
         id: number;
@@ -27,7 +40,6 @@ const EtapRow: FC = () => {
             id: 1,
         }
     ];
-    const [val, setVal] = useState<Item | null>(ei[0]);
 
     type ndsItem = {
         label: string;
@@ -57,110 +69,125 @@ const EtapRow: FC = () => {
         }
 
     ];
-    const [nds, setNds] = useState<Item | null>(ndsList[1]);
-    //
-    const [Summ, setSumm] = useState("-- --");
-    const [SummPlusNds, setSummPlusNds] = useState("-- --");
-    //
-    const Statia = "указать статью";
+
 
     return (
         <>
-            <Layout className="Row">
-                <Layout flex={3} direction="column">
-                    <Layout>
-                        <TextField
-                            onChange={handleChange}
-                            value={value}
-                            size="s"
-                            className="mr05"
-                            width="full"
-                            disabled
-                        />
-                        <Button 
-                            className="mr1"
-                            iconRight={IconTeam} 
-                            iconSize="s" 
-                            size="s" 
-                            onlyIcon={true} 
-                            view="clear" />
+            {etaps.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_value, ei_price, nds, sub }) => (
+                <>
+                    <Layout className="Row mb1">
+                        <Layout flex={3} direction="column">
+                            <Layout>
+                                <TextField
+                                    name="name"
+                                    value={name}
+                                    size="s"
+                                    className="mr05"
+                                    width="full"
+                                    disabled
+                                    onChange={handleChange}
+                                />
+                                <Button 
+                                    className="mr1"
+                                    iconRight={IconTeam} 
+                                    iconSize="s" 
+                                    size="s" 
+                                    onlyIcon={true} 
+                                    view="clear" 
+                                    onChange={handleChangeSub}
+                                />
+                            </Layout>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Select
+                                placeholder="Выберите ЕИ"
+                                view="default"
+                                items={ei}
+                                value={ei[ei_id]}
+                                labelPosition="left"
+                                size="s"
+                                className="RowInput" 
+                                onChange={handleChangeEI}/>
+                        </Layout>
+                        <Layout flex={1}>
+                            <TextField 
+                                name="ei_value"
+                                value={ei_value} 
+                                size="s" 
+                                className="RowInput" />
+                        </Layout>
+                        <Layout flex={1}>
+                            <TextField 
+                                name="ei_price"
+                                value={ei_price} 
+                                size="s" 
+                                className="RowInput" />
+                        </Layout>
+                        <Layout flex={1}>
+                            <Select
+                                view="default"
+                                items={ndsList}
+                                value={ndsList[nds]}
+                                labelPosition="left"
+                                size="s"
+                                className="RowInput" 
+                                onChange={onChangeNds}/>
+                        </Layout>
+
+                        <Layout flex={1} className="aic jcc">{summ}</Layout>
+                        <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
                     </Layout>
+
+                    {sub.isSub ? (
+                        <>
+                            <Layout className="Row subRow mt05">
+                                <Layout flex={3}>
+                                    <Layout>
+                                        <TextField
+                                            name="sub.name"
+                                            value={sub.name}
+                                            size="s"
+                                            className="mr05"
+                                            width="full"
+                                            onChange={handleChange}
+                                        />
+                                        <Button 
+                                            className="mr1"
+                                            iconRight={IconClose} 
+                                            iconSize="s" 
+                                            size="s" 
+                                            onlyIcon={true} 
+                                            view="clear" 
+                                            onChange={handleChangeSubClose}
+                                        />
+                                    </Layout>
+                                </Layout>
+                                <Layout flex={6} className="aic acc">
+                                    
+                                    <TextField
+                                        name="sub.statia"
+                                        label="Стоимость предложения не облагается НДС, в соответствии со статьей"
+                                        placeholder="указать статью"
+                                        size="xs"
+                                        labelPosition="left"
+                                        value={sub.statia}
+                                        required
+                                        onChange={handleChange}
+                                        />
+                                    <Text 
+                                        as="div"
+                                        className="ml1" 
+                                        size="s">
+                                        НК РФ
+                                    </Text>
+                                </Layout>
+                            </Layout>
+                        </>
+                    ) : null}
                     
-                </Layout>
-                <Layout flex={1}>
-                    <Select
-                        placeholder="Валюта"
-                        view="default"
-                        items={ei}
-                        value={val}
-                        onChange={({ value }) => setVal(value)}
-                        labelPosition="left"
-                        size="s"
-                        className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <TextField value="50,00" size="s" className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <TextField value="Стоимость" size="s" className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <Select
-                        view="default"
-                        items={ndsList}
-                        value={nds}
-                        onChange={({ value }) => setNds(value)}
-                        labelPosition="left"
-                        size="s"
-                        className="RowInput" />
-                </Layout>
+                </>
+            ))}
 
-                <Layout flex={1} className="aic jcc">{Summ}</Layout>
-                <Layout flex={1} className="aic jcc">{SummPlusNds}</Layout>
-            </Layout>
-
-            <Layout className="Row subRow mt05">
-                <Layout flex={3}>
-                    <Layout>
-                        <TextField
-                            onChange={handleChangeSub}
-                            value={valueSub}
-                            size="s"
-                            className="mr05"
-                            width="full"
-                        />
-                        <Button 
-                            className="mr1"
-                            iconRight={IconClose} 
-                            iconSize="s" 
-                            size="s" 
-                            onlyIcon={true} 
-                            view="clear" />
-                    </Layout>
-                </Layout>
-                <Layout flex={6} className="aic acc">
-                    {/* <Text 
-                        as="div" 
-                        className="mr1" 
-                        size="s">
-                        Стоимость предложения не облагается НДС, в соответствии со статьей
-                    </Text> */}
-                    <TextField
-                        label="Стоимость предложения не облагается НДС, в соответствии со статьей"
-                        placeholder="Введите стоимость"
-                        size="xs"
-                        labelPosition="left"
-                        value={Statia}
-                        required
-                         />
-                    <Text 
-                        as="div"
-                        className="ml1" 
-                        size="s">
-                        НК РФ
-                    </Text>
-                </Layout>
-            </Layout>
         </>
     );
 };

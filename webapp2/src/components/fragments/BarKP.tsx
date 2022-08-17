@@ -8,12 +8,10 @@ import { Select } from '@consta/uikit/Select';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import {tripSlice} from "../../store/reducers/trip/tripSlice";
-
+import { mainSlice } from "../../store/reducers/main/mainSlice";
+import { format } from "date-fns";
 
 const TopBar: FC = () => {
-    const [value, setValue] = useState<Date | null>(new Date());
-
     type Item = {
         label: string;
         id: number;
@@ -34,14 +32,15 @@ const TopBar: FC = () => {
     ];
     const [val, setVal] = useState<Item | null>(items[0]);
 
-    //const [komand, setKomand] = useState<boolean>(false);
-
     const dispatch = useAppDispatch()
-    const {trip, isLoading, error} = useAppSelector(state => state.tripReducer)
-    console.log(trip)
+    const {trip, dateContract, dateKP, valutaKP} = useAppSelector(state => state.mainReducer)
+    
+    const handleTrip = ({ e }: any) => {
+        dispatch(mainSlice.actions.toggleChecked(e.target.checked))
+    }
 
-    const handleKomand = ({ e }: any) => {
-        dispatch(tripSlice.actions.toggleChecked(e.target.checked))
+    const handleDate = ({ e }: any) => {
+        dispatch(mainSlice.actions.handleDateKP(e.target.value))
     }
 
     return (
@@ -51,17 +50,20 @@ const TopBar: FC = () => {
                     <Layout className="aic flexGrow1">
                         <Text
                             className={`Title ${cnMixSpace({ mR: 'm', })}`}>
-                            Коммерческое предложение</Text>
+                            Коммерческое предложение
+                        </Text>
                         <Text size="s" className={`subTitle ${cnMixSpace({ mR: 'm', })}`}>
-                            Срок действия договора</Text>
+                            Срок действия договора
+                        </Text>
                         <Text size="s">
-                            17.09.2023</Text>
+                            {format(dateContract, 'dd.MM.yyyy')}
+                        </Text>
                     </Layout>
                     <Layout flex={1} className="aic">
                         {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
                         <DatePicker
-                            value={value}
-                            onChange={({ value }) => setValue(value)}
+                            value={dateKP}
+                            onChange={handleDate}
                             labelPosition="left"
                             label="Срок действия КП"
                             leftSide={IconCalendar}
@@ -83,8 +85,8 @@ const TopBar: FC = () => {
                             Командировочные расходы
                         </Text>
                         <Switch
-                            checked={trip}
-                            onChange={handleKomand}
+                            checked={trip.isTrip}
+                            onChange={handleTrip}
                             size="s" />
                     </Layout>
                 </Layout>

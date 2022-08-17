@@ -32,6 +32,7 @@ const Etaps: FC = () => {
                 //onClickOutside={action('onClickOutside')}
                 isInteractive={false}
                 position={position}
+                className="tipPopover"
             >
                 {(direction) => (
                     <div>

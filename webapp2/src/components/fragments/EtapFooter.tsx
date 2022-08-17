@@ -7,12 +7,10 @@ import { IconSave } from '@consta/uikit/IconSave';
 import { TextField } from "@consta/uikit/TextField";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
+import { useAppSelector } from "../../hooks/redux";
 
 const EtapFooter: FC = () => {
-    const [Summ, setSumm] = useState("-- --");
-    const [SummPlusNds, setSummPlusNds] = useState("-- --");
-
-    const Statia = "указать статью";
+    const {noNdsStatia, summKP, summKP_nds} = useAppSelector(state => state.mainReducer)
 
     //popover
     type Position = any;
@@ -33,6 +31,7 @@ const EtapFooter: FC = () => {
                 //onClickOutside={action('onClickOutside')}
                 isInteractive={false}
                 position={position}
+                className="tipPopover"
             >
                 {(direction) => (
                     <div>
@@ -51,8 +50,8 @@ const EtapFooter: FC = () => {
                 </Layout>
                 <Layout flex={3} className="SubSummFooter">
                     <Layout flex={1} className="aic jcc">Итого</Layout>
-                    <Layout flex={1} className="aic jcc">{Summ}</Layout>
-                    <Layout flex={1} className="aic jcc">{SummPlusNds}</Layout>
+                    <Layout flex={1} className="aic jcc">{summKP}</Layout>
+                    <Layout flex={1} className="aic jcc">{summKP_nds}</Layout>
                 </Layout>
             </Layout>
             <Layout className="mt2">
@@ -68,10 +67,10 @@ const EtapFooter: FC = () => {
                         Стоимость предложения не облагается НДС, в соответствии со статьей
                     </Text>
                     <TextField
-                        placeholder="Введите стоимость"
+                        placeholder="Указать статью"
                         size="s"
                         labelPosition="left"
-                        value={Statia}
+                        value={noNdsStatia}
                         required
                         style={{ width: '115px' }} />
                     <Text as="div" className="ml1">

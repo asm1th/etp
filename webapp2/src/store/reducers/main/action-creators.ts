@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { IUser } from "../../../models/IUser";
+// import { IUser } from "../../../models/IUser";
 
 // axios
 // import { AppDispatch } from "../store";
@@ -16,14 +16,14 @@ import { IUser } from "../../../models/IUser";
 //     }
 // }
 
-export const fetchUsers = createAsyncThunk(
-    'user/fetchAll',
-    async (_, thunkAPI) => {
-        try {
-            const response = await axios.get<IUser[]>('http://localhost:5000/users');
-            return response.data;
-        } catch (error) {
-            return thunkAPI.rejectWithValue("Не загрузилось")
-        }
-    }
-)
+// export const fetchUsers = createAsyncThunk(
+//     'user/fetchAll',
+//     async (_, thunkAPI) => {
+//         try {
+//             const response = await axios.get<IUser[]>('http://localhost:5000/users');
+//             return response.data;
+//         } catch (error) {
+//             return thunkAPI.rejectWithValue("Не загрузилось")
+//         }
+//     }
+// )

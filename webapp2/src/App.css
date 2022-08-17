@@ -150,7 +150,7 @@ body {
   content: counter(section);
 } */
 
-.Popover {
+.tipPopover {
   padding: 0.5rem 0.7rem;
   background: #fff;
   border: 1px solid #00416633;
@@ -190,4 +190,11 @@ body {
 
 .weight700 {
   font-weight: 700;
+}
+
+.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled{
+  border-color: #d1d1d1;
+}
+.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled .TextField-Input {
+  color: #000
 }

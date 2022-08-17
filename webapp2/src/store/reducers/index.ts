@@ -2,13 +2,13 @@ import { postAPI } from '../../services/PostService'
 //import authReducer from './auth'
 import authReducer from './authRTK/authSlice'
 import userReducer from './user/userSlice'
-import tripReducer from './trip/tripSlice'
+import mainReducer from './main/mainSlice'
 
 const reducers = {
     userReducer: userReducer,
     authReducer: authReducer,
     [postAPI.reducerPath]: postAPI.reducer,
-    tripReducer: tripReducer,
+    mainReducer: mainReducer,
     //settings: (state = {}) => state,
 }
 
