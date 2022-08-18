@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
@@ -6,9 +6,11 @@ import { Button } from '@consta/uikit/Button';
 import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { mainSlice } from "../../store/reducers/main/mainSlice";
 
 const EtapRow: FC = () => {
+    const dispatch = useAppDispatch()
     const { etaps } = useAppSelector(state => state.mainReducer)
 
     const handleChange = ({ value }: any) => {
@@ -19,27 +21,40 @@ const EtapRow: FC = () => {
         //universal function
     }
 
-    const handleChangeSub = ({ value }: any) => {
-        //universal function
+    const handleSubToggle = (etapId: any) => {
+        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
+        dispatch(mainSlice.actions.toggleEtapRowSub(etapIndex))
     }
+
 
     const handleChangeEI = ({ value }: any) => {
         //universal function
     }
-    const handleChangeSubClose = ({ value }: any) => {
-        //universal function
+
+    const handleChangeEtapEIValue = ( etapId: number, value: string) => {
+        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
+        dispatch(mainSlice.actions.setEtapEIValue({etapIndex: etapIndex, value:value}))
     }
+
+    const handleChangeEtapEIPRICEValue = ( etapId: number, value: string) => {
+        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
+        dispatch(mainSlice.actions.setEtapEIPRICEValue({etapIndex: etapIndex, value:value}))
+    }
+
+    // export const itemAdded = item => (dispatch, getState) => {
+    //     dispatch(addItem(item));
+    //     dispatch(totalCostUpdate(item.price));
+    //     dispatch(applyDiscount(getState().totalCost));
+    // };
 
     type Item = {
         label: string;
         id: number;
     };
-    const ei: Item[] = [
-        {
-            label: 'Ч/Ч (чел.час)',
-            id: 1,
-        }
-    ];
+    const eiList: Item[] = [{
+        label: 'Ч/Ч (чел.час)',
+        id: 1,
+    }];
 
     type ndsItem = {
         label: string;
@@ -70,11 +85,23 @@ const EtapRow: FC = () => {
 
     ];
 
+    const getSelected = (List: any, id: any) => {
+        return List[List.findIndex((List: any) => List.id === id)]
+    }
+
+    const getSelectedNDS = (List: any, nds: number) => {
+        return List[List.findIndex((List: any) => List.value === nds)]
+    }
+
+    // const onCalcSumm = () => {
+        
+    //     return etaps.
+    // }
 
     return (
         <>
             {etaps.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_value, ei_price, nds, sub }) => (
-                <>
+                <div key={id}>
                     <Layout className="Row mb1">
                         <Layout flex={3} direction="column">
                             <Layout>
@@ -87,14 +114,14 @@ const EtapRow: FC = () => {
                                     disabled
                                     onChange={handleChange}
                                 />
-                                <Button 
+                                <Button
                                     className="mr1"
-                                    iconRight={IconTeam} 
-                                    iconSize="s" 
-                                    size="s" 
-                                    onlyIcon={true} 
-                                    view="clear" 
-                                    onChange={handleChangeSub}
+                                    iconRight={IconTeam}
+                                    iconSize="s"
+                                    size="s"
+                                    onlyIcon={true}
+                                    view="clear"
+                                    onClick={() => handleSubToggle( id )}
                                 />
                             </Layout>
                         </Layout>
@@ -102,45 +129,50 @@ const EtapRow: FC = () => {
                             <Select
                                 placeholder="Выберите ЕИ"
                                 view="default"
-                                items={ei}
-                                value={ei[ei_id]}
+                                items={eiList}
+                                value={getSelected(eiList, ei_id)}
                                 labelPosition="left"
                                 size="s"
-                                className="RowInput" 
-                                onChange={handleChangeEI}/>
+                                className="RowInput"
+                                onChange={handleChangeEI}
+                                />
                         </Layout>
                         <Layout flex={1}>
-                            <TextField 
+                            <TextField
                                 name="ei_value"
-                                value={ei_value} 
-                                size="s" 
-                                className="RowInput" />
+                                value={ei_value}
+                                size="s"
+                                className="RowInput" 
+                                onChange={({ e }: any) => handleChangeEtapEIValue(id, e.target.value)}
+                                />
                         </Layout>
                         <Layout flex={1}>
-                            <TextField 
+                            <TextField
                                 name="ei_price"
-                                value={ei_price} 
-                                size="s" 
-                                className="RowInput" />
+                                value={ei_price}
+                                size="s"
+                                className="RowInput" 
+                                onChange={({ e }: any) => handleChangeEtapEIPRICEValue(id, e.target.value)}/>
                         </Layout>
                         <Layout flex={1}>
                             <Select
                                 view="default"
                                 items={ndsList}
-                                value={ndsList[nds]}
+                                //value={ndsList[nds]}
+                                value={ getSelectedNDS(ndsList, nds) }
                                 labelPosition="left"
                                 size="s"
-                                className="RowInput" 
-                                onChange={onChangeNds}/>
+                                className="RowInput"
+                                onChange={onChangeNds} />
                         </Layout>
 
-                        <Layout flex={1} className="aic jcc">{summ}</Layout>
-                        <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
+                        <Layout flex={1} className="aic jcc">{parseFloat(ei_value)*parseFloat(ei_price)}</Layout>
+                        <Layout flex={1} className="aic jcc">{parseFloat(ei_value)*parseFloat(ei_price)+ parseFloat(ei_value)*parseFloat(ei_price)*nds/100}</Layout>
                     </Layout>
 
                     {sub.isSub ? (
                         <>
-                            <Layout className="Row subRow mt05">
+                            <Layout className="Row subRow mt05 mb2">
                                 <Layout flex={3}>
                                     <Layout>
                                         <TextField
@@ -151,43 +183,42 @@ const EtapRow: FC = () => {
                                             width="full"
                                             onChange={handleChange}
                                         />
-                                        <Button 
+                                        <Button
                                             className="mr1"
-                                            iconRight={IconClose} 
-                                            iconSize="s" 
-                                            size="s" 
-                                            onlyIcon={true} 
-                                            view="clear" 
-                                            onChange={handleChangeSubClose}
+                                            iconRight={IconClose}
+                                            iconSize="s"
+                                            size="s"
+                                            onlyIcon={true}
+                                            view="clear"
+                                            onClick={() => handleSubToggle({ id })}
                                         />
                                     </Layout>
                                 </Layout>
                                 <Layout flex={6} className="aic acc">
-                                    
+                                    <Text as="div" className="mr1" size="xs">
+                                        Стоимость предложения не облагается НДС, в соответствии со статьей
+                                    </Text>
                                     <TextField
                                         name="sub.statia"
-                                        label="Стоимость предложения не облагается НДС, в соответствии со статьей"
-                                        placeholder="указать статью"
+                                        placeholder="Указать статью"
                                         size="xs"
                                         labelPosition="left"
                                         value={sub.statia}
                                         required
                                         onChange={handleChange}
-                                        />
-                                    <Text 
+                                        style={{ width: '100px' }} />
+                                    <Text
                                         as="div"
-                                        className="ml1" 
-                                        size="s">
+                                        className="ml1"
+                                        size="xs">
                                         НК РФ
                                     </Text>
                                 </Layout>
                             </Layout>
                         </>
                     ) : null}
-                    
-                </>
+                </div>
             ))}
-
         </>
     );
 };

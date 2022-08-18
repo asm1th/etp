@@ -12,6 +12,9 @@ import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { format } from "date-fns";
 
 const TopBar: FC = () => {
+    const dispatch = useAppDispatch()
+    const {trip, dateContract, dateKP, valutaKP} = useAppSelector(state => state.mainReducer)
+
     type Item = {
         label: string;
         id: number;
@@ -32,15 +35,12 @@ const TopBar: FC = () => {
     ];
     const [val, setVal] = useState<Item | null>(items[0]);
 
-    const dispatch = useAppDispatch()
-    const {trip, dateContract, dateKP, valutaKP} = useAppSelector(state => state.mainReducer)
-    
     const handleTrip = ({ e }: any) => {
         dispatch(mainSlice.actions.toggleChecked(e.target.checked))
     }
 
     const handleDate = ({ e }: any) => {
-        dispatch(mainSlice.actions.handleDateKP(e.target.value))
+        dispatch(mainSlice.actions.setDateKP(e.target.value))
     }
 
     return (
