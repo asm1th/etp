@@ -4,6 +4,7 @@ import { IEtapItem } from "../../../models/IMainData"
 
 export const EtapItems: IEtapItem[] = [{
     id: 1,
+    etapId: 1,
     name: "Архитектор",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -11,8 +12,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "3500",
     nds: 10,
     nds_text: "10%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -20,6 +21,7 @@ export const EtapItems: IEtapItem[] = [{
     }
 }, {
     id: 2,
+    etapId: 1,
     name: "Бизнес аналитик",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -27,8 +29,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "3100",
     nds: 20,
     nds_text: "20%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -36,6 +38,7 @@ export const EtapItems: IEtapItem[] = [{
     }
 }, {
     id: 3,
+    etapId: 1,
     name: "Руководитель проекта",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -43,8 +46,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "3000",
     nds: 10,
     nds_text: "10%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -52,6 +55,7 @@ export const EtapItems: IEtapItem[] = [{
     }
 }, {
     id: 4,
+    etapId: 1,
     name: "Разработчик",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -59,8 +63,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "2600",
     nds: 10,
     nds_text: "10%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -68,6 +72,7 @@ export const EtapItems: IEtapItem[] = [{
     }
 }, {
     id: 5,
+    etapId: 1,
     name: "Технический писатель",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -75,8 +80,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "2100",
     nds: 10,
     nds_text: "10%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -84,6 +89,7 @@ export const EtapItems: IEtapItem[] = [{
     }
 }, {
     id: 6,
+    etapId: 1,
     name: "Системный аналитик",
     ei_id: 1,
     ei_name: "Ч/Ч",
@@ -91,8 +97,8 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "2700",
     nds: 10,
     nds_text: "10%",
-    summ: "0",
-    summ_nds: "0",
+    summ: "-- --",
+    summ_nds: "-- --",
     sub: {
         isSub: false,
         name: "",
@@ -103,8 +109,8 @@ export const EtapItems: IEtapItem[] = [{
 export const Etaps: IEtap[] = [{
     id: 1,
     etapItems: EtapItems,
-    summEtap: "0",
-    summEtap_nds: "0",
+    etapSumm: "0",
+    etapSumm_nds: "0",
 }]
 
 export const initialState: IMainData = {
@@ -123,7 +129,7 @@ export const initialState: IMainData = {
     dateKP: new Date(2022, 8, 17),
     valutaKP: null,
 
-    etaps: EtapItems,
+    etapItems: EtapItems,
     etapsSumms: Etaps,
 
     summKP: "0",

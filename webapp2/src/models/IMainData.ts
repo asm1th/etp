@@ -1,5 +1,6 @@
 export interface IEtapItem {
     id: number,
+    etapId: number,
     name: string,
     ei_id: number,
     ei_name: string,
@@ -19,8 +20,8 @@ export interface IEtapItem {
 export interface IEtap {
     id: number,
     etapItems: IEtapItem[]
-    summEtap: string,
-    summEtap_nds: string,
+    etapSumm: string,
+    etapSumm_nds: string,
 }
 
 export interface IMainData {
@@ -39,7 +40,7 @@ export interface IMainData {
     dateKP: Date | null,
     valutaKP: number | null,
 
-    etaps: IEtapItem[],
+    etapItems: IEtapItem[],
     etapsSumms: IEtap[],
 
     summKP: string,

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
@@ -8,44 +8,38 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { mainSlice } from "../../store/reducers/main/mainSlice";
+import { IEtapItem } from "../../models/IMainData";
+
 
 const EtapRow: FC = () => {
     const dispatch = useAppDispatch()
-    const { etaps } = useAppSelector(state => state.mainReducer)
+    const { etapItems } = useAppSelector(state => state.mainReducer)
 
-    const handleChange = ({ value }: any) => {
-        //universal function
+    const handleChange = (value: any) => {
+        alert("handleChange")
     }
 
-    const onChangeNds = ({ value }: any) => {
-        //universal function
+    const handleSubToggle = (etapItemId: number) => {
+        const etapItemIndex = etapItems.findIndex(etapItems => etapItems.id === etapItemId)
+        dispatch(mainSlice.actions.toggleEtapRowSub(etapItemIndex))
     }
 
-    const handleSubToggle = (etapId: any) => {
-        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
-        dispatch(mainSlice.actions.toggleEtapRowSub(etapIndex))
+    const handleChangeEI = (etapItemId: number, value: number) => {
+        dispatch(mainSlice.actions.setEtapEI({ etapItemId: etapItemId, value: value }))
     }
 
-
-    const handleChangeEI = ({ value }: any) => {
-        //universal function
+    const handleChangeEtapEIValue = (etapItemId: number, value: string) => {
+        dispatch(mainSlice.actions.setEtapEIValue({ etapItemId: etapItemId, value: value }))
     }
 
-    const handleChangeEtapEIValue = ( etapId: number, value: string) => {
-        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
-        dispatch(mainSlice.actions.setEtapEIValue({etapIndex: etapIndex, value:value}))
+    const handleChangeEtapEIPRICEValue = (etapItemId: number, value: string) => {
+        dispatch(mainSlice.actions.setEtapEIPrice({ etapItemId: etapItemId, value: value }))
     }
 
-    const handleChangeEtapEIPRICEValue = ( etapId: number, value: string) => {
-        const etapIndex = etaps.findIndex(etaps => etaps.id === etapId)
-        dispatch(mainSlice.actions.setEtapEIPRICEValue({etapIndex: etapIndex, value:value}))
+    const handleChangeEtapNDS = (etapItemId: number, value: number) => {
+        dispatch(mainSlice.actions.setEtapNDS({ etapItemId: etapItemId, value: value }))
     }
 
-    // export const itemAdded = item => (dispatch, getState) => {
-    //     dispatch(addItem(item));
-    //     dispatch(totalCostUpdate(item.price));
-    //     dispatch(applyDiscount(getState().totalCost));
-    // };
 
     type Item = {
         label: string;
@@ -73,11 +67,6 @@ const EtapRow: FC = () => {
             id: 2,
         },
         {
-            label: '0%',
-            value: 0,
-            id: 3,
-        },
-        {
             label: 'без НДС',
             value: null,
             id: 4,
@@ -93,14 +82,9 @@ const EtapRow: FC = () => {
         return List[List.findIndex((List: any) => List.value === nds)]
     }
 
-    // const onCalcSumm = () => {
-        
-    //     return etaps.
-    // }
-
     return (
         <>
-            {etaps.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_value, ei_price, nds, sub }) => (
+            {etapItems.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_value, ei_price, nds, sub }) => (
                 <div key={id}>
                     <Layout className="Row mb1">
                         <Layout flex={3} direction="column">
@@ -121,7 +105,7 @@ const EtapRow: FC = () => {
                                     size="s"
                                     onlyIcon={true}
                                     view="clear"
-                                    onClick={() => handleSubToggle( id )}
+                                    onClick={() => handleSubToggle(id)}
                                 />
                             </Layout>
                         </Layout>
@@ -134,40 +118,41 @@ const EtapRow: FC = () => {
                                 labelPosition="left"
                                 size="s"
                                 className="RowInput"
-                                onChange={handleChangeEI}
-                                />
+                                onChange={({ value }) => handleChangeEI(id, value)}
+                            />
                         </Layout>
                         <Layout flex={1}>
                             <TextField
                                 name="ei_value"
                                 value={ei_value}
                                 size="s"
-                                className="RowInput" 
+                                className="RowInput"
                                 onChange={({ e }: any) => handleChangeEtapEIValue(id, e.target.value)}
-                                />
+                            />
                         </Layout>
                         <Layout flex={1}>
                             <TextField
                                 name="ei_price"
                                 value={ei_price}
                                 size="s"
-                                className="RowInput" 
-                                onChange={({ e }: any) => handleChangeEtapEIPRICEValue(id, e.target.value)}/>
+                                className="RowInput"
+                                onChange={({ e }: any) => handleChangeEtapEIPRICEValue(id, e.target.value)} />
                         </Layout>
                         <Layout flex={1}>
                             <Select
                                 view="default"
                                 items={ndsList}
                                 //value={ndsList[nds]}
-                                value={ getSelectedNDS(ndsList, nds) }
+                                value={getSelectedNDS(ndsList, nds)}
                                 labelPosition="left"
                                 size="s"
                                 className="RowInput"
-                                onChange={onChangeNds} />
+                                onChange={({ value }) => handleChangeEtapNDS(id, value)} />
                         </Layout>
 
-                        <Layout flex={1} className="aic jcc">{parseFloat(ei_value)*parseFloat(ei_price)}</Layout>
-                        <Layout flex={1} className="aic jcc">{parseFloat(ei_value)*parseFloat(ei_price)+ parseFloat(ei_value)*parseFloat(ei_price)*nds/100}</Layout>
+                        <Layout flex={1} className="aic jcc">{summ}</Layout>
+                        <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
+                        
                     </Layout>
 
                     {sub.isSub ? (
@@ -190,7 +175,7 @@ const EtapRow: FC = () => {
                                             size="s"
                                             onlyIcon={true}
                                             view="clear"
-                                            onClick={() => handleSubToggle({ id })}
+                                            onClick={() => handleSubToggle( id )}
                                         />
                                     </Layout>
                                 </Layout>

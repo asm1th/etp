@@ -3,12 +3,12 @@ import { Text } from "@consta/uikit/Text";
 import { Button } from "@consta/uikit/Button";
 import { Collapse } from '@consta/uikit/Collapse';
 import EtapsItogRow from "./EtapsItogRow";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 
 
 const EtapsItog: FC = () => {
     const [isOpen, setOpen] = useState<boolean>(true);
-    const [Summ, setSumm] = useState("64 632 000,00");
-    const [SummPlusNds, setSummPlusNds] = useState("71 100 800,00");
+    const { summKP, summKP_nds } = useAppSelector(state => state.mainReducer)
     return (
         <>
             <Collapse
@@ -18,9 +18,9 @@ const EtapsItog: FC = () => {
                 onClick={() => setOpen(!isOpen)}
                 rightSide={[
                     <Text className="label" align="center">Сумма без НДС</Text>,
-                    <Text className="summ weight700" align="center">{Summ}</Text>,
+                    <Text className="summ weight700" align="center">{summKP}</Text>,
                     <Text className="label" align="center">Сумма c НДС</Text>,
-                    <Text className="summ weight700" align="center">{SummPlusNds}</Text>,
+                    <Text className="summ weight700" align="center">{summKP_nds}</Text>,
                     <Button label="Показать подробнее" size="xs" view="clear"/>
                 ]}>
                 <EtapsItogRow/>

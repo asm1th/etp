@@ -10,7 +10,7 @@ import { Popover } from '@consta/uikit/Popover';
 import { useAppSelector } from "../../hooks/redux";
 
 const EtapFooter: FC = () => {
-    const {noNdsStatia, summKP, summKP_nds} = useAppSelector(state => state.mainReducer)
+    const { noNdsStatia, summKP, summKP_nds } = useAppSelector(state => state.mainReducer)
 
     //popover
     type Position = any;
@@ -44,7 +44,7 @@ const EtapFooter: FC = () => {
             <Layout>
                 <Layout flex={6} className="aic ">
                     <Text as="div" className="label">
-                        Представленное Коммерческое предложение должно учитывать все затраты Участника анализа рынка.<br/>
+                        Представленное Коммерческое предложение должно учитывать все затраты Участника анализа рынка.<br />
                         Все показатели, участвующие в расчете цены, остаются неизменными на весь период действия Коммерческого предложения.
                     </Text>
                 </Layout>
