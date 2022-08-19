@@ -1,19 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { IMainData } from "../../../models/IMainData"
-// import { IEtap } from "../../../models/IMainData"
-// import { IEtapItem } from "../../../models/IMainData"
-
 import { initialState } from "./etapData"
 
-const calcLogic = () => {
+const calcSummKP = (state: any) => {
+    let etapSumm = 0
+    state.etapItems.forEach((element: { summ: any; }) => {
+        //const etapItemIndex = element.findIndex(state.etapItems => state.etapItems.id === element.id)
+        etapSumm += ParseFloat(element.summ)
+    });
 
+    state.etapsSumms[0].etapSumm = etapSumm.toString()
+    //state.etapsSumms[0].etapSumm_nds = "200"
 }
 
 export const mainSlice = createSlice({
     name: 'appData',
     initialState,
     reducers: {
-        createTrip(state, action) { },
         toggleChecked: (state, action: PayloadAction<boolean>) => {
             const isChecked = state.trip.isTrip === action.payload;
             if (isChecked) {
@@ -38,7 +40,7 @@ export const mainSlice = createSlice({
         setEtapEI: (state, action: PayloadAction<any>) => {
             const { etapItemId, value } = action.payload
             const etapItemIndex = state.etapItems.findIndex(etapItems => etapItems.id === etapItemId)
-            
+
             state.etapItems[etapItemIndex].ei_id = value.id
             state.etapItems[etapItemIndex].ei_name = value.label
         },
@@ -50,7 +52,7 @@ export const mainSlice = createSlice({
             const nds = state.etapItems[etapItemIndex].nds
 
             state.etapItems[etapItemIndex].ei_value = value
-            state.etapItems[etapItemIndex].summ = (summ || "-- --").toString() 
+            state.etapItems[etapItemIndex].summ = (summ || "-- --").toString()
             state.etapItems[etapItemIndex].summ_nds = (summ + summ * nds / 100 || "-- --").toString()
         },
         setEtapEIPrice: (state, action: PayloadAction<any>) => {
@@ -61,7 +63,7 @@ export const mainSlice = createSlice({
             const nds = state.etapItems[etapItemIndex].nds
 
             state.etapItems[etapItemIndex].ei_price = value
-            state.etapItems[etapItemIndex].summ = (summ || "-- --").toString() 
+            state.etapItems[etapItemIndex].summ = (summ || "-- --").toString()
             state.etapItems[etapItemIndex].summ_nds = (summ + summ * nds / 100 || "-- --").toString()
         },
         setEtapNDS: (state, action: PayloadAction<any>) => {
@@ -71,7 +73,10 @@ export const mainSlice = createSlice({
 
             state.etapItems[etapItemIndex].nds = value.value
             state.etapItems[etapItemIndex].nds_text = value.label
+            state.etapItems[etapItemIndex].summ = (summ || "-- --").toString()
             state.etapItems[etapItemIndex].summ_nds = (summ + summ * value.value / 100 || "-- --").toString()
+
+            calcSummKP(state)
         }
     },
 })

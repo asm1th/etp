@@ -108,9 +108,9 @@ export const EtapItems: IEtapItem[] = [{
 
 export const Etaps: IEtap[] = [{
     id: 1,
-    etapItems: EtapItems,
-    etapSumm: "0",
-    etapSumm_nds: "0",
+    //etapItems: EtapItems,
+    etapSumm: "-- --",
+    etapSumm_nds: "-- --",
 }]
 
 export const initialState: IMainData = {
@@ -132,8 +132,8 @@ export const initialState: IMainData = {
     etapItems: EtapItems,
     etapsSumms: Etaps,
 
-    summKP: "0",
-    summKP_nds: "0",
+    summKP: "-- --",
+    summKP_nds: "-- --",
     noNds: false,
     noNdsStatia: "",
 

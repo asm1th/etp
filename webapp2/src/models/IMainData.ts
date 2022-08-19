@@ -19,7 +19,7 @@ export interface IEtapItem {
 
 export interface IEtap {
     id: number,
-    etapItems: IEtapItem[]
+    //etapItems: IEtapItem[]
     etapSumm: string,
     etapSumm_nds: string,
 }

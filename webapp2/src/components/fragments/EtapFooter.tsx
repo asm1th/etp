@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Text } from "@consta/uikit/Text";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Checkbox } from '@consta/uikit/Checkbox';
@@ -9,8 +9,8 @@ import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
 import { useAppSelector } from "../../hooks/redux";
 
-const EtapFooter: FC = () => {
-    const { noNdsStatia, summKP, summKP_nds } = useAppSelector(state => state.mainReducer)
+const EtapFooter = (props: { index: number }) => {
+    const { noNdsStatia, etapsSumms } = useAppSelector(state => state.mainReducer)
 
     //popover
     type Position = any;
@@ -19,7 +19,9 @@ const EtapFooter: FC = () => {
     const handleMouseMove = (event: React.MouseEvent) => {
         setPosition({ x: event.clientX, y: event.clientY });
     };
+
     //
+
 
     return (
         <div className="footer">
@@ -50,8 +52,8 @@ const EtapFooter: FC = () => {
                 </Layout>
                 <Layout flex={3} className="SubSummFooter">
                     <Layout flex={1} className="aic jcc">Итого</Layout>
-                    <Layout flex={1} className="aic jcc">{summKP}</Layout>
-                    <Layout flex={1} className="aic jcc">{summKP_nds}</Layout>
+                    <Layout flex={1} className="aic jcc">{etapsSumms[props.index].etapSumm}</Layout>
+                    <Layout flex={1} className="aic jcc">{etapsSumms[props.index].etapSumm_nds}</Layout>
                 </Layout>
             </Layout>
             <Layout className="mt2">

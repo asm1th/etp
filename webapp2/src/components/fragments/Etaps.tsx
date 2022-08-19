@@ -21,6 +21,7 @@ const Etaps: FC = () => {
         setPosition({ x: event.clientX, y: event.clientY });
     };
     //
+    const EtapTab = 0;
 
     return (
         <>
@@ -96,7 +97,7 @@ const Etaps: FC = () => {
                             </Layout>
                         </Layout>
                         <EtapRow />
-                        <EtapFooter />
+                        <EtapFooter index={EtapTab}/>
                     </Layout>
                 </Layout>
             </Layout>

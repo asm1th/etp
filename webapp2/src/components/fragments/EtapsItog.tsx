@@ -3,7 +3,7 @@ import { Text } from "@consta/uikit/Text";
 import { Button } from "@consta/uikit/Button";
 import { Collapse } from '@consta/uikit/Collapse';
 import EtapsItogRow from "./EtapsItogRow";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { useAppSelector } from "../../hooks/redux";
 
 
 const EtapsItog: FC = () => {
