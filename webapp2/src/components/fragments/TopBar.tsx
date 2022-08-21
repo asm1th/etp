@@ -9,7 +9,7 @@ import { format } from "date-fns";
 
 
 const TopBar: FC = () => {
-    const {lot, participant_name, valuta, dateStartKP, dateEndKP} = useAppSelector(state => state.mainReducer)
+    const {lot_name, participant_name, valuta, dateStartKP, dateEndKP} = useAppSelector(state => state.mainReducer)
 
     return (
         <>
@@ -19,7 +19,7 @@ const TopBar: FC = () => {
                         Предмет закупки
                     </Text>
                     <Text as="div" className="labeltext">
-                        {lot}
+                        {lot_name}
                     </Text>
                 </Layout>
                 <Layout flex={3}>

@@ -248,7 +248,8 @@ export const Etaps: IEtap[] = [{
 }]
 
 export const initialState: IMainData = {
-    lot: "Разработка системы по проведению Закупочных процедур",
+    lot_id: 1,
+    lot_name: "Разработка системы по проведению Закупочных процедур",
     participant_name: "АО “Софлайн Солюшн”",
     valuta: "RUB",
     dateStartKP: new Date(2022, 8, 1),

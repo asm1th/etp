@@ -74,6 +74,7 @@ const TopBar: FC = () => {
                             onChange={({ value }) => setVal(value)}
                             labelPosition="left"
                             label="Валюта"
+                            style={{ width: '165px' }}
                             size="s"
                             className={`valSelect ${cnMixSpace({ mR: 'm', })}`} />
                         <Text
