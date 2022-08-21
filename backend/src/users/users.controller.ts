@@ -11,12 +11,14 @@ export class UsersController {
 
   constructor(private UsersService: UsersService ){}
 
+  /*
   @ApiOperation({summary: 'Создание пользователя'})
   @ApiResponse({status: 200, type:User})
   @Post()
   create(@Body() userDto: CreateUserDto){
     return this.UsersService.createUser(userDto);
   }
+  */
 
   @ApiOperation({summary: 'Получение списка пользователей'})
   @ApiResponse({status: 200, type:[User]})
