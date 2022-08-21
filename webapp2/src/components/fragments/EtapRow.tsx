@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React from "react";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
@@ -8,36 +8,51 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { mainSlice } from "../../store/reducers/main/mainSlice";
-import { IEtapItem } from "../../models/IMainData";
+import { isTemplateLiteralToken } from "typescript";
 
 
-const EtapRow: FC = () => {
+const EtapRow = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
     const { etapItems } = useAppSelector(state => state.mainReducer)
+    //const etapItemIndex = etapItems.findIndex(etapItems => etapItems.id === props.etapId)
+    const etapItemsFiltered: any[] = []
+    etapItems.forEach((e: any) => {
+        if (e.etapId === props.etapId) {
+            etapItemsFiltered.push(e)
+        }
+    })
 
     const handleChange = (value: any) => {
         alert("handleChange")
     }
 
     const handleSubToggle = (etapItemId: number) => {
-        const etapItemIndex = etapItems.findIndex(etapItems => etapItems.id === etapItemId)
+        const etapItemIndex = etapItems.findIndex(etapItemsFiltered => etapItemsFiltered.id === etapItemId)
         dispatch(mainSlice.actions.toggleEtapRowSub(etapItemIndex))
     }
 
     const handleChangeEI = (etapItemId: number, value: number) => {
-        dispatch(mainSlice.actions.setEtapEI({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapEI({etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
     }
 
     const handleChangeEtapEIValue = (etapItemId: number, value: string) => {
         dispatch(mainSlice.actions.setEtapEIValue({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
     }
 
     const handleChangeEtapEIPRICEValue = (etapItemId: number, value: string) => {
         dispatch(mainSlice.actions.setEtapEIPrice({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
     }
 
     const handleChangeEtapNDS = (etapItemId: number, value: number) => {
         dispatch(mainSlice.actions.setEtapNDS({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
     }
 
 
@@ -48,6 +63,9 @@ const EtapRow: FC = () => {
     const eiList: Item[] = [{
         label: 'Ч/Ч (чел.час)',
         id: 1,
+    }, {
+        label: 'Ч/Д (чел/день)',
+        id: 2,
     }];
 
     type ndsItem = {
@@ -84,7 +102,7 @@ const EtapRow: FC = () => {
 
     return (
         <>
-            {etapItems.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_value, ei_price, nds, sub }) => (
+            {etapItemsFiltered.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_name_disable, ei_value_disable, ei_value, ei_price, nds, sub }) => (
                 <div key={id}>
                     <Layout className="Row mb1">
                         <Layout flex={3} direction="column">
@@ -119,6 +137,7 @@ const EtapRow: FC = () => {
                                 size="s"
                                 className="RowInput"
                                 onChange={({ value }) => handleChangeEI(id, value)}
+                                disabled={ei_name_disable}
                             />
                         </Layout>
                         <Layout flex={1}>
@@ -128,6 +147,7 @@ const EtapRow: FC = () => {
                                 size="s"
                                 className="RowInput"
                                 onChange={({ e }: any) => handleChangeEtapEIValue(id, e.target.value)}
+                                disabled={ei_value_disable}
                             />
                         </Layout>
                         <Layout flex={1}>
@@ -152,7 +172,7 @@ const EtapRow: FC = () => {
 
                         <Layout flex={1} className="aic jcc">{summ}</Layout>
                         <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
-                        
+
                     </Layout>
 
                     {sub.isSub ? (
@@ -175,7 +195,7 @@ const EtapRow: FC = () => {
                                             size="s"
                                             onlyIcon={true}
                                             view="clear"
-                                            onClick={() => handleSubToggle( id )}
+                                            onClick={() => handleSubToggle(id)}
                                         />
                                     </Layout>
                                 </Layout>

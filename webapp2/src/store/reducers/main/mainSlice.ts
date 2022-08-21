@@ -1,16 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./etapData"
 
-const calcSummKP = (state: any) => {
-    let etapSumm = 0
-    state.etapItems.forEach((element: { summ: any; }) => {
-        //const etapItemIndex = element.findIndex(state.etapItems => state.etapItems.id === element.id)
-        etapSumm += ParseFloat(element.summ)
-    });
-
-    state.etapsSumms[0].etapSumm = etapSumm.toString()
-    //state.etapsSumms[0].etapSumm_nds = "200"
-}
 
 export const mainSlice = createSlice({
     name: 'appData',
@@ -36,11 +26,9 @@ export const mainSlice = createSlice({
         toggleEtapRowSub: (state, action: PayloadAction<number>) => {
             state.etapItems[action.payload].sub.isSub = !state.etapItems[action.payload].sub.isSub;
         },
-
         setEtapEI: (state, action: PayloadAction<any>) => {
             const { etapItemId, value } = action.payload
             const etapItemIndex = state.etapItems.findIndex(etapItems => etapItems.id === etapItemId)
-
             state.etapItems[etapItemIndex].ei_id = value.id
             state.etapItems[etapItemIndex].ei_name = value.label
         },
@@ -75,8 +63,48 @@ export const mainSlice = createSlice({
             state.etapItems[etapItemIndex].nds_text = value.label
             state.etapItems[etapItemIndex].summ = (summ || "-- --").toString()
             state.etapItems[etapItemIndex].summ_nds = (summ + summ * value.value / 100 || "-- --").toString()
+        },
+        setEtapSumm: (state, action: PayloadAction<any>) => {
+            let etapSumm = 0
+            let etapSumm_nds = 0
+            const etapId = action.payload.etapId
+            const etapsSumms = state.etapsSumms
+            const etapItemIndexCurrent = etapsSumms.findIndex(etapsSumms => etapsSumms.id === etapId)
+            const etapItemsCurrent: any[] = []
 
-            calcSummKP(state)
+            state.etapItems.forEach((e: any) => {
+                if (e.etapId === etapId) {
+                    etapItemsCurrent.push(e)
+                }
+            })
+
+            etapItemsCurrent.forEach((element: { summ: string, summ_nds: string }) => {
+                etapSumm += !isNaN(parseFloat(element.summ)) ? parseFloat(element.summ) : 0
+                etapSumm_nds += !isNaN(parseFloat(element.summ_nds)) ? parseFloat(element.summ_nds) : 0
+            });
+
+            state.etapsSumms[etapItemIndexCurrent].etapSumm = etapSumm.toString()
+            state.etapsSumms[etapItemIndexCurrent].etapSumm_nds = etapSumm_nds.toString()
+        },
+        setSummKP: (state, action: PayloadAction<any>) => {
+            let summKP = 0
+            let summKP_nds = 0
+            state.etapsSumms.forEach((element: { etapSumm: string, etapSumm_nds: string }) => {
+                summKP += !isNaN(parseFloat(element.etapSumm)) ? parseFloat(element.etapSumm) : 0
+                summKP_nds += !isNaN(parseFloat(element.etapSumm_nds)) ? parseFloat(element.etapSumm_nds) : 0
+            });
+            state.summKP = summKP.toString()
+            state.summKP_nds = summKP_nds.toString()
+        },
+        setNoNds: (state, action: PayloadAction<any>) => {
+            const etapsSumms = state.etapsSumms
+            const etapItemIndexCurrent = etapsSumms.findIndex(etapsSumms => etapsSumms.id === action.payload.etapId)
+            state.etapsSumms[etapItemIndexCurrent].noNds = action.payload.checked;
+        },
+        setNoNdsStatia: (state, action: PayloadAction<any>) => {
+            const etapsSumms = state.etapsSumms
+            const etapItemIndexCurrent = etapsSumms.findIndex(etapsSumms => etapsSumms.id === action.payload.etapId)
+            state.etapsSumms[etapItemIndexCurrent].noNdsStatia = action.payload.value;
         }
     },
 })

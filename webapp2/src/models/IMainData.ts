@@ -6,6 +6,8 @@ export interface IEtapItem {
     ei_name: string,
     ei_value: string,
     ei_price: string,
+    ei_name_disable: boolean,
+    ei_value_disable: boolean,
     nds: number,
     nds_text: string,
     summ: string,
@@ -19,9 +21,12 @@ export interface IEtapItem {
 
 export interface IEtap {
     id: number,
+    name: string,
     //etapItems: IEtapItem[]
     etapSumm: string,
     etapSumm_nds: string,
+    noNds: true,
+    noNdsStatia: "15",
 }
 
 export interface IMainData {
@@ -45,8 +50,6 @@ export interface IMainData {
 
     summKP: string,
     summKP_nds: string,
-    noNds: boolean,
-    noNdsStatia: string,
 
     isLoading: boolean,
     error: string

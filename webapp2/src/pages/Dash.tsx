@@ -1,7 +1,6 @@
 import { Button } from "@consta/uikit/Button";
 import React, { FC } from "react";
 import Navbar from "../components/Navbar";
-import PostContainer from "../components/PostContainer";
 import TopBar from "../components/fragments/TopBar";
 import BarKP from "../components/fragments/BarKP";
 import { useProtectedMutation } from "../services/authService";
@@ -23,9 +22,9 @@ const Dash: FC = () => {
             {/* <Navbar /> */}
             {/* <PostContainer /> */}
             {/* test protected request */}
-            <Button label="attemptAccess" onClick={() => attemptAccess()} loading={isLoading}/>
+            <Button label="Запрос /users с токеном" onClick={() => attemptAccess()} loading={isLoading}/>
             <div>
-                Данные attemptAccess:
+                Данные /users (attemptAccess):
                 {data ? (
                     <>
                         Data:

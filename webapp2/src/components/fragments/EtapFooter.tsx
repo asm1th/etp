@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Checkbox } from '@consta/uikit/Checkbox';
@@ -7,10 +7,14 @@ import { IconSave } from '@consta/uikit/IconSave';
 import { TextField } from "@consta/uikit/TextField";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { mainSlice } from "../../store/reducers/main/mainSlice";
 
-const EtapFooter = (props: { index: number }) => {
-    const { noNdsStatia, etapsSumms } = useAppSelector(state => state.mainReducer)
+
+const EtapFooter = (props: { etapId: number }) => {
+    const dispatch = useAppDispatch()
+    const { etapsSumms } = useAppSelector(state => state.mainReducer)
+    const etapSumsCurrent = etapsSumms.find(x => x.id === props.etapId);
 
     //popover
     type Position = any;
@@ -20,8 +24,12 @@ const EtapFooter = (props: { index: number }) => {
         setPosition({ x: event.clientX, y: event.clientY });
     };
 
-    //
-
+    const handleNds = (etapId: number, checked: any) => {
+        dispatch(mainSlice.actions.setNoNds({ etapId: etapId, checked: checked }))
+    }
+    const handleNdsStatia = (etapId: number, value: string) => {
+        dispatch(mainSlice.actions.setNoNdsStatia({ etapId: etapId, value: value}))
+    }
 
     return (
         <div className="footer">
@@ -52,32 +60,36 @@ const EtapFooter = (props: { index: number }) => {
                 </Layout>
                 <Layout flex={3} className="SubSummFooter">
                     <Layout flex={1} className="aic jcc">Итого</Layout>
-                    <Layout flex={1} className="aic jcc">{etapsSumms[props.index].etapSumm}</Layout>
-                    <Layout flex={1} className="aic jcc">{etapsSumms[props.index].etapSumm_nds}</Layout>
+                    <Layout flex={1} className="aic jcc">{etapSumsCurrent && etapSumsCurrent.etapSumm}</Layout>
+                    <Layout flex={1} className="aic jcc">{etapSumsCurrent && etapSumsCurrent.etapSumm_nds}</Layout>
                 </Layout>
             </Layout>
             <Layout className="mt2">
                 <Layout className="aic" flex={10}>
                     <Checkbox
-
                         label="Не применяется НДС"
-                        checked={false} />
+                        onChange={(e: any) => { handleNds(props.etapId, e.checked)}}
+                        checked={etapSumsCurrent && etapSumsCurrent.noNds} />
                     <div className="mr2 ml05" onMouseMove={handleMouseMove} onMouseLeave={() => setPosition(undefined)}>
                         <IconInfo size="s" view="ghost" />
                     </div>
-                    <Text as="div" className="mr1">
-                        Стоимость предложения не облагается НДС, в соответствии со статьей
-                    </Text>
-                    <TextField
-                        placeholder="Указать статью"
-                        size="s"
-                        labelPosition="left"
-                        value={noNdsStatia}
-                        required
-                        style={{ width: '115px' }} />
-                    <Text as="div" className="ml1">
-                        НК РФ
-                    </Text>
+                    {etapSumsCurrent && etapSumsCurrent.noNds ? (
+                        <>
+                            <Text as="div" className="mr1">
+                                Стоимость предложения не облагается НДС, в соответствии со статьей
+                            </Text>
+                            <TextField
+                                placeholder="Указать статью"
+                                size="s"
+                                labelPosition="left"
+                                value={etapSumsCurrent && etapSumsCurrent.noNdsStatia}
+                                required
+                                style={{ width: '115px' }}
+                                onChange={({ e }: any) => { debugger; handleNdsStatia(props.etapId, e.target.value)}} />
+                            <Text as="div" className="ml1">
+                                НК РФ
+                            </Text>
+                        </>) : null}
                 </Layout>
                 <Layout flex={1} className="aic">
                     <Button label="Сохранить изменения" size="s" iconLeft={IconSave} disabled />

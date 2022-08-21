@@ -7,7 +7,7 @@ import { useAppSelector } from "../../hooks/redux";
 
 
 const EtapsItog: FC = () => {
-    const [isOpen, setOpen] = useState<boolean>(true);
+    const [isOpen, setOpen] = useState<boolean>(true)
     const { summKP, summKP_nds } = useAppSelector(state => state.mainReducer)
     return (
         <>
@@ -23,7 +23,7 @@ const EtapsItog: FC = () => {
                     <Text className="summ weight700" align="center">{summKP_nds}</Text>,
                     <Button label="Показать подробнее" size="xs" view="clear"/>
                 ]}>
-                <EtapsItogRow/>
+                    <EtapsItogRow/>
             </Collapse>
         </>
     );
