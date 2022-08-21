@@ -1,0 +1,22 @@
+.RowInput {
+    text-align: center;
+    margin: 0 5px;
+}
+
+.Header {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.Header > * {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Header > .tar {
+    text-align: left;
+    justify-content: flex-start;
+}

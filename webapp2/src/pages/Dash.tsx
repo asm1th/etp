@@ -1,78 +1,54 @@
+import { Button } from "@consta/uikit/Button";
 import React, { FC } from "react";
+import Navbar from "../components/Navbar";
 import PostContainer from "../components/PostContainer";
-import {
-    Header,
-    HeaderModule,
-    HeaderMenu,
-    HeaderButton,
-    HeaderLogin,
-    HeaderLogo
-} from "@consta/uikit/Header";
-import { IconRing } from "@consta/uikit/IconRing";
-import { Text } from '@consta/uikit/Text';
+import TopBar from "../components/fragments/TopBar";
+import BarKP from "../components/fragments/BarKP";
+import { useProtectedMutation } from "../services/authService";
+import Etaps from "../components/fragments/Etaps";
+import EtapsItog from "../components/fragments/EtapsItog";
+import EtapFooterButtons from "../components/fragments/EtapFooterButtons";
+
+import {setupStore} from '../store/store'
 
 const Dash: FC = () => {
+    const [attemptAccess, { data, error, isLoading }] = useProtectedMutation(); //
+    
+    const store = setupStore();
+    console.log('Initial state: ', store.getState())
 
-    const menuItems = [
-        {
-            label: "Проекты",
-            href: "#projects",
-            active: true
-        },
-        {
-            label: "Задачи",
-            href: "#tasks"
-        },
-        {
-            label: "Какой-то пункт",
-            onClick: () => alert("Какой-то пункт")
-        }
-    ];
-
-    const isLogged = true;
-
+    store.subscribe(() =>
+        console.log('State after dispatch: ', store.getState())
+    )
+    
     return (
-        <div>
-            <Header
-                className="myheader"
-                leftSide={
+        <>
+            <TopBar />
+            <BarKP />
+            <Etaps />
+            <EtapsItog />
+            <EtapFooterButtons />
+
+            {/* <Navbar /> */}
+            {/* <PostContainer /> */}
+            
+            
+            {/* test protected request */}
+            <Button label="attemptAccess" onClick={() => attemptAccess()} loading={isLoading}/>
+            <div>
+                Данные attemptAccess:
+                {data ? (
                     <>
-                        <HeaderModule>
-                            <HeaderLogo>
-                                <Text as="p" size="l" weight="bold">
-                                    Logotype
-                                </Text>
-                            </HeaderLogo>
-                        </HeaderModule>
-                        <HeaderModule indent="l">
-                            <HeaderMenu items={menuItems} />
-                        </HeaderModule>
+                        Data:
+                        <pre>{JSON.stringify(data, null, 2)}</pre>
                     </>
-                }
-                rightSide={
+                ) : error ? (
                     <>
-                        {/* <HeaderModule indent="s">
-                              <HeaderButton iconLeft={IconChat} />
-                            </HeaderModule> */}
-                        <HeaderModule indent="s">
-                            <HeaderButton iconLeft={IconRing} />
-                        </HeaderModule>
-                        <HeaderModule indent="s">
-                            <HeaderLogin
-                                isLogged={isLogged}
-                                personName="Вадим Матвеев"
-                                personInfo="В другом офисе"
-                                personStatus="available"
-                                personAvatarUrl="https://www.pngarts.com/files/3/Cool-Avatar-Transparent-Image.png"
-                                //onClick={handleLogin}
-                                className="Login"
-                            />
-                        </HeaderModule>
+                        Error: <pre>{JSON.stringify(error, null, 2)}</pre>
                     </>
-                }
-            />
-            <PostContainer />
-        </div>
+                ) : null}
+            </div>
+        </>
     );
 };
 
