@@ -1,8 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { SmallIntegerDataType} from "sequelize/types";
+import { Samp } from "../samp/samp.model";
 import { Unit } from "../unit/unit.model";
-import { KpLink } from "../link/link.model";
 
 interface StagAttrs{
   kp_stage_guid: string;
@@ -18,7 +18,7 @@ export class Stag extends Model<Stag, StagAttrs> {
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
   kp_stage_guid: string;
   @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
-  @ForeignKey( () => KpLink) 
+  @ForeignKey( () => Samp) 
   @Column({type: DataType.STRING(32), unique: false})
   kp_sample_guid: string;
   @ApiProperty({description: 'ID этапа', example: 'varchar(12)'})
@@ -29,10 +29,7 @@ export class Stag extends Model<Stag, StagAttrs> {
   opr_usl_stage: string;
   @ApiProperty({description: 'Наименование этапа', example: 'smallInt'})
   @Column({type: DataType.SMALLINT})
-  opr_usl_stage_num: SmallIntegerDataType;
-
-  //@BelongsTo( () => KpLink )
-  //links: KpLink[];  
+  opr_usl_stage_num: SmallIntegerDataType; 
 
   @HasMany( () => Unit) 
   units: Unit[];
