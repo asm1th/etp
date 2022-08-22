@@ -20,9 +20,8 @@ const EtapFooterButtons: FC = () => {
             <Layout flex={1} className="EtapFooterButtons aic jce">
                 <Button label="Сформировать КП" size="s" iconLeft={IconDocFilled} disabled />
                 <Button label="Версия для печати" size="s" iconLeft={IconDocExport} disabled view="secondary" />
-                <FileField id="FileFieldWithIcon" onClick={(e) => attach(e)}>
-                    <Button label="Прикрепить подписанное КП" size="s" iconLeft={IconAttach} view="secondary" />
-                </FileField>
+                
+                <FileField id="FileFieldWithIcon">{(props) => <Button {...props} label="Прикрепить подписанное КП" size="s" iconLeft={IconAttach} view="secondary" />}</FileField>
 
                 <Button label="Отправить КП" size="s" iconLeft={IconSendMessage} disabled view="secondary" />
             </Layout>
