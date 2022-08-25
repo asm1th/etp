@@ -10,12 +10,12 @@ export interface IEtapItem {
     ei_value_disable: boolean,
     nds: number,
     nds_text: string,
+    nds_statia: string,
     summ: string,
     summ_nds: string,
     sub: {
         isSub: boolean,
         name: string,
-        statia: string,
     }
 }
 export interface IEtap {

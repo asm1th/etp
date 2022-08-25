@@ -32,27 +32,27 @@ const EtapRow = (props: { etapId: number }) => {
     }
 
     const handleChangeEI = (etapItemId: number, value: number) => {
-        dispatch(mainSlice.actions.setEtapEI({etapItemId: etapItemId, value: value }))
-        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
-        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setEtapEI({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
     }
 
     const handleChangeEtapEIValue = (etapItemId: number, value: string) => {
         dispatch(mainSlice.actions.setEtapEIValue({ etapItemId: etapItemId, value: value }))
-        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
-        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
     }
 
     const handleChangeEtapEIPRICEValue = (etapItemId: number, value: string) => {
         dispatch(mainSlice.actions.setEtapEIPrice({ etapItemId: etapItemId, value: value }))
-        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
-        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
     }
 
     const handleChangeEtapNDS = (etapItemId: number, value: number) => {
         dispatch(mainSlice.actions.setEtapNDS({ etapItemId: etapItemId, value: value }))
-        dispatch(mainSlice.actions.setEtapSumm({etapId: props.etapId}))
-        dispatch(mainSlice.actions.setSummKP({etapId: props.etapId}))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
     }
 
 
@@ -86,7 +86,7 @@ const EtapRow = (props: { etapId: number }) => {
         },
         {
             label: 'без НДС',
-            value: null,
+            value: 0,
             id: 4,
         }
 
@@ -169,56 +169,58 @@ const EtapRow = (props: { etapId: number }) => {
                                 className="RowInput"
                                 onChange={({ value }) => handleChangeEtapNDS(id, value)} />
                         </Layout>
-
                         <Layout flex={1} className="aic jcc">{summ}</Layout>
                         <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
-
                     </Layout>
 
-                    {sub.isSub ? (
+                    {sub.isSub || nds === 0 ? (
                         <>
                             <Layout className="Row subRow mt05 mb2">
-                                <Layout flex={3}>
-                                    <Layout>
-                                        <TextField
-                                            name="sub.name"
-                                            value={sub.name}
-                                            size="s"
-                                            className="mr05"
-                                            width="full"
-                                            onChange={handleChange}
-                                        />
-                                        <Button
-                                            className="mr1"
-                                            iconRight={IconClose}
-                                            iconSize="s"
-                                            size="s"
-                                            onlyIcon={true}
-                                            view="clear"
-                                            onClick={() => handleSubToggle(id)}
-                                        />
+                                {sub.isSub ? (
+                                    <Layout flex={3}>
+                                        <Layout>
+                                            <TextField
+                                                name="sub.name"
+                                                value={sub.name}
+                                                size="s"
+                                                className="mr05"
+                                                width="full"
+                                                onChange={handleChange}
+                                            />
+                                            <Button
+                                                className="mr1"
+                                                iconRight={IconClose}
+                                                iconSize="s"
+                                                size="s"
+                                                onlyIcon={true}
+                                                view="clear"
+                                                onClick={() => handleSubToggle(id)}
+                                            />
+                                        </Layout>
                                     </Layout>
-                                </Layout>
-                                <Layout flex={6} className="aic acc">
-                                    <Text as="div" className="mr1" size="xs">
-                                        Стоимость предложения не облагается НДС, в соответствии со статьей
-                                    </Text>
-                                    <TextField
-                                        name="sub.statia"
-                                        placeholder="Указать статью"
-                                        size="xs"
-                                        labelPosition="left"
-                                        value={sub.statia}
-                                        required
-                                        onChange={handleChange}
-                                        style={{ width: '100px' }} />
-                                    <Text
-                                        as="div"
-                                        className="ml1"
-                                        size="xs">
-                                        НК РФ
-                                    </Text>
-                                </Layout>
+                                ) : null}
+                                {nds === 0 ? (
+                                    <Layout flex={6} className="aic acc">
+                                        <Text as="div" className="mr1" size="xs">
+                                            Стоимость предложения не облагается НДС, в соответствии со статьей
+                                        </Text>
+                                        <TextField
+                                            name="sub.statia"
+                                            placeholder="Указать статью"
+                                            size="xs"
+                                            labelPosition="left"
+                                            value={sub.statia}
+                                            required
+                                            onChange={handleChange}
+                                            style={{ width: '100px' }} />
+                                        <Text
+                                            as="div"
+                                            className="ml1"
+                                            size="xs">
+                                            НК РФ
+                                        </Text>
+                                    </Layout>
+                                ) : null}
                             </Layout>
                         </>
                     ) : null}

@@ -14,12 +14,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_value_disable: true,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: true,
-        name: "Специалист по документации",
-        statia: "15",
+        name: "Специалист по документации"
     }
 }, {
     id: 2,
@@ -33,12 +33,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_value_disable: true,
     nds: 20,
     nds_text: "20%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 3,
@@ -50,14 +50,14 @@ export const EtapItems: IEtapItem[] = [{
     ei_price: "10",
     ei_name_disable: false,
     ei_value_disable: false,
-    nds: 10,
-    nds_text: "10%",
+    nds: 0,
+    nds_text: "Без НДС",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 4,
@@ -71,12 +71,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 5,
@@ -90,12 +90,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 6,
@@ -109,12 +109,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 7,
@@ -128,12 +128,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 8,
@@ -147,12 +147,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 9,
@@ -166,12 +166,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 10,
@@ -185,12 +185,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }, {
     id: 11,
@@ -204,12 +204,12 @@ export const EtapItems: IEtapItem[] = [{
     ei_name_disable: false,
     nds: 10,
     nds_text: "10%",
+    nds_statia: "",
     summ: "-- --",
     summ_nds: "-- --",
     sub: {
         isSub: false,
-        name: "",
-        statia: "12",
+        name: ""
     }
 }]
 
