@@ -1,0 +1,54 @@
+.aic {
+    align-items: center;
+}
+
+.acc {
+    align-content: center;
+}
+
+.tac {
+    text-align: center;
+}
+
+.jcc {
+    justify-content: center;
+}
+
+.jce {
+    justify-content: flex-end;
+}
+.jcr {
+    justify-content: right;
+}
+
+.aib {
+    align-items: baseline;
+}
+
+.jcfe{
+    justify-content: flex-end;
+}
+
+.flexGrow1 {
+    flex-grow: 1 !important;
+}
+
+.weight400 {
+    font-weight: 400;
+}
+
+.weight500 {
+    font-weight: 500;
+}
+
+.weight700 {
+    font-weight: 700;
+}
+
+.tipPopover {
+    padding: 0.5rem 0.7rem;
+    background: #fff;
+    border: 1px solid #00416633;
+    box-shadow: 0 8px 8px #0020330a, 0 12px 28px #0020331f;
+    border-radius: 5px;
+}

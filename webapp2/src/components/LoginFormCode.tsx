@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Button } from '@consta/uikit/Button';
-import { Text } from '@consta/uikit/Text';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { TextField } from "@consta/uikit/TextField";
 import { Layout } from '@consta/uikit/LayoutCanary';
@@ -45,19 +44,6 @@ const LoginFormCode: FC = () => {
 
     return (
         <>
-            <Text
-                as="div"
-                align="center"
-                size="2xl"
-                weight="bold"
-                className={cnMixSpace({ mB: 'm', })}>
-                ВХОД
-            </Text>
-            <Text
-                className={cnMixSpace({ mT: 's', mB: 's' })}
-                size="m" lineHeight="xs">
-                Для входа на платформу введите код, который пришел на вашу электронную почту.
-            </Text>
             <div className={cnMixSpace({ mT: 'l' })}>
                 <Layout className="codeInputs">
                     <Layout flex={1}>

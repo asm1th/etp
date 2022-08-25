@@ -1,12 +1,15 @@
-import { Button } from "@consta/uikit/Button";
+
 import React, { FC } from "react";
-import Navbar from "../components/Navbar";
-import TopBar from "../components/fragments/TopBar";
-import BarKP from "../components/fragments/BarKP";
-import { useProtectedMutation } from "../services/authService";
-import Etaps from "../components/fragments/Etaps";
-import EtapsItog from "../components/fragments/EtapsItog";
-import EtapFooterButtons from "../components/fragments/EtapFooterButtons";
+import '../../App.css';
+import './rnmc.css';
+
+import { Button } from "@consta/uikit/Button";
+import TopBar from "../../components/fragments/TopBar";
+import BarKP from "../../components/fragments/BarKP";
+import { useProtectedMutation } from "../../services/authService";
+import Etaps from "../../components/fragments/Etaps";
+import EtapsItog from "../../components/fragments/EtapsItog";
+import EtapFooterButtons from "../../components/fragments/EtapFooterButtons";
 
 const Dash: FC = () => {
     const [attemptAccess, { data, error, isLoading }] = useProtectedMutation();

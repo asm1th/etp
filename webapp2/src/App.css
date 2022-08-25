@@ -2,6 +2,7 @@
 
 @import url("./css/margins.css");
 @import url("./css/table.css");
+@import url("./css/base.css");
 
 body .Theme {
   font-weight: 500;
@@ -34,11 +35,6 @@ body {
   max-width: 370px;
 }
 
-.Button_view_primary {
-  --color-control-bg-primary: #5066ff;
-  background-color: var(--color-control-bg-primary);
-}
-
 .codeInputs .TextField-Input {
   width: 100%;
   min-width: 100%;
@@ -63,7 +59,7 @@ body {
 }
 
 .tac {
-  align-items: center;
+  text-align: center;
 }
 
 .jcc {
@@ -207,3 +203,4 @@ body {
 .aib{
   align-items: baseline;
 }
+

@@ -1,10 +1,14 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppSelector } from "../hooks/redux";
-import Dash from "../pages/Dash";
+import Dash from "../pages/rnmc/RNMCapp";
 import Login from "../pages/Login";
 import LoginCode from "../components/LoginFormCode";
 import { ResponsesExit } from '@consta/uikit/ResponsesExit';
 import { Responses404 } from '@consta/uikit/Responses404';
+
+//etp
+import EtpLoginCode from "../pages/etp/LoginCode";
+import EtpLogin from "../pages/etp/Login";
 
 // масссив путей пока не используем
 // import { privateRoutes } from "../router/router";
@@ -20,6 +24,9 @@ const AppRouter = () => {
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 
           <Route path="/logout" element={<ResponsesExit/>}/> 
           <Route path="*" element={<Responses404 />} />
+
+          <Route path="/etp/logincode" element={<EtpLoginCode />} />
+          <Route path="/etp/login" element={<EtpLogin />} />
         </Routes>
     );
 };

@@ -1,0 +1,27 @@
+@import url("../../css/margins.css");
+@import url("../../css/table.css");
+@import url("../../css/base.css");
+
+html{
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  background-image: url(../../img/bg.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.App {
+  padding: 1rem;
+}
+
+.Button_view_primary {
+  --color-control-bg-primary: #0078d2;
+  background-color: var(--color-control-bg-primary);
+}
+
+
+
