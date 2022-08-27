@@ -1,6 +1,6 @@
 import {EventActionEnum, SetEventsAction, SetGuestsAction} from "./types";
-import {IUser} from "../../../models/IUser";
-import {IEvent} from "../../../models/IEvent";
+import {IUser} from "../../../models/test/IUser";
+import {IEvent} from "../../../models/test/IEvent";
 import {AppDispatch} from "../../store";
 import UserService from "../../../services/UserService";
 

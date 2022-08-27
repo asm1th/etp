@@ -6,7 +6,7 @@ import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { Text } from '@consta/uikit/Text';
-import logo from '../../img/logo.png';
+import logo from '../../img/gazprom-neft-logo-rus.svg';
 import { Timer } from '@consta/uikit/Timer';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
@@ -25,11 +25,10 @@ const LoginCode: FC = () => {
         </Layout>
         <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
             <GridItem>
-                
                 <Card verticalSpace="4xl" horizontalSpace="4xl" form="round" shadow={false}
                     className={`loginform ${cnMixSpace({ mT: '2xl', })}`}>
                     <div className="tac mb1">
-                        <img alt="logo" src={logo}/>
+                        <img alt="logo" src={logo} width="160"/>
                     </div>
                     <Text
                         className="tac mb1 jcc"

@@ -2,6 +2,7 @@ import React, { FC, useState } from "react";
 import { Button } from '@consta/uikit/Button';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { TextField } from "@consta/uikit/TextField";
+import { IconMail } from '@consta/uikit/IconMail';
 
 // RTK
 import { useNavigate } from 'react-router-dom'
@@ -9,6 +10,7 @@ import { isFetchBaseQueryError, isErrorWithMessage } from "../helpers";
 import { useLoginMutation } from '../services/authService'
 import type { LoginRequest } from '../services/authService'
 import { SnackBar } from '@consta/uikit/SnackBar';
+
 
 const LoginForm: FC = () => {
     const navigate = useNavigate()
@@ -75,9 +77,15 @@ const LoginForm: FC = () => {
                     width="full"
                     onChange={handleChange}
                     value={formState.email}
+                    leftSide={IconMail}
                 />
             </div>
-            <Button onClick={onSubmit} loading={isLoading} label="Отправить код" size="m" width="full"
+            <Button 
+                onClick={onSubmit} 
+                loading={isLoading} 
+                label="Отправить код" 
+                size="m" 
+                width="full"
                 className={cnMixSpace({ mT: 'm' })} />
             {/* <SnackBar items={messageState} /> */}
         </>

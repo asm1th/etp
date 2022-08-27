@@ -20,8 +20,8 @@ const App: FC = () => {
         
         <AppRouter />
 
-        {isLoading && <h1>загрузка...</h1>}
-        {error && <h1>{error}</h1>}
+        {isLoading && <div>загрузка...</div>}
+        {error && <div>{error}</div>}
         {JSON.stringify(users, null, 2)}
 
       </Theme>

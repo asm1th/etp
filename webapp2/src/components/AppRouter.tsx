@@ -9,6 +9,7 @@ import { Responses404 } from '@consta/uikit/Responses404';
 //etp
 import EtpLoginCode from "../pages/etp/LoginCode";
 import EtpLogin from "../pages/etp/Login";
+import Registration from "../pages/etp/Registration";
 
 // масссив путей пока не используем
 // import { privateRoutes } from "../router/router";
@@ -27,6 +28,7 @@ const AppRouter = () => {
 
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/login" element={<EtpLogin />} />
+          <Route path="/etp/reg" element={<Registration />} />
         </Routes>
     );
 };

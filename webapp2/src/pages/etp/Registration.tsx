@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import LoginFormEmail from "../../components/LoginFormEmail";
+
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
-import { cnMixSpace } from '@consta/uikit/MixSpace';
+import { IconInfo } from '@consta/uikit/IconInfo';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
@@ -22,31 +22,26 @@ const Login: FC = () => {
             </Layout>
             <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
                 <GridItem>
-                    <Card verticalSpace="4xl" horizontalSpace="4xl" form="round" shadow={false}
-                        className={`loginform ${cnMixSpace({ mT: '3xl', })}`}>
+                    <Card
+                        verticalSpace="xs"
+                        horizontalSpace="4xl"
+                        form="round"
+                        shadow={false}
+                        className="regform">
                         <div className="tac mb1">
-                            <img alt="logo" src={logo} width="160"/>
+                            <img alt="logo" src={logo} width="160" />
                         </div>
                         <Text
                             className="tac mb1 jcc"
-                            size="m" 
+                            size="m"
                             lineHeight="xs">
-                            Для входа на платформу введите код, который пришел на вашу электронную почту
+                            Регистрация участников на электронной торговой площадке ПАО «Газпромнефть»
                         </Text>
-                        <LoginFormEmail />
+
+
+
+                        
                     </Card>
-
-                    <Layout flex={1} className="acc aic jcc">
-                        <Text
-                            size="xs" lineHeight="xs">
-                            Уже есть учетная запись?
-                        </Text>
-                        <Button
-                            view="clear"
-                            label="Войти в систему. "
-                            size="xs"/>
-                    </Layout>
-
                 </GridItem>
             </Grid>
         </>

@@ -34,6 +34,9 @@ body {
 .loginform {
   max-width: 370px;
 }
+.regform {
+  max-width: 450px;
+}
 
 .codeInputs .TextField-Input {
   width: 100%;

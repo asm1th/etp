@@ -1,5 +1,5 @@
-import {IUser} from "../../../models/IUser";
-import {IEvent} from "../../../models/IEvent";
+import {IUser} from "../../../models/test/IUser";
+import {IEvent} from "../../../models/test/IEvent";
 
 
 export interface EventState {
