@@ -23,5 +23,24 @@ body {
   background-color: var(--color-control-bg-primary);
 }
 
+.regform {
+  background: transparent;
+}
 
 
+.ProgressStepBarLine.ProgressStepBarLine_size_m.ProgressStepBarLine_direction_horizontal {
+  top: 15px;
+}
+.ProgressStepBar-List.ProgressStepBar-List_direction_horizontal {
+  padding-top: 5px; 
+  overflow: visible;
+}
+
+.nolabels .FieldLabel {
+  opacity: 1;
+  background: #fff;
+  margin-bottom: -7px;
+  font-size: 10px;
+  z-index: 10;
+  place-self: flex-start;
+}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUser } from '../../../models/IUser'
+import { IUser } from '../../../models/test/IUser'
 import { authService } from '../../../services/authService'
 import type { RootState } from '../../../store/store'
 

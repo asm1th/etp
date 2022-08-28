@@ -1,5 +1,5 @@
 import {AuthActionEnum, SetAuthAction, SetErrorAction, SetIsLoadingAction, SetUserAction} from "./types";
-import {IUser} from "../../../models/IUser";
+import {IUser} from "../../../models/test/IUser";
 import {AppDispatch} from "../../store";
 import UserService from "../../../services/UserService";
 
