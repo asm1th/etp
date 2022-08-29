@@ -1,5 +1,6 @@
-import { Controller, Get, HttpStatus, Param } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Put } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { UpdateUsrpDTO } from './dto/update_usrp.dto';
 import { Usrp } from './usrp.model';
 import { UsrpService } from './usrp.service';
 
@@ -21,5 +22,12 @@ export class UsrpController {
   @Get(':kp_unit_guid')
   getEntity(@Param('kp_unit_guid') kp_unit_guid: string){
     return this.UsrpService.getOneUsrp(kp_unit_guid)
+  }
+
+  @ApiOperation({summary: 'Обновление данных по командировке в шаблоне КП'})
+  @ApiResponse({ status: HttpStatus.OK, description: "Success", type: UpdateUsrpDTO })
+  @Put()
+  async modifyEntity(@Body() dto: UpdateUsrpDTO): Promise<any>{
+    return this.UsrpService.updateUsrp(dto)
   }
 }

@@ -1,5 +1,6 @@
-import { Controller, Get, HttpStatus, Param } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { UpdateLinkDTO } from './dto/update_link.dto';
 import { KpLink } from './link.model';
 import { KpLinkService } from './link.service';
 
@@ -22,4 +23,12 @@ export class KpLinkController {
   getEntity(@Param('link') link: string){
     return this.KpLinkService.getOneLink(link)
   }
+
+  @ApiOperation({summary: 'Обновление данных по командировке в шаблоне КП'})
+  @ApiResponse({ status: HttpStatus.OK, description: "Success", type: UpdateLinkDTO })
+  @Put()
+  async modifyEntity(@Body() dto: UpdateLinkDTO){
+    return this.KpLinkService.updateLink(dto)
+  }
+
 }

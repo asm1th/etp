@@ -1,7 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Samp } from 'src/samp/samp.model';
-import { KpHeaderDto } from './dto/kp_header.dto';
+import { UpdateLinkDTO } from './dto/update_link.dto';
 import { KpLink } from './link.model';
 
 @Injectable()
@@ -22,7 +21,18 @@ export class KpLinkService {
   */
 
   async getOneLink(link: string){
-    console.log('GUID = %s', link);
     return this.userRepository.findOne({where: {link}, include: { all: true, nested: true }});
+  }
+
+  async updateLink(dto: UpdateLinkDTO){
+    const link = await this.userRepository.findByPk(dto.link);
+    if (!link) {
+      throw new HttpException('Ключ для расценки не найден', HttpStatus.NOT_FOUND);  
+    }
+    link.kp_offer_expire_date = dto.kp_offer_expire_date;
+    link.travel_exp = dto.travel_exp;
+    link.travel_exp_comm = dto.travel_exp_comm;
+    await link.save();
+    return link;
   }
 }
