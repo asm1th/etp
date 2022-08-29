@@ -12,8 +12,8 @@ export const regData: IRegData = {
     "org_shortname": "",
     "org_telephone": "",
     "org_email": "",
-    "password": "",
+    "password": "1",
 
-    "inn": "",
-    "kpp": ""
+    // "inn": "",
+    // "kpp": ""
 }

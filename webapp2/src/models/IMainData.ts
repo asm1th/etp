@@ -62,6 +62,6 @@ export interface IRegData {
     "org_telephone": string,
     "org_email": string,
     "password": string,
-    "inn": string,
-    "kpp": string
+    // "inn": string,
+    // "kpp": string,
 }

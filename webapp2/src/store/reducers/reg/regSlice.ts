@@ -22,12 +22,14 @@ interface IFormErrors {
 interface regState {
     regData: IRegData;
     isValid: boolean,
+    isAccept: boolean,
     formErrors: IFormErrors
 }
 
 const initialState: regState = {
     regData: regData,
     isValid: true,
+    isAccept: false,
     formErrors: {
         "lastname": "",
         "firstname": "",
@@ -64,9 +66,9 @@ export const regSlice = createSlice({
             reg[prop] = action.payload.value;
         },
         setRegDataBool: (state, action: PayloadAction<any>) => {
-            let prop: any = action.payload.prop
+            let prop: any = action.payload.e.target.name
             let reg: any = state.regData
-            reg[prop] = action.payload.value;
+            reg[prop] = action.payload.checked;
         },
         setRegDataError: (state, action: PayloadAction<any>) => {
             let prop: any = action.payload.prop

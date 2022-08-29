@@ -14,8 +14,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { regSlice } from '../../store/reducers/reg/regSlice'
 
 const Step2: FC = () => {
-    const [accept, setAccept] = useState<boolean>(false);
-    const handleAccept = (e: boolean) => setAccept(!accept);
+
 
     //popover
     type Position = any;
@@ -33,15 +32,12 @@ const Step2: FC = () => {
     const [isModalOpen2, setIsModalOpen2] = useState(false);
 
     const dispatch = useAppDispatch()
-    const { regData, formErrors } = useAppSelector(state => state.regReducer)
+    const { regData, formErrors, isAccept } = useAppSelector(state => state.regReducer)
 
-    const handleField = (e: any) => {
-        dispatch(regSlice.actions.setRegDataProp({prop: e.name, value: e.value}))
-    }
-    const handleCheckbox = (e: any) => {
-        debugger
-        dispatch(regSlice.actions.setRegDataBool({prop: e.name, value: e.value}))
-    }
+    const handleField = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
+    const handleFieldINN = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
+    const handleCheckbox = (e: any) => dispatch(regSlice.actions.setRegDataBool(e))
+    const handleAccept = (e: any) => dispatch(regSlice.actions.setRegDataBool(e))
 
     return (
         <>
@@ -59,14 +55,14 @@ const Step2: FC = () => {
                         id="resident"
                         name="resident"
                         label="Нерезидент"
-                        checked={regData.resident} 
+                        checked={regData.resident}
                         onChange={(e: any) => handleCheckbox(e)}
                     />
                     <Checkbox
                         className="cb_sm"
                         label="Физические лица"
                         name="individual"
-                        checked={regData.individual} 
+                        checked={regData.individual}
                         onChange={(e: any) => handleCheckbox(e)}
                     />
                 </Layout>
@@ -77,8 +73,8 @@ const Step2: FC = () => {
                         name="isSNSP"
                         disabled={true}
                         checked={false}
-                        //checked={regData.isSNSP} 
-                        //onChange={(e: any) => handleCheckbox(e)}
+                    //checked={regData.isSNSP} 
+                    //onChange={(e: any) => handleCheckbox(e)}
                     />
                     <Layout>
                         <Checkbox
@@ -87,8 +83,8 @@ const Step2: FC = () => {
                             name="isToken"
                             disabled={true}
                             checked={false}
-                            //checked={regData.isToken} 
-                            //onChange={(e: any) => handleCheckbox(e)}
+                        //checked={regData.isToken} 
+                        //onChange={(e: any) => handleCheckbox(e)}
                         />
                         <div onMouseMove={(e) => handleMouseMove(e, msg1)} onMouseLeave={() => setPosition(undefined)}>
                             <IconInfo onClick={() => setIsModalOpen1(true)} size="s" view="ghost" className="infoPopoverIcon" />
@@ -107,7 +103,7 @@ const Step2: FC = () => {
                     required
                     value={regData.org_fullname}
                     onChange={(e: any) => handleField(e)}
-                    status={formErrors.org_fullname === "" ? undefined  : "alert"}
+                    status={formErrors.org_fullname === "" ? undefined : "alert"}
                     caption={formErrors.org_fullname}
                 />
                 <TextField
@@ -119,7 +115,7 @@ const Step2: FC = () => {
                     required
                     value={regData.org_shortname}
                     onChange={(e: any) => handleField(e)}
-                    status={formErrors.org_shortname === "" ? undefined  : "alert"}
+                    status={formErrors.org_shortname === "" ? undefined : "alert"}
                     caption={formErrors.org_shortname}
                 />
                 <TextField
@@ -129,9 +125,10 @@ const Step2: FC = () => {
                     placeholder="Введите ИНН"
                     width="full"
                     required
-                    value={regData.inn}
-                    onChange={(e: any) => handleField(e)}
-                    status={formErrors.inn === "" ? undefined  : "alert"}
+                    maxLength={12}
+                    //value={regData.inn}
+                    onChange={(e: any) => handleFieldINN(e)}
+                    status={formErrors.inn === "" ? undefined : "alert"}
                     caption={formErrors.inn}
                 />
                 <TextField
@@ -141,9 +138,10 @@ const Step2: FC = () => {
                     placeholder="Введите КПП"
                     width="full"
                     required
-                    value={regData.kpp}
+                    maxLength={9}
+                   // value={regData.kpp}
                     onChange={(e: any) => handleField(e)}
-                    status={formErrors.kpp === "" ? undefined  : "alert"}
+                    status={formErrors.kpp === "" ? undefined : "alert"}
                     caption={formErrors.kpp}
                 />
                 <TextField
@@ -153,9 +151,10 @@ const Step2: FC = () => {
                     placeholder="Введите Телефон организации"
                     width="full"
                     required
+                    maxLength={20}
                     value={regData.org_telephone}
                     onChange={(e: any) => handleField(e)}
-                    status={formErrors.org_telephone === "" ? undefined  : "alert"}
+                    status={formErrors.org_telephone === "" ? undefined : "alert"}
                     caption={formErrors.org_telephone}
                 />
                 <TextField
@@ -167,17 +166,18 @@ const Step2: FC = () => {
                     required
                     value={regData.org_email}
                     onChange={(e: any) => handleField(e)}
-                    status={formErrors.org_email === "" ? undefined  : "alert"}
+                    status={formErrors.org_email === "" ? undefined : "alert"}
                     caption={formErrors.org_email}
                 />
             </div>
             <Layout className="mt2">
                 <Checkbox
+                    name="accept"
                     className="cb_sm"
                     size="m"
                     label=" Согласие на обработку персональных данных"
-                    onChange={(e) => handleAccept}
-                    checked={accept} />
+                    onChange={(e) => handleAccept(e)}
+                    checked={isAccept} />
                 <div onMouseMove={(e) => handleMouseMove(e, msg2)} onMouseLeave={() => setPosition(undefined)}>
                     <IconInfo onClick={() => setIsModalOpen2(true)} size="s" view="ghost" className="infoPopoverIcon" />
                 </div>
@@ -250,7 +250,7 @@ const Step2: FC = () => {
             >
                 <Layout className="jcb">
                     <Text as="p" size="s" view="secondary" className="ModalTitle">
-                    ФедеральныЙ Закон РФ от 27.07.2006г. № 152-ФЗ «О персональных данных» 
+                        ФедеральныЙ Закон РФ от 27.07.2006г. № 152-ФЗ «О персональных данных»
                     </Text>
                     <Button
                         size="l"

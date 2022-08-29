@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
+import { useProtectedMutation } from '../../services/authService'
+import { useLoginMutation } from '../../services/authService'
 
 import { IconArrowRight } from '@consta/uikit/IconArrowRight';
 import { IconArrowLeft } from '@consta/uikit/IconArrowLeft';
@@ -20,11 +22,18 @@ import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";
 import Step3 from "../../components/reg/Step3";
 import { regSlice } from '../../store/reducers/reg/regSlice'
+import { IRegData } from "../../models/IMainData"
+
 
 const Login: FC = () => {
+    //test
+    const [attemptAccess, { data }] = useProtectedMutation();
+    const [login] = useLoginMutation();
+    //
+
     const dispatch = useAppDispatch()
-    const { regData, formErrors } = useAppSelector(state => state.regReducer)
-    const [regRequest, { isLoading, isError }] = useRegistrationMutation();
+    const { regData } = useAppSelector(state => state.regReducer)
+    const [regRequest, { error }] = useRegistrationMutation();
 
     const [activeStep, setActiveStep] = useState<number>(0)
     const [status, setStatus] = useState<string>('normal')
@@ -53,17 +62,19 @@ const Login: FC = () => {
         }
     ];
 
+    const [message, setMessage] = useState<any>()
+
     const clickAction = (e: number) => {
         //setStatus(status === 'normal' ? 'success' : 'normal');
         setActiveStep(e)
 
         if (activeStep === 0) {
-            if (validateStep0()) {
+            if (validateStep0(regData)) {
                 setActiveStep(e);
             }
         }
         if (activeStep === 1) {
-            if (validateStep1()) {
+            if (validateStep1(regData)) {
                 setActiveStep(e);
             }
         }
@@ -74,38 +85,41 @@ const Login: FC = () => {
 
     const handlePrev = () => setActiveStep(activeStep - 1);
 
-    const validateStep0 = () => {
+    const validateStep0 = (regData:IRegData) => {
         let valid = false;
-        valid = validateTextField("lastname", regData.lastname) &&
-            validateTextField("firstname", regData.firstname) &&
-            validateTextField("patronymic", regData.patronymic) &&
+        valid = validateTextField("lastname", regData.lastname, "onlyLetters") &&
+            validateTextField("firstname", regData.firstname, "onlyLetters") &&
+            //validateTextField("patronymic", regData.patronymic, "onlyLetters") &&
             validateEmail()
         return valid
         //dispatch(regSlice.actions.setIsValid(valid))
     }
 
-    const validateStep1 = () => {
+    const validateStep1 = (regData:IRegData) => {
         let valid = false;
-        valid = validateTextField("org_fullname", regData.org_fullname) &&
-            validateTextField("org_shortname", regData.org_shortname) &&
-            validateTextField("org_telephone", regData.org_telephone) &&
-            validateTextField("org_email", regData.org_email) &&
-            validateINN("inn", regData.inn) &&
-            validateKPP("kpp", regData.kpp)
+        valid = validateTextField("org_fullname", regData.org_fullname, null) &&
+            validateTextField("org_shortname", regData.org_shortname, null) &&
+            //validateINN("inn", regData.inn) &&
+            //validateKPP("kpp", regData.kpp) &&
+            validateTextField("org_telephone", regData.org_telephone, null) &&
+            validateTextField("org_email", regData.org_email, null)
 
         return valid
         //dispatch(regSlice.actions.setIsValid(valid))
     }
 
-    const validateTextField = (prop: string, value: string) => {
+    const validateTextField = (prop: string, value: string, type: any) => {
         let result = false;
         const minLen = 2;
-
-        if (value && validateSymbols(value) && value.length >= minLen) {
+        let iffer = value && validateSymbols(value) && value.length >= minLen
+        if (type === "onlyLetters") {
+            iffer = value && validateSymbolsOnlyLetters(value) && value.length >= minLen
+        }
+        if (iffer) {
             result = true;
             dispatch(regSlice.actions.setRegDataError({ prop: prop, value: "" }))
         } else {
-            dispatch(regSlice.actions.setRegDataError({ prop: prop, value: "Ошибка! Допускаются только буквы. Минимум 2 буквы" }))
+            dispatch(regSlice.actions.setRegDataError({ prop: prop, value: "Ошибка! Допускаются только буквы. Минимум " + minLen + " буквы" }))
         }
         console.log("validateTextField:" + result);
         return result
@@ -192,12 +206,29 @@ const Login: FC = () => {
         return result;
     }
 
-    const validateSymbols = (txt: string) => {
+    const validateSymbolsOnlyLetters = (txt: string) => {
         const reSpace = /^((?!\s{2}).)*$/;
         let result = false;
         if (reSpace.test(String(txt))) {
             //const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁ0-9a-zA-Z\s]+$/;
             const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁa-zA-Z\s]+$/;
+            if (re.test(String(txt))) {
+                result = true;
+            } else {
+                result = false;
+            }
+            console.log("validateInput:" + result);
+        } else {
+            result = false;
+        }
+        return result;
+    }
+
+    const validateSymbols = (txt: string) => {
+        const reSpace = /^((?!\s{2}).)*$/;
+        let result = false;
+        if (reSpace.test(String(txt))) {
+            const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁ0-9a-zA-Z\s]+$/;
             if (re.test(String(txt))) {
                 result = true;
             } else {
@@ -227,12 +258,12 @@ const Login: FC = () => {
 
     const handleNext = () => {
         if (activeStep === 0) {
-            if (validateStep0()) {
+            if (validateStep0(regData)) {
                 setActiveStep(activeStep + 1);
             }
         }
         if (activeStep === 1) {
-            if (validateStep1()) {
+            if (validateStep1(regData)) {
                 setActiveStep(activeStep + 1);
             }
         }
@@ -240,7 +271,6 @@ const Login: FC = () => {
             onSubmit()
         }
     }
-
 
     const onSubmit = async () => {
         try {
@@ -251,9 +281,11 @@ const Login: FC = () => {
 
             //todo переход на страницу огина с сообщением о том что зарегистрированы и можно входить
             //navigate('/')
-
+            await regRequest(regData).unwrap()
         } catch (err) {
+            debugger
             console.log(err)
+            setMessage(err);
         }
     }
 
@@ -321,15 +353,51 @@ const Login: FC = () => {
                                 />
                             </Layout>
                         </Layout>
-                        <Informer
+                        
+                      
+                      
+
+                        
+
+
+                        { message ? (
+                            <Informer
                             className="mt2"
-                            title="Регистрация пройдена"
-                            label="В течении 5 минут на вашу почту придет письмо с временным паролем"
+                            title={"Ошибка" + message}
+                            label={message.data}
                             view="filled"
-                            status="success"
+                            status="warning"
                             icon={IconThumbUp}
                         />
+                        ) : (
+                            <Informer
+                                className="mt2"
+                                title="Регистрация пройдена"
+                                label="В течении 5 минут на вашу почту придет письмо с временным паролем"
+                                view="filled"
+                                status="success"
+                                icon={IconThumbUp}
+                            />
+                        )
+                        }
+
+
                         <pre>{JSON.stringify(regData, null, 2)}</pre>
+                        <Button label="Login" onClick={() => login(regData)} />
+                        <Button label="Запрос /users с токеном" onClick={() => attemptAccess()}  />
+                        <div>
+                            Данные /users (attemptAccess):
+                            {data ? (
+                                <>
+                                    Data:
+                                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                                </>
+                            ) : error ? (
+                                <>
+                                    Error: <pre>{JSON.stringify(error, null, 2)}</pre>
+                                </>
+                            ) : null}
+                        </div>
                     </Card>
                 </GridItem>
             </Grid>

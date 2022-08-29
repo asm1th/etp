@@ -2,10 +2,16 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IUser } from '../models/test/IUser'
 import { RootState } from '../store/store'
 
+import {IRegData} from '../models/IMainData'
+
 // export interface User {
 //   first_name: string
 //   last_name: string
 // }
+export interface RegResponse {
+  user: IUser
+  token: string
+}
 
 export interface UserResponse {
   user: IUser
@@ -22,20 +28,6 @@ export interface LoginCodeRequest {
   num2: string
   num3: string
   num4: string
-}
-
-export interface RegistrationRequest {
-  "lastname": string
-  "firstname": string
-  "patronymic": string
-  "email": string
-  "resident": true,
-  "individual": true,
-  "org_fullname": string
-  "org_shortname": string
-  "org_telephone": string
-  "org_email": string
-  "password": string
 }
 
 export const authService = createApi({
@@ -65,7 +57,7 @@ export const authService = createApi({
         body: credentials,
       }),
     }),
-    registration: builder.mutation<UserResponse, RegistrationRequest>({
+    registration: builder.mutation<RegResponse, IRegData>({
       query: (body) => ({
         url: 'http://109.195.85.121:5010/auth/registration',
         method: 'POST',

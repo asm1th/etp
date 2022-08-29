@@ -10,7 +10,7 @@ const Step1: FC = () => {
     const { regData, formErrors } = useAppSelector(state => state.regReducer)
 
     const handleField = (e: any) => {
-        dispatch(regSlice.actions.setRegDataProp({prop: e.name, value: e.value}))
+        dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
     }
 
     return (
@@ -30,7 +30,7 @@ const Step1: FC = () => {
                 required
                 value={regData.lastname}
                 onChange={(e: any) => handleField(e)}
-                status={formErrors.lastname === "" ? undefined  : "alert"}
+                status={formErrors.lastname === "" ? undefined : "alert"}
                 caption={formErrors.lastname}
             />
             <TextField
@@ -43,7 +43,7 @@ const Step1: FC = () => {
                 className="mt1"
                 value={regData.firstname}
                 onChange={(e: any) => handleField(e)}
-                status={formErrors.firstname === "" ? undefined  : "alert"}
+                status={formErrors.firstname === "" ? undefined : "alert"}
                 caption={formErrors.firstname}
             />
             <TextField
@@ -55,7 +55,7 @@ const Step1: FC = () => {
                 className="mt1"
                 value={regData.patronymic}
                 onChange={(e: any) => handleField(e)}
-                status={formErrors.patronymic === "" ? undefined  : "alert"}
+                status={formErrors.patronymic === "" ? undefined : "alert"}
                 caption={formErrors.patronymic}
             />
             <TextField
@@ -67,7 +67,7 @@ const Step1: FC = () => {
                 className="mt1"
                 value={regData.email}
                 onChange={(e: any) => handleField(e)}
-                status={formErrors.email === "" ? undefined  : "alert"}
+                status={formErrors.email === "" ? undefined : "alert"}
                 caption={formErrors.email}
             />
         </>
