@@ -9,6 +9,7 @@ import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { mainSlice } from "../../store/reducers/main/mainSlice";
+import PopoverCustom from '../util/PopoverCustom';
 
 
 const EtapFooter = (props: { etapId: number }) => {
@@ -31,26 +32,12 @@ const EtapFooter = (props: { etapId: number }) => {
         dispatch(mainSlice.actions.setNoNdsStatia({ etapId: etapId, value: value}))
     }
 
+    const msg = "При активации чекбокса изменения \n автоматически применятся \n ко всем расценкам этапа"
+
     return (
         <div className="footer">
-            <Popover
-                direction="rightCenter"
-                spareDirection="downStartLeft"
-                offset="xl"
-                arrowOffset={0}
-                //onClickOutside={action('onClickOutside')}
-                isInteractive={false}
-                position={position}
-                className="tipPopover"
-            >
-                {(direction) => (
-                    <div>
-                        <Text size="xs">
-                            При активации чекбокса изменения<br /> автоматически применятся<br />ко всем расценкам этапа
-                        </Text>
-                    </div>
-                )}
-            </Popover>
+            <PopoverCustom position={position} text={msg} />
+            
             <Layout>
                 <Layout flex={6} className="aic ">
                     <Text as="div" className="label">

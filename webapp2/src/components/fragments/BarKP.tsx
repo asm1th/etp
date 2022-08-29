@@ -56,7 +56,7 @@ const TopBar: FC = () => {
                             Срок действия договора: {format(dateContract, 'dd.MM.yyyy')}
                         </Text>
                     </Layout>
-                    <Layout flex={2} className="aic jcr">
+                    <Layout flex={2} className="aic jce">
                         {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
                         <DatePicker
                             value={dateKP}

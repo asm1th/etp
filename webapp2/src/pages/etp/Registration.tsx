@@ -65,11 +65,11 @@ const Login: FC = () => {
                     className="mt1"
                     iconLeft={IconQuestion} />
             </Layout>
-            <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
+            <Grid gap="l" cols="1" xAlign="center" yAlign="center">
                 <GridItem>
                     <Card
-                        verticalSpace="xs"
-                        horizontalSpace="4xl"
+                        verticalSpace="s"
+                        horizontalSpace="s"
                         form="round"
                         shadow={false}
                         className="regform">

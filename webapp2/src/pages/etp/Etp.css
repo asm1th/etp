@@ -1,6 +1,11 @@
+@import url("../../css/theme_colors.css");
 @import url("../../css/margins.css");
 @import url("../../css/table.css");
 @import url("../../css/base.css");
+
+body {
+  --color-control-typo-default: #667985;
+}
 
 html{
   height: 100%;
@@ -14,6 +19,12 @@ body {
   background-position: bottom;
 }
 
+body .Theme {
+  font-weight: 400;
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
 .App {
   padding: 1rem;
 }
@@ -25,6 +36,7 @@ body {
 
 .regform {
   background: transparent;
+  width: 450px;
 }
 
 
@@ -43,4 +55,25 @@ body {
   font-size: 10px;
   z-index: 10;
   place-self: flex-start;
+
+}
+
+.Checkbox-Label {
+  color: var(--color-control-typo-default);
+}
+
+.infoPopoverIcon{
+  background: rgba(0, 120, 210, 0.05);
+  border-radius: 4px;
+  margin: 0 0 0 5px;
+  position: relative;
+  top: 2px;
+  color: #0078D2;
+  opacity: .8;
+  cursor: pointer;
+}
+
+.infoPopoverIcon:hover {
+  opacity: 1;
+  background: rgba(0, 120, 210, 0.2);
 }

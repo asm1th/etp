@@ -14,19 +14,18 @@
     justify-content: center;
 }
 
-.jce {
+.jce,
+.jcfe {
     justify-content: flex-end;
 }
-.jcr {
-    justify-content: right;
+
+.jcb,
+.jcsb{
+    justify-content: space-between;
 }
 
 .aib {
     align-items: baseline;
-}
-
-.jcfe{
-    justify-content: flex-end;
 }
 
 .flexGrow1 {
@@ -52,3 +51,33 @@
     box-shadow: 0 8px 8px #0020330a, 0 12px 28px #0020331f;
     border-radius: 5px;
 }
+
+/* MODAL */
+.Modal{
+    z-index: 12;
+}
+body .Modal-Window{
+    min-height: auto;
+}
+.ModalTitle,
+.ModalContent,
+.ModalFooter{
+    margin: 1rem;
+}
+.ModalContent{
+    margin: 1rem 2rem 2rem;
+}
+.ModalContent p{
+    line-height: 22px;
+    color: #535659;
+}
+.ModalFooter{
+    justify-content: flex-end;
+    text-align: right;
+}
+
+/* .MODAL */
+
+
+
+

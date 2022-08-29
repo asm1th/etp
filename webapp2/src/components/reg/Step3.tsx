@@ -7,12 +7,8 @@ const Step3: FC = () => {
 
     return (
         <>
-            <Text
-                className="tac mb1 jcc"
-                size="m"
-                lineHeight="xs">
-                Контактные данные организации
-            </Text>
+            
+            капча
             
 
         </>
