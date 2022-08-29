@@ -49,3 +49,19 @@ export interface IMainData {
     isLoading: boolean,
     error: string
 }
+
+export interface IRegData {
+    "lastname": string,
+    "firstname": string,
+    "patronymic": string,
+    "email": string,
+    "resident": boolean,
+    "individual": boolean,
+    "org_fullname": string,
+    "org_shortname": string,
+    "org_telephone": string,
+    "org_email": string,
+    "password": string,
+    "inn": string,
+    "kpp": string
+}

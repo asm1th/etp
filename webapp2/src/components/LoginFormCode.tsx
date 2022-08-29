@@ -7,13 +7,13 @@ import { Layout } from '@consta/uikit/LayoutCanary';
 // RTK
 import { useNavigate } from 'react-router-dom'
 import { useLoginCodeMutation } from '../services/authService'
-import type { LoginRequestCode } from '../services/authService'
+import type { LoginCodeRequest } from '../services/authService'
 //
 
 const LoginFormCode: FC = () => {
     const navigate = useNavigate()
 
-    const [formState, setFormState] = React.useState<LoginRequestCode>({
+    const [formState, setFormState] = React.useState<LoginCodeRequest>({
         num1: '',
         num2: '',
         num3: '',

@@ -271,5 +271,5 @@ export const initialState: IMainData = {
     summKP_nds: "-- --",
 
     isLoading: false,
-    error: ''
+    error: ""
 }

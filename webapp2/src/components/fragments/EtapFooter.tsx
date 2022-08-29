@@ -15,14 +15,14 @@ import PopoverCustom from '../util/PopoverCustom';
 const EtapFooter = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
     const { etapsSumms } = useAppSelector(state => state.mainReducer)
-    const etapSumsCurrent = etapsSumms.find(x => x.id === props.etapId);
+    const etapSumsCurrent = etapsSumms.find(x => x.id === props.etapId)
 
     //popover
     type Position = any;
-    const [position, setPosition] = useState<Position>(undefined);
+    const [position, setPosition] = useState<Position>(undefined)
 
     const handleMouseMove = (event: React.MouseEvent) => {
-        setPosition({ x: event.clientX, y: event.clientY });
+        setPosition({ x: event.clientX, y: event.clientY })
     };
 
     const handleNds = (etapId: number, checked: any) => {

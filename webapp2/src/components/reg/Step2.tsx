@@ -5,10 +5,13 @@ import { Layout } from '@consta/uikit/LayoutCanary';
 import { Checkbox } from '@consta/uikit/Checkbox';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import PopoverCustom from '../util/PopoverCustom';
-// import ModalFZ from '../util/ModalFZ';
+
 import { Modal } from '@consta/uikit/Modal';
 import { Button } from '@consta/uikit/Button';
 import { IconClose } from '@consta/uikit/IconClose';
+
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { regSlice } from '../../store/reducers/reg/regSlice'
 
 const Step2: FC = () => {
     const [accept, setAccept] = useState<boolean>(false);
@@ -29,47 +32,15 @@ const Step2: FC = () => {
     const [isModalOpen1, setIsModalOpen1] = useState(false);
     const [isModalOpen2, setIsModalOpen2] = useState(false);
 
-
-    type IOrg = {
-        "resident": boolean,
-        "individual": boolean,
-        "org_fullname": string,
-        "org_shortname": string,
-        "org_telephone": string,
-        "org_email": string,
-
-        "inn": string,
-        "kpp": string,
-        "isSNSP": boolean,
-        "isToken": boolean
-    }
-    const Org: IOrg = {
-        "resident": false,
-        "individual": false,
-        "org_fullname": "",
-        "org_shortname": "",
-        "org_telephone": "",
-        "org_email": "",
-
-        "inn": "",
-        "kpp": "",
-        "isSNSP": false,
-        "isToken": false
-    }
-
-    const [org, setOrg] = useState<IOrg>(Org)
+    const dispatch = useAppDispatch()
+    const { regData, formErrors } = useAppSelector(state => state.regReducer)
 
     const handleField = (e: any) => {
-        //debugger
-        setOrg((prev) => ({ ...prev, [e.name]: e.value }))
-        console.log(org)
-        //handleValidation()
+        dispatch(regSlice.actions.setRegDataProp({prop: e.name, value: e.value}))
     }
     const handleCheckbox = (e: any) => {
-        //debugger
-        setOrg((prev) => ({ ...prev, [e.e.target.name]: e.checked }))
-        console.log(org)
-        //handleValidation()
+        debugger
+        dispatch(regSlice.actions.setRegDataBool({prop: e.name, value: e.value}))
     }
 
     return (
@@ -88,30 +59,37 @@ const Step2: FC = () => {
                         id="resident"
                         name="resident"
                         label="Нерезидент"
-                        onChange={handleCheckbox}
-                        checked={org.resident} />
-
+                        checked={regData.resident} 
+                        onChange={(e: any) => handleCheckbox(e)}
+                    />
                     <Checkbox
                         className="cb_sm"
                         label="Физические лица"
                         name="individual"
-                        onChange={handleCheckbox}
-                        checked={org.individual} />
+                        checked={regData.individual} 
+                        onChange={(e: any) => handleCheckbox(e)}
+                    />
                 </Layout>
                 <Layout direction="column">
                     <Checkbox
                         className="cb_sm"
                         label="Внесен в реестр СМСП"
                         name="isSNSP"
-                        onChange={handleCheckbox}
-                        checked={org.isSNSP} />
+                        disabled={true}
+                        checked={false}
+                        //checked={regData.isSNSP} 
+                        //onChange={(e: any) => handleCheckbox(e)}
+                    />
                     <Layout>
                         <Checkbox
                             className="cb_sm"
                             label="Регистрация по токену"
                             name="isToken"
-                            onChange={handleCheckbox}
-                            checked={org.isToken} />
+                            disabled={true}
+                            checked={false}
+                            //checked={regData.isToken} 
+                            //onChange={(e: any) => handleCheckbox(e)}
+                        />
                         <div onMouseMove={(e) => handleMouseMove(e, msg1)} onMouseLeave={() => setPosition(undefined)}>
                             <IconInfo onClick={() => setIsModalOpen1(true)} size="s" view="ghost" className="infoPopoverIcon" />
                         </div>
@@ -127,8 +105,10 @@ const Step2: FC = () => {
                     placeholder="Введите Полное наименование"
                     width="full"
                     required
-                    value={org.org_fullname}
+                    value={regData.org_fullname}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.org_fullname === "" ? undefined  : "alert"}
+                    caption={formErrors.org_fullname}
                 />
                 <TextField
                     label="Краткое наименование"
@@ -137,8 +117,10 @@ const Step2: FC = () => {
                     placeholder="Краткое наименование"
                     width="full"
                     required
-                    value={org.org_shortname}
+                    value={regData.org_shortname}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.org_shortname === "" ? undefined  : "alert"}
+                    caption={formErrors.org_shortname}
                 />
                 <TextField
                     label="ИНН"
@@ -147,8 +129,10 @@ const Step2: FC = () => {
                     placeholder="Введите ИНН"
                     width="full"
                     required
-                    value={org.inn}
+                    value={regData.inn}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.inn === "" ? undefined  : "alert"}
+                    caption={formErrors.inn}
                 />
                 <TextField
                     label="КПП"
@@ -157,8 +141,10 @@ const Step2: FC = () => {
                     placeholder="Введите КПП"
                     width="full"
                     required
-                    value={org.kpp}
+                    value={regData.kpp}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.kpp === "" ? undefined  : "alert"}
+                    caption={formErrors.kpp}
                 />
                 <TextField
                     label="Телефон организации"
@@ -167,8 +153,10 @@ const Step2: FC = () => {
                     placeholder="Введите Телефон организации"
                     width="full"
                     required
-                    value={org.org_telephone}
+                    value={regData.org_telephone}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.org_telephone === "" ? undefined  : "alert"}
+                    caption={formErrors.org_telephone}
                 />
                 <TextField
                     label="Эл. почта организации"
@@ -177,8 +165,10 @@ const Step2: FC = () => {
                     placeholder="Эл. почта организации"
                     width="full"
                     required
-                    value={org.org_email}
+                    value={regData.org_email}
                     onChange={(e: any) => handleField(e)}
+                    status={formErrors.org_email === "" ? undefined  : "alert"}
+                    caption={formErrors.org_email}
                 />
             </div>
             <Layout className="mt2">

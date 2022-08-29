@@ -13,17 +13,30 @@ export interface UserResponse {
 }
 
 export interface LoginRequest {
-  //username: string
   email: string
   password: string
 }
 
-export interface LoginRequestCode {
+export interface LoginCodeRequest {
   num1: string
   num2: string
   num3: string
   num4: string
-} 
+}
+
+export interface RegistrationRequest {
+  "lastname": string
+  "firstname": string
+  "patronymic": string
+  "email": string
+  "resident": true,
+  "individual": true,
+  "org_fullname": string
+  "org_shortname": string
+  "org_telephone": string
+  "org_email": string
+  "password": string
+}
 
 export const authService = createApi({
   baseQuery: fetchBaseQuery({
@@ -45,11 +58,18 @@ export const authService = createApi({
         body: credentials,
       }),
     }),
-    loginCode: builder.mutation<UserResponse, LoginRequestCode>({
+    loginCode: builder.mutation<UserResponse, LoginCodeRequest>({
       query: (credentials) => ({
         url: 'http://109.195.85.121:5010/auth/registerCode',
         method: 'POST',
         body: credentials,
+      }),
+    }),
+    registration: builder.mutation<UserResponse, RegistrationRequest>({
+      query: (body) => ({
+        url: 'http://109.195.85.121:5010/auth/registration',
+        method: 'POST',
+        body: body,
       }),
     }),
     protected: builder.mutation<{ message: string }, void>({
@@ -58,4 +78,4 @@ export const authService = createApi({
   }),
 })
 
-export const { useLoginMutation, useLoginCodeMutation, useProtectedMutation } = authService
+export const { useLoginMutation, useLoginCodeMutation, useRegistrationMutation, useProtectedMutation } = authService
