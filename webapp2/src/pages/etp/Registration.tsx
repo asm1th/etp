@@ -137,7 +137,8 @@ const Login: FC = () => {
                 for (let i in coefficients) {
                     n += coefficients[i] * inn[i];
                 }
-                return parseInt(n % 11 % 10);
+                let modul: any = n % 11 % 10
+                return parseInt(modul);
             };
             switch (inn.length) {
                 case 10:
