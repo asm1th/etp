@@ -26,7 +26,7 @@ export class CreateUserDto{
   @ApiProperty({description: 'Индикатор "Физическое лицо"'})
   isIndividual: boolean;
   @ApiProperty({description: 'Регистрация по токену'})
-  isToken: string;
+  isToken: boolean;
   @ApiProperty({description: 'Внесен в реестр СМСП'})
-  isSmsp: string;  
+  isSmsp: boolean;  
 }
