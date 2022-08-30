@@ -5,6 +5,8 @@ import { DecimalDataType} from "sequelize/types";
 export class UpdateUsrpDTO {
   @ApiProperty({description: 'Ключ расченки в шаблоне КП', example: 'varchar(32)'})
   kp_unit_guid: string;
+  @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'varchar(32)'})
+  link_id: string;
   @ApiProperty({description: 'Стоимость расценки', example: 'decimal(17,2)'})
   prices_user: DecimalDataType;
   @ApiProperty({description: 'Единица измерения', example: 'varchar(3)'})
