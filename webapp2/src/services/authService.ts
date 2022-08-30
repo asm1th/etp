@@ -1,29 +1,35 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IUser } from '../models/IUser'
+import { IUser } from '../models/test/IUser'
 import { RootState } from '../store/store'
+
+import {IRegData} from '../models/IRegistration'
 
 // export interface User {
 //   first_name: string
 //   last_name: string
 // }
-
-export interface UserResponse {
+export interface RegResponse {
+  // не понятно что в ответе?
   user: IUser
   token: string
 }
 
+export interface UserResponse {
+  //user: IUser
+  token: string
+}
+
 export interface LoginRequest {
-  //username: string
   email: string
   password: string
 }
 
-export interface LoginRequestCode {
+export interface LoginCodeRequest {
   num1: string
   num2: string
   num3: string
   num4: string
-} 
+}
 
 export const authService = createApi({
   baseQuery: fetchBaseQuery({
@@ -45,17 +51,25 @@ export const authService = createApi({
         body: credentials,
       }),
     }),
-    loginCode: builder.mutation<UserResponse, LoginRequestCode>({
+    loginCode: builder.mutation<UserResponse, LoginCodeRequest>({
       query: (credentials) => ({
         url: 'http://109.195.85.121:5010/auth/registerCode',
         method: 'POST',
         body: credentials,
       }),
     }),
+    registration: builder.mutation<RegResponse, IRegData>({
+      query: (body) => ({
+        url: 'http://109.195.85.121:5010/auth/registration',
+        method: 'POST',
+        body: body,
+      }),
+    }),
+    //test
     protected: builder.mutation<{ message: string }, void>({
       query: () => 'http://109.195.85.121:5010/users',
     }),
   }),
 })
 
-export const { useLoginMutation, useLoginCodeMutation, useProtectedMutation } = authService
+export const { useLoginMutation, useLoginCodeMutation, useRegistrationMutation, useProtectedMutation } = authService

@@ -12,6 +12,7 @@
     "@types/react-redux": "7.1.22",
     "@types/react-router-dom": "^5.3.3",
     "axios": "0.27.2",
+    "date-fns": "^2.29.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hook-form": "7.30.0",

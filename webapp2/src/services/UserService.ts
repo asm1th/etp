@@ -1,5 +1,5 @@
 import axios, {AxiosResponse} from "axios";
-import {IUser} from "../models/IUser";
+import {IUser} from "../models/test/IUser";
 
 export default class UserService {
     static async getUsers(): Promise<AxiosResponse<IUser[]>> {

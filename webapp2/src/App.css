@@ -2,6 +2,7 @@
 
 @import url("./css/margins.css");
 @import url("./css/table.css");
+@import url("./css/base.css");
 
 body .Theme {
   font-weight: 500;
@@ -33,10 +34,8 @@ body {
 .loginform {
   max-width: 370px;
 }
-
-.Button_view_primary {
-  --color-control-bg-primary: #5066ff;
-  background-color: var(--color-control-bg-primary);
+.regform {
+  max-width: 450px;
 }
 
 .codeInputs .TextField-Input {
@@ -63,7 +62,7 @@ body {
 }
 
 .tac {
-  align-items: center;
+  text-align: center;
 }
 
 .jcc {
@@ -150,7 +149,7 @@ body {
   content: counter(section);
 } */
 
-.Popover {
+.tipPopover {
   padding: 0.5rem 0.7rem;
   background: #fff;
   border: 1px solid #00416633;
@@ -191,3 +190,20 @@ body {
 .weight700 {
   font-weight: 700;
 }
+
+.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled{
+  border-color: #d1d1d1;
+}
+
+.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled .TextField-Input {
+  color: #000
+}
+
+.jcr{
+  justify-content: right;
+}
+
+.aib{
+  align-items: baseline;
+}
+

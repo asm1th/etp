@@ -1,0 +1,8 @@
+/* 
+rnmc styles here from app css
+*/
+
+.Button_view_primary {
+    --color-control-bg-primary: #5066ff;
+    background-color: var(--color-control-bg-primary);
+}
