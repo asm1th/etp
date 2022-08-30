@@ -21,14 +21,13 @@ import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";
 import Step3 from "../../components/reg/Step3";
 import { regSlice } from '../../store/reducers/reg/regSlice';
-import { IRegData } from '../../models/IRegistration';
-
+import { IRegData } from "../../models/IRegistration";
 
 const Registration: FC = () => {
 
     const dispatch = useAppDispatch()
-    const { regData } = useAppSelector(state => state.regReducer)
-    const [regRequest, { error }] = useRegistrationMutation();
+    const { regData, isAccept } = useAppSelector(state => state.regReducer)
+    const [regRequest, { data, error }] = useRegistrationMutation();
 
     const [activeStep, setActiveStep] = useState<number>(0)
     const [status, setStatus] = useState<string>('normal')
@@ -57,8 +56,6 @@ const Registration: FC = () => {
         }
     ];
 
-    const [message, setMessage] = useState<any>()
-
     const clickAction = (e: number) => {
         //setStatus(status === 'normal' ? 'success' : 'normal');
         setActiveStep(e)
@@ -80,7 +77,7 @@ const Registration: FC = () => {
 
     const handlePrev = () => setActiveStep(activeStep - 1);
 
-    const validateStep0 = (regData:IRegData) => {
+    const validateStep0 = (regData: IRegData) => {
         let valid = false;
         valid = validateTextField("lastname", regData.lastname, "onlyLetters") &&
             validateTextField("firstname", regData.firstname, "onlyLetters") &&
@@ -268,20 +265,15 @@ const Registration: FC = () => {
     }
 
     const onSubmit = async () => {
-        try {
-            //await regRequest(regData).unwrap()
-            // Being that the result is handled in extraReducers in authSlice,
-            // we know that we're authenticated after this, so the user
-            // and token will be present in the store
+        regRequest(regData)
 
-            //todo переход на страницу огина с сообщением о том что зарегистрированы и можно входить
-            //navigate('/')
-            await regRequest(regData).unwrap()
-        } catch (err) {
-            debugger
-            console.log(err)
-            setMessage(err);
-        }
+        // try {
+        //     //todo переход на страницу огина с сообщением о том что зарегистрированы и можно входить
+        //     //navigate('/')
+        //     await regRequest(regData).unwrap()
+        // } catch (err) {
+        //     console.log(err)
+        // }
     }
 
     return (
@@ -344,6 +336,9 @@ const Registration: FC = () => {
                                     label={activeStep < 2 ? "Дальше" : "Отправить"}
                                     size="m"
                                     width="full"
+                                    //disabled={ activeStep == > 2 !isAccept}
+
+                                    disabled={activeStep === 2 ? false : !isAccept}
                                     iconRight={activeStep < 2 ? IconArrowRight : undefined}
                                 />
                             </Layout>
@@ -356,14 +351,13 @@ const Registration: FC = () => {
                             </Text>
                         </Layout>
 
-                        { message ? (
+                        {/* { error ? (
                             <Informer
                             className="mt2"
-                            title={"Ошибка" + message}
-                            label={message.data}
+                            title={"Ошибка"}
+                            label={error.data}
                             view="filled"
                             status="warning"
-                            icon={IconThumbUp}
                         />
                         ) : (
                             <Informer
@@ -375,7 +369,9 @@ const Registration: FC = () => {
                                 icon={IconThumbUp}
                             />
                         )
-                        }
+                        } */}
+
+                        <pre>{JSON.stringify(regData, null, 2)}</pre>
                     </Card>
                 </GridItem>
             </Grid>

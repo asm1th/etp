@@ -40,7 +40,7 @@
     --color-control-bg-border-focus: rgb(0, 145, 255);
     --color-control-bg-focus: rgba(0, 120, 210, 0.3);
     --color-control-bg-active: rgba(0, 120, 210, 0.5);
-    --color-control-bg-primary: rgb(0, 120, 210);
+    --color-control-bg-primary: #0078d2;
     --color-control-bg-primary-hover: rgb(0, 145, 255);
     --color-control-typo-primary: rgb(255, 255, 255);
     --color-control-typo-primary-hover: rgb(255, 255, 255);

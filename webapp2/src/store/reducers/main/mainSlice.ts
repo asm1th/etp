@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { initialState } from "./etapData"
-
+import { initialState } from "./mainData"
+import { MainService } from '../../../services/MainService'
 
 export const mainSlice = createSlice({
     name: 'appData',
@@ -107,6 +107,20 @@ export const mainSlice = createSlice({
             state.etapsSumms[etapItemIndexCurrent].noNdsStatia = action.payload.value;
         }
     },
+    extraReducers: (builder) => {
+        builder
+        .addMatcher(
+            MainService.endpoints.fetchSamp.matchFulfilled,
+            (state, { payload }) => {
+                debugger
+                console.warn(payload);
+                //state.dateKP = payload.kp_accep_date;
+                //state.dateKP = payload.
+            }
+        )
+    },
+    
+    
 })
 
 export default mainSlice.reducer;

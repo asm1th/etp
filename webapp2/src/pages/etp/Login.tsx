@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Link } from 'react-router-dom';
-import LoginFormEmail from "../../components/LoginFormEmail";
 import LoginForm from "../../components/LoginForm";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
@@ -39,7 +38,7 @@ const Login: FC = () => {
 
                         <LoginForm />
                     </Card>
-                    <Layout flex={1} className="acc aic jcc">
+                    <Layout flex={1} className="acc aic jcc" direction="column">
                         <Text
                             size="xs" lineHeight="xs">
                             Нет учетной записи? <Link to="/etp/reg">Регистрация в системе</Link>

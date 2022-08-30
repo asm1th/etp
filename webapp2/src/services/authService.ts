@@ -9,12 +9,13 @@ import {IRegData} from '../models/IRegistration'
 //   last_name: string
 // }
 export interface RegResponse {
+  // не понятно что в ответе?
   user: IUser
   token: string
 }
 
 export interface UserResponse {
-  user: IUser
+  //user: IUser
   token: string
 }
 
@@ -64,6 +65,7 @@ export const authService = createApi({
         body: body,
       }),
     }),
+    //test
     protected: builder.mutation<{ message: string }, void>({
       query: () => 'http://109.195.85.121:5010/users',
     }),

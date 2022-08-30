@@ -32,12 +32,12 @@ const Step2: FC = () => {
     const [isModalOpen2, setIsModalOpen2] = useState(false);
 
     const dispatch = useAppDispatch()
-    const { regData, formErrors, isAccept } = useAppSelector(state => state.regReducer)
+    const { regData, formErrors, isAccept, isError} = useAppSelector(state => state.regReducer)
 
     const handleField = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
     const handleFieldINN = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
-    const handleCheckbox = (e: any) => dispatch(regSlice.actions.setRegDataBool(e))
-    const handleAccept = (e: any) => dispatch(regSlice.actions.setRegDataBool(e))
+    const handleCheckbox = (e: any) => dispatch(regSlice.actions.setRegDataBool({ prop: e.e.target.name, checked: e.checked }))
+    const handleAccept = (e: any) => dispatch(regSlice.actions.setRegAccept({ checked: e.checked }))
 
     return (
         <>
@@ -122,7 +122,7 @@ const Step2: FC = () => {
                     width="full"
                     required
                     maxLength={12}
-                    //value={regData.inn}
+                    value={regData.inn}
                     onChange={(e: any) => handleFieldINN(e)}
                     status={formErrors.inn === "" ? undefined : "alert"}
                     caption={formErrors.inn}
@@ -135,7 +135,7 @@ const Step2: FC = () => {
                     width="full"
                     required
                     maxLength={9}
-                   // value={regData.kpp}
+                    value={regData.kpp}
                     onChange={(e: any) => handleField(e)}
                     status={formErrors.kpp === "" ? undefined : "alert"}
                     caption={formErrors.kpp}
@@ -168,10 +168,9 @@ const Step2: FC = () => {
             </div>
             <Layout className="mt2">
                 <Checkbox
-                    name="accept"
                     className="cb_sm"
                     size="m"
-                    label=" Согласие на обработку персональных данных"
+                    label="Согласие на обработку персональных данных"
                     onChange={(e) => handleAccept(e)}
                     checked={isAccept} />
                 <div onMouseMove={(e) => handleMouseMove(e, msg2)} onMouseLeave={() => setPosition(undefined)}>

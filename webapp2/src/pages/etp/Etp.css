@@ -34,6 +34,16 @@ body .Theme {
   background-color: var(--color-control-bg-primary);
 }
 
+.Button_disabled {
+  color: var(--color-control-typo-disable);
+}
+.Button_disabled, .Button_loading {
+  background-color: var(--color-control-bg-disable);
+  border-color: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .regform {
   background: transparent;
   width: 450px;

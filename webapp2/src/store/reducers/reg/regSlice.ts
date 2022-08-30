@@ -24,7 +24,9 @@ interface regState {
     regData: IRegData;
     isValid: boolean,
     isAccept: boolean,
-    formErrors: IFormErrors
+    formErrors: IFormErrors,
+    isLoading: boolean,
+    isError: boolean,
 }
 
 const initialState: regState = {
@@ -47,7 +49,9 @@ const initialState: regState = {
         "isIndividual": "",
         "isToken": "",
         "isSmsp": ""
-        }
+    },
+    isLoading: false,
+    isError: false
 }
 
 
@@ -68,7 +72,7 @@ export const regSlice = createSlice({
             reg[prop] = action.payload.value;
         },
         setRegDataBool: (state, action: PayloadAction<any>) => {
-            let prop: any = action.payload.e.target.name
+            let prop: any = action.payload.prop
             let reg: any = state.regData
             reg[prop] = action.payload.checked;
         },
@@ -79,6 +83,9 @@ export const regSlice = createSlice({
         },
         setIsValid: (state, action: PayloadAction<boolean>) => {
             state.isValid = action.payload;
+        },
+        setRegAccept: (state, action: PayloadAction<any>) => {
+            state.isAccept = action.payload.checked
         },
     },
 })

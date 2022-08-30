@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { postAPI } from "../services/PostService";
+import { postAPI } from "../services/PostService"; // fix
 import reducers from "./reducers";
 
 const rootReducer = combineReducers(reducers)
@@ -17,7 +17,7 @@ export const setupStore = () => {
                         'mainReducer.dateKP'
                     ],
                 }
-            }).concat(postAPI.middleware)
+            }).concat(postAPI.middleware) // fix
     })
 }
 
