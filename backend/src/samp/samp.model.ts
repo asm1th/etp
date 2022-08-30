@@ -17,23 +17,23 @@ export class Samp extends Model<Samp, SampAttrs> {
   @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
   kp_sample_guid: string;
-  @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'string(32)'})
+  @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'varchar(32)'})
   @ForeignKey( () => KpLink)
   @Column({type: DataType.STRING(32)})
   link: string;
-  @ApiProperty({description: 'Идентификатор конкурса', example: 'string(12)'})
+  @ApiProperty({description: 'Идентификатор конкурса', example: 'varchar(12)'})
   @Column({type: DataType.STRING(12)})
   konkurs_id: string;
-  @ApiProperty({description: 'Наименование конкурса', example: 'string(255)'})
+  @ApiProperty({description: 'Наименование конкурса', example: 'varchar(255)'})
   @Column({type: DataType.STRING(255)})
   konkurs_name: string;
-  @ApiProperty({description: 'Идентификатор лота', example: 'string(12)'})
+  @ApiProperty({description: 'Идентификатор лота', example: 'varchar(12)'})
   @Column({type: DataType.STRING(12)})
   lot_id: string;
-  @ApiProperty({description: 'Наименование лота', example: 'string(132)'})
+  @ApiProperty({description: 'Наименование лота', example: 'varchar(132)'})
   @Column({type: DataType.STRING(132)})
   lot_name: string;
-  @ApiProperty({description: 'Валюта', example: 'string(5)'})
+  @ApiProperty({description: 'Валюта', example: 'varchar(5)'})
   @Column({type: DataType.STRING(5)})
   waers: string;
   @ApiProperty({description: 'Срок приема КП', example: 'date(YYYYMMDD)'})

@@ -21,48 +21,37 @@ export class User extends Model<User, UserCreationAttrs> {
   @Column({type: DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true})
   id: number;
   @ApiProperty({description: 'Фамилия'})
-  @Column({type: DataType.STRING,})
+  @Column({type: DataType.STRING, allowNull: false})
   lastname: string;
   @ApiProperty({description: 'Имя'})
-  @Column({type: DataType.STRING})
+  @Column({type: DataType.STRING, allowNull: false})
   firstname: string;
   @ApiProperty({description: 'Отчество'})
-  @Column({type: DataType.STRING})
+  @Column({type: DataType.STRING, allowNull: true})
   patronymic: string;
   @ApiProperty({description: 'Email'})
-  @Column({type: DataType.STRING, unique: true})
-  email: string;  
-  @ApiProperty({description: 'Полное наименование организации'})
-  @Column({type: DataType.STRING}) 
-  org_fullname: string;
-  @ApiProperty({description: 'Краткое наименование организации'})
-  @Column({type: DataType.STRING}) 
-  org_shortname: string;
-  @ApiProperty({description: 'Телефон организации'})
-  @Column({type: DataType.STRING, unique: true}) 
-  org_telephone: string;
-  @ApiProperty({description: 'Email организации'})
-  @Column({type: DataType.STRING, unique: true}) 
-  org_email: string;
-  @ApiProperty({description: 'Пароль'})
-  @Column({type: DataType.STRING, allowNull: false}) 
-  password: string;
-  @ApiProperty({description: 'ИНН'})
-  @Column({type: DataType.STRING}) 
-  inn: string;
-  @ApiProperty({description: 'КПП'})
-  @Column({type: DataType.STRING}) 
-  kpp: string;
+  @Column({type: DataType.STRING, unique: true, allowNull: false})
+  email: string;
   @ApiProperty({description: 'Резедент или нерезедент'})
   @Column({type: DataType.BOOLEAN})
-  isResident: boolean;
+  resident: boolean;
   @ApiProperty({description: 'Индикатор "Физическое лицо"'})
   @Column({type: DataType.BOOLEAN})
-  isIndividual: boolean;
-  @ApiProperty({description: 'Регистрация по токену'})
-  @Column({type: DataType.STRING}) 
-  isToken: string;
-  @ApiProperty({description: 'Внесен в реестр СМСП'})
-  @Column({type: DataType.STRING}) 
-  isSmsp: string;  
+  individual: boolean;
+  @ApiProperty({description: 'Полное наименование организации'})
+  @Column({type: DataType.STRING, allowNull: false}) 
+  org_fullname: string;
+  @ApiProperty({description: 'Краткое наименование организации'})
+  @Column({type: DataType.STRING, allowNull: false}) 
+  org_shortname: string;
+  @ApiProperty({description: 'Телефон организации'})
+  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  org_telephone: string;
+  @ApiProperty({description: 'Email организации'})
+  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  org_email: string;
+  @ApiProperty({description: 'Пароль'})
+  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  password: string;
+
 }
