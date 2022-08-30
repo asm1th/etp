@@ -69,7 +69,7 @@ const LoginForm: FC = () => {
 
     return (
         <>
-            <Text
+            {/* <Text
                 as="div"
                 align="center"
                 size="2xl"
@@ -81,7 +81,7 @@ const LoginForm: FC = () => {
                 className={cnMixSpace({ mT: 's', mB: 's' })}
                 size="m" lineHeight="xs">
                 Введите электронную почту, на которую поступил запрос, вам придет уникальный код для входа на платформу.
-            </Text>
+            </Text> */}
             <div className={cnMixSpace({ mT: 'l' })}>
                 <TextField
                     name="email"
@@ -101,7 +101,7 @@ const LoginForm: FC = () => {
                     value={formState.password}
                 />
             </div>
-            <Button onClick={onSubmit} loading={isLoading} label="Отправить код" size="m" width="full"
+            <Button onClick={onSubmit} loading={isLoading} label="Отправить" size="m" width="full"
                 className={cnMixSpace({ mT: 'm' })} />
             {/* <SnackBar items={messageState} /> */}
         </>

@@ -1,4 +1,4 @@
-import { IRegData } from "../../../models/IMainData"
+import { IRegData } from "../../../models/IRegistration"
 
 
 export const regData: IRegData = {
@@ -6,14 +6,15 @@ export const regData: IRegData = {
     "firstname": "",
     "patronymic": "",
     "email": "",
-    "resident": false,
-    "individual": false,
     "org_fullname": "",
     "org_shortname": "",
     "org_telephone": "",
     "org_email": "",
-    "password": "1",
-
-    // "inn": "",
-    // "kpp": ""
+    "password": "",
+    "inn": "",
+    "kpp": "",
+    "isResident": false,
+    "isIndividual": false,
+    "isToken": false,
+    "isSmsp": false
 }

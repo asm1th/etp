@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
+import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
-import { useProtectedMutation } from '../../services/authService'
-import { useLoginMutation } from '../../services/authService'
 
 import { IconArrowRight } from '@consta/uikit/IconArrowRight';
 import { IconArrowLeft } from '@consta/uikit/IconArrowLeft';
@@ -21,15 +20,11 @@ import { Informer } from '@consta/uikit/Informer';
 import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";
 import Step3 from "../../components/reg/Step3";
-import { regSlice } from '../../store/reducers/reg/regSlice'
-import { IRegData } from "../../models/IMainData"
+import { regSlice } from '../../store/reducers/reg/regSlice';
+import { IRegData } from '../../models/IRegistration';
 
 
-const Login: FC = () => {
-    //test
-    const [attemptAccess, { data }] = useProtectedMutation();
-    const [login] = useLoginMutation();
-    //
+const Registration: FC = () => {
 
     const dispatch = useAppDispatch()
     const { regData } = useAppSelector(state => state.regReducer)
@@ -99,8 +94,8 @@ const Login: FC = () => {
         let valid = false;
         valid = validateTextField("org_fullname", regData.org_fullname, null) &&
             validateTextField("org_shortname", regData.org_shortname, null) &&
-            //validateINN("inn", regData.inn) &&
-            //validateKPP("kpp", regData.kpp) &&
+            validateINN("inn", regData.inn) &&
+            validateKPP("kpp", regData.kpp) &&
             validateTextField("org_telephone", regData.org_telephone, null) &&
             validateTextField("org_email", regData.org_email, null)
 
@@ -354,11 +349,12 @@ const Login: FC = () => {
                             </Layout>
                         </Layout>
                         
-                      
-                      
-
-                        
-
+                        <Layout flex={1} className="acc aic jcc mt2">
+                            <Text
+                                size="xs" lineHeight="xs">
+                                Уже есть учетная запись? <Link to="/etp/login">Войти в систему</Link>
+                            </Text>
+                        </Layout>
 
                         { message ? (
                             <Informer
@@ -380,24 +376,6 @@ const Login: FC = () => {
                             />
                         )
                         }
-
-
-                        <pre>{JSON.stringify(regData, null, 2)}</pre>
-                        <Button label="Login" onClick={() => login(regData)} />
-                        <Button label="Запрос /users с токеном" onClick={() => attemptAccess()}  />
-                        <div>
-                            Данные /users (attemptAccess):
-                            {data ? (
-                                <>
-                                    Data:
-                                    <pre>{JSON.stringify(data, null, 2)}</pre>
-                                </>
-                            ) : error ? (
-                                <>
-                                    Error: <pre>{JSON.stringify(error, null, 2)}</pre>
-                                </>
-                            ) : null}
-                        </div>
                     </Card>
                 </GridItem>
             </Grid>
@@ -405,5 +383,5 @@ const Login: FC = () => {
     );
 };
 
-export default Login;
+export default Registration;
 

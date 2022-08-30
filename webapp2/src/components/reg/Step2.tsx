@@ -52,17 +52,16 @@ const Step2: FC = () => {
                 <Layout direction="column" className="mr1">
                     <Checkbox
                         className="cb_sm"
-                        id="resident"
-                        name="resident"
+                        name="isResident"
                         label="Нерезидент"
-                        checked={regData.resident}
+                        checked={regData.isResident}
                         onChange={(e: any) => handleCheckbox(e)}
                     />
                     <Checkbox
                         className="cb_sm"
                         label="Физические лица"
-                        name="individual"
-                        checked={regData.individual}
+                        name="isIndividual"
+                        checked={regData.isIndividual}
                         onChange={(e: any) => handleCheckbox(e)}
                     />
                 </Layout>
@@ -70,11 +69,9 @@ const Step2: FC = () => {
                     <Checkbox
                         className="cb_sm"
                         label="Внесен в реестр СМСП"
-                        name="isSNSP"
-                        disabled={true}
-                        checked={false}
-                    //checked={regData.isSNSP} 
-                    //onChange={(e: any) => handleCheckbox(e)}
+                        name="isSmsp"
+                        checked={regData.isSmsp} 
+                        onChange={(e: any) => handleCheckbox(e)}
                     />
                     <Layout>
                         <Checkbox
@@ -82,9 +79,8 @@ const Step2: FC = () => {
                             label="Регистрация по токену"
                             name="isToken"
                             disabled={true}
-                            checked={false}
-                        //checked={regData.isToken} 
-                        //onChange={(e: any) => handleCheckbox(e)}
+                            checked={regData.isToken} 
+                            onChange={(e: any) => handleCheckbox(e)}
                         />
                         <div onMouseMove={(e) => handleMouseMove(e, msg1)} onMouseLeave={() => setPosition(undefined)}>
                             <IconInfo onClick={() => setIsModalOpen1(true)} size="s" view="ghost" className="infoPopoverIcon" />

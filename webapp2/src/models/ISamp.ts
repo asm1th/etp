@@ -27,7 +27,18 @@ export interface IEtap {
     noNds: true,
     noNdsStatia: "15",
 }
-export interface IMainData {
+export interface ISamp {
+    kp_sample_guid: string,
+    // link: string,
+    // konkurs_id: string,
+    // konkurs_name: string,
+    // lot_id: string,
+    // lot_name: string,
+    // waers: string,
+    // kp_accep_date: string,
+    // kp_send_date: string
+
+    // ==============
     lot_id: number,
     lot_name: string,
     participant_name: string,
@@ -48,20 +59,4 @@ export interface IMainData {
     summKP_nds: string,
     isLoading: boolean,
     error: string
-}
-
-export interface IRegData {
-    "lastname": string,
-    "firstname": string,
-    "patronymic": string,
-    "email": string,
-    "resident": boolean,
-    "individual": boolean,
-    "org_fullname": string,
-    "org_shortname": string,
-    "org_telephone": string,
-    "org_email": string,
-    "password": string,
-    // "inn": string,
-    // "kpp": string,
 }

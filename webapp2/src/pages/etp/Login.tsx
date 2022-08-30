@@ -1,5 +1,7 @@
 import React, { FC } from "react";
+import { Link } from 'react-router-dom';
 import LoginFormEmail from "../../components/LoginFormEmail";
+import LoginForm from "../../components/LoginForm";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
@@ -33,20 +35,20 @@ const Login: FC = () => {
                             lineHeight="xs">
                             Для входа на платформу введите код, который пришел на вашу электронную почту
                         </Text>
-                        <LoginFormEmail />
-                    </Card>
+                        {/* <LoginFormEmail /> */}
 
+                        <LoginForm />
+                    </Card>
                     <Layout flex={1} className="acc aic jcc">
                         <Text
                             size="xs" lineHeight="xs">
-                            Уже есть учетная запись?
+                            Нет учетной записи? <Link to="/etp/reg">Регистрация в системе</Link>
                         </Text>
-                        <Button
-                            view="clear"
-                            label="Войти в систему. "
-                            size="xs"/>
+                        <Text
+                            size="xs" lineHeight="xs">
+                            Полчучили код <Link to="/etp/logincode">Введите код</Link>
+                        </Text>
                     </Layout>
-
                 </GridItem>
             </Grid>
         </>

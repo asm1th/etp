@@ -1,6 +1,6 @@
-import { IMainData } from "../../../models/IMainData"
-import { IEtap } from "../../../models/IMainData"
-import { IEtapItem } from "../../../models/IMainData"
+import { ISamp } from "../../../models/ISamp"
+import { IEtap } from "../../../models/ISamp"
+import { IEtapItem } from "../../../models/ISamp"
 
 export const EtapItems: IEtapItem[] = [{
     id: 1,
@@ -247,7 +247,9 @@ export const Etaps: IEtap[] = [{
     noNdsStatia: "15",
 }]
 
-export const initialState: IMainData = {
+export const initialState: ISamp = {
+    kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C",
+
     lot_id: 1,
     lot_name: "Разработка системы по проведению Закупочных процедур",
     participant_name: "АО “Софлайн Солюшн”",
