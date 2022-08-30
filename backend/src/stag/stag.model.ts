@@ -14,20 +14,20 @@ interface StagAttrs{
 
 @Table({tableName:'ztin_suz_kp_stag', createdAt: false, updatedAt: false})
 export class Stag extends Model<Stag, StagAttrs> {
-  @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
+  @ApiProperty({description: 'Ключ шаблона КП', example: 'string(32)'})
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
   kp_stage_guid: string;
-  @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
+  @ApiProperty({description: 'Ключ шаблона КП', example: 'string(32)'})
   @ForeignKey( () => Samp) 
   @Column({type: DataType.STRING(32), unique: false})
   kp_sample_guid: string;
-  @ApiProperty({description: 'ID этапа', example: 'varchar(12)'})
+  @ApiProperty({description: 'ID этапа', example: 'string(12)'})
   @Column({type: DataType.STRING(12)})
   opr_usl_stage_id: string;
-  @ApiProperty({description: 'Наименование этапа', example: 'varchar(1333)'})
+  @ApiProperty({description: 'Наименование этапа', example: 'string(1333)'})
   @Column({type: DataType.STRING(1333)})
   opr_usl_stage: string;
-  @ApiProperty({description: 'Наименование этапа', example: 'smallInt'})
+  @ApiProperty({description: 'Наименование этапа', example: 'number'})
   @Column({type: DataType.SMALLINT})
   opr_usl_stage_num: SmallIntegerDataType; 
 

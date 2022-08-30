@@ -18,32 +18,32 @@ interface UnitAttrs{
 
 @Table({tableName:'ztin_suz_kp_unit', createdAt: false, updatedAt: false})
 export class Unit extends Model<Unit, UnitAttrs> {
-  @ApiProperty({description: 'Ключ расченки в шаблоне КП', example: 'varchar(32)'})
+  @ApiProperty({description: 'Ключ расченки в шаблоне КП', example: 'string(32)'})
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
   kp_unit_guid: string;
-  @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
+  @ApiProperty({description: 'Ключ шаблона КП', example: 'string(32)'})
   @ForeignKey( () => Stag)
   @Column({type: DataType.STRING(32)})
   kp_stage_guid: string;
-  @ApiProperty({description: 'ID Расценки', example: 'varchar(12)'})
+  @ApiProperty({description: 'ID Расценки', example: 'string(12)'})
   @Column({type: DataType.STRING(12)})
   opr_usl_unit_id: string;
-  @ApiProperty({description: 'Единица измерения', example: 'varchar(3)'})
+  @ApiProperty({description: 'Единица измерения', example: 'string(3)'})
   @Column({type: DataType.STRING(3)})
   usl_quan_unit: string;
-  @ApiProperty({description: 'Наименование расценки', example: 'varchar(1333)'})
+  @ApiProperty({description: 'Наименование расценки', example: 'string(1333)'})
   @Column({type: DataType.STRING(1333)})
   opr_usl_unit: string;
-  @ApiProperty({description: 'Количество', example: 'decimal(13,3)'})
+  @ApiProperty({description: 'Количество', example: 'number'})
   @Column({type: DataType.DECIMAL(13,3)})
   nsu_menge: DecimalDataType;
-  @ApiProperty({description: 'Ставка НДС', example: 'varchar(2)'})
+  @ApiProperty({description: 'Ставка НДС', example: 'string(2)'})
   @Column({type: DataType.STRING(2)})
   vat_rate: string;
-  @ApiProperty({description: 'Ограничить ЕИ', example: 'varchar(1)'})
+  @ApiProperty({description: 'Ограничить ЕИ', example: 'string(1)'})
   @Column({type: DataType.STRING(1)})
   opr_usl_unit_restr_quan: string;
-  @ApiProperty({description: 'Ограничить количество ЕИ', example: 'varchar(1)'})
+  @ApiProperty({description: 'Ограничить количество ЕИ', example: 'string(1)'})
   @Column({type: DataType.STRING(1)})
   opr_usl_unit_restr_menge: string;
 
