@@ -42,6 +42,9 @@ export class Samp extends Model<Samp, SampAttrs> {
   @ApiProperty({description: 'Дата отправки КП', example: 'date(YYYYMMDD)'})
   @Column({type: DataType.DATEONLY})
   kp_send_date: DateOnlyDataType;
+  @ApiProperty({description: 'Срок действия договора', example: 'date(YYYYMMDD)'})
+  @Column({type: DataType.DATEONLY})
+  usl_period_end: DateOnlyDataType;
 
   @BelongsTo( () => KpLink )
   links: KpLink[];
