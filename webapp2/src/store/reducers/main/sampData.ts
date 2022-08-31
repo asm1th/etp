@@ -911,11 +911,12 @@ export const initialState: ISampNew = {
         "waers": "RUB",
         "kp_accep_date": "2022-08-18",
         "kp_send_date": "2022-08-10",
+        "usl_period_end": "2022-08-10",
         "links": {
           "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
           "info_ka_email": "test@adsdddd.com",
           "info_ka_name": "Петр Петров Петрович",
-          "kp_offer_expire_date": null,
+          "kp_offer_expire_date": "2022-08-10",// null,
           "travel_exp": "0.00",
           "travel_exp_comm": ""
         },

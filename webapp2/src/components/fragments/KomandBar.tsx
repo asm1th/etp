@@ -4,16 +4,19 @@ import { Layout } from "@consta/uikit/LayoutCanary";
 import { TextField } from "@consta/uikit/TextField";
 import { useAppSelector, useAppDispatch } from "../../hooks/redux";
 import { mainSlice } from "../../store/reducers/main/mainSlice";
+import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 const KomandBar: FC = () => {
     const dispatch = useAppDispatch()
     const {trip} = useAppSelector(state => state.mainReducer)
+    const {links} = useAppSelector(state => state.sampReducer)
 
-    const handleChangePrice = ({ e }: any) => {
-        dispatch(mainSlice.actions.setTripPrice(e.target.value))
+    const handleChangePrice = (value: string | null) => {
+        debugger
+        dispatch(sampSlice.actions.setTripPrice(value))
     }
     const handleChangeComment = ({ e }: any) => {
-        dispatch(mainSlice.actions.setTripComment(e.target.value))
+        dispatch(sampSlice.actions.setTripComment(e.target.value))
     }
 
     return (
@@ -32,8 +35,8 @@ const KomandBar: FC = () => {
                             label="Стоимость" 
                             size="s" 
                             required 
-                            value={trip.tripPrice} 
-                            onChange={handleChangePrice}
+                            value={links.travel_exp} 
+                            onChange={({ value }) => handleChangePrice(value)}
                             width="full"/>
                     </Layout>
                     <Layout flex={6} className="aic">
@@ -43,7 +46,7 @@ const KomandBar: FC = () => {
                             size="s" 
                             width="full" 
                             required 
-                            value={trip.tripComment}
+                            value={links.travel_exp_comm}
                             onChange={handleChangeComment}/>
                     </Layout>
                 </Layout>
