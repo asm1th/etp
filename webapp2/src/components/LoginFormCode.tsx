@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Button } from '@consta/uikit/Button';
-import { Text } from '@consta/uikit/Text';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { TextField } from "@consta/uikit/TextField";
 import { Layout } from '@consta/uikit/LayoutCanary';
@@ -8,13 +7,13 @@ import { Layout } from '@consta/uikit/LayoutCanary';
 // RTK
 import { useNavigate } from 'react-router-dom'
 import { useLoginCodeMutation } from '../services/authService'
-import type { LoginRequestCode } from '../services/authService'
+import type { LoginCodeRequest } from '../services/authService'
 //
 
 const LoginFormCode: FC = () => {
     const navigate = useNavigate()
 
-    const [formState, setFormState] = React.useState<LoginRequestCode>({
+    const [formState, setFormState] = React.useState<LoginCodeRequest>({
         num1: '',
         num2: '',
         num3: '',
@@ -45,19 +44,6 @@ const LoginFormCode: FC = () => {
 
     return (
         <>
-            <Text
-                as="div"
-                align="center"
-                size="2xl"
-                weight="bold"
-                className={cnMixSpace({ mB: 'm', })}>
-                ВХОД
-            </Text>
-            <Text
-                className={cnMixSpace({ mT: 's', mB: 's' })}
-                size="m" lineHeight="xs">
-                Для входа на платформу введите код, который пришел на вашу электронную почту.
-            </Text>
             <div className={cnMixSpace({ mT: 'l' })}>
                 <Layout className="codeInputs">
                     <Layout flex={1}>

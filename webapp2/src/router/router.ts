@@ -1,5 +1,5 @@
 import React from "react";
-import Dash from "../pages/Dash";
+import Dash from "../pages/rnmc/RNMCapp";
 import Login from "../pages/Login";
 
 export interface IRoute {

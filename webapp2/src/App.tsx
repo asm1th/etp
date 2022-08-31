@@ -1,30 +1,32 @@
 import { FC, useEffect } from 'react';
-import './App.css';
+import { Link } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-
-import { useAppDispatch, useAppSelector } from './hooks/redux';
-import { fetchUsers } from './store/reducers/user/action-creators';
-//import { userSlice } from './store/reducers/user/userSlice';
-
+import { useAppDispatch } from './hooks/redux';
 
 const App: FC = () => {
-  const dispatch = useAppDispatch()
-  const {users, isLoading, error} = useAppSelector(state => state.userReducer)
-
-  useEffect(()=>{
-    dispatch(fetchUsers())
-  }, [dispatch])
 
   return (
     <div className="App">
       <Theme preset={presetGpnDefault}>
-        
         <AppRouter />
+        <Link to="/etp/">etp rnmc</Link> .
+        <Link to="/etp/login">login</Link> .
+        <Link to="/etp/logincode">login code</Link> .
+        <Link to="/etp/reg">регистрация</Link>  .
+        <hr/>
+        <Link to="/">rnmc</Link> .
+        <Link to="/login">login</Link> .
+        <Link to="/code">login code</Link> .
+        <Link to="/logout">logout</Link> .
+        <Link to="/404">404</Link> 
 
-        {isLoading && <h1>загрузка...</h1>}
-        {error && <h1>{error}</h1>}
+        {/* <hr/>
+        fetchUsers
+        {isLoading && <div>загрузка...</div>}
+        {error && <div>{error}</div>}
         {JSON.stringify(users, null, 2)}
+        */}
 
       </Theme>
     </div>

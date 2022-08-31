@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { Button } from '@consta/uikit/Button';
-import { Text } from '@consta/uikit/Text';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { TextField } from "@consta/uikit/TextField";
 
@@ -16,8 +15,8 @@ const LoginForm: FC = () => {
 
     const [formState, setFormState] = useState<LoginRequest>({
         //username: '',
-        email: '',
-        password: '',
+        email: 'petrov.ii@gazprom-neft.ru',
+        password: '1234567899',
     })
 
     const [login, { isLoading, isError }] = useLoginMutation();
@@ -68,20 +67,7 @@ const LoginForm: FC = () => {
     };
 
     return (
-        <>
-            <Text
-                as="div"
-                align="center"
-                size="2xl"
-                weight="bold"
-                className={cnMixSpace({ mB: 'm', })}>
-                ВХОД
-            </Text>
-            <Text
-                className={cnMixSpace({ mT: 's', mB: 's' })}
-                size="m" lineHeight="xs">
-                Введите электронную почту, на которую поступил запрос, вам придет уникальный код для входа на платформу.
-            </Text>
+        <>  
             <div className={cnMixSpace({ mT: 'l' })}>
                 <TextField
                     name="email"
@@ -101,7 +87,7 @@ const LoginForm: FC = () => {
                     value={formState.password}
                 />
             </div>
-            <Button onClick={onSubmit} loading={isLoading} label="Отправить код" size="m" width="full"
+            <Button onClick={onSubmit} loading={isLoading} label="Отправить" size="m" width="full"
                 className={cnMixSpace({ mT: 'm' })} />
             {/* <SnackBar items={messageState} /> */}
         </>

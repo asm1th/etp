@@ -12,6 +12,11 @@ const root = ReactDOM.createRoot(
 );
 
 const store = setupStore();
+console.log('Initial state: ', store.getState())
+
+store.subscribe(() =>
+  console.log('State after dispatch: ', store.getState())
+)
 
 root.render(
   <Provider store={store}>

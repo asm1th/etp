@@ -1,0 +1,83 @@
+.aic {
+    align-items: center;
+}
+
+.acc {
+    align-content: center;
+}
+
+.tac {
+    text-align: center;
+}
+
+.jcc {
+    justify-content: center;
+}
+
+.jce,
+.jcfe {
+    justify-content: flex-end;
+}
+
+.jcb,
+.jcsb{
+    justify-content: space-between;
+}
+
+.aib {
+    align-items: baseline;
+}
+
+.flexGrow1 {
+    flex-grow: 1 !important;
+}
+
+.weight400 {
+    font-weight: 400;
+}
+
+.weight500 {
+    font-weight: 500;
+}
+
+.weight700 {
+    font-weight: 700;
+}
+
+.tipPopover {
+    padding: 0.5rem 0.7rem;
+    background: #fff;
+    border: 1px solid #00416633;
+    box-shadow: 0 8px 8px #0020330a, 0 12px 28px #0020331f;
+    border-radius: 5px;
+}
+
+/* MODAL */
+.Modal{
+    z-index: 12;
+}
+body .Modal-Window{
+    min-height: auto;
+}
+.ModalTitle,
+.ModalContent,
+.ModalFooter{
+    margin: 1rem;
+}
+.ModalContent{
+    margin: 1rem 2rem 2rem;
+}
+.ModalContent p{
+    line-height: 22px;
+    color: #535659;
+}
+.ModalFooter{
+    justify-content: flex-end;
+    text-align: right;
+}
+
+/* .MODAL */
+
+
+
+

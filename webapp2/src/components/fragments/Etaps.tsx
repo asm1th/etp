@@ -7,11 +7,13 @@ import EtapFooter from "./EtapFooter";
 import KomandBar from "./KomandBar";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
+import { useAppSelector } from "../../hooks/redux";
+import { IEtap } from "../../models/ISamp"
 
 const Etaps: FC = () => {
-    type Item = string;
-    const items: Item[] = ['1 этап', '2 этап', '3 этап'];
-    const [tabs, setTabs] = useState<Item | null>(items[0]);
+    const { etapsSumms } = useAppSelector(state => state.mainReducer)
+
+    const [tab, setTab] = useState<IEtap>(etapsSumms[0]);
 
     //popover
     type Position = any;
@@ -32,6 +34,7 @@ const Etaps: FC = () => {
                 //onClickOutside={action('onClickOutside')}
                 isInteractive={false}
                 position={position}
+                className="tipPopover"
             >
                 {(direction) => (
                     <div>
@@ -46,19 +49,19 @@ const Etaps: FC = () => {
                 <Layout>
                     <Tabs
                         className="Tabs"
-                        value={tabs}
-                        onChange={({ value }) => setTabs(value)}
-                        items={items}
-                        getLabel={(item) => item}
+                        value={tab}
+                        onChange={({ value }) => setTab(value)}
+                        items={etapsSumms}
+                        getLabel={(item) => "Этап " + item.id}
                         linePosition="right"
                     />
                     <Layout flex={1} className="TabsPageContainer" direction="column">
-                        <Layout flex={1} direction="row" className="mb1 aic">
+                        <Layout flex={1} direction="row" className="mb1 aib">
                             <Text as="div" className="label mr2">
                                 Полное наименование этапа / услуги (работы)
                             </Text>
                             <Text as="div" className="labeltext">
-                                Разработка документации
+                                {etapsSumms[tab.id-1].name}
                             </Text>
                         </Layout>
                         <Layout>
@@ -94,8 +97,8 @@ const Etaps: FC = () => {
                                 <Text className="label" align="center">Сумма с НДС</Text>
                             </Layout>
                         </Layout>
-                        <EtapRow />
-                        <EtapFooter />
+                        <EtapRow etapId={tab.id}/>
+                        <EtapFooter etapId={tab.id}/>
                     </Layout>
                 </Layout>
             </Layout>

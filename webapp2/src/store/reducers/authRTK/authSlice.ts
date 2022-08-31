@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { IUser } from '../../../models/IUser'
+import { IUser } from '../../../models/test/IUser'
 import { authService } from '../../../services/authService'
 import type { RootState } from '../../../store/store'
 
@@ -7,12 +7,14 @@ type AuthState = {
     isAuth: boolean
     user: IUser | null
     token: string | null
+    kp_sample_guid: string | null
 }
 
 const initialState = {
-    isAuth: true, 
+    isAuth: false,  //// отключение
     user: null, 
-    token: null
+    token: null,
+    kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"
 }
 
 const slice = createSlice({
@@ -20,11 +22,14 @@ const slice = createSlice({
     initialState: initialState as AuthState,
     reducers: {},
     extraReducers: (builder) => {
-        builder.addMatcher(
+        builder
+        .addMatcher(
             authService.endpoints.login.matchFulfilled,
             (state, { payload }) => {
+                debugger
                 state.isAuth = true
                 state.token = payload.token
+
                 //state.user = payload.user
             }
         )

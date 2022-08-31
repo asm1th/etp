@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IPost } from '../models/IPost';
+import { IPost } from '../models/test/IPost';
 import { postAPI } from '../services/PostService';
 import PostItem from './PostItem';
 

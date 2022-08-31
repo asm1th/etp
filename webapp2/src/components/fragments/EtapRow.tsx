@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React from "react";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
@@ -6,28 +6,67 @@ import { Button } from '@consta/uikit/Button';
 import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { mainSlice } from "../../store/reducers/main/mainSlice";
+import { isTemplateLiteralToken } from "typescript";
 
-const EtapRow: FC = () => {
 
-    const [value, setValue] = useState("Архитектор");
-    const handleChange = ({ value }: any) => {
-        setValue(value);
+const EtapRow = (props: { etapId: number }) => {
+    const dispatch = useAppDispatch()
+    const { etapItems } = useAppSelector(state => state.mainReducer)
+    //const etapItemIndex = etapItems.findIndex(etapItems => etapItems.id === props.etapId)
+    const etapItemsFiltered: any[] = []
+    etapItems.forEach((e: any) => {
+        if (e.etapId === props.etapId) {
+            etapItemsFiltered.push(e)
+        }
+    })
+
+    const handleChange = (value: any) => {
+        alert("handleChange")
     }
-    const [valueSub, setValueSub] = useState("Специалист по документации");
-    const handleChangeSub = ({ value }: any) => {
-        setValueSub(value);
+
+    const handleSubToggle = (etapItemId: number) => {
+        const etapItemIndex = etapItems.findIndex(etapItemsFiltered => etapItemsFiltered.id === etapItemId)
+        dispatch(mainSlice.actions.toggleEtapRowSub(etapItemIndex))
     }
+
+    const handleChangeEI = (etapItemId: number, value: number) => {
+        dispatch(mainSlice.actions.setEtapEI({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
+    }
+
+    const handleChangeEtapEIValue = (etapItemId: number, value: string) => {
+        dispatch(mainSlice.actions.setEtapEIValue({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
+    }
+
+    const handleChangeEtapEIPRICEValue = (etapItemId: number, value: string) => {
+        dispatch(mainSlice.actions.setEtapEIPrice({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
+    }
+
+    const handleChangeEtapNDS = (etapItemId: number, value: number) => {
+        dispatch(mainSlice.actions.setEtapNDS({ etapItemId: etapItemId, value: value }))
+        dispatch(mainSlice.actions.setEtapSumm({ etapId: props.etapId }))
+        dispatch(mainSlice.actions.setSummKP({ etapId: props.etapId }))
+    }
+
+
     type Item = {
         label: string;
         id: number;
     };
-    const ei: Item[] = [
-        {
-            label: 'Ч/Ч (чел.час)',
-            id: 1,
-        }
-    ];
-    const [val, setVal] = useState<Item | null>(ei[0]);
+    const eiList: Item[] = [{
+        label: 'Ч/Ч (чел.час)',
+        id: 1,
+    }, {
+        label: 'Ч/Д (чел/день)',
+        id: 2,
+    }];
 
     type ndsItem = {
         label: string;
@@ -46,121 +85,147 @@ const EtapRow: FC = () => {
             id: 2,
         },
         {
-            label: '0%',
-            value: 0,
-            id: 3,
-        },
-        {
             label: 'без НДС',
-            value: null,
+            value: 0,
             id: 4,
         }
 
     ];
-    const [nds, setNds] = useState<Item | null>(ndsList[1]);
-    //
-    const [Summ, setSumm] = useState("-- --");
-    const [SummPlusNds, setSummPlusNds] = useState("-- --");
-    //
-    const Statia = "указать статью";
+
+    const getSelected = (List: any, id: any) => {
+        return List[List.findIndex((List: any) => List.id === id)]
+    }
+
+    const getSelectedNDS = (List: any, nds: number) => {
+        return List[List.findIndex((List: any) => List.value === nds)]
+    }
 
     return (
         <>
-            <Layout className="Row">
-                <Layout flex={3} direction="column">
-                    <Layout>
-                        <TextField
-                            onChange={handleChange}
-                            value={value}
-                            size="s"
-                            className="mr05"
-                            width="full"
-                            disabled
-                        />
-                        <Button 
-                            className="mr1"
-                            iconRight={IconTeam} 
-                            iconSize="s" 
-                            size="s" 
-                            onlyIcon={true} 
-                            view="clear" />
+            {etapItemsFiltered.map(({ id, name, summ, summ_nds, ei_id, ei_name, ei_name_disable, ei_value_disable, ei_value, ei_price, nds, sub }) => (
+                <div key={id}>
+                    <Layout className="Row mb1">
+                        <Layout flex={3} direction="column">
+                            <Layout>
+                                <TextField
+                                    name="name"
+                                    value={name}
+                                    size="s"
+                                    className="mr05"
+                                    width="full"
+                                    disabled
+                                    onChange={handleChange}
+                                />
+                                <Button
+                                    className="mr1"
+                                    iconRight={IconTeam}
+                                    iconSize="s"
+                                    size="s"
+                                    onlyIcon={true}
+                                    view="clear"
+                                    onClick={() => handleSubToggle(id)}
+                                />
+                            </Layout>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Select
+                                placeholder="Выберите ЕИ"
+                                view="default"
+                                items={eiList}
+                                value={getSelected(eiList, ei_id)}
+                                labelPosition="left"
+                                size="s"
+                                className="RowInput"
+                                onChange={({ value }) => handleChangeEI(id, value)}
+                                disabled={ei_name_disable}
+                            />
+                        </Layout>
+                        <Layout flex={1}>
+                            <TextField
+                                name="ei_value"
+                                value={ei_value}
+                                size="s"
+                                className="RowInput"
+                                onChange={({ e }: any) => handleChangeEtapEIValue(id, e.target.value)}
+                                disabled={ei_value_disable}
+                            />
+                        </Layout>
+                        <Layout flex={1}>
+                            <TextField
+                                name="ei_price"
+                                value={ei_price}
+                                size="s"
+                                className="RowInput"
+                                onChange={({ e }: any) => handleChangeEtapEIPRICEValue(id, e.target.value)} />
+                        </Layout>
+                        <Layout flex={1}>
+                            <Select
+                                view="default"
+                                items={ndsList}
+                                //value={ndsList[nds]}
+                                value={getSelectedNDS(ndsList, nds)}
+                                labelPosition="left"
+                                size="s"
+                                className="RowInput"
+                                onChange={({ value }) => handleChangeEtapNDS(id, value)} />
+                        </Layout>
+                        <Layout flex={1} className="aic jcc">{summ}</Layout>
+                        <Layout flex={1} className="aic jcc">{summ_nds}</Layout>
                     </Layout>
-                    
-                </Layout>
-                <Layout flex={1}>
-                    <Select
-                        placeholder="Валюта"
-                        view="default"
-                        items={ei}
-                        value={val}
-                        onChange={({ value }) => setVal(value)}
-                        labelPosition="left"
-                        size="s"
-                        className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <TextField value="50,00" size="s" className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <TextField value="Стоимость" size="s" className="RowInput" />
-                </Layout>
-                <Layout flex={1}>
-                    <Select
-                        view="default"
-                        items={ndsList}
-                        value={nds}
-                        onChange={({ value }) => setNds(value)}
-                        labelPosition="left"
-                        size="s"
-                        className="RowInput" />
-                </Layout>
 
-                <Layout flex={1} className="aic jcc">{Summ}</Layout>
-                <Layout flex={1} className="aic jcc">{SummPlusNds}</Layout>
-            </Layout>
-
-            <Layout className="Row subRow mt05">
-                <Layout flex={3}>
-                    <Layout>
-                        <TextField
-                            onChange={handleChangeSub}
-                            value={valueSub}
-                            size="s"
-                            className="mr05"
-                            width="full"
-                        />
-                        <Button 
-                            className="mr1"
-                            iconRight={IconClose} 
-                            iconSize="s" 
-                            size="s" 
-                            onlyIcon={true} 
-                            view="clear" />
-                    </Layout>
-                </Layout>
-                <Layout flex={6} className="aic acc">
-                    {/* <Text 
-                        as="div" 
-                        className="mr1" 
-                        size="s">
-                        Стоимость предложения не облагается НДС, в соответствии со статьей
-                    </Text> */}
-                    <TextField
-                        label="Стоимость предложения не облагается НДС, в соответствии со статьей"
-                        placeholder="Введите стоимость"
-                        size="xs"
-                        labelPosition="left"
-                        value={Statia}
-                        required
-                         />
-                    <Text 
-                        as="div"
-                        className="ml1" 
-                        size="s">
-                        НК РФ
-                    </Text>
-                </Layout>
-            </Layout>
+                    {sub.isSub || nds === 0 ? (
+                        <>
+                            <Layout className="Row subRow mt05 mb2">
+                                {sub.isSub ? (
+                                    <Layout flex={3}>
+                                        <Layout>
+                                            <TextField
+                                                name="sub.name"
+                                                value={sub.name}
+                                                size="s"
+                                                className="mr05"
+                                                width="full"
+                                                onChange={handleChange}
+                                            />
+                                            <Button
+                                                className="mr1"
+                                                iconRight={IconClose}
+                                                iconSize="s"
+                                                size="s"
+                                                onlyIcon={true}
+                                                view="clear"
+                                                onClick={() => handleSubToggle(id)}
+                                            />
+                                        </Layout>
+                                    </Layout>
+                                ) : null}
+                                {nds === 0 ? (
+                                    <Layout flex={6} className="aic acc">
+                                        <Text as="div" className="mr1" size="xs">
+                                            Стоимость предложения не облагается НДС, в соответствии со статьей
+                                        </Text>
+                                        <TextField
+                                            name="sub.statia"
+                                            placeholder="Указать статью"
+                                            size="xs"
+                                            labelPosition="left"
+                                            value={sub.statia}
+                                            required
+                                            onChange={handleChange}
+                                            style={{ width: '100px' }} />
+                                        <Text
+                                            as="div"
+                                            className="ml1"
+                                            size="xs">
+                                            НК РФ
+                                        </Text>
+                                    </Layout>
+                                ) : null}
+                            </Layout>
+                        </>
+                    ) : null}
+                </div>
+            ))}
         </>
     );
 };
