@@ -11,7 +11,7 @@ type AuthState = {
 }
 
 const initialState = {
-    isAuth: false,  //// отключение
+    isAuth: true,  //// отключение
     user: null, 
     token: null,
     kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"

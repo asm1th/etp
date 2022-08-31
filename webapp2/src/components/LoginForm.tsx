@@ -42,27 +42,7 @@ const LoginForm: FC = () => {
             navigate('/')
         } catch (err) {
             console.log(err)
-            if (isFetchBaseQueryError(err )) {
-                if ("message" in (err.data as {}) ) {
-                    // setMessageState({
-                    //     key: '1',
-                    //     message: "Ошибка",
-                    //     status: "error"
-                    // });
-                }
-              } else if (isErrorWithMessage(err)) {
-                // setMessageState({
-                //     key: '1',
-                //     message: err.message,
-                //     status: "error"
-                // });
-              }
-            // toast({
-            //     status: 'error',
-            //     title: 'Error',
-            //     description: 'Oh no, there was an error!',
-            //     isClosable: true,
-            // })
+            
         }
     };
 

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ISamp } from "../models/ISamp";
+import { IMain } from "../models/IMain";
 import { RootState } from '../store/store'
 
 export const MainService = createApi({
@@ -18,14 +18,14 @@ export const MainService = createApi({
     tagTypes: ['Samp'],
 
     endpoints: (builder) => ({
-        // fetchSamp: builder.query<ISamp, string>({
+        // fetchSamp: builder.query<IMain, string>({
         //     query: (kp_sample_guid: string) => ({
         //         url: `/samp/${kp_sample_guid}`,
         //     }),
         //     providesTags: result => ['Samp']
         // }),
 
-        fetchSamp: builder.mutation<ISamp, string>({
+        fetchSamp: builder.mutation<IMain, string>({
             query: (kp_sample_guid: string) => `/samp/${kp_sample_guid}`,
         }),
 

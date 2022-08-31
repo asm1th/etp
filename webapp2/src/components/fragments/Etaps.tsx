@@ -8,7 +8,7 @@ import KomandBar from "./KomandBar";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
 import { useAppSelector } from "../../hooks/redux";
-import { IEtap } from "../../models/ISamp"
+import { IEtap } from "../../models/IMain"
 
 const Etaps: FC = () => {
     const { etapsSumms } = useAppSelector(state => state.mainReducer)
