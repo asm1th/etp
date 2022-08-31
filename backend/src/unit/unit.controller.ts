@@ -22,4 +22,15 @@ export class UnitController {
   getEntity(@Param('kp_unit_guid') kp_unit_guid: string){
     return this.UnitService.getOneUnit(kp_unit_guid)
   }
+
+  @ApiOperation({summary: 'Получить расценку от контрагента в шаблоне КП'})
+  @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расченки в шаблоне КП" })
+  @ApiParam({ name: "kp_link_guid", required: true, description: "Ключ для расценки контрагента в шаблоне КП" })
+  @Get(':kp_unit_guid/:kp_link_guid')
+  getEntityWithUsrp(@Param('kp_unit_guid') kp_unit_guid: string, 
+                    @Param('kp_link_guid') kp_link_guid: string){
+    console.log(kp_unit_guid);
+    console.log(kp_link_guid);
+    return this.UnitService.getUnitWithUsrp(kp_unit_guid, kp_link_guid)
+  }
 }
