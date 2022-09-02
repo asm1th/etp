@@ -8,12 +8,14 @@ import KomandBar from "./KomandBar";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
 import { useAppSelector } from "../../hooks/redux";
-import { IEtap } from "../../models/IMain"
+//import { IEtap } from "../../models/IMain"
+import { IStag } from "../../models/ISamp"
+// import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 const Etaps: FC = () => {
-    const { etapsSumms } = useAppSelector(state => state.mainReducer)
+    const { stags } = useAppSelector(state => state.sampReducer)
 
-    const [tab, setTab] = useState<IEtap>(etapsSumms[0]);
+    const [tab, setTab] = useState<IStag>(stags[0]);
 
     //popover
     type Position = any;
@@ -51,8 +53,8 @@ const Etaps: FC = () => {
                         className="Tabs"
                         value={tab}
                         onChange={({ value }) => setTab(value)}
-                        items={etapsSumms}
-                        getLabel={(item) => "Этап " + item.id}
+                        items={stags}
+                        getLabel={(item) => "Этап " + item.opr_usl_stage_num}
                         linePosition="right"
                     />
                     <Layout flex={1} className="TabsPageContainer" direction="column">
@@ -61,7 +63,7 @@ const Etaps: FC = () => {
                                 Полное наименование этапа / услуги (работы)
                             </Text>
                             <Text as="div" className="labeltext">
-                                {etapsSumms[tab.id-1].name}
+                                {stags[tab.opr_usl_stage_num - 1].opr_usl_stage}
                             </Text>
                         </Layout>
                         <Layout>
@@ -97,8 +99,8 @@ const Etaps: FC = () => {
                                 <Text className="label" align="center">Сумма с НДС</Text>
                             </Layout>
                         </Layout>
-                        <EtapRow etapId={tab.id}/>
-                        <EtapFooter etapId={tab.id}/>
+                        <EtapRow etapId={tab.opr_usl_stage_num}/>
+                        <EtapFooter etapId={tab.opr_usl_stage_num}/>
                     </Layout>
                 </Layout>
             </Layout>

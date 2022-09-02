@@ -28,7 +28,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -38,7 +41,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -56,7 +62,7 @@ export const Stags: IStag[] = [
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "HAR",
-        "opr_usl_unit": "Стоимость права аренды земельного участка",
+        "opr_usl_unit": "Стоимость права аренды земельного участка HAR",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
@@ -70,7 +76,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -80,7 +89,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -89,7 +101,7 @@ export const Stags: IStag[] = [
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "SRV",
-        "opr_usl_unit": "Стоимость права аренды земельного участка",
+        "opr_usl_unit": "Стоимость права аренды земельного участка SRV",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
@@ -103,7 +115,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -113,7 +128,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -122,7 +140,7 @@ export const Stags: IStag[] = [
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "TAG",
-        "opr_usl_unit": "Стоимость права аренды земельного участка",
+        "opr_usl_unit": "Стоимость права аренды земельного участка TAG",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
@@ -136,7 +154,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -146,7 +167,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -178,7 +202,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB808C",
@@ -188,7 +215,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -211,7 +241,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEBA08C",
@@ -221,7 +254,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -244,7 +280,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEBC08C",
@@ -254,7 +293,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -277,7 +319,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEC408C",
@@ -287,7 +332,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -310,7 +358,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEC608C",
@@ -320,7 +371,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -343,7 +397,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87E2678541A2EC19",
@@ -353,7 +410,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -376,7 +436,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87E2678541A30C19",
@@ -386,7 +449,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -409,7 +475,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87E2678541A32C19",
@@ -419,7 +488,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -451,7 +523,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBECA08C",
@@ -461,7 +536,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -493,7 +571,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBECE08C",
@@ -503,7 +584,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -526,7 +610,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBED008C",
@@ -536,7 +623,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -568,7 +658,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBED408C",
@@ -578,7 +671,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -601,7 +697,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBED608C",
@@ -611,7 +710,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -634,7 +736,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBED808C",
@@ -644,7 +749,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -667,7 +775,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEDA08C",
@@ -677,7 +788,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -700,7 +814,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEDC08C",
@@ -710,7 +827,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       },
@@ -733,7 +853,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEDE08C",
@@ -743,7 +866,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -775,7 +901,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEE208C",
@@ -785,7 +914,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -817,7 +949,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEE608C",
@@ -827,7 +962,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -859,7 +997,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEEA08C",
@@ -869,7 +1010,10 @@ export const Stags: IStag[] = [
             "nsu_menge": "0.000",
             "vat_rate": "",
             "alt_name_unit": "",
-            "nds_comm": "22.08.2022"
+            "nds_comm": "22.08.2022",
+            isSubToggle: false,
+            summ: "-- --",
+            summ_nds: "-- --"
           }
         ]
       }
@@ -902,23 +1046,23 @@ export const Stags: IStag[] = [
 ]
 
 export const initialState: ISampNew = {
-        "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
-        "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-        "konkurs_id": "100000037153",
-        "konkurs_name": "Аренда недвижимости_test",
-        "lot_id": "100000037154",
-        "lot_name": "Аренда недвижимости",
-        "waers": "RUB",
-        "kp_accep_date": "2022-08-18",
-        "kp_send_date": "2022-08-10",
-        "usl_period_end": "2022-08-10",
-        "links": {
-          "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-          "info_ka_email": "test@adsdddd.com",
-          "info_ka_name": "Петр Петров Петрович",
-          "kp_offer_expire_date": "2022-08-10",// null,
-          "travel_exp": "0.00",
-          "travel_exp_comm": ""
-        },
-        "stags": Stags
+  "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
+  "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+  "konkurs_id": "100000037153",
+  "konkurs_name": "Аренда недвижимости_test",
+  "lot_id": "100000037154",
+  "lot_name": "Аренда недвижимости",
+  "waers": "RUB",
+  "kp_accep_date": "2022-08-18",
+  "kp_send_date": "2022-08-10",
+  "usl_period_end": "2022-08-10",
+  "links": {
+    "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+    "info_ka_email": "test@adsdddd.com",
+    "info_ka_name": "Петр Петров Петрович",
+    "kp_offer_expire_date": "2022-08-10",// null,
+    "travel_exp": "1.00",
+    "travel_exp_comm": "тест"
+  },
+  "stags": Stags
 }

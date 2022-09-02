@@ -1,7 +1,38 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./sampData"
 import { MainService } from '../../../services/MainService'
-import { format, parseISO } from "date-fns";
+import { IStag, IUnit, IUsrp } from "../../../models/ISamp";
+
+
+const findStage = (stags: IStag[], kp_stage_guid:string) => {
+    return stags[stags.findIndex(stag => stag.kp_stage_guid === kp_stage_guid)]
+}
+
+const findUnit = (units: IUnit[], kp_unit_guid: string) => {
+    return units[units.findIndex(unit => unit.kp_unit_guid === kp_unit_guid)]
+}
+
+const findUsrps = (usrps: IUsrp[], link_id: string) => {
+    return usrps[usrps.findIndex(usrps => usrps.link_id === link_id)]
+}
+
+type IUnitFinder = {
+    kp_stage_guid: string
+    kp_unit_guid: string
+    link_id: string
+}
+
+type IUnitTextPayload = {
+    UnitFinder: IUnitFinder
+    value: string
+}
+
+const getUspsr = (stags: IStag[], UnitFinder: IUnitFinder) => {
+    const thisStage = findStage(stags, UnitFinder.kp_stage_guid)
+    const thisUnit = findUnit(thisStage.units, UnitFinder.kp_unit_guid)
+    const thisUsrp = findUsrps(thisUnit.usrps, UnitFinder.link_id)
+    return thisUsrp
+}
 
 export const sampSlice = createSlice({
     name: 'sampData',
@@ -16,9 +47,7 @@ export const sampSlice = createSlice({
         //         }
         //     },
 
-        //     toggleEtapRowSub: (state, action: PayloadAction<number>) => {
-        //         state.etapItems[action.payload].sub.isSub = !state.etapItems[action.payload].sub.isSub;
-        //     },
+        
         //     setEtapEI: (state, action: PayloadAction<any>) => {
         //         const { etapItemId, value } = action.payload
         //         const etapItemIndex = state.etapItems.findIndex(etapItems => etapItems.id === etapItemId)
@@ -103,11 +132,19 @@ export const sampSlice = createSlice({
         setKp_offer_expire_date: (state, action: PayloadAction<string>) => {
             state.links.kp_offer_expire_date = action.payload
         },
-        setTripPrice: (state, action: PayloadAction<string | null>) => {
-            state.link.travel_exp = action.payload;
+        setTripPrice: (state, action: PayloadAction<string>) => {
+            state.links.travel_exp = action.payload;
         },
         setTripComment: (state, action: PayloadAction<string>) => {
-            //state.link.travel_exp_comm = action.payload;
+            state.links.travel_exp_comm = action.payload;
+        },
+        toggleEtapRowSub: (state, action: PayloadAction<IUnitFinder>) => {
+            const thisUsrp = getUspsr(state.stags, action.payload)
+            thisUsrp.isSubToggle = !thisUsrp.isSubToggle;
+        },
+        setAlt_name_unit: (state, action: PayloadAction<IUnitTextPayload>) => {
+            const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
+            thisUsrp.alt_name_unit = action.payload.value;
         },
     },
     extraReducers: (builder) => {

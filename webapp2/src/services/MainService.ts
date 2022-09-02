@@ -4,6 +4,7 @@ import { RootState } from '../store/store'
 
 export const MainService = createApi({
     reducerPath: "MainService",
+    
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://109.195.85.121:5010/',
         prepareHeaders: (headers, { getState }) => {

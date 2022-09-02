@@ -18,8 +18,8 @@ export interface ILink {
     info_ka_email: string,
     info_ka_name: string,
     kp_offer_expire_date: string | null,
-    travel_exp: string | null,
-    travel_exp_comm: string | null
+    travel_exp: string,
+    travel_exp_comm: string
 }
 
 export interface IStag {
@@ -27,7 +27,7 @@ export interface IStag {
     kp_sample_guid: string,
     opr_usl_stage_id: string,
     opr_usl_stage: string,
-    opr_usl_stage_num: number | string,
+    opr_usl_stage_num: number,
     units: IUnit[]
 }
 
@@ -37,7 +37,7 @@ export interface IUnit {
     opr_usl_unit_id: string,
     usl_quan_unit: string,
     opr_usl_unit: string,
-    nsu_menge: number | string,
+    nsu_menge: string,
     vat_rate: string,
     opr_usl_unit_restr_quan: string,
     opr_usl_unit_restr_menge: string,
@@ -47,10 +47,14 @@ export interface IUnit {
 export interface IUsrp {
     kp_unit_guid: string,
     link_id: string,
-    prices_user: number | string,
+    prices_user: string,
     usl_quan_unit: string,
-    nsu_menge: number | string,
+    nsu_menge: string,
     vat_rate: string,
     alt_name_unit: string,
-    nds_comm: string
+    nds_comm: string,
+    //
+    isSubToggle: boolean,
+    summ: string,
+    summ_nds: string
 }

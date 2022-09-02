@@ -1,9 +1,8 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import { Text } from "@consta/uikit/Text";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { TextField } from "@consta/uikit/TextField";
 import { useAppSelector, useAppDispatch } from "../../hooks/redux";
-import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 const KomandBar: FC = () => {
@@ -11,14 +10,9 @@ const KomandBar: FC = () => {
     const {trip} = useAppSelector(state => state.mainReducer)
     const {links} = useAppSelector(state => state.sampReducer)
 
-    const handleChangePrice = (value: string | null) => {
-        debugger
-        dispatch(sampSlice.actions.setTripPrice(value))
-    }
-    const handleChangeComment = ({ e }: any) => {
-        dispatch(sampSlice.actions.setTripComment(e.target.value))
-    }
-
+    const handleChangePrice     = ({ value }: any) => dispatch(sampSlice.actions.setTripPrice(value))
+    const handleChangeComment   = ({ value }: any) => dispatch(sampSlice.actions.setTripComment(value))
+    
     return (
         <>
         {trip.isTrip ? (
@@ -36,7 +30,7 @@ const KomandBar: FC = () => {
                             size="s" 
                             required 
                             value={links.travel_exp} 
-                            onChange={({ value }) => handleChangePrice(value)}
+                            onChange={handleChangePrice}
                             width="full"/>
                     </Layout>
                     <Layout flex={6} className="aic">

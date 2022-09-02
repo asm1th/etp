@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Text } from "@consta/uikit/Text";
 import { Card } from "@consta/uikit/Card";
@@ -17,15 +17,12 @@ const TopBar: FC = () => {
     const {trip} = useAppSelector(state => state.mainReducer)
     const {usl_period_end, links} = useAppSelector(state => state.sampReducer)
 
-    const [isLink, setIsLink] = useState<boolean>(parseFloat(links.travel_exp) > 0);
-
     useEffect(() => {
-        let ttt = parseFloat(links.travel_exp) > 0;
-        dispatch(mainSlice.actions.toggleChecked(ttt))
+        dispatch(mainSlice.actions.toggleChecked(parseFloat(links.travel_exp) > 0))
     },[links])
 
-    const handleTrip = ({ e }: any) => {
-        dispatch(mainSlice.actions.toggleChecked(e.target.checked))
+    const handleTrip = (e: any) => {
+        dispatch(mainSlice.actions.toggleChecked(e.checked))
     }
 
     const handleDate = (value: any) => {
