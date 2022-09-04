@@ -7,19 +7,15 @@ import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { mainSlice } from "../../store/reducers/main/mainSlice";
+//import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
-import { IStag, IUnit, IUsrp } from "../../models/ISamp";
+import { IStag} from "../../models/ISamp";
 
 const EtapRow = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
     // const { etapItems } = useAppSelector(state => state.mainReducer)
     const { stags } = useAppSelector(state => state.sampReducer)
     const { link } = useAppSelector(state => state.sampReducer)
-
-    useEffect(() => {
-
-    }, [])
 
     const stagsFiltered: IStag[] = []
     stags.forEach((stag: IStag) => {
@@ -28,24 +24,11 @@ const EtapRow = (props: { etapId: number }) => {
         }
     })
 
-    const findStage = (stags: IStag[], kp_stage_guid: string) => {
-        return stags[stags.findIndex(stag => stag.kp_stage_guid === kp_stage_guid)]
-    }
-
-    const findUnit = (units: IUnit[], kp_unit_guid: string) => {
-        return units[units.findIndex(unit => unit.kp_unit_guid === kp_unit_guid)]
-    }
-
-    const findUsrps = (usrps: IUsrp[], link_id: string) => {
-        return usrps[usrps.findIndex(usrps => usrps.link_id === link_id)]
-    }
-
     const handleSubToggle = (kp_stage_guid: string, kp_unit_guid: string) => {
         dispatch(sampSlice.actions.toggleEtapRowSub({ kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }))
     }
 
     const handleAlt_name_unit = (kp_stage_guid: string, kp_unit_guid: string, value: any) => {
-        debugger
         dispatch(sampSlice.actions.setAlt_name_unit({ UnitFinder: {kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link}, value: value }))
     }
 

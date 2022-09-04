@@ -1,8 +1,7 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-import { useAppDispatch } from './hooks/redux';
 
 const App: FC = () => {
 

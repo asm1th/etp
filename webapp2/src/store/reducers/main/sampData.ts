@@ -1,6 +1,7 @@
 
 import { ISampNew, IStag } from "../../../models/ISamp"
 
+
 export const Stags: IStag[] = [
   {
     "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
@@ -1045,11 +1046,12 @@ export const Stags: IStag[] = [
   }
 ]
 
+
 export const initialState: ISampNew = {
   "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
   "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-  "konkurs_id": "100000037153",
-  "konkurs_name": "Аренда недвижимости_test",
+  "konkurs_id": "_____100000037153",
+  "konkurs_name": "Аренда недвижимости_LOCAL",
   "lot_id": "100000037154",
   "lot_name": "Аренда недвижимости",
   "waers": "RUB",

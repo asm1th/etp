@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./sampData"
-import { MainService } from '../../../services/MainService'
+import { sampAPI } from '../../../services/SampService'
 import { IStag, IUnit, IUsrp } from "../../../models/ISamp";
+//import { IStag, IUnit, IUsrp } from "../../../models/ISampServer";
 
 
 const findStage = (stags: IStag[], kp_stage_guid:string) => {
@@ -150,12 +151,13 @@ export const sampSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addMatcher(
-                MainService.endpoints.fetchSamp.matchFulfilled,
+                sampAPI.endpoints.fetchSamp.matchFulfilled,
                 (state, { payload }) => {
                     debugger
                     console.warn(payload);
-                    //state.dateKP = payload.kp_accep_date;
-                    //state.dateKP = payload.
+
+                    //server data to reducer
+                    return payload
                 }
             )
     },

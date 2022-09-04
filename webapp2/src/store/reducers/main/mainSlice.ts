@@ -114,6 +114,7 @@ export const mainSlice = createSlice({
             (state, { payload }) => {
                 debugger
                 console.warn(payload);
+                
                 //state.dateKP = payload.kp_accep_date;
                 //state.dateKP = payload.
             }
