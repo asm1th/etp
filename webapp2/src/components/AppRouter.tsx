@@ -11,10 +11,6 @@ import EtpLoginCode from "../pages/etp/LoginCode";
 import EtpLogin from "../pages/etp/Login";
 import Registration from "../pages/etp/Registration";
 
-// масссив путей пока не используем
-// import { privateRoutes } from "../router/router";
-// import { publicRoutes } from "../router/router";
-
 const AppRouter = () => {
     const {isAuth} = useAppSelector(state => state.authReducer)
     const isCodeLink = false // check url то show code window

@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ISampNew } from "../models/ISamp";
-import { RootState } from '../store/store'
+import { ISampNew } from "../../models/ISamp";
+import { RootState } from '../../store/store'
 
 export const sampAPI = createApi({
     reducerPath: "sampAPI",
