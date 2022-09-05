@@ -23,12 +23,14 @@ export interface ILink {
 }
 
 export interface IStag {
-    kp_stage_guid: string,
-    kp_sample_guid: string,
-    opr_usl_stage_id: string,
-    opr_usl_stage: string,
-    opr_usl_stage_num: number,
+    kp_stage_guid: string
+    kp_sample_guid: string
+    opr_usl_stage_id: string
+    opr_usl_stage: string
+    opr_usl_stage_num: number
     units: IUnit[]
+
+    isNoNds: boolean
 }
 
 export interface IUnit {

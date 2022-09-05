@@ -11,20 +11,12 @@ import EtapFooterButtons from "../../components/fragments/EtapFooterButtons";
 
 
 const RNMCapp: FC = () => {
+
+    //test
     const params = useLocation().search;
     const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
     const {data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
-
-    // samp && samp.stags.forEach(stag => {
-    //     stag.units.forEach(unit => {
-    //         unit.usrps.forEach(usrp => {
-    //             usrp.
-    //             usrp.isSubToggle = "",
-    //             usrp.summ = "",
-    //             usrp.summ_nds = ""
-    //         }); 
-    //     });
-    // });
+    //.test
 
     return (
         <>
