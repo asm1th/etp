@@ -1,0 +1,8 @@
+@media print {
+    .CollapseIcon {
+        display: none;
+    }
+    .Collapse-Label{
+        padding: 20px 0;
+    }
+  }

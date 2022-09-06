@@ -27,7 +27,7 @@ const Registration: FC = () => {
 
     const dispatch = useAppDispatch()
     const { regData, isAccept } = useAppSelector(state => state.regReducer)
-    const [regRequest, { data, error }] = useRegistrationMutation();
+    const [regRequest, { data, error, isSuccess }] = useRegistrationMutation();
 
     const [activeStep, setActiveStep] = useState<number>(0)
     const [status, setStatus] = useState<string>('normal')

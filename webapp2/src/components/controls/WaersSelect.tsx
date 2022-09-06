@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
 import { Select } from '@consta/uikit/Select';
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { useAppSelector } from "../../hooks/redux";
 
 const WaersSelect: FC = () => {
-    const dispatch = useAppDispatch()
     const {waers} = useAppSelector(state => state.sampReducer)
 
     type Item = {

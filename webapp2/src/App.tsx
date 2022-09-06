@@ -19,14 +19,6 @@ const App: FC = () => {
         <Link to="/code">login code</Link> .
         <Link to="/logout">logout</Link> .
         <Link to="/404">404</Link> 
-
-        {/* <hr/>
-        fetchUsers
-        {isLoading && <div>загрузка...</div>}
-        {error && <div>{error}</div>}
-        {JSON.stringify(users, null, 2)}
-        */}
-
       </Theme>
     </div>
   );

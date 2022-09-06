@@ -8,7 +8,8 @@ import { useFetchSampQuery } from "../../services/SampService";
 import Etaps from "../../components/fragments/Etaps";
 import EtapsItog from "../../components/fragments/EtapsItog";
 import EtapFooterButtons from "../../components/fragments/EtapFooterButtons";
-
+import { ProgressSpin } from '@consta/uikit/ProgressSpin';
+import { Responses503 } from '@consta/uikit/Responses503';
 
 const RNMCapp: FC = () => {
 
@@ -21,8 +22,8 @@ const RNMCapp: FC = () => {
     return (
         <>
             <div className='isErrorIsLoading'>
-            {error && <p>An error occured</p>}
-            {isLoading && <p>Loading...</p>}
+            {error && <Responses503 />}
+            {isLoading && <ProgressSpin size="2xl" />}
             </div>
             {isSuccess && (
                 <>
