@@ -108,7 +108,13 @@ export const sampSlice = createSlice({
                     uspr.nds_comm = action.payload.value
                 })
             })
-        }
+        },
+        setStageSumm: (state, action: PayloadAction<any>) => {
+            
+            const index= state.stags.findIndex(stage => stage.opr_usl_stage_id === action.payload.opr_usl_stage_id)
+            state.stags[index].stagSumm_nds = action.payload.value.summ
+            state.stags[index].stagSumm_nds = action.payload.value.summ_nds
+        },
     },
     extraReducers: (builder) => {
         builder

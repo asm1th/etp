@@ -31,6 +31,8 @@ export interface IStag {
     units: IUnit[]
 
     isNoNds: boolean
+    stagSumm: string
+    stagSumm_nds: string
 }
 
 export interface IUnit {

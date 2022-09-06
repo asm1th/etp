@@ -7,13 +7,11 @@ import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-//import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 import { IStag } from "../../models/ISamp";
 
 const EtapRow = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
-    // const { etapItems } = useAppSelector(state => state.mainReducer)
     const { stags } = useAppSelector(state => state.sampReducer)
     const { link } = useAppSelector(state => state.sampReducer)
 

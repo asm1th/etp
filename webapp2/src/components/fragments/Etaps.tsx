@@ -18,7 +18,6 @@ const Etaps: FC = () => {
     const params = useLocation().search;
     const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
     const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
-    //const { stags } = useAppSelector(state => state.sampReducer)
 
     const [tab, setTab] = useState<IStag>({
         "kp_stage_guid": "",
@@ -27,6 +26,8 @@ const Etaps: FC = () => {
         "opr_usl_stage": "",
         "opr_usl_stage_num": 1,
         isNoNds: false,
+        stagSumm: "",
+        stagSumm_nds: "",
         "units": []
     });
 

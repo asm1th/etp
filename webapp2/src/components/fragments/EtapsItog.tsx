@@ -3,12 +3,14 @@ import { Text } from "@consta/uikit/Text";
 import { Button } from "@consta/uikit/Button";
 import { Collapse } from '@consta/uikit/Collapse';
 import EtapsItogRow from "./EtapsItogRow";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppSelector, useAppDispatch } from "../../hooks/redux";
+import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 
 const EtapsItog: FC = () => {
     const [isOpen, setOpen] = useState<boolean>(true)
     //const { summKP, summKP_nds } = useAppSelector(state => state.mainReducer)
+    const dispatch = useAppDispatch()
 
     const { stags } = useAppSelector(state => state.sampReducer)
     const { link } = useAppSelector(state => state.sampReducer)
@@ -32,9 +34,13 @@ const EtapsItog: FC = () => {
                 summ += parseFloat(usrp[0].summ) || 0
                 summ_nds += parseFloat(usrp[0].summ_nds) || 0
             });
+
+            //save state
+            //dispatch(sampSlice.actions.setStageSumm({ opr_usl_stage_id: stag.opr_usl_stage_id, value: {summ: summ, summ_nds: summ_nds} }))
         })
         summ = parseFloat(summ.toFixed(2))
         summ_nds = parseFloat(summ_nds.toFixed(2))
+
         setKpSumm((prev) => ({ ...prev, summ: summ }))
         setKpSumm((prev) => ({ ...prev, summ_nds: summ_nds }))
     }, [stags, link])

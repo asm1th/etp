@@ -10,6 +10,8 @@ export const Stags: IStag[] = [
     "opr_usl_stage": "ПриобретениеАЗСиземли ___LOCAL",
     "opr_usl_stage_num": 1,
     isNoNds: false,
+    stagSumm: "",
+    stagSumm_nds: "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -32,8 +34,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -45,8 +47,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           }
         ]
       }
@@ -59,6 +61,8 @@ export const Stags: IStag[] = [
     "opr_usl_stage": "Арендаземли",
     "opr_usl_stage_num": 2,
     isNoNds: false,
+    stagSumm: "",
+    stagSumm_nds: "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -81,8 +85,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -94,8 +98,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           }
         ]
       },
@@ -120,8 +124,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -133,8 +137,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           }
         ]
       },
@@ -159,8 +163,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -172,8 +176,8 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "nds_comm": "22.08.2022",
             isSubToggle: false,
-            summ: "-- --",
-            summ_nds: "-- --"
+            summ: "",
+            summ_nds: ""
           }
         ]
       }
