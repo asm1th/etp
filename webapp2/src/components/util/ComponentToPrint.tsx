@@ -7,7 +7,7 @@ export class ComponentToPrint extends React.Component {
         return (
             <>
 
-                {/* <EtapsItog /> */}
+                <EtapsItog />
 
             </>
         );

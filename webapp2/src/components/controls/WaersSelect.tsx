@@ -15,10 +15,10 @@ const WaersSelect: FC = () => {
             label: 'RUB',
             id: 1,
         },
-        {
-            label: 'USD',
-            id: 2,
-        },
+        // {
+        //     label: 'USD',
+        //     id: 2,
+        // },
         // {
         //     label: 'YUN',
         //     id: 3,

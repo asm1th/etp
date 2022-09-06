@@ -16,14 +16,14 @@ const RNMCapp: FC = () => {
     //test
     const params = useLocation().search;
     const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
-    const {data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
     //.test
 
     return (
         <>
             <div className='isErrorIsLoading'>
-            {error && <Responses503 />}
-            {isLoading && <ProgressSpin size="2xl" />}
+                {error && <Responses503 />}
+                {isLoading && <ProgressSpin size="2xl" />}
             </div>
             {isSuccess && (
                 <>

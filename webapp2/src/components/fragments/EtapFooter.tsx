@@ -4,18 +4,21 @@ import { TextField } from "@consta/uikit/TextField";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Checkbox } from '@consta/uikit/Checkbox';
 import { Button } from "@consta/uikit/Button";
-import { IconSave } from '@consta/uikit/IconSave';
+import { IconCheck } from '@consta/uikit/IconCheck';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 import PopoverCustom from '../util/PopoverCustom';
 import { IStag } from "../../models/ISamp";
+import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../services/SampService";
+
 
 const EtapFooter = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
-
-    const { stags } = useAppSelector(state => state.sampReducer)
+    const { stags, links } = useAppSelector(state => state.sampReducer)
     const { link } = useAppSelector(state => state.sampReducer)
+    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
+    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
 
     const currentStage: IStag[] = []
     stags.forEach((stag: IStag) => {
@@ -29,8 +32,6 @@ const EtapFooter = (props: { etapId: number }) => {
         summ_nds: 0,
         summ_nds_comment: ""
     }
-
-    // const [summStage, setSummStage] = useState<string>(summStageInit)
 
     currentStage[0].units.forEach(unit => {
         const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
@@ -56,6 +57,14 @@ const EtapFooter = (props: { etapId: number }) => {
     const handleNdsComm = (etapId: number, value: string) => {
         dispatch(sampSlice.actions.setNoNdsComm({ etapId: etapId, value: value }))
         summStage.summ_nds_comment = value
+    }
+
+    const onSave = () => {
+        updateLink(links)
+        currentStage[0].units.forEach(unit => {
+            const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
+            updateUsrp(usrp[0])
+        });
     }
 
     const msg = "При активации чекбокса изменения \n автоматически применятся \n ко всем расценкам этапа"
@@ -105,7 +114,7 @@ const EtapFooter = (props: { etapId: number }) => {
                         </>) : null}
                 </Layout>
                 <Layout flex={1} className="aic">
-                    <Button label="Сохранить изменения" size="s" iconLeft={IconSave} disabled />
+                    <Button label="Сохранить изменения" onClick={onSave} size="s" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp}/>
                 </Layout>
             </Layout>
         </div >

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
@@ -159,7 +158,6 @@ const EtapRow = (props: { etapId: number }) => {
                                         disabled={false}
                                     />
                                 </Layout>
-
 
                                 <Layout flex={1}>
                                     <TextField

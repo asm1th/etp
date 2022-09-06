@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ISampNew } from "../models/ISamp";
+import { ISampNew, ILink, IUsrp } from "../models/ISamp";
 import { RootState } from '../store/store'
 
 export const sampAPI = createApi({
@@ -34,14 +34,22 @@ export const sampAPI = createApi({
         //     }),
         //     invalidatesTags: ['Post']
         // }),
-        // updatePost: build.mutation<IPost, IPost>({
-        //     query: (post) => ({
-        //         url: `/posts/${post.id}`,
-        //         method: 'PUT',
-        //         body: post
-        //     }),
-        //     invalidatesTags: ['Post']
-        // }),
+        updateLink: builder.mutation<ILink, ILink>({
+            query: (linkBody) => ({
+                url: `/link`,
+                method: 'PUT',
+                body: linkBody
+            }),
+            invalidatesTags: ['Samp']
+        }),
+        updateUsrp: builder.mutation<IUsrp, IUsrp>({
+          query: (usrpBody) => ({
+              url: `/usrp`,
+              method: 'PUT',
+              body: usrpBody
+          }),
+          invalidatesTags: ['Samp']
+      }),
         // deletePost: build.mutation<IPost, IPost>({
         //     query: (post) => ({
         //         url: `/posts/${post.id}`,
@@ -54,5 +62,7 @@ export const sampAPI = createApi({
 
 //export const { useFetchSampMutation } = sampAPI
 export const { 
-  useFetchSampQuery 
+  useFetchSampQuery,
+  useUpdateUsrpMutation,
+  useUpdateLinkMutation
 } = sampAPI
