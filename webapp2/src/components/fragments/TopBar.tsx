@@ -9,7 +9,8 @@ import { format } from "date-fns";
 
 
 const TopBar: FC = () => {
-    const {lot_name, participant_name, valuta, dateStartKP, dateEndKP} = useAppSelector(state => state.mainReducer)
+    const {participant_name, valuta, dateStartKP, dateEndKP} = useAppSelector(state => state.mainReducer)
+    const {lot_name, links, waers, kp_accep_date, kp_send_date} = useAppSelector(state => state.sampReducer)
 
     return (
         <>
@@ -28,7 +29,7 @@ const TopBar: FC = () => {
                             Участник анализа рынка
                         </Text>
                         <Text as="div" className="labeltext">
-                            {participant_name}
+                            {links.info_ka_name}
                         </Text>
                     </Layout>
                     <Layout flex={1} direction="column" className="valBlock mr1">
@@ -36,7 +37,7 @@ const TopBar: FC = () => {
                             Валюта
                         </Text>
                         <Text as="div" className="labeltext">
-                            {valuta}
+                            {waers}
                         </Text>
                     </Layout>
                     <Layout flex={1} direction="column" className="mr1">
@@ -46,7 +47,7 @@ const TopBar: FC = () => {
                         <Layout flex={1} className="aic">
                             <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
-                                {format(dateStartKP, 'dd.MM.yyyy')}
+                                {format(new Date(kp_send_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>
@@ -57,12 +58,17 @@ const TopBar: FC = () => {
                         <Layout flex={1} className="aic">
                             <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
-                                {format(dateEndKP, 'dd.MM.yyyy')}
+                                {format(new Date(kp_accep_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>
                     <Layout flex={1} direction="column">
-                        <Button size="s" label="Скачать ТЗ" view="secondary" iconLeft={IconDownload} />
+                        <Button 
+                            disabled={true}
+                            size="s" 
+                            label="Скачать ТЗ" 
+                            view="secondary" 
+                            iconLeft={IconDownload} />
                     </Layout>
                 </Layout>
             </Layout>

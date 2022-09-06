@@ -34,6 +34,10 @@ body .Theme {
   background-color: var(--color-control-bg-primary);
 }
 
+.Button_view_primary.Button_disabled, .Button_view_primary.Button_loading {
+  background-color: var(--color-control-bg-disable);
+}
+
 .Button_disabled {
   color: var(--color-control-typo-disable);
 }

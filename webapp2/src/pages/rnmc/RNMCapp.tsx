@@ -1,45 +1,40 @@
-import React, { FC, useState } from "react";
 import '../../App.css';
 import './rnmc.css';
-import { Button } from "@consta/uikit/Button";
+import { FC } from "react";
+import { useLocation } from "react-router-dom";
 import TopBar from "../../components/fragments/TopBar";
 import BarKP from "../../components/fragments/BarKP";
-import { useProtectedMutation } from "../../services/authService";
-import { MainService, useFetchSampMutation } from "../../services/MainService";
+import { useFetchSampQuery } from "../../services/SampService";
 import Etaps from "../../components/fragments/Etaps";
 import EtapsItog from "../../components/fragments/EtapsItog";
 import EtapFooterButtons from "../../components/fragments/EtapFooterButtons";
+import { ProgressSpin } from '@consta/uikit/ProgressSpin';
+import { Responses503 } from '@consta/uikit/Responses503';
 
 const RNMCapp: FC = () => {
-    //const [attemptAccess, { data, error, isLoading }] = useProtectedMutation();
-    const [kp_sample_guid, setKp_sample_guid] = useState('0050569CDC861EED87DD0FCCDBEA808C');
-    const [attemptAccess, { data: samp, error, isLoading }] = useFetchSampMutation()
+
+    //test
+    const params = useLocation().search;
+    const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
+    //.test
 
     return (
         <>
-            <TopBar />
-            <BarKP />
-            <Etaps />
-            <EtapsItog />
-            <EtapFooterButtons />
-
-            {/* <Navbar /> */}
-            {/* <PostContainer /> */}
-            {/* test protected request */}
-            <Button label="Запрос /users с токеном" onClick={() => attemptAccess(kp_sample_guid)} loading={isLoading}/>
-            <div>
-                Данные /users (attemptAccess):
-                {samp ? (
-                    <>
-                        Data:
-                        <pre>{JSON.stringify(samp, null, 2)}</pre>
-                    </>
-                ) : error ? (
-                    <>
-                        Error: <pre>{JSON.stringify(error, null, 2)}</pre>
-                    </>
-                ) : null}
+            <div className='isErrorIsLoading'>
+                {error && <Responses503 />}
+                {isLoading && <ProgressSpin size="2xl" />}
             </div>
+            {isSuccess && (
+                <>
+                    <TopBar />
+                    <BarKP />
+                    <Etaps />
+                    <EtapsItog />
+                    <EtapFooterButtons />
+                    <pre>{JSON.stringify(samp, null, 2)}</pre>
+                </>
+            )}
         </>
     );
 };

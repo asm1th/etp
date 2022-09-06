@@ -14,7 +14,7 @@ const initialState = {
     isAuth: false,  //// отключение
     user: null, 
     token: null,
-    kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"
+    kp_sample_guid: ""
 }
 
 const slice = createSlice({

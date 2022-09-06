@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IMain } from "../models/IMain";
+import { ISampNew, ILink, IUsrp } from "../models/ISamp";
 import { RootState } from '../store/store'
 
-export const MainService = createApi({
-    reducerPath: "MainService",
+export const sampAPI = createApi({
+    reducerPath: "sampAPI",
     
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://109.195.85.121:5010/',
@@ -19,15 +19,11 @@ export const MainService = createApi({
     tagTypes: ['Samp'],
 
     endpoints: (builder) => ({
-        // fetchSamp: builder.query<IMain, string>({
-        //     query: (kp_sample_guid: string) => ({
-        //         url: `/samp/${kp_sample_guid}`,
-        //     }),
-        //     providesTags: result => ['Samp']
-        // }),
-
-        fetchSamp: builder.mutation<IMain, string>({
-            query: (kp_sample_guid: string) => `/samp/${kp_sample_guid}`,
+        fetchSamp: builder.query<ISampNew, string>({
+            query: (kp_sample_guid: string) => ({
+                url: `/samp/${kp_sample_guid}`,
+            }),
+            providesTags: result => ['Samp'],
         }),
 
         // createPost: build.mutation<IPost, IPost>({
@@ -38,14 +34,22 @@ export const MainService = createApi({
         //     }),
         //     invalidatesTags: ['Post']
         // }),
-        // updatePost: build.mutation<IPost, IPost>({
-        //     query: (post) => ({
-        //         url: `/posts/${post.id}`,
-        //         method: 'PUT',
-        //         body: post
-        //     }),
-        //     invalidatesTags: ['Post']
-        // }),
+        updateLink: builder.mutation<ILink, ILink>({
+            query: (linkBody) => ({
+                url: `/link`,
+                method: 'PUT',
+                body: linkBody
+            }),
+            invalidatesTags: ['Samp']
+        }),
+        updateUsrp: builder.mutation<IUsrp, IUsrp>({
+          query: (usrpBody) => ({
+              url: `/usrp`,
+              method: 'PUT',
+              body: usrpBody
+          }),
+          invalidatesTags: ['Samp']
+      }),
         // deletePost: build.mutation<IPost, IPost>({
         //     query: (post) => ({
         //         url: `/posts/${post.id}`,
@@ -56,4 +60,9 @@ export const MainService = createApi({
     })
 })
 
-export const { useFetchSampMutation } = MainService
+//export const { useFetchSampMutation } = sampAPI
+export const { 
+  useFetchSampQuery,
+  useUpdateUsrpMutation,
+  useUpdateLinkMutation
+} = sampAPI

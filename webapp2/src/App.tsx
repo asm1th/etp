@@ -1,8 +1,7 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import AppRouter from './components/AppRouter';
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
-import { useAppDispatch } from './hooks/redux';
 
 const App: FC = () => {
 
@@ -20,14 +19,6 @@ const App: FC = () => {
         <Link to="/code">login code</Link> .
         <Link to="/logout">logout</Link> .
         <Link to="/404">404</Link> 
-
-        {/* <hr/>
-        fetchUsers
-        {isLoading && <div>загрузка...</div>}
-        {error && <div>{error}</div>}
-        {JSON.stringify(users, null, 2)}
-        */}
-
       </Theme>
     </div>
   );

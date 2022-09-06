@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { IPost } from "../models/test/IPost";
+import { IPost } from "../../models/test/IPost";
 
 
 export const postAPI = createApi({

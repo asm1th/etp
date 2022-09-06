@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { IPost } from '../models/test/IPost';
-import { postAPI } from '../services/PostService';
+import { IPost } from '../../models/test/IPost';
+import { postAPI } from '../../services/_bak/PostService';
 import PostItem from './PostItem';
 
 const PostContainer = () => {

@@ -4,25 +4,25 @@ import { Text } from "@consta/uikit/Text";
 import { useAppSelector } from "../../hooks/redux";
 
 const EtapsItogRow: FC = () => {
-    
-    const { etapsSumms } = useAppSelector(state => state.mainReducer)
+    const { stags } = useAppSelector(state => state.sampReducer)
+
     return (
         <>
-            {etapsSumms.map(({ id, name, etapSumm, etapSumm_nds }) => (
-                <Layout key={id} className="EtapsItogRow mb1">
+            {stags.map(({ kp_stage_guid, opr_usl_stage, opr_usl_stage_num, stagSumm, stagSumm_nds }) => (
+                <Layout key={kp_stage_guid} className="EtapsItogRow mb1">
                     <Layout flex={1}>
-                        <Text className="weight700">Этап {id}</Text>
+                        <Text className="weight700">Этап {opr_usl_stage_num}</Text>
                     </Layout>
                     <Layout flex={6}>
-                        <Text className="weight700">{name}</Text>
+                        <Text className="weight700">{opr_usl_stage}</Text>
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr2" align="center">Сумма без НДС</Text>
-                        <Text className="summ" align="center">{etapSumm}</Text>
+                        <Text className="summ" align="center">{parseFloat(stagSumm) || "-- --"}</Text>
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr2" align="center">Сумма c НДС</Text>
-                        <Text className="summ" align="center">{etapSumm_nds}</Text>
+                        <Text className="summ" align="center">{parseFloat(stagSumm_nds) || "-- --"}</Text>
                     </Layout>
                 </Layout>
             ))}
