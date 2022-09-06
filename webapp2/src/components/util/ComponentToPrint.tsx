@@ -1,5 +1,5 @@
 import React from "react";
-import EtapsItog from "../../pages/rnmc/RNMCapp";
+import EtapsItog from "../../components/fragments/EtapsItog";
 import '../../css/print.css';
 
 export class ComponentToPrint extends React.Component {
@@ -7,7 +7,7 @@ export class ComponentToPrint extends React.Component {
         return (
             <>
 
-                <EtapsItog />
+                {/* <EtapsItog /> */}
 
             </>
         );
