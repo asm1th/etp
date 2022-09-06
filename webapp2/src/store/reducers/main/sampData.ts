@@ -205,5 +205,8 @@ export const initialState: ISampNew = {
     "travel_exp": "1.00",
     "travel_exp_comm": "тест"
   },
-  "stags": Stags
+  "stags": Stags,
+
+  kp_summ:"",
+  kp_summ_nds:""
 }

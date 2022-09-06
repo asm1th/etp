@@ -18,11 +18,11 @@ const EtapsItogRow: FC = () => {
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr2" align="center">Сумма без НДС</Text>
-                        <Text className="summ" align="center">{stagSumm || "-- --"}</Text>
+                        <Text className="summ" align="center">{parseFloat(stagSumm) || "-- --"}</Text>
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr2" align="center">Сумма c НДС</Text>
-                        <Text className="summ" align="center">{stagSumm_nds || "-- --"}</Text>
+                        <Text className="summ" align="center">{parseFloat(stagSumm_nds) || "-- --"}</Text>
                     </Layout>
                 </Layout>
             ))}

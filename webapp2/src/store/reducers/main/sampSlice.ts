@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { initialState } from "./sampData"
 import { sampAPI } from '../../../services/SampService'
-import { IStag, IUnit, IUsrp } from "../../../models/ISamp";
+import { ISampNew, IStag, IUnit, IUsrp } from "../../../models/ISamp";
 
 
 const findStage = (stags: IStag[], kp_stage_guid:string) => {
@@ -44,8 +44,31 @@ const calcSumm = (thisUsrp: IUsrp) => {
     if (thisUsrp.vat_rate) {
         thisUsrp.summ_nds = (summ + summ * parseFloat(thisUsrp.vat_rate) / 100).toString()
     } else {
-        thisUsrp.summ_nds = ""
+        thisUsrp.summ_nds = summ.toString()
     }
+}
+
+const calcStageSumm = (state: ISampNew, thisStag: IStag, UnitFinder: IUnitFinder) => {
+    let stagSumm = 0
+    let stagSumm_nds = 0
+
+    thisStag.units.forEach(unit => {     
+        const usrp = unit.usrps.filter(usrp => usrp.link_id === UnitFinder.link_id);
+        stagSumm += parseFloat(usrp[0].summ) || 0
+        stagSumm_nds += parseFloat(usrp[0].summ_nds) || 0
+    });
+    
+    thisStag.stagSumm = stagSumm.toString()
+    thisStag.stagSumm_nds = stagSumm_nds.toString()
+
+    let kp_summ = 0
+    let kp_summ_nds = 0
+    state.stags.forEach(stag => {
+        kp_summ += parseFloat(stag.stagSumm) || 0
+        kp_summ_nds += parseFloat(stag.stagSumm_nds) || 0
+    })
+    state.kp_summ = kp_summ.toString()
+    state.kp_summ_nds = kp_summ_nds.toString()
 }
 
 export const sampSlice = createSlice({
@@ -76,21 +99,28 @@ export const sampSlice = createSlice({
             thisUsrp.usl_quan_unit = action.payload.value;
         },
         setNsu_menge: (state, action: PayloadAction<IUnitStringPayload>) => {
+            const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUnit = getUnit(state.stags, action.payload.UnitFinder)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUnit.nsu_menge = action.payload.value;
             thisUsrp.nsu_menge = action.payload.value;
             calcSumm(thisUsrp)
+            calcStageSumm(state,thiStage, action.payload.UnitFinder)
         },
         setPrices_user: (state, action: PayloadAction<IUnitStringPayload>) => {
+            const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.prices_user = action.payload.value;
             calcSumm(thisUsrp)
+            calcStageSumm(state, thiStage, action.payload.UnitFinder)
         },
         setVat_rate: (state, action: PayloadAction<IUnitStringPayload>) => {
+            const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.vat_rate = action.payload.value;
+            
             calcSumm(thisUsrp)
+            calcStageSumm(state, thiStage, action.payload.UnitFinder)
         },
         setNds_comm: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)

@@ -11,6 +11,9 @@ export interface ISampNew {
     usl_period_end: string,
     links: ILink,
     stags: IStag[],
+
+    kp_summ: string,
+    kp_summ_nds: string
 }
 
 export interface ILink {
