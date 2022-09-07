@@ -10,14 +10,12 @@ import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 import { format } from "date-fns";
 import WaersSelect from "../controls/WaersSelect";
-import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../services/SampService";
 
 
-const TopBar: FC = () => {
+const SampKpInfo: FC = () => {
     const dispatch = useAppDispatch()
     const {trip} = useAppSelector(state => state.mainReducer)
     const {usl_period_end, links} = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdating }] = useUpdateLinkMutation()
 
     useEffect(() => {
         dispatch(mainSlice.actions.toggleChecked(parseFloat(links.travel_exp) > 0))
@@ -72,4 +70,4 @@ const TopBar: FC = () => {
     );
 };
 
-export default TopBar;
+export default SampKpInfo;

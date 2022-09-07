@@ -4,7 +4,7 @@ import { sampAPI } from '../../../services/SampService'
 import { ISampNew, IStag, IUnit, IUsrp } from "../../../models/ISamp";
 
 
-const findStage = (stags: IStag[], kp_stage_guid:string) => {
+const findStage = (stags: IStag[], kp_stage_guid: string) => {
     return stags[stags.findIndex(stag => stag.kp_stage_guid === kp_stage_guid)]
 }
 
@@ -48,16 +48,16 @@ const calcSumm = (thisUsrp: IUsrp) => {
     }
 }
 
-const calcStageSumm = (state: ISampNew, thisStag: IStag, UnitFinder: IUnitFinder) => {
+const calcStageSumm = (state: ISampNew, thisStag: IStag, link_id: string) => {
     let stagSumm = 0
     let stagSumm_nds = 0
 
-    thisStag.units.forEach(unit => {     
-        const usrp = unit.usrps.filter(usrp => usrp.link_id === UnitFinder.link_id);
+    thisStag.units.forEach(unit => {
+        const usrp = unit.usrps.filter(usrp => usrp.link_id === link_id);
         stagSumm += parseFloat(usrp[0].summ) || 0
         stagSumm_nds += parseFloat(usrp[0].summ_nds) || 0
     });
-    
+
     thisStag.stagSumm = stagSumm.toString()
     thisStag.stagSumm_nds = stagSumm_nds.toString()
 
@@ -105,43 +105,41 @@ export const sampSlice = createSlice({
             thisUnit.nsu_menge = action.payload.value;
             thisUsrp.nsu_menge = action.payload.value;
             calcSumm(thisUsrp)
-            calcStageSumm(state,thiStage, action.payload.UnitFinder)
+            calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setPrices_user: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.prices_user = action.payload.value;
             calcSumm(thisUsrp)
-            calcStageSumm(state, thiStage, action.payload.UnitFinder)
+            calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setVat_rate: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.vat_rate = action.payload.value;
-            
             calcSumm(thisUsrp)
-            calcStageSumm(state, thiStage, action.payload.UnitFinder)
+            calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setNds_comm: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.nds_comm = action.payload.value;
         },
-        
-        setNoNds: (state, action: PayloadAction<any>) => {
-            const index= state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
+
+        setStageNoNds: (state, action: PayloadAction<any>) => {
+            const index = state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
             state.stags[index].isNoNds = action.payload.checked;
         },
-        setNoNdsComm: (state, action: PayloadAction<any>) => {
-            const index= state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
+        setStageNoNdsComm: (state, action: PayloadAction<any>) => {
+            const index = state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
             state.stags[index].units.forEach(unit => {
-                unit.usrps.forEach(uspr => {
-                    uspr.nds_comm = action.payload.value
-                })
+                let thisUsrps = unit.usrps[unit.usrps.findIndex(usrp => usrp.link_id === state.link)]
+                thisUsrps.nds_comm = action.payload.value
             })
+            
         },
         setStageSumm: (state, action: PayloadAction<any>) => {
-            
-            const index= state.stags.findIndex(stage => stage.opr_usl_stage_id === action.payload.opr_usl_stage_id)
+            const index = state.stags.findIndex(stage => stage.opr_usl_stage_id === action.payload.opr_usl_stage_id)
             state.stags[index].stagSumm_nds = action.payload.value.summ
             state.stags[index].stagSumm_nds = action.payload.value.summ_nds
         },
@@ -154,6 +152,16 @@ export const sampSlice = createSlice({
                     //debugger
                     console.warn(payload);
 
+
+                    payload.stags.forEach( stag => {
+                        stag.units.forEach( unit => {
+                            let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === payload.link)[0];
+                            calcSumm(thisUsrps)
+                        })
+                        calcStageSumm(payload, stag, payload.link)
+                    })
+
+                    
                     //server data to reducer
                     return payload
                 }

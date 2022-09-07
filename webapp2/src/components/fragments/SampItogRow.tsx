@@ -3,7 +3,7 @@ import { Layout } from '@consta/uikit/LayoutCanary';
 import { Text } from "@consta/uikit/Text";
 import { useAppSelector } from "../../hooks/redux";
 
-const EtapsItogRow: FC = () => {
+const SampItogRow: FC = () => {
     const { stags } = useAppSelector(state => state.sampReducer)
 
     return (
@@ -30,4 +30,4 @@ const EtapsItogRow: FC = () => {
     );
 };
 
-export default EtapsItogRow;
+export default SampItogRow;

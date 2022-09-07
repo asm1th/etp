@@ -68,11 +68,13 @@ const EtapRow = (props: { etapId: number }) => {
     }
 
     const handleSubToggle = (kp_stage_guid: string, kp_unit_guid: string) => {
-        dispatch(sampSlice.actions.toggleEtapRowSub({ kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }))
+        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
+        dispatch(sampSlice.actions.toggleEtapRowSub(UnitFinder))
     }
 
     const handleAlt_name_unit = (kp_stage_guid: string, kp_unit_guid: string, value: any) => {
-        dispatch(sampSlice.actions.setAlt_name_unit({ UnitFinder: { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }, value: value }))
+        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
+        dispatch(sampSlice.actions.setAlt_name_unit({ UnitFinder: UnitFinder, value: value }))
     }
 
     const handleChangeUsl_quan_unit = (kp_stage_guid: string, kp_unit_guid: string, value: { id: string, label: string }) => {
@@ -178,8 +180,8 @@ const EtapRow = (props: { etapId: number }) => {
                                         onChange={({ value }) => handleChangeVat_rate(kp_stage_guid, kp_unit_guid, value)} />
                                 </Layout>
 
-                                <Layout flex={1} className="aic jcc">{curUsrp.summ || '-- --'}</Layout>
-                                <Layout flex={1} className="aic jcc">{curUsrp.summ_nds || '-- --'}</Layout>
+                                <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ) || '-- --'}</Layout>
+                                <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ_nds) || '-- --'}</Layout>
 
                             </Layout>
 

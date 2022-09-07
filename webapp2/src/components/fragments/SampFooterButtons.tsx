@@ -13,7 +13,7 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
 
-const EtapFooterButtons: FC = () => {
+const SampFooterButtons: FC = () => {
 
     const attach = (e: any) => {
         console.log(e)
@@ -36,7 +36,7 @@ const EtapFooterButtons: FC = () => {
                 </div>
                 <Button label="Версия для печати" size="s" iconLeft={IconDocExport} onClick={handlePrint} view="secondary" />
                 <FileField id="FileFieldWithIcon">{(props) => <Button {...props} label="Прикрепить подписанное КП" size="s" iconLeft={IconAttach} view="secondary" />}</FileField>
-                <Attachment
+                {/* <Attachment
                     style={{width: "250px"}}
                     className="attach"
                     fileName="Имя файла"
@@ -50,7 +50,7 @@ const EtapFooterButtons: FC = () => {
                         e.stopPropagation();
                         console.log('onButtonClick');
                     }}
-                />
+                /> */}
                 <Button label="Отправить КП" size="s" iconLeft={IconSendMessage} disabled view="secondary" />
             </Layout>
 
@@ -58,4 +58,4 @@ const EtapFooterButtons: FC = () => {
     );
 };
 
-export default EtapFooterButtons;
+export default SampFooterButtons;

@@ -9,7 +9,6 @@ import { IconInfo } from '@consta/uikit/IconInfo';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 import PopoverCustom from '../util/PopoverCustom';
-import { IStag } from "../../models/ISamp";
 import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../services/SampService";
 
 
@@ -20,27 +19,7 @@ const EtapFooter = (props: { etapId: number }) => {
     const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
     const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
 
-    const currentStage: IStag[] = []
-    stags.forEach((stag: IStag) => {
-        if (stag.opr_usl_stage_num === props.etapId) {
-            currentStage.push(stag)
-        }
-    })
-
-    let summStage = {
-        summ: 0,
-        summ_nds: 0,
-        summ_nds_comment: ""
-    }
-
-    currentStage[0].units.forEach(unit => {
-        const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
-        let summ = parseFloat(usrp[0].nsu_menge) * parseFloat(usrp[0].prices_user)
-        summStage.summ += summ
-        if (parseFloat(usrp[0].vat_rate) > 0) {
-            summStage.summ_nds += summ + summ * parseFloat(usrp[0].vat_rate) / 100
-        }
-    });
+    const currentStage = stags[stags.findIndex((stag: any) => stag.opr_usl_stage_num === props.etapId)]
 
     //popover
     type Position = any;
@@ -51,17 +30,20 @@ const EtapFooter = (props: { etapId: number }) => {
     };
     ///
 
-    const handleNds = (etapId: number, checked: any) => {
-        dispatch(sampSlice.actions.setNoNds({ etapId: etapId, checked: checked }))
+    const [stagSumm_nds_comment, setStagSumm_nds_comment] = useState<string>("")
+
+    const handleStageNoNds = (etapId: number, checked: any) => {
+        dispatch(sampSlice.actions.setStageNoNds({ etapId: etapId, checked: checked }))
     }
-    const handleNdsComm = (etapId: number, value: string) => {
-        dispatch(sampSlice.actions.setNoNdsComm({ etapId: etapId, value: value }))
-        summStage.summ_nds_comment = value
+    const handleStageNdsComm = (etapId: number, value: string) => {
+        debugger
+        dispatch(sampSlice.actions.setStageNoNdsComm({ etapId: etapId, value: value }))
+        setStagSumm_nds_comment(value)
     }
 
     const onSave = () => {
         updateLink(links)
-        currentStage[0].units.forEach(unit => {
+        currentStage.units.forEach(unit => {
             const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
             updateUsrp(usrp[0])
         });
@@ -82,20 +64,20 @@ const EtapFooter = (props: { etapId: number }) => {
                 </Layout>
                 <Layout flex={3} className="SubSummFooter">
                     <Layout flex={1} className="aic jcc mr1">Итого</Layout>
-                    <Layout flex={1} className="aic jcc">{summStage.summ === 0 ? "-- --" : summStage.summ}</Layout>
-                    <Layout flex={1} className="aic jcc">{summStage.summ_nds === 0 ? "-- --" : summStage.summ_nds}</Layout>
+                    <Layout flex={1} className="aic jcc">{parseFloat(currentStage.stagSumm) || "-- --" }</Layout>
+                    <Layout flex={1} className="aic jcc">{parseFloat(currentStage.stagSumm_nds) || "-- --" }</Layout>
                 </Layout>
             </Layout>
             <Layout className="mt2">
                 <Layout className="aic" flex={10}>
                     <Checkbox
                         label="Не применяется НДС"
-                        onChange={(e: any) => { handleNds(props.etapId, e.checked) }}
-                        checked={currentStage[0].isNoNds} />
+                        onChange={(e: any) => { handleStageNoNds(props.etapId, e.checked) }}
+                        checked={currentStage.isNoNds} />
                     <div className="mr2 ml05" onMouseMove={handleMouseMove} onMouseLeave={() => setPosition(undefined)}>
                         <IconInfo size="s" view="ghost" />
                     </div>
-                    {currentStage[0] && currentStage[0].isNoNds ? (
+                    {currentStage && currentStage.isNoNds ? (
                         <>
                             <Text as="div" className="mr1">
                                 Стоимость предложения не облагается НДС, в соответствии со статьей
@@ -104,10 +86,9 @@ const EtapFooter = (props: { etapId: number }) => {
                                 placeholder="Указать статью"
                                 size="s"
                                 labelPosition="left"
-                                value={summStage && summStage.summ_nds_comment}
-                                required
+                                value={stagSumm_nds_comment}
                                 style={{ width: '115px' }}
-                                onChange={({ e }: any) => { handleNdsComm(props.etapId, e.target.value)}} />
+                                onChange={({ e }: any) => { handleStageNdsComm(props.etapId, e.target.value)}} />
                             <Text as="div" className="ml1">
                                 НК РФ
                             </Text>

@@ -2,12 +2,12 @@ import '../../App.css';
 import './rnmc.css';
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
-import TopBar from "../../components/fragments/TopBar";
-import BarKP from "../../components/fragments/BarKP";
+import SampLotInfo from "../../components/fragments/SampLotInfo";
+import SampKpInfo from "../../components/fragments/SampKpInfo";
 import { useFetchSampQuery } from "../../services/SampService";
 import Etaps from "../../components/fragments/Etaps";
-import EtapsItog from "../../components/fragments/EtapsItog";
-import EtapFooterButtons from "../../components/fragments/EtapFooterButtons";
+import SampItog from "../../components/fragments/SampItog";
+import SampFooterButtons from "../../components/fragments/SampFooterButtons";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
 
@@ -27,12 +27,12 @@ const RNMCapp: FC = () => {
             </div>
             {isSuccess && (
                 <>
-                    <TopBar />
-                    <BarKP />
+                    <SampLotInfo />
+                    <SampKpInfo />
                     <Etaps />
-                    <EtapsItog />
-                    <EtapFooterButtons />
-                    <pre>{JSON.stringify(samp, null, 2)}</pre>
+                    <SampItog />
+                    <SampFooterButtons />
+                    {/* <pre>{JSON.stringify(samp, null, 2)}</pre> */}
                 </>
             )}
         </>
