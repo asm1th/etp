@@ -10,8 +10,16 @@ type AuthState = {
     kp_sample_guid: string | null
 }
 
+// const getLocalIsAuth = () => {
+//     if (localStorage.getItem('isAuth')) {
+//         return JSON.parse(window.localStorage.getItem('isAuth') ?? '',)
+//     } else {
+//         return false
+//     }
+// }
+
 const initialState = {
-    isAuth: false,  //// отключение
+    isAuth: false, // getLocalIsAuth(), // отключение auth = false \ true 
     user: null, 
     token: null,
     kp_sample_guid: ""
