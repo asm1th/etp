@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import SampLotInfo from "../../components/fragments/SampLotInfo";
 import SampKpInfo from "../../components/fragments/SampKpInfo";
 import { useFetchSampQuery } from "../../services/SampService";
-import SampItog from "../../components/fragments/SampItog";
+import KPBlock from "../../components/fragments/KP/KPBlock";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
 
@@ -27,7 +27,7 @@ const KPpage: FC = () => {
                 <>
                     <SampLotInfo />
                     <SampKpInfo />
-                    <SampItog />
+                    <KPBlock />
                 </>
             )}
         </>

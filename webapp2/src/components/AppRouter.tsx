@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import LoginCode from "../pages/LoginCode";
 import Logout from "../pages/Logout";
 import { Responses404 } from '@consta/uikit/Responses404';
+import KPpage from "../pages/rnmc/KPpage";
 
 //etp
 import EtpLoginCode from "../pages/etp/LoginCode";
@@ -19,6 +20,7 @@ const AppRouter = () => {
     return (
         <Routes>
           <Route path="/" element={isAuth ? <RNMCapp /> : <Navigate to="/login" />} />
+          <Route path="/kp" element={isAuth ? <KPpage /> : <Navigate to="/login" />} />
           <Route path="/login" element={isAuth ? <Navigate to="/" /> : <Login />}/> 
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 
           <Route path="/logout" element={<Logout/>}/> 
