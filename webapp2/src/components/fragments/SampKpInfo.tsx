@@ -6,7 +6,6 @@ import { DatePicker } from '@consta/uikit/DatePickerCanary';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { mainSlice } from "../../store/reducers/main/mainSlice";
 import { sampSlice } from "../../store/reducers/main/sampSlice";
 import { format } from "date-fns";
 import WaersSelect from "../controls/WaersSelect";
@@ -14,15 +13,10 @@ import WaersSelect from "../controls/WaersSelect";
 
 const SampKpInfo: FC = () => {
     const dispatch = useAppDispatch()
-    const {trip} = useAppSelector(state => state.mainReducer)
-    const {usl_period_end, links} = useAppSelector(state => state.sampReducer)
+    const {usl_period_end, links, isTravel} = useAppSelector(state => state.sampReducer)
 
-    useEffect(() => {
-        dispatch(mainSlice.actions.toggleChecked(parseFloat(links.travel_exp) > 0))
-    },[links, dispatch])
-
-    const handleTrip = (e: any) => {
-        dispatch(mainSlice.actions.toggleChecked(e.checked))
+    const handleTravel = (e: any) => {
+        dispatch(sampSlice.actions.setTravelChecked(e.checked))
     }
 
     const handleDate = (value: any) => {
@@ -60,8 +54,8 @@ const SampKpInfo: FC = () => {
                             Командировочные расходы
                         </Text>
                         <Switch
-                            checked={trip.isTrip}
-                            onChange={handleTrip}
+                            checked={isTravel}
+                            onChange={handleTravel}
                             size="s" />
                     </Layout>
                 </Layout>

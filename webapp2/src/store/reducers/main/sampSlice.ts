@@ -75,13 +75,20 @@ export const sampSlice = createSlice({
     name: 'sampData',
     initialState,
     reducers: {
+        setTravelChecked: (state, action: PayloadAction<boolean>) => {
+            state.isTravel = action.payload;
+            if (!state.isTravel) {
+                state.links.travel_exp = "";
+                state.links.travel_exp_comm = "";
+            }
+        },
         setKp_offer_expire_date: (state, action: PayloadAction<string>) => {
             state.links.kp_offer_expire_date = action.payload
         },
-        setTripPrice: (state, action: PayloadAction<string>) => {
+        setTravelPrice: (state, action: PayloadAction<string>) => {
             state.links.travel_exp = action.payload;
         },
-        setTripComment: (state, action: PayloadAction<string>) => {
+        setTravelComment: (state, action: PayloadAction<string>) => {
             state.links.travel_exp_comm = action.payload;
         },
         toggleEtapRowSub: (state, action: PayloadAction<IUnitFinder>) => {
@@ -136,7 +143,7 @@ export const sampSlice = createSlice({
                 let thisUsrps = unit.usrps[unit.usrps.findIndex(usrp => usrp.link_id === state.link)]
                 thisUsrps.nds_comm = action.payload.value
             })
-            
+
         },
         setStageSumm: (state, action: PayloadAction<any>) => {
             const index = state.stags.findIndex(stage => stage.opr_usl_stage_id === action.payload.opr_usl_stage_id)
@@ -152,7 +159,6 @@ export const sampSlice = createSlice({
                     //debugger
                     console.warn(payload);
 
-
                     payload.stags.forEach( stag => {
                         stag.units.forEach( unit => {
                             let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === payload.link)[0];
@@ -161,7 +167,12 @@ export const sampSlice = createSlice({
                         calcStageSumm(payload, stag, payload.link)
                     })
 
-                    
+                    if ( payload.links.travel_exp || payload.links.travel_exp_comm) {
+                        payload.isTravel = true
+                    } else {
+                        payload.isTravel = false
+                    }
+
                     //server data to reducer
                     return payload
                 }
