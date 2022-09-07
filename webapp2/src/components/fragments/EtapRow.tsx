@@ -82,13 +82,9 @@ const EtapRow = (props: { etapId: number }) => {
         dispatch(sampSlice.actions.setUsl_quan_unit({ UnitFinder: UnitFinder, value: value.id }))
     }
 
-    const handleChangeNsu_menge = (kp_stage_guid: string, kp_unit_guid: string, value: string, limit: string) => {
-        if (!!limit && parseFloat(value) > parseFloat(limit)) {
-            alert("Превышено значение");
-        } else {
+    const handleChangeNsu_menge = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
             let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
             dispatch(sampSlice.actions.setNsu_menge({ UnitFinder: UnitFinder, value: value }))
-        }
     }
 
     const handleChangePrices_user = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
@@ -110,7 +106,7 @@ const EtapRow = (props: { etapId: number }) => {
         <>
             {currentStage.map(({ isNoNds, units }) => (
 
-                units.map(({ kp_stage_guid, kp_unit_guid, opr_usl_unit, opr_usl_unit_restr_menge, usrps }) => (
+                units.map(({ kp_stage_guid, kp_unit_guid, opr_usl_unit, opr_usl_unit_restr_menge, opr_usl_unit_restr_quan, usrps }) => (
                     usrps.filter(usrp => usrp.link_id === link).map(curUsrp => (
 
                         <div key={kp_stage_guid + "_" + kp_unit_guid}>
@@ -147,7 +143,7 @@ const EtapRow = (props: { etapId: number }) => {
                                         size="s"
                                         className="RowInput"
                                         onChange={({ value }) => handleChangeUsl_quan_unit(kp_stage_guid, kp_unit_guid, value)}
-                                        disabled={false}
+                                        disabled={opr_usl_unit_restr_quan === "" ? false : true}
                                     />
                                 </Layout>
                                 <Layout flex={1}>
@@ -156,8 +152,8 @@ const EtapRow = (props: { etapId: number }) => {
                                         value={curUsrp.nsu_menge}
                                         size="s"
                                         className="RowInput"
-                                        onChange={({ e }: any) => handleChangeNsu_menge(kp_stage_guid, kp_unit_guid, e.target.value, opr_usl_unit_restr_menge)}
-                                        disabled={false}
+                                        onChange={({ e }: any) => handleChangeNsu_menge(kp_stage_guid, kp_unit_guid, e.target.value)}
+                                        disabled={opr_usl_unit_restr_menge === "" ? false : true}
                                     />
                                 </Layout>
 

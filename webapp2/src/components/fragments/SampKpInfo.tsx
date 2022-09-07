@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Text } from "@consta/uikit/Text";
 import { Card } from "@consta/uikit/Card";
@@ -26,18 +26,17 @@ const SampKpInfo: FC = () => {
     return (
         <div>
             <Card verticalSpace="m" horizontalSpace="m" shadow={false} className="TopBar">
-                <Layout className="aic">
-                    <Layout className="aic flexGrow1">
+                <Layout className="aic jcsb">
+                    <Layout className="aic">
                         <Text
                             className="Title mr1">
                             Коммерческое предложение
                         </Text>
-                        <Text size="s" className="subTitle mr1">
-                            Срок действия договора:<br/>
-                            {format(new Date(usl_period_end), 'dd.MM.yyyy')}
+                        <Text size="s" className="subTitle mr">
+                            Срок действия договора: <span className="bold"> {format(new Date(usl_period_end), 'dd.MM.yyyy')}</span>
                         </Text>
                     </Layout>
-                    <Layout flex={2} className="aic jce">
+                    <Layout className="aic jce">
                         {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
                         <DatePicker
                             value={links.kp_offer_expire_date ? new Date(links.kp_offer_expire_date) : undefined}
@@ -46,17 +45,17 @@ const SampKpInfo: FC = () => {
                             label="Срок действия КП"
                             leftSide={IconCalendar}
                             size="s"
-                            className="rangeInput mr1" />
+                            className="rangeInput mr2" />
                         <WaersSelect/>
                         <Text
                             size="s"
-                            className="Title mr1">
+                            className="mr1 ml1">
                             Командировочные расходы
                         </Text>
                         <Switch
                             checked={isTravel}
                             onChange={handleTravel}
-                            size="s" />
+                            size="m" />
                     </Layout>
                 </Layout>
             </Card>

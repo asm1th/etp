@@ -40,7 +40,7 @@ const SampLotInfo: FC = () => {
                             {waers}
                         </Text>
                     </Layout>
-                    <Layout flex={1} direction="column" className="mr1">
+                    <Layout flex={1} direction="column" className="mr2">
                         <Text as="div" className="label">
                             Дата запроса КП
                         </Text>
@@ -51,7 +51,7 @@ const SampLotInfo: FC = () => {
                             </Text>
                         </Layout>
                     </Layout>
-                    <Layout flex={1} direction="column" className="mr1">
+                    <Layout flex={1} direction="column" className="mr2">
                         <Text as="div" className="label">
                             Срок приема КП
                         </Text>
@@ -65,14 +65,14 @@ const SampLotInfo: FC = () => {
                     <Layout flex={1} direction="row">
                         <Button 
                             disabled={true}
-                            size="s" 
+                            size="m" 
                             label="Скачать ТЗ" 
                             view="secondary" 
                             iconLeft={IconDownload} />
                     
                         <Button 
                             disabled={true}
-                            size="s" 
+                            size="m" 
                             view="secondary" 
                             onlyIcon={true}
                             iconLeft={IconExit} 

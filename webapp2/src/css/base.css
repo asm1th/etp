@@ -78,6 +78,43 @@ body .Modal-Window{
 
 /* .MODAL */
 
+.bold{
+    font-weight: bold;
+}
 
+.Tabs-List_linePosition_right {
+    padding-right: 6px;
+}
 
+.TabsTab_checked {
+    position: relative;
+    z-index: 1;
+}
+
+.TabsTab_checked:after {
+    content: "";
+    display: block;
+    border-left: 1px solid #0067a3;
+    border-top: 1px solid #0067a3;
+    border-bottom: 1px solid #0067a3;
+    position: absolute;
+    width: 68px;
+    height: 100%;
+    left: -8px;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    z-index: -1;
+}
+
+.Tabs-List.Tabs-List_direction_vertical.Tabs-List_linePosition_right {
+    padding-right: 6px;
+}
+
+.IconInfo {
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 5px;
+    transform: scale(.8);
+}
 

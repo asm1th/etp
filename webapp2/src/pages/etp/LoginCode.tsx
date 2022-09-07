@@ -1,6 +1,4 @@
 import React, { FC } from "react";
-import '../etp/Etp.css';
-
 import LoginFormCode from "../../components/LoginFormCode";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';

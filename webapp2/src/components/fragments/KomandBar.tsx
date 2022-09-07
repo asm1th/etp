@@ -25,7 +25,7 @@ const KomandBar: FC = () => {
                     <Layout flex={1} className="aic mr1">
                         <TextField 
                             placeholder="Введите стоимость" 
-                            label="Стоимость" 
+                            label="* Стоимость" 
                             size="s" 
                             required 
                             value={links.travel_exp} 
@@ -35,7 +35,7 @@ const KomandBar: FC = () => {
                     <Layout flex={6} className="aic">
                         <TextField 
                             placeholder="Введите наименование командировочных расходов" 
-                            label="Комментарий" 
+                            label="* Комментарий" 
                             size="s" 
                             width="full" 
                             required 

@@ -103,7 +103,7 @@ const Etaps: FC = () => {
                                         <Text className="label" align="center">Количество ЕИ</Text>
                                     </Layout>
                                     <Layout flex={1}>
-                                        <Text className="label" align="center">Стоимость ЕИ</Text>
+                                        <Text className="label" align="center">* Стоимость ЕИ</Text>
                                     </Layout>
                                     <Layout flex={1}>
                                         <Text className="label" align="center">Ставка НДС</Text>

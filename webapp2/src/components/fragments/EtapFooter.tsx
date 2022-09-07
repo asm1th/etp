@@ -69,7 +69,7 @@ const EtapFooter = (props: { etapId: number }) => {
                 </Layout>
             </Layout>
             <Layout className="mt2">
-                <Layout className="aic" flex={10}>
+                <Layout className="aic" flex={7}>
                     <Checkbox
                         label="Не применяется НДС"
                         onChange={(e: any) => { handleStageNoNds(props.etapId, e.checked) }}
@@ -94,8 +94,9 @@ const EtapFooter = (props: { etapId: number }) => {
                             </Text>
                         </>) : null}
                 </Layout>
-                <Layout flex={1} className="aic">
-                    <Button label="Сохранить изменения" onClick={onSave} size="s" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp}/>
+                <Layout flex={4} className="aic jcfe">
+                    <Text as="div" className="mr2 label">Сохранено 05.09.2022 14:31:48</Text>
+                    <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp}/>
                 </Layout>
             </Layout>
         </div >

@@ -207,3 +207,6 @@ body {
   align-items: baseline;
 }
 
+.App .Title{
+  font-size: 18px;
+}

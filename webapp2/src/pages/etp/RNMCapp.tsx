@@ -1,14 +1,15 @@
 
 import React, { FC } from "react";
-import RNMCappEtp from "../../pages/rnmc/RNMCapp"; 
+import RNMCapp from "../../pages/rnmc/RNMCapp"; 
+import '../etp/Etp.css';
 
-const RNMCapp: FC = () => {
+const RNMCappEtp: FC = () => {
     
     return (
         <>  
-            <RNMCappEtp />
+            <RNMCapp />
         </>
     );
 };
 
-export default RNMCapp;
+export default RNMCappEtp;
