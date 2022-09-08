@@ -332,13 +332,11 @@ const Registration: FC = () => {
                             <Layout flex={1} className="ml05">
                                 <Button
                                     onClick={handleNext}
-                                    //disabled={activeStep === steps.length - 1}
                                     label={activeStep < 2 ? "Дальше" : "Отправить"}
                                     size="m"
                                     width="full"
                                     //disabled={ activeStep == > 2 !isAccept}
-
-                                    disabled={activeStep === 2 ? false : !isAccept}
+                                    //disabled={activeStep === 2 ? false : !isAccept}
                                     iconRight={activeStep < 2 ? IconArrowRight : undefined}
                                 />
                             </Layout>
@@ -351,15 +349,15 @@ const Registration: FC = () => {
                             </Text>
                         </Layout>
 
-                        {/* { error ? (
+                        { error ? (
                             <Informer
                             className="mt2"
                             title={"Ошибка"}
-                            label={error.data}
+                            label={JSON.stringify(error)}
                             view="filled"
                             status="warning"
                         />
-                        ) : (
+                        ) : isSuccess ? (
                             <Informer
                                 className="mt2"
                                 title="Регистрация пройдена"
@@ -368,10 +366,9 @@ const Registration: FC = () => {
                                 status="success"
                                 icon={IconThumbUp}
                             />
-                        )
-                        } */}
+                        ) : null}
 
-                        <pre>{JSON.stringify(regData, null, 2)}</pre>
+                        {/* <pre>{JSON.stringify(regData, null, 2)}</pre> */}
                     </Card>
                 </GridItem>
             </Grid>

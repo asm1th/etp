@@ -91,10 +91,11 @@ const Step2: FC = () => {
 
             <div className="nolabels">
                 <TextField
+                    
                     label="Полное наименование"
+                    placeholder="Введите Полное наименование"
                     name="org_fullname"
                     type="text"
-                    placeholder="Введите Полное наименование"
                     width="full"
                     required
                     value={regData.org_fullname}
@@ -104,9 +105,10 @@ const Step2: FC = () => {
                 />
                 <TextField
                     label="Краткое наименование"
+                    placeholder="Краткое наименование"
                     name="org_shortname"
                     type="text"
-                    placeholder="Краткое наименование"
+                    className="mt1"
                     width="full"
                     required
                     value={regData.org_shortname}
@@ -116,10 +118,11 @@ const Step2: FC = () => {
                 />
                 <TextField
                     label="ИНН"
+                    placeholder="Введите ИНН"
                     name="inn"
                     type="text"
-                    placeholder="Введите ИНН"
                     width="full"
+                    className="mt1"
                     required
                     maxLength={12}
                     value={regData.inn}
@@ -129,9 +132,10 @@ const Step2: FC = () => {
                 />
                 <TextField
                     label="КПП"
+                    placeholder="Введите КПП"
                     name="kpp"
                     type="text"
-                    placeholder="Введите КПП"
+                    className="mt1"
                     width="full"
                     required
                     maxLength={9}
@@ -142,9 +146,10 @@ const Step2: FC = () => {
                 />
                 <TextField
                     label="Телефон организации"
+                    placeholder="Введите Телефон организации"
                     name="org_telephone"
                     type="text"
-                    placeholder="Введите Телефон организации"
+                    className="mt1"
                     width="full"
                     required
                     maxLength={20}
@@ -155,10 +160,11 @@ const Step2: FC = () => {
                 />
                 <TextField
                     label="Эл. почта организации"
+                    placeholder="Эл. почта организации"
                     name="org_email"
                     type="text"
-                    placeholder="Эл. почта организации"
                     width="full"
+                    className="mt1"
                     required
                     value={regData.org_email}
                     onChange={(e: any) => handleField(e)}
