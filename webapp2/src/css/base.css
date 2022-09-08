@@ -20,7 +20,7 @@
 }
 
 .jcb,
-.jcsb{
+.jcsb {
     justify-content: space-between;
 }
 
@@ -53,32 +53,32 @@
 }
 
 /* MODAL */
-.Modal{
+.Modal {
     z-index: 12;
 }
-body .Modal-Window{
+body .Modal-Window {
     min-height: auto;
 }
 .ModalTitle,
 .ModalContent,
-.ModalFooter{
+.ModalFooter {
     margin: 1rem;
 }
-.ModalContent{
+.ModalContent {
     margin: 1rem 2rem 2rem;
 }
-.ModalContent p{
+.ModalContent p {
     line-height: 22px;
     color: #535659;
 }
-.ModalFooter{
+.ModalFooter {
     justify-content: flex-end;
     text-align: right;
 }
 
 /* .MODAL */
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
@@ -115,6 +115,49 @@ body .Modal-Window{
     border-radius: 50%;
     padding: 2px;
     margin-left: 5px;
-    transform: scale(.8);
+    transform: scale(0.8);
 }
 
+/* KPItog */
+.KPItog {
+    background: #fff;
+    padding: 20px;
+}
+
+.KPItog .Collapse {
+    padding-bottom: 8px;
+}
+.KPItog .Collapse:last-child {
+    padding-bottom: 0;
+}
+
+.KPItog .Collapse-Label {
+    background: #e9eaff;
+    padding: 3px 1rem;
+}
+
+.KPItog .CollapseIcon {
+    color: var(--color-typo-brand);
+}
+
+.KPItog .Header {
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.table .row {
+    font-size: 12px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.table .row:nth-child(odd) {
+    background: #f4f4f4;
+}
+
+.table .row .Text {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+/* .KPItog */

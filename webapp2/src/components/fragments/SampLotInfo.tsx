@@ -47,7 +47,7 @@ const SampLotInfo: FC = () => {
                         <Layout flex={1} className="aic">
                             <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
-                                {format(new Date(kp_send_date), 'dd.MM.yyyy')}
+                                { kp_send_date && format(new Date(kp_send_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>
@@ -58,7 +58,7 @@ const SampLotInfo: FC = () => {
                         <Layout flex={1} className="aic">
                             <IconCalendar size="s" view="ghost" className="mr05"/>
                             <Text as="div" className="labeltext">
-                                {format(new Date(kp_accep_date), 'dd.MM.yyyy')}
+                                {kp_accep_date && format(new Date(kp_accep_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>

@@ -10,14 +10,15 @@ const KPBlock: FC = () => {
     const { stags } = useAppSelector(state => state.sampReducer)
 
     return (
-        <>
+        <div className="KPItog">
             {stags.map(({ kp_stage_guid, opr_usl_stage, opr_usl_stage_num, stagSumm, stagSumm_nds }) => (
                 <Collapse
                     key={kp_stage_guid}
-                    label={`Этап ${opr_usl_stage_num} ${opr_usl_stage}`} 
-
-                    className="EtapsItog"
+                    label={`Этап ${opr_usl_stage_num} \u00A0\u00A0\u00A0  ${opr_usl_stage}`}
+                    className="KPItogCollpase"
                     isOpen={isOpen}
+                    hoverEffect
+                    iconPosition="right"
                     onClick={() => setOpen(!isOpen)}>
                     <Layout className="Header">
                         <Layout flex={3} className="tar">
@@ -37,7 +38,7 @@ const KPBlock: FC = () => {
                             <Text className="label" align="center">Количество ЕИ</Text>
                         </Layout>
                         <Layout flex={1}>
-                            <Text className="label" align="center">* Стоимость ЕИ</Text>
+                            <Text className="label" align="center">Стоимость ЕИ</Text>
                         </Layout>
                         <Layout flex={1}>
                             <Text className="label" align="center">Ставка НДС</Text>
@@ -49,12 +50,40 @@ const KPBlock: FC = () => {
                             <Text className="label" align="center">Сумма с НДС</Text>
                         </Layout>
                     </Layout>
+                    <div className="table">
+                        
+                        <KPRow etapId={opr_usl_stage_num} />
 
-                    <KPRow />
+                        <Layout className="Footer row">
+                            <Layout flex={3} className="tar">
 
+                            </Layout>
+                            <Layout flex={3} className="tar">
+
+                            </Layout>
+                            <Layout flex={1}>
+
+                            </Layout>
+                            <Layout flex={1}>
+
+                            </Layout>
+                            <Layout flex={1}>
+
+                            </Layout>
+                            <Layout flex={1} className="cell jcc">
+                                <Text align="center">Итого</Text>
+                            </Layout>
+                            <Layout flex={1} className="cell jcc">
+                                <Text align="center"></Text>
+                            </Layout>
+                            <Layout flex={1} className="cell jcc">
+                                <Text align="center"></Text>
+                            </Layout>
+                        </Layout>
+                    </div>
                 </Collapse>
             ))}
-        </>
+        </div>
     );
 };
 

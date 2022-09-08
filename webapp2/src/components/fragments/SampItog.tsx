@@ -17,6 +17,7 @@ const SampItog: FC = () => {
                 className="EtapsItog"
                 isOpen={isOpen}
                 onClick={() => setOpen(!isOpen)}
+                hoverEffect
                 rightSide={[
                     <Text className="label" align="center">Сумма без НДС</Text>,
                     <Text className="summ weight700" align="center">{parseFloat(kp_summ) || "-- --"}</Text>,
