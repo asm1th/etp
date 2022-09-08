@@ -34,7 +34,7 @@ const slice = createSlice({
         .addMatcher(
             authService.endpoints.login.matchFulfilled,
             (state, { payload }) => {
-                debugger
+                //debugger
                 state.isAuth = true
                 state.token = payload.token
 
