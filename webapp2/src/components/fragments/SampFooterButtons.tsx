@@ -5,6 +5,7 @@ import { Button } from "@consta/uikit/Button";
 import { Text } from "@consta/uikit/Text";
 import { IconDocFilled } from '@consta/uikit/IconDocFilled';
 import { IconDocExport } from '@consta/uikit/IconDocExport';
+import { IconEdit } from '@consta/uikit/IconEdit';
 import { IconAttach } from '@consta/uikit/IconAttach';
 import { IconSendMessage } from '@consta/uikit/IconSendMessage';
 import { FileField, FileFieldProps } from '@consta/uikit/FileField';
@@ -29,10 +30,9 @@ const SampFooterButtons: FC = () => {
     });
 
     let navigate = useNavigate();
-    const toKP = () => {
-        let path = '/kp';
-        navigate(path);
-    }
+    const toKP = () => navigate('/kp');
+    const toHome = () => navigate('/');
+
 
     return (
         <>
@@ -45,6 +45,12 @@ const SampFooterButtons: FC = () => {
                     label="Сформировать КП"
                     size="m"
                     iconLeft={IconDocFilled}
+                />
+                <Button
+                    onClick={toHome}
+                    label="Редактировать КП"
+                    size="m"
+                    iconLeft={IconEdit}
                 />
                 <div
                     style={{ display: "none" }}>

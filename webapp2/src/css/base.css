@@ -91,7 +91,11 @@ body .Modal-Window {
     z-index: 1;
 }
 
-.TabsTab_checked:after {
+.App .TabsTab:before{
+    display: none;
+}
+
+/* .TabsTab_checked:after {
     content: "";
     display: block;
     border-left: 1px solid #0067a3;
@@ -104,6 +108,22 @@ body .Modal-Window {
     border-radius: 5px 0 0 5px;
     background: #fff;
     z-index: -1;
+} */
+
+.App .Tabs-Tab {
+    position: relative;
+    z-index: 1;
+}
+
+.App .TabsLine_type_running {
+    border: 1px;
+    border-left: 1px solid #0067a3;
+    border-top: 1px solid #0067a3;
+    border-bottom: 1px solid #0067a3;
+    width: 68px;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    margin-top: 1px;
 }
 
 .Tabs-List.Tabs-List_direction_vertical.Tabs-List_linePosition_right {
@@ -159,5 +179,28 @@ body .Modal-Window {
     font-size: 14px;
     line-height: 18px;
 }
-
+.table .row.ifooter{
+    border-top: 1px solid #ccc;
+    background: transparent;
+}
+.kpFooter{
+    background: #e9eaff;
+    padding: 8px 1rem;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+.kpFooter .Text{
+    font-size: 18px;
+}
+.TravelRow .Text{
+    font-size: 14px;
+    line-height: 18px;
+}
+.noNDSrow{
+    text-align: right;
+    color: #535659;
+    padding: 5px;
+    font-size: 14px;
+    line-height: 18px;
+}
 /* .KPItog */
