@@ -30,28 +30,37 @@ export class User extends Model<User, UserCreationAttrs> {
   @Column({type: DataType.STRING, allowNull: true})
   patronymic: string;
   @ApiProperty({description: 'Email'})
-  @Column({type: DataType.STRING, unique: true, allowNull: false})
+  @Column({type: DataType.STRING})
   email: string;
-  @ApiProperty({description: 'Резедент или нерезедент'})
-  @Column({type: DataType.BOOLEAN})
-  resident: boolean;
-  @ApiProperty({description: 'Индикатор "Физическое лицо"'})
-  @Column({type: DataType.BOOLEAN})
-  individual: boolean;
   @ApiProperty({description: 'Полное наименование организации'})
-  @Column({type: DataType.STRING, allowNull: false}) 
+  @Column({type: DataType.STRING}) 
   org_fullname: string;
   @ApiProperty({description: 'Краткое наименование организации'})
-  @Column({type: DataType.STRING, allowNull: false}) 
+  @Column({type: DataType.STRING}) 
   org_shortname: string;
   @ApiProperty({description: 'Телефон организации'})
-  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  @Column({type: DataType.STRING}) 
   org_telephone: string;
   @ApiProperty({description: 'Email организации'})
-  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  @Column({type: DataType.STRING}) 
   org_email: string;
   @ApiProperty({description: 'Пароль'})
-  @Column({type: DataType.STRING, unique: true, allowNull: false}) 
+  @Column({type: DataType.STRING}) 
   password: string;
+  @ApiProperty({description: 'Token'})
+  @Column({type: DataType.STRING}) 
+  token: string;
+  @ApiProperty({description: 'Резедент или нерезедент'})
+  @Column({type: DataType.BOOLEAN})
+  isResident: boolean;
+  @ApiProperty({description: 'Индикатор "Физическое лицо"'})
+  @Column({type: DataType.BOOLEAN})
+  isIndividual: boolean;
+  @ApiProperty({description: 'Регистрация по токену'})
+  @Column({type: DataType.BOOLEAN})
+  isToken: boolean;
+  @ApiProperty({description: 'Внесен в реестр СМСП'})
+  @Column({type: DataType.BOOLEAN})
+  isSmsp: boolean;
 
 }

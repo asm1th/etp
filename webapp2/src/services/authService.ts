@@ -44,28 +44,32 @@ export const authService = createApi({
   endpoints: (builder) => ({
     login: builder.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({
-        url: 'http://109.195.85.121:5010/auth/login',
+        //url: 'http://109.195.85.121:5010/auth/login',
+        url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/login`,
         method: 'POST',
         body: credentials,
       }),
     }),
     loginCode: builder.mutation<UserResponse, LoginCodeRequest>({
       query: (credentials) => ({
-        url: 'http://109.195.85.121:5010/auth/registerCode',
+        //url: 'http://109.195.85.121:5010/auth/registerCode',
+        url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registerCode`,
         method: 'POST',
         body: credentials,
       }),
     }),
     registration: builder.mutation<RegResponse, IRegData>({
       query: (body) => ({
-        url: 'http://109.195.85.121:5010/auth/registration',
+        //url: 'http://109.195.85.121:5010/auth/registration',
+        url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registration`,
         method: 'POST',
         body: body,
       }),
     }),
     //test
     protected: builder.mutation<{ message: string }, void>({
-      query: () => 'http://109.195.85.121:5010/users',
+      //query: () => 'http://109.195.85.121:5010/users',
+      query: () => `http://${process.env.REACT_APP_API_ENDPOINT}:5010/users`,
     }),
   }),
 })

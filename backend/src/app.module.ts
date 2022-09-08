@@ -4,13 +4,18 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './users/users.model';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { LinkModule } from './link/link.module';
+import { SampModule } from './samp/samp.module';
+import { StagModule } from './stag/stag.module';
+import { UnitModule } from './unit/unit.module';
+import { UsrpModule } from './usrp/usrp.module';
 
 @Module({
-  controllers: [],
+  controllers: [], 
   providers: [],
   imports: [  
     ConfigModule.forRoot({
-      envFilePath: '.env'
+      envFilePath: `.${process.env.NODE_ENV}.env`
     }),
     
             SequelizeModule.forRoot({
@@ -23,7 +28,7 @@ import { AuthModule } from './auth/auth.module';
               models: [User],
               autoLoadModels: true
             }), 
-            UsersModule, AuthModule,
+            UsersModule, AuthModule, LinkModule, SampModule, StagModule, UnitModule, UsrpModule,
 
 
   ],
