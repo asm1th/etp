@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "useUnknownInCatchVariables": false, ///added
+    "useUnknownInCatchVariables": false,
     "target": "es5",
     "lib": [
       "dom",
