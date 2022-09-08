@@ -15,7 +15,7 @@ import { UsrpModule } from './usrp/usrp.module';
   providers: [],
   imports: [  
     ConfigModule.forRoot({
-      envFilePath: '.env'
+      envFilePath: `.${process.env.NODE_ENV}.env`
     }),
     
             SequelizeModule.forRoot({
