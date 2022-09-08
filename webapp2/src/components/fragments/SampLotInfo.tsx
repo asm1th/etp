@@ -10,7 +10,7 @@ import { format } from "date-fns";
 
 
 const SampLotInfo: FC = () => {
-    const {lot_name, links, waers, kp_accep_date, kp_send_date} = useAppSelector(state => state.sampReducer)
+    const { lot_name, links, waers, kp_accep_date, kp_send_date } = useAppSelector(state => state.sampReducer)
 
     return (
         <>
@@ -45,9 +45,9 @@ const SampLotInfo: FC = () => {
                             Дата запроса КП
                         </Text>
                         <Layout flex={1} className="aic">
-                            <IconCalendar size="s" view="ghost" className="mr05"/>
+                            <IconCalendar size="s" view="ghost" className="mr05" />
                             <Text as="div" className="labeltext">
-                                { kp_send_date && format(new Date(kp_send_date), 'dd.MM.yyyy')}
+                                {kp_send_date && format(new Date(kp_send_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>
@@ -56,31 +56,30 @@ const SampLotInfo: FC = () => {
                             Срок приема КП
                         </Text>
                         <Layout flex={1} className="aic">
-                            <IconCalendar size="s" view="ghost" className="mr05"/>
+                            <IconCalendar size="s" view="ghost" className="mr05" />
                             <Text as="div" className="labeltext">
                                 {kp_accep_date && format(new Date(kp_accep_date), 'dd.MM.yyyy')}
                             </Text>
                         </Layout>
                     </Layout>
                     <Layout flex={1} direction="row">
-                        <Button 
+                        <Button
                             disabled={true}
-                            size="m" 
-                            label="Скачать ТЗ" 
-                            view="secondary" 
+                            size="m"
+                            label="Скачать ТЗ"
+                            view="secondary"
                             iconLeft={IconDownload} />
-                    
-                        <Button 
+
+                        <Button
                             disabled={true}
-                            size="m" 
-                            view="secondary" 
+                            size="m"
+                            view="secondary"
                             onlyIcon={true}
-                            iconLeft={IconExit} 
-                            className="ml1"/>
+                            iconLeft={IconExit}
+                            className="ml1" />
                     </Layout>
                 </Layout>
             </Layout>
-
         </>
     );
 };

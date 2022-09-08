@@ -6,9 +6,30 @@ import KPRow from "./KPRow";
 import { useAppSelector } from "../../../hooks/redux";
 import SampFooterButtons from "../../../components/fragments/SampFooterButtons";
 
+
 const KPBlock: FC = () => {
-    const [isOpen, setOpen] = useState<boolean>(true)
     const { stags, links, kp_summ, kp_summ_nds } = useAppSelector(state => state.sampReducer)
+
+    type IOpen = {
+        num: number
+        isOpen: boolean
+    }
+    let aOpeninit: IOpen[] = []
+    stags.forEach(stag => {
+        aOpeninit.push({
+            num: stag.opr_usl_stage_num,
+            isOpen: false
+        })
+    });
+
+    const [aOpen, setOpen] = useState<IOpen[]>(aOpeninit)
+
+    const handleCollapse = (opr_usl_stage_num: number) => {
+        let newArr = [...aOpen];
+        let curCollapse = newArr[newArr.findIndex((List: any) => List.num === opr_usl_stage_num)]
+        curCollapse.isOpen = !curCollapse.isOpen
+        setOpen(newArr)
+    }
 
     return (
         <>
@@ -18,17 +39,17 @@ const KPBlock: FC = () => {
                         key={kp_stage_guid}
                         label={`Этап ${opr_usl_stage_num} \u00A0\u00A0\u00A0  ${opr_usl_stage}`}
                         className="KPItogCollpase"
-                        isOpen={isOpen}
+                        isOpen={aOpen[aOpen.findIndex((List: any) => List.num === opr_usl_stage_num)].isOpen}
                         hoverEffect
                         iconPosition="right"
-                        onClick={() => setOpen(!isOpen)}>
+                        onClick={() => handleCollapse(opr_usl_stage_num)}>
                         <Layout className="Header">
                             <Layout flex={3} className="tar">
                                 <Text className="label">
                                     Наименование расценки
                                 </Text>
                             </Layout>
-                            <Layout flex={3} className="tar">
+                            <Layout flex={2} className="tar">
                                 <Text className="label">
                                     Альтернативное наименование расценки
                                 </Text>
@@ -60,7 +81,7 @@ const KPBlock: FC = () => {
                                 <Layout flex={3} className="tar">
 
                                 </Layout>
-                                <Layout flex={3} className="tar">
+                                <Layout flex={2} className="tar">
 
                                 </Layout>
                                 <Layout flex={1}>
@@ -87,7 +108,7 @@ const KPBlock: FC = () => {
                 ))}
 
                 <Layout className="TravelRow">
-                    <Layout flex={6} className="tar">
+                    <Layout flex={4} className="tar">
                         <Text>
                             Командировочные расходы
                         </Text>
