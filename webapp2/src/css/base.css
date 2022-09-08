@@ -91,7 +91,7 @@ body .Modal-Window {
     z-index: 1;
 }
 
-.App .TabsTab:before{
+.App .TabsTab:before {
     display: none;
 }
 
@@ -168,7 +168,7 @@ body .Modal-Window {
 .table .row {
     font-size: 12px;
     padding: 5px 10px;
-    align-items: center;
+    width: 100%;
 }
 
 .table .row:nth-child(odd) {
@@ -179,28 +179,37 @@ body .Modal-Window {
     font-size: 14px;
     line-height: 18px;
 }
-.table .row.ifooter{
+.table .row.ifooter {
     border-top: 1px solid #ccc;
     background: transparent;
 }
-.kpFooter{
+.kpFooter {
     background: #e9eaff;
     padding: 8px 1rem;
     margin-top: 20px;
     border-radius: 3px;
 }
-.kpFooter .Text{
+.kpFooter .Text {
     font-size: 18px;
 }
-.TravelRow .Text{
+.kpHeader {
+    background: #e9eaff;
+    padding: 8px 1rem;
+    border-radius: 3px;
+}
+.kpHeader .Text {
+    font-size: 18px;
+}
+.TravelRow .Text {
     font-size: 14px;
     line-height: 18px;
 }
-.noNDSrow{
+.noNDSrow {
     text-align: right;
     color: #535659;
     padding: 5px;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #6a6d70;
 }
 /* .KPItog */
