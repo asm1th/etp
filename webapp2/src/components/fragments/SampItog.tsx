@@ -2,11 +2,11 @@ import { FC, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { Button } from "@consta/uikit/Button";
 import { Collapse } from '@consta/uikit/Collapse';
-import EtapsItogRow from "./EtapsItogRow";
+import SampItogRow from "./SampItogRow";
 import { useAppSelector } from "../../hooks/redux";
 
 
-const EtapsItog: FC = () => {
+const SampItog: FC = () => {
     const [isOpen, setOpen] = useState<boolean>(true)
     const { kp_summ, kp_summ_nds } = useAppSelector(state => state.sampReducer)
 
@@ -19,15 +19,15 @@ const EtapsItog: FC = () => {
                 onClick={() => setOpen(!isOpen)}
                 rightSide={[
                     <Text className="label" align="center">Сумма без НДС</Text>,
-                    <Text className="summ weight700" align="center">{kp_summ || "-- --"}</Text>,
+                    <Text className="summ weight700" align="center">{parseFloat(kp_summ) || "-- --"}</Text>,
                     <Text className="label" align="center">Сумма c НДС</Text>,
-                    <Text className="summ weight700" align="center">{kp_summ_nds || "-- --"}</Text>,
+                    <Text className="summ weight700" align="center">{parseFloat(kp_summ_nds) || "-- --"}</Text>,
                     <Button label="Показать подробнее" size="xs" view="clear" />
                 ]}>
-                <EtapsItogRow />
+                <SampItogRow />
             </Collapse>
         </>
     );
 };
 
-export default EtapsItog;
+export default SampItog;

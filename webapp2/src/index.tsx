@@ -14,9 +14,12 @@ const root = ReactDOM.createRoot(
 const store = setupStore();
 console.log('Initial state: ', store.getState())
 
-store.subscribe(() =>
+store.subscribe(() => {
   console.log('State after dispatch: ', store.getState())
-)
+
+  //test
+  //window.localStorage.setItem('token', store.getState().authReducer.token ?? '')
+})
 
 root.render(
   <Provider store={store}>

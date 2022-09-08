@@ -2,7 +2,19 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { sampAPI } from "../services/SampService";
 import reducers from "./reducers";
 
+
 const rootReducer = combineReducers(reducers)
+
+//MIDDLEWARE
+// const authMiddleware = (store: any) => (next: any) => (action: any) => {
+//     const result = next(action);
+//     if (action.type?.startsWith('auth/')) {
+//         const authState = store.getState().isAuth;
+//         localStorage.setItem('isAuth', JSON.stringify(authState))
+//     }
+//     return result;
+// };
+
 
 export const setupStore = () => {
     return configureStore({
@@ -17,7 +29,8 @@ export const setupStore = () => {
                         'mainReducer.dateKP'
                     ],
                 }
-            }).concat(sampAPI.middleware)
+            //}).concat(authMiddleware).concat(sampAPI.middleware)
+        }).concat(sampAPI.middleware)
     })
 }
 

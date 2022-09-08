@@ -1,13 +1,11 @@
+// todo get auth code from here  https://codesandbox.io/s/github/reduxjs/redux-toolkit/tree/master/examples/query/react/authentication-with-extrareducers?from-embed=&file=/src/features/auth/authSlice.tsx
+// todo auth https://codevoweb.com/react-redux-toolkit-refresh-token-authentication/
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IUser } from '../models/test/IUser'
 import { RootState } from '../store/store'
+import { IRegData } from '../models/IRegistration'
 
-import {IRegData} from '../models/IRegistration'
-
-// export interface User {
-//   first_name: string
-//   last_name: string
-// }
 export interface RegResponse {
   // не понятно что в ответе?
   user: IUser

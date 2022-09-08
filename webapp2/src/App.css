@@ -77,7 +77,7 @@ body {
 }
 
 .TabsPageContainer {
-  padding: 0 0 0 1rem;
+  padding: 0 0 0 2rem;
 }
 
 .App .labeltext {
@@ -207,3 +207,6 @@ body {
   align-items: baseline;
 }
 
+.App .Title{
+  font-size: 18px;
+}

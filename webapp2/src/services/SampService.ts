@@ -25,15 +25,6 @@ export const sampAPI = createApi({
             }),
             providesTags: result => ['Samp'],
         }),
-
-        // createPost: build.mutation<IPost, IPost>({
-        //     query: (post) => ({
-        //         url: '/posts',
-        //         method: 'POST',
-        //         body: post
-        //     }),
-        //     invalidatesTags: ['Post']
-        // }),
         updateLink: builder.mutation<ILink, ILink>({
             query: (linkBody) => ({
                 url: `/link`,
@@ -60,7 +51,6 @@ export const sampAPI = createApi({
     })
 })
 
-//export const { useFetchSampMutation } = sampAPI
 export const { 
   useFetchSampQuery,
   useUpdateUsrpMutation,

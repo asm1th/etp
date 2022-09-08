@@ -7,15 +7,14 @@ import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 const KomandBar: FC = () => {
     const dispatch = useAppDispatch()
-    const {trip} = useAppSelector(state => state.mainReducer)
-    const {links} = useAppSelector(state => state.sampReducer)
+    const {links, isTravel} = useAppSelector(state => state.sampReducer)
 
-    const handleChangePrice     = ({ value }: any) => dispatch(sampSlice.actions.setTripPrice(value))
-    const handleChangeComment   = ({ value }: any) => dispatch(sampSlice.actions.setTripComment(value))
+    const handleChangePrice     = ({ value }: any) => dispatch(sampSlice.actions.setTravelPrice(value))
+    const handleChangeComment   = ({ value }: any) => dispatch(sampSlice.actions.setTravelComment(value))
     
     return (
         <>
-        {trip.isTrip ? (
+        {isTravel ? (
             <div className="KomandBar">
                 <Layout>
                     <Layout className="aic mr1">

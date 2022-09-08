@@ -1,5 +1,5 @@
 import React from "react";
-import EtapsItog from "../../components/fragments/EtapsItog";
+import SampItog from "../fragments/SampItog";
 import '../../css/print.css';
 
 export class ComponentToPrint extends React.Component {
@@ -7,7 +7,7 @@ export class ComponentToPrint extends React.Component {
         return (
             <>
 
-                <EtapsItog />
+                <SampItog />
 
             </>
         );

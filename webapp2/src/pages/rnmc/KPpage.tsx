@@ -5,13 +5,11 @@ import { useLocation } from "react-router-dom";
 import SampLotInfo from "../../components/fragments/SampLotInfo";
 import SampKpInfo from "../../components/fragments/SampKpInfo";
 import { useFetchSampQuery } from "../../services/SampService";
-import Etaps from "../../components/fragments/Etaps";
-import SampItog from "../../components/fragments/SampItog";
-import SampFooterButtons from "../../components/fragments/SampFooterButtons";
+import KPBlock from "../../components/fragments/KP/KPBlock";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
 
-const RNMCapp: FC = () => {
+const KPpage: FC = () => {
 
     //test
     const params = useLocation().search;
@@ -29,14 +27,11 @@ const RNMCapp: FC = () => {
                 <>
                     <SampLotInfo />
                     <SampKpInfo />
-                    <Etaps />
-                    <SampItog />
-                    <SampFooterButtons />
-                    {/* <pre>{JSON.stringify(samp, null, 2)}</pre> */}
+                    <KPBlock />
                 </>
             )}
         </>
     );
 };
 
-export default RNMCapp;
+export default KPpage;

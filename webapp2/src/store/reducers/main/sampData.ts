@@ -208,5 +208,6 @@ export const initialState: ISampNew = {
   "stags": Stags,
 
   kp_summ:"",
-  kp_summ_nds:""
+  kp_summ_nds:"",
+  isTravel: false
 }

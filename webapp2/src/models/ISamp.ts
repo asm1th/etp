@@ -11,9 +11,10 @@ export interface ISampNew {
     usl_period_end: string,
     links: ILink,
     stags: IStag[],
-
+    // added
     kp_summ: string,
-    kp_summ_nds: string
+    kp_summ_nds: string,
+    isTravel: boolean
 }
 
 export interface ILink {
@@ -32,7 +33,7 @@ export interface IStag {
     opr_usl_stage: string
     opr_usl_stage_num: number
     units: IUnit[]
-
+    // added
     isNoNds: boolean
     stagSumm: string
     stagSumm_nds: string
@@ -60,7 +61,7 @@ export interface IUsrp {
     vat_rate: string,
     alt_name_unit: string,
     nds_comm: string,
-    //
+    // added
     isSubToggle: boolean,
     summ: string,
     summ_nds: string
