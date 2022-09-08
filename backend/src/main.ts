@@ -13,6 +13,15 @@ async function bootstrap() {
     .build()
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, document);
+  app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
+
   await app.listen(PORT, ()=> console.log('Server start on port %s', PORT));
 }
 bootstrap();
