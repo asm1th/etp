@@ -25,11 +25,7 @@ body .Theme {
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
-.App {
-  padding: 1rem;
-}
-
-.Button_view_primary {
+.etp .Button_view_primary {
   --color-control-bg-primary: #0078d2;
   background-color: var(--color-control-bg-primary);
 }
@@ -38,31 +34,31 @@ body .Theme {
   background-color: var(--color-control-bg-disable);
 }
 
-.Button_disabled {
+.etp .Button_disabled {
   color: var(--color-control-typo-disable);
 }
-.Button_disabled, .Button_loading {
+
+.etp .Button_disabled, .Button_loading {
   background-color: var(--color-control-bg-disable);
   border-color: transparent;
   cursor: not-allowed;
   pointer-events: none;
 }
 
-.regform {
+.etp .regform {
   background: transparent;
   width: 450px;
 }
 
-
-.ProgressStepBarLine.ProgressStepBarLine_size_m.ProgressStepBarLine_direction_horizontal {
+.etp .ProgressStepBarLine.ProgressStepBarLine_size_m.ProgressStepBarLine_direction_horizontal {
   top: 15px;
 }
-.ProgressStepBar-List.ProgressStepBar-List_direction_horizontal {
+.etp .ProgressStepBar-List.ProgressStepBar-List_direction_horizontal {
   padding-top: 5px; 
   overflow: visible;
 }
 
-.nolabels .FieldLabel {
+.etp .nolabels .FieldLabel {
   opacity: 1;
   background: #fff;
   margin-bottom: -7px;
@@ -72,11 +68,11 @@ body .Theme {
 
 }
 
-.Checkbox-Label {
+.etp .Checkbox-Label {
   color: var(--color-control-typo-default);
 }
 
-.infoPopoverIcon{
+.etp .infoPopoverIcon{
   background: rgba(0, 120, 210, 0.05);
   border-radius: 4px;
   margin: 0 0 0 5px;
@@ -87,7 +83,7 @@ body .Theme {
   cursor: pointer;
 }
 
-.infoPopoverIcon:hover {
+.etp .infoPopoverIcon:hover {
   opacity: 1;
   background: rgba(0, 120, 210, 0.2);
 }

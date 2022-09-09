@@ -5,10 +5,8 @@ import { TextField } from "@consta/uikit/TextField";
 
 // RTK
 import { useNavigate } from 'react-router-dom'
-import { isFetchBaseQueryError, isErrorWithMessage } from "../helpers";
 import { useLoginMutation } from '../services/authService'
 import type { LoginRequest } from '../services/authService'
-import { SnackBar } from '@consta/uikit/SnackBar';
 
 const LoginForm: FC = () => {
     const navigate = useNavigate()
@@ -26,23 +24,12 @@ const LoginForm: FC = () => {
         setFormState((prev) => ({ ...prev, [e.target.name]: e.target.value }))
     }
 
-    const result : string[] = [];
-    const [messageState, setMessageState] = useState(result)
-    //const [messageState, setMessageState] = useState("");
-
     const onSubmit = async () => {
         try {
             await login(formState).unwrap()
-
-            
-            // Being that the result is handled in extraReducers in authSlice,
-            // we know that we're authenticated after this, so the user
-            // and token will be present in the store
-
             navigate('/')
         } catch (err) {
             console.log(err)
-            
         }
     };
 
