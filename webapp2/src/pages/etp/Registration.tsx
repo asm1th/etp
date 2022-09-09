@@ -442,7 +442,7 @@ const Registration: FC = () => {
                             />
                         ) : null} */}
 
-                        <pre>{JSON.stringify(regData, null, 2)}</pre>
+                        {/* <pre>{JSON.stringify(regData, null, 2)}</pre> */}
                     </Card>
                 </GridItem>
             </Grid>
