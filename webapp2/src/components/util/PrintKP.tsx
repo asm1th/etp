@@ -73,7 +73,7 @@ const PrintKP: FC = () => {
 
 
                 {stags.map(({ kp_stage_guid, opr_usl_stage, opr_usl_stage_num, stagSumm, stagSumm_nds, isNoNds }) => (
-                    <>
+                    <div key="opr_usl_stage_num">
                         <Layout className="kpHeader">
                             <Text>
                                 Этап {opr_usl_stage_num} {opr_usl_stage}
@@ -140,7 +140,7 @@ const PrintKP: FC = () => {
                                 </Layout>
                             </Layout>
                         </div>
-                    </>
+                    </div>
                 ))}
 
                 <Layout className="TravelRow">
