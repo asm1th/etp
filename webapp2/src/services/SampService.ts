@@ -4,19 +4,19 @@ import { RootState } from '../store/store'
 
 export const sampAPI = createApi({
     reducerPath: "sampAPI",
-    
+
     baseQuery: fetchBaseQuery({
         //baseUrl: 'http://109.195.85.121:5010/',
         baseUrl: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/`,
         prepareHeaders: (headers, { getState }) => {
-          // By default, if we have a token in the store, let's use that for authenticated requests
-          const token = (getState() as RootState).authReducer.token
-          if (token) {
-            headers.set('authorization', `Bearer ${token}`)
-          }
-          return headers
+            // By default, if we have a token in the store, let's use that for authenticated requests
+            const token = (getState() as RootState).authReducer.token
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
         },
-      }),
+    }),
     tagTypes: ['Samp'],
 
     endpoints: (builder) => ({
@@ -35,13 +35,13 @@ export const sampAPI = createApi({
             invalidatesTags: ['Samp']
         }),
         updateUsrp: builder.mutation<IUsrp, IUsrp>({
-          query: (usrpBody) => ({
-              url: `/usrp`,
-              method: 'PUT',
-              body: usrpBody
-          }),
-          invalidatesTags: ['Samp']
-      }),
+            query: (usrpBody) => ({
+                url: `/usrp`,
+                method: 'PUT',
+                body: usrpBody
+            }),
+            invalidatesTags: ['Samp']
+        }),
         // deletePost: build.mutation<IPost, IPost>({
         //     query: (post) => ({
         //         url: `/posts/${post.id}`,
@@ -52,8 +52,8 @@ export const sampAPI = createApi({
     })
 })
 
-export const { 
-  useFetchSampQuery,
-  useUpdateUsrpMutation,
-  useUpdateLinkMutation
+export const {
+    useFetchSampQuery,
+    useUpdateUsrpMutation,
+    useUpdateLinkMutation
 } = sampAPI

@@ -1,41 +1,39 @@
-import React, { FC, useState } from "react";
+import React, { FC, useReducer, useState } from "react";
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { useRegistrationMutation } from '../../services/authService'
-
 import { IconArrowRight } from '@consta/uikit/IconArrowRight';
 import { IconArrowLeft } from '@consta/uikit/IconArrowLeft';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
-import { IconThumbUp } from '@consta/uikit/IconThumbUp';
 import logo from '../../img/gazprom-neft-logo-rus.svg';
-
+import { useNavigate } from 'react-router-dom'
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
 import { Text } from '@consta/uikit/Text';
 import { ProgressStepBar } from '@consta/uikit/ProgressStepBarCanary';
-import { Informer } from '@consta/uikit/Informer';
 
 import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";
 import Step3 from "../../components/reg/Step3";
 import { regSlice } from '../../store/reducers/reg/regSlice';
 import { IRegData } from "../../models/IRegistration";
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { useRegistrationMutation } from '../../services/authService'
+import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
 
 const Registration: FC = () => {
-
+    const navigate = useNavigate()
     const dispatch = useAppDispatch()
-    const { regData } = useAppSelector(state => state.regReducer)
-    const [regRequest, { error, isSuccess }] = useRegistrationMutation();
+    const { regData, isAccept } = useAppSelector(state => state.regReducer)
+    const [regRequest, { isLoading, isSuccess }] = useRegistrationMutation();
 
     const [activeStep, setActiveStep] = useState<number>(0)
-    const [status, setStatus] = useState<string>('normal')
+    const [statusStep, setStatusStep] = useState<string>('normal')
     const steps = [
         {
             label: 'Шаг 1',
             point: 1,
-            status,
+            statusStep,
             lineStatus: 'normal',
             // content: <Step1 />,
             onClick: () => clickAction(0),
@@ -43,21 +41,21 @@ const Registration: FC = () => {
         {
             label: 'Шаг 2',
             point: 2,
-            status,
+            statusStep,
             lineStatus: 'normal',
             onClick: () => clickAction(1),
         },
         {
             label: 'Шаг 3',
             point: 3,
-            status,
+            statusStep,
             lineStatus: 'normal',
             onClick: () => clickAction(2),
         }
     ];
 
     const clickAction = (e: number) => {
-        //setStatus(status === 'normal' ? 'success' : 'normal');
+        //setStatusStep(status === 'normal' ? 'success' : 'normal');
         setActiveStep(e)
 
         if (activeStep === 0) {
@@ -87,7 +85,7 @@ const Registration: FC = () => {
         //dispatch(regSlice.actions.setIsValid(valid))
     }
 
-    const validateStep1 = (regData:IRegData) => {
+    const validateStep1 = (regData: IRegData) => {
         let valid = false;
         valid = validateTextField("org_fullname", regData.org_fullname, null) &&
             validateTextField("org_shortname", regData.org_shortname, null) &&
@@ -248,7 +246,7 @@ const Registration: FC = () => {
         return result
     }
 
-    const handleNext = () => {
+    const handleNext = async () => {
         if (activeStep === 0) {
             if (validateStep0(regData)) {
                 setActiveStep(activeStep + 1);
@@ -264,17 +262,73 @@ const Registration: FC = () => {
         }
     }
 
-    const onSubmit = async () => {
-        regRequest(regData)
-
-        // try {
-        //     //todo переход на страницу огина с сообщением о том что зарегистрированы и можно входить
-        //     //navigate('/')
-        //     await regRequest(regData).unwrap()
-        // } catch (err) {
-        //     console.log(err)
-        // }
+    interface IStatusMessageState {
+        isError: boolean,
+        isSuccess: boolean,
+        errorMsg: string
     }
+
+    const [statusMessage, setStatusMessage] = useState<IStatusMessageState>({
+        isError: false,
+        isSuccess: false,
+        errorMsg: ""
+    })
+
+    const onSubmit = async () => {
+        try {
+            await regRequest(regData).unwrap()
+            generateHandleAdd('success', 'Вы зарегистрировались! В течении 5 минут на вашу почту придет письмо с временным паролем');
+            setStatusMessage({isError: false, errorMsg: "", isSuccess: true})
+
+            setTimeout(() =>  navigate('/'), 6000)
+        } catch (err) {
+            setStatusMessage({isError: true, errorMsg: err.data.message, isSuccess: false})
+            generateHandleAdd('alert', err.data.message);
+        }
+    };
+
+    const onHome = () => {
+        navigate('/')
+    }
+
+// snack
+    type Item = {
+        key: number;
+        message: string;
+        status: SnackBarItemStatus;
+        progressMode?: 'line' | 'timer';
+    };
+
+    function reducer(state: Item[], action: { type: 'add' | 'remove'; item: Item }): Item[] {
+        switch (action.type) {
+            case 'add':
+                return [...state, action.item];
+            case 'remove':
+                return state.filter((itemInState) => itemInState.key !== action.item.key);
+        }
+    }
+
+    const [items, dispatchItems] = useReducer<
+        React.Reducer<Item[], { type: 'add' | 'remove'; item: Item; key?: number | string }>
+    >(reducer, []);
+
+    //const getItemIcon = (item: Item) => mapIconByStatus[item.status];
+    const getItemShowProgress = (item: Item) => item.progressMode;
+
+    const generateHandleAdd = (
+        status: SnackBarItemStatus,
+        msg: string
+    ) => {
+        const key = items.length + 1;
+        const item: Item = {
+            key,
+            message: msg,
+            status,
+            progressMode: 'timer',
+        };
+        dispatchItems({ type: 'add', item });
+    };
+// snack
 
     return (
         <>
@@ -336,28 +390,48 @@ const Registration: FC = () => {
                                     size="m"
                                     width="full"
                                     //disabled={ activeStep == > 2 !isAccept}
-                                    //disabled={activeStep === 2 ? false : !isAccept}
+                                    disabled={activeStep === 1 ? (!isAccept) : false}
                                     iconRight={activeStep < 2 ? IconArrowRight : undefined}
+                                    loading={isLoading}
                                 />
                             </Layout>
                         </Layout>
-                        
-                        <Layout flex={1} className="acc aic jcc mt2">
+
+                        <Layout flex={1} className="acc aic jcc mt2 mb2">
                             <Text
                                 size="xs" lineHeight="xs">
                                 Уже есть учетная запись? <Link to="/etp/login">Войти в систему</Link>
                             </Text>
                         </Layout>
 
-                        { error ? (
-                            <Informer
-                            className="mt2"
-                            title={"Ошибка"}
-                            label={JSON.stringify(error)}
-                            view="filled"
-                            status="warning"
+
+                        {isSuccess ? (
+                            <Layout className="acc aic jcc mt2 mb2">
+                               <Button 
+                                    onClick={onHome}
+                                    label="Войти" 
+                                    size="l" />
+                            </Layout>
+                        ):null}
+
+                        <SnackBar
+                            items={items}
+                            onItemClose={(item) => dispatchItems({ type: 'remove', item })}
+                            getItemShowProgress={getItemShowProgress}
+                            getItemAutoClose={() => 5}
                         />
-                        ) : isSuccess ? (
+
+
+
+                        {/* {statusMessage.isError ? (
+                            <Informer
+                                className="mt2"
+                                title={"Ошибка"}
+                                label={statusMessage.errorMsg}
+                                view="filled"
+                                status="alert"
+                            />
+                        ) : statusMessage.isSuccess ? (
                             <Informer
                                 className="mt2"
                                 title="Регистрация пройдена"
@@ -366,9 +440,9 @@ const Registration: FC = () => {
                                 status="success"
                                 icon={IconThumbUp}
                             />
-                        ) : null}
+                        ) : null} */}
 
-                        {/* <pre>{JSON.stringify(regData, null, 2)}</pre> */}
+                        <pre>{JSON.stringify(regData, null, 2)}</pre>
                     </Card>
                 </GridItem>
             </Grid>
