@@ -5,6 +5,7 @@ import { Button } from "@consta/uikit/Button";
 import { Text } from "@consta/uikit/Text";
 import { IconDocFilled } from '@consta/uikit/IconDocFilled';
 import { IconDocExport } from '@consta/uikit/IconDocExport';
+import { IconEdit } from '@consta/uikit/IconEdit';
 import { IconAttach } from '@consta/uikit/IconAttach';
 import { IconSendMessage } from '@consta/uikit/IconSendMessage';
 import { FileField, FileFieldProps } from '@consta/uikit/FileField';
@@ -14,8 +15,12 @@ import { IconClose } from '@consta/uikit/IconClose';
 
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
+import { useAppSelector } from "../../hooks/redux";
+
 
 const SampFooterButtons: FC = () => {
+
+    const { kp_send_date } = useAppSelector(state => state.sampReducer)
 
     const attach = (e: any) => {
         console.log(e)
@@ -29,22 +34,31 @@ const SampFooterButtons: FC = () => {
     });
 
     let navigate = useNavigate();
-    const toKP = () => {
-        let path = '/kp';
-        navigate(path);
-    }
+    const toKP = () => navigate('/kp');
+    const toHome = () => navigate('/');
+
 
     return (
         <>
             <Layout flex={1} className="EtapFooterButtons aic jce">
-                <Text as="div" className="mr2 label">
-                    КП отправлено 05.09.2022 16:48:46
-                </Text>
+                
+                { kp_send_date ? (
+                    <Text as="div" className="mr2 label">
+                        КП отправлено {kp_send_date}
+                    </Text>
+                ) : null}
+                
                 <Button
                     onClick={toKP}
                     label="Сформировать КП"
                     size="m"
                     iconLeft={IconDocFilled}
+                />
+                <Button
+                    onClick={toHome}
+                    label="Редактировать КП"
+                    size="m"
+                    iconLeft={IconEdit}
                 />
                 <div
                     style={{ display: "none" }}>

@@ -44,8 +44,8 @@ export const authService = createApi({
   endpoints: (builder) => ({
     login: builder.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({
-        //url: 'http://109.195.85.121:5010/auth/login',
-        url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/login`,
+        url: 'http://109.195.85.121:5010/auth/login',
+        //url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/login`,
         method: 'POST',
         body: credentials,
       }),

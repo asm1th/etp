@@ -95,7 +95,7 @@ const EtapFooter = (props: { etapId: number }) => {
                         </>) : null}
                 </Layout>
                 <Layout flex={4} className="aic jcfe">
-                    <Text as="div" className="mr2 label">Сохранено 05.09.2022 14:31:48</Text>
+                    <Text as="div" className="mr2 label">Сохранено 05.09.2022 14:31:48 ???</Text>
                     <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp}/>
                 </Layout>
             </Layout>

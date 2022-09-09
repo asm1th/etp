@@ -1,8 +1,32 @@
 @media print {
-    .CollapseIcon {
-        display: none;
+    .Text {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
     }
-    .Collapse-Label{
-        padding: 20px 0;
+    .noNDSrow{
+        font-size: 10px !important;
+        line-height: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #828282;
+        padding: 2px 0;
+    }
+    .lotInfo {
+
+        
+    }
+    .lotInfo .Text.label{
+        font-size: 10px;
+        color: #6A6D70;
+        margin-bottom: 5px;
+    }
+    .kpHeader .Text{
+        font-size: 13px;
+    }
+    .Header .label{
+        font-size: 10px;
+        color: #828282;
+    }
+    .table .row .Text{
+        font-size: 11px;
     }
   }

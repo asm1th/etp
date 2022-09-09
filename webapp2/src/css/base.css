@@ -20,7 +20,7 @@
 }
 
 .jcb,
-.jcsb{
+.jcsb {
     justify-content: space-between;
 }
 
@@ -53,32 +53,32 @@
 }
 
 /* MODAL */
-.Modal{
+.Modal {
     z-index: 12;
 }
-body .Modal-Window{
+body .Modal-Window {
     min-height: auto;
 }
 .ModalTitle,
 .ModalContent,
-.ModalFooter{
+.ModalFooter {
     margin: 1rem;
 }
-.ModalContent{
+.ModalContent {
     margin: 1rem 2rem 2rem;
 }
-.ModalContent p{
+.ModalContent p {
     line-height: 22px;
     color: #535659;
 }
-.ModalFooter{
+.ModalFooter {
     justify-content: flex-end;
     text-align: right;
 }
 
 /* .MODAL */
 
-.bold{
+.bold {
     font-weight: bold;
 }
 
@@ -91,7 +91,11 @@ body .Modal-Window{
     z-index: 1;
 }
 
-.TabsTab_checked:after {
+.App .TabsTab:before {
+    display: none;
+}
+
+/* .TabsTab_checked:after {
     content: "";
     display: block;
     border-left: 1px solid #0067a3;
@@ -104,6 +108,22 @@ body .Modal-Window{
     border-radius: 5px 0 0 5px;
     background: #fff;
     z-index: -1;
+} */
+
+.App .Tabs-Tab {
+    position: relative;
+    z-index: 1;
+}
+
+.App .TabsLine_type_running {
+    border: 1px;
+    border-left: 1px solid #0067a3;
+    border-top: 1px solid #0067a3;
+    border-bottom: 1px solid #0067a3;
+    width: 68px;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    margin-top: 1px;
 }
 
 .Tabs-List.Tabs-List_direction_vertical.Tabs-List_linePosition_right {
@@ -115,6 +135,81 @@ body .Modal-Window{
     border-radius: 50%;
     padding: 2px;
     margin-left: 5px;
-    transform: scale(.8);
+    transform: scale(0.8);
 }
 
+/* KPItog */
+.KPItog {
+    background: #fff;
+    padding: 20px;
+}
+
+.KPItog .Collapse {
+    padding-bottom: 8px;
+}
+.KPItog .Collapse:last-child {
+    padding-bottom: 0;
+}
+
+.KPItog .Collapse-Label {
+    background: #e9eaff;
+    padding: 3px 1rem;
+}
+
+.KPItog .CollapseIcon {
+    color: var(--color-typo-brand);
+}
+
+.KPItog .Header {
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.table .row {
+    font-size: 12px;
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.table .row:nth-child(odd) {
+    background: #f4f4f4;
+}
+
+.table .row .Text {
+    font-size: 14px;
+    line-height: 18px;
+}
+.table .row.ifooter {
+    border-top: 1px solid #ccc;
+    background: transparent;
+}
+.kpFooter {
+    background: #e9eaff;
+    padding: 8px 1rem;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+.kpFooter .Text {
+    font-size: 18px;
+}
+.kpHeader {
+    background: #e9eaff;
+    padding: 8px 1rem;
+    border-radius: 3px;
+}
+.kpHeader .Text {
+    font-size: 18px;
+}
+.TravelRow .Text {
+    font-size: 14px;
+    line-height: 18px;
+}
+.noNDSrow {
+    text-align: right;
+    color: #535659;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 14px;
+    color: #6a6d70;
+}
+/* .KPItog */

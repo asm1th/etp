@@ -45,7 +45,7 @@ body {
 }
 /**/
 
-.App .label {
+.App .label, .label {
   font-family: PT Root UI;
   font-size: 12px;
   font-weight: 500;
