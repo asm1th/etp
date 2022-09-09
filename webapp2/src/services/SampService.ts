@@ -6,8 +6,8 @@ export const sampAPI = createApi({
     reducerPath: "sampAPI",
     
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://109.195.85.121:5010/',
-        //baseUrl: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/`,
+        //baseUrl: 'http://109.195.85.121:5010/',
+        baseUrl: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/`,
         prepareHeaders: (headers, { getState }) => {
           // By default, if we have a token in the store, let's use that for authenticated requests
           const token = (getState() as RootState).authReducer.token
