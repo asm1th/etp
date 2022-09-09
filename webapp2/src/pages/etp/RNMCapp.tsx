@@ -6,9 +6,9 @@ import '../etp/Etp.css';
 const RNMCappEtp: FC = () => {
     
     return (
-        <>  
+        <div className="etp">  
             <RNMCapp />
-        </>
+        </div>
     );
 };
 

@@ -32,7 +32,7 @@ const Step2: FC = () => {
     const [isModalOpen2, setIsModalOpen2] = useState(false);
 
     const dispatch = useAppDispatch()
-    const { regData, formErrors, isAccept, isError} = useAppSelector(state => state.regReducer)
+    const { regData, formErrors, isAccept} = useAppSelector(state => state.regReducer)
 
     const handleField = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
     const handleFieldINN = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))

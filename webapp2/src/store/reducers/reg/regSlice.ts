@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { regData } from "./regData"
 import { IRegData } from "../../../models/IRegistration"
+import { authService } from "../../../services/authService"
 
 interface IFormErrors {
     "lastname": string,
@@ -25,8 +26,6 @@ interface regState {
     isValid: boolean,
     isAccept: boolean,
     formErrors: IFormErrors,
-    isLoading: boolean,
-    isError: boolean,
 }
 
 const initialState: regState = {
@@ -50,8 +49,6 @@ const initialState: regState = {
         "isToken": "",
         "isSmsp": ""
     },
-    isLoading: false,
-    isError: false
 }
 
 
@@ -59,13 +56,6 @@ export const regSlice = createSlice({
     name: 'regData',
     initialState,
     reducers: {
-        setRegData: (state, action: PayloadAction<IRegData>) => {
-            //debugger
-            //save full object
-            //state.regData = action.payload;
-            // state.isLoading = false;
-            // state.error = '';
-        },
         setRegDataProp: (state, action: PayloadAction<any>) => {
             let prop: any = action.payload.prop
             let reg: any = state.regData
@@ -87,6 +77,18 @@ export const regSlice = createSlice({
         setRegAccept: (state, action: PayloadAction<any>) => {
             state.isAccept = action.payload.checked
         },
+    },
+    extraReducers: (builder) => {
+        builder
+        .addMatcher(
+            authService.endpoints.registration.matchFulfilled,
+            (state, { payload }) => {
+                //debugger
+                //return payload
+            }
+        )
+        
+        
     },
 })
 
