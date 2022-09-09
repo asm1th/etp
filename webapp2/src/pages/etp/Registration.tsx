@@ -26,8 +26,8 @@ import { IRegData } from "../../models/IRegistration";
 const Registration: FC = () => {
 
     const dispatch = useAppDispatch()
-    const { regData, isAccept } = useAppSelector(state => state.regReducer)
-    const [regRequest, { data, error, isSuccess }] = useRegistrationMutation();
+    const { regData } = useAppSelector(state => state.regReducer)
+    const [regRequest, { error, isSuccess }] = useRegistrationMutation();
 
     const [activeStep, setActiveStep] = useState<number>(0)
     const [status, setStatus] = useState<string>('normal')
