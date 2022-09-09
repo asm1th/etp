@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppSelector } from "../hooks/redux";
 import RNMCapp from "../pages/rnmc/RNMCapp";
+import RNMCappEtp from "../pages/etp/RNMCapp";
 import Login from "../pages/Login";
 import LoginCode from "../pages/LoginCode";
 import Logout from "../pages/Logout";
@@ -28,7 +29,7 @@ const AppRouter = () => {
 
           {/* /etp/?guid=0050569CDC861EED87DD0FCCDBEA808C */}
 
-          <Route path="/etp" element={isAuth ? <RNMCapp /> : <Navigate to="/etp/login" />} />
+          <Route path="/etp" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/reg" element={<Registration />} />
