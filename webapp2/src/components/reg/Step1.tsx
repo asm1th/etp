@@ -70,6 +70,18 @@ const Step1: FC = () => {
                 status={formErrors.email === "" ? undefined : "alert"}
                 caption={formErrors.email}
             />
+            <TextField
+                label="Пароль"
+                name="password"
+                type="text"
+                placeholder="Задать пароль"
+                width="full"
+                className="mt1"
+                value={regData.password}
+                onChange={(e: any) => handleField(e)}
+                status={formErrors.password === "" ? undefined : "alert"}
+                caption={formErrors.password || 'Длиннее 7 символов, латиница. Содержит минимум 1 заглавную букву, 1 цифру и 1 специальный символ'}
+            />
         </>
     );
 };

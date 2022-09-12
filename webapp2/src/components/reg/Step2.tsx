@@ -12,6 +12,7 @@ import { IconClose } from '@consta/uikit/IconClose';
 
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { regSlice } from '../../store/reducers/reg/regSlice'
+import { isToken } from "typescript";
 
 const Step2: FC = () => {
 
@@ -32,12 +33,23 @@ const Step2: FC = () => {
     const [isModalOpen2, setIsModalOpen2] = useState(false);
 
     const dispatch = useAppDispatch()
-    const { regData, formErrors, isAccept} = useAppSelector(state => state.regReducer)
+    const { regData, formErrors, isAccept } = useAppSelector(state => state.regReducer)
 
     const handleField = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
     const handleFieldINN = (e: any) => dispatch(regSlice.actions.setRegDataProp({ prop: e.name, value: e.value }))
     const handleCheckbox = (e: any) => dispatch(regSlice.actions.setRegDataBool({ prop: e.e.target.name, checked: e.checked }))
     const handleAccept = (e: any) => dispatch(regSlice.actions.setRegAccept({ checked: e.checked }))
+
+    const handleCheckboxIsResident = (e: any) => {
+        handleCheckbox(e)
+        dispatch(regSlice.actions.setRegDataProp({ prop: "kpp", value: "" }))
+        dispatch(regSlice.actions.setRegDataProp({ prop: "inn", value: "" }))
+    }
+
+    const handleCheckboxIsIndividual = (e: any) => {
+        handleCheckbox(e)
+        dispatch(regSlice.actions.setRegDataProp({ prop: "kpp", value: "" }))
+    }
 
     return (
         <>
@@ -55,14 +67,14 @@ const Step2: FC = () => {
                         name="isResident"
                         label="Нерезидент"
                         checked={regData.isResident}
-                        onChange={(e: any) => handleCheckbox(e)}
+                        onChange={(e: any) => handleCheckboxIsResident(e)}
                     />
                     <Checkbox
                         className="cb_sm"
                         label="Физические лица"
                         name="isIndividual"
                         checked={regData.isIndividual}
-                        onChange={(e: any) => handleCheckbox(e)}
+                        onChange={(e: any) => handleCheckboxIsIndividual(e)}
                     />
                 </Layout>
                 <Layout direction="column">
@@ -70,7 +82,7 @@ const Step2: FC = () => {
                         className="cb_sm"
                         label="Внесен в реестр СМСП"
                         name="isSmsp"
-                        checked={regData.isSmsp} 
+                        checked={regData.isSmsp}
                         onChange={(e: any) => handleCheckbox(e)}
                     />
                     <Layout>
@@ -78,8 +90,7 @@ const Step2: FC = () => {
                             className="cb_sm"
                             label="Регистрация по токену"
                             name="isToken"
-                            disabled={true}
-                            checked={regData.isToken} 
+                            checked={regData.isToken}
                             onChange={(e: any) => handleCheckbox(e)}
                         />
                         <div onMouseMove={(e) => handleMouseMove(e, msg1)} onMouseLeave={() => setPosition(undefined)}>
@@ -90,8 +101,21 @@ const Step2: FC = () => {
             </Layout>
 
             <div className="nolabels">
+                {regData.isToken && (
+                    <TextField
+                        label="Токен"
+                        placeholder="Введите токен"
+                        name="token"
+                        type="text"
+                        width="full"
+                        className="mb2"
+                    //value={}
+                    //onChange={}
+                    //caption={formErrors.token}
+                    />
+                )}
+
                 <TextField
-                    
                     label="Полное наименование"
                     placeholder="Введите Полное наименование"
                     name="org_fullname"
@@ -116,34 +140,72 @@ const Step2: FC = () => {
                     status={formErrors.org_shortname === "" ? undefined : "alert"}
                     caption={formErrors.org_shortname}
                 />
-                <TextField
-                    label="ИНН"
-                    placeholder="Введите ИНН"
-                    name="inn"
-                    type="text"
-                    width="full"
-                    className="mt1"
-                    required
-                    maxLength={12}
-                    value={regData.inn}
-                    onChange={(e: any) => handleFieldINN(e)}
-                    status={formErrors.inn === "" ? undefined : "alert"}
-                    caption={formErrors.inn}
-                />
-                <TextField
-                    label="КПП"
-                    placeholder="Введите КПП"
-                    name="kpp"
-                    type="text"
-                    className="mt1"
-                    width="full"
-                    required
-                    maxLength={9}
-                    value={regData.kpp}
-                    onChange={(e: any) => handleField(e)}
-                    status={formErrors.kpp === "" ? undefined : "alert"}
-                    caption={formErrors.kpp}
-                />
+
+                {regData.isResident ? (
+                    <>
+                        <TextField
+                            label="Регистрационный номер"
+                            placeholder="Введите регистрационный номер"
+                            name="regnum"
+                            type="text"
+                            width="full"
+                            className="mt1"
+                            //required
+                            //maxLength={12}
+                            value={regData.regnum}
+                            onChange={(e: any) => handleField(e)}
+                            status={formErrors.regnum === "" ? undefined : "alert"}
+                            caption={formErrors.regnum}
+                        />
+                        <TextField
+                            label="Страна"
+                            placeholder="Введите страну"
+                            name="country"
+                            type="text"
+                            width="full"
+                            className="mt1"
+                            //required
+                            value={regData.country}
+                            onChange={(e: any) => handleField(e)}
+                            status={formErrors.country === "" ? undefined : "alert"}
+                            caption={formErrors.country}
+                        />
+                    </>
+                ) : (
+                    <>
+                        <TextField
+                            label="ИНН"
+                            placeholder="Введите ИНН"
+                            name="inn"
+                            type="text"
+                            width="full"
+                            className="mt1"
+                            required
+                            maxLength={12}
+                            value={regData.inn}
+                            onChange={(e: any) => handleFieldINN(e)}
+                            status={formErrors.inn === "" ? undefined : "alert"}
+                            caption={formErrors.inn}
+                        />
+                        {!regData.isIndividual && (
+                            <TextField
+                                label="КПП"
+                                placeholder="Введите КПП"
+                                name="kpp"
+                                type="text"
+                                className="mt1"
+                                width="full"
+                                required
+                                maxLength={9}
+                                value={regData.kpp}
+                                onChange={(e: any) => handleField(e)}
+                                status={formErrors.kpp === "" ? undefined : "alert"}
+                                caption={formErrors.kpp}
+                            />
+                        )}
+                    </>
+                )}
+
                 <TextField
                     label="Телефон организации"
                     placeholder="Введите Телефон организации"

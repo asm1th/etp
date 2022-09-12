@@ -10,22 +10,27 @@ import SampItog from "../../components/fragments/SampItog";
 import SampFooterButtons from "../../components/fragments/SampFooterButtons";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
+import GuidEnter from './GuidEnter';
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { authSlice } from '../../store/reducers/authRTK/authSlice';
 
 const RNMCapp: FC = () => {
-
+    const dispatch = useAppDispatch()
     //test
     const params = useLocation().search;
-    const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
+    const kp_sample_guid = new URLSearchParams(params).get("guid") || ''
+    dispatch(authSlice.actions.setKp_sample_guid(kp_sample_guid))
+
     const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
     //.test
 
     return (
         <>
-            <div className='isErrorIsLoading'>
+            <div className='isErrorIsLoading jcc'>
                 {error && <Responses503 />}
                 {isLoading && <ProgressSpin size="2xl" />}
             </div>
-            {isSuccess && (
+            {isSuccess && (samp.stags.length > 0) ? (
                 <>
                     <SampLotInfo />
                     <SampKpInfo />
@@ -34,6 +39,8 @@ const RNMCapp: FC = () => {
                     <SampFooterButtons />
                     {/* <pre>{JSON.stringify(samp, null, 2)}</pre> */}
                 </>
+            ) : (
+                <GuidEnter/>
             )}
         </>
     );

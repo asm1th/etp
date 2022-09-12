@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { IUser } from '../../../models/test/IUser'
 import { authService } from '../../../services/authService'
 import type { RootState } from '../../../store/store'
@@ -22,13 +22,21 @@ const initialState = {
     isAuth: false, // getLocalIsAuth(), // отключение auth = false \ true 
     user: null, 
     token: null,
-    kp_sample_guid: ""
+    kp_sample_guid: "" //"0050569CDC861EED87DD0FCCDBEA808C"
 }
 
-const slice = createSlice({
+export const authSlice = createSlice({
     name: 'auth',
     initialState: initialState as AuthState,
-    reducers: {},
+    reducers: {
+        logout: (state) => {
+            state.isAuth = false;
+            state.token = null;
+        },
+        setKp_sample_guid: (state, action: PayloadAction<string>) => {
+            state.kp_sample_guid = action.payload;
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addMatcher(
@@ -44,6 +52,6 @@ const slice = createSlice({
     },
 })
 
-export default slice.reducer
+export default authSlice.reducer
 
 export const selectCurrentUser = (state: RootState) => state.authReducer.user

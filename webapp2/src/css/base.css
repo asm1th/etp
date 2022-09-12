@@ -213,3 +213,11 @@ body .Modal-Window {
     color: #6a6d70;
 }
 /* .KPItog */
+
+.isErrorIsLoading{
+    text-align: center;
+}
+
+button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
+    padding-left: 5px;
+}

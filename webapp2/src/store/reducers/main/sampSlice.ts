@@ -86,53 +86,52 @@ export const sampSlice = createSlice({
             state.links.kp_offer_expire_date = action.payload
         },
         setTravelPrice: (state, action: PayloadAction<string>) => {
-            state.links.travel_exp = action.payload;
+            state.links.travel_exp = action.payload
         },
         setTravelComment: (state, action: PayloadAction<string>) => {
-            state.links.travel_exp_comm = action.payload;
+            state.links.travel_exp_comm = action.payload
         },
         toggleEtapRowSub: (state, action: PayloadAction<IUnitFinder>) => {
             const thisUsrp = getUspsr(state.stags, action.payload)
-            thisUsrp.isSubToggle = !thisUsrp.isSubToggle;
+            thisUsrp.isSubToggle = !thisUsrp.isSubToggle
         },
         setAlt_name_unit: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUsrp.alt_name_unit = action.payload.value;
+            thisUsrp.alt_name_unit = action.payload.value
         },
         setUsl_quan_unit: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUnit = getUnit(state.stags, action.payload.UnitFinder)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUnit.usl_quan_unit = action.payload.value;
-            thisUsrp.usl_quan_unit = action.payload.value;
+            thisUnit.usl_quan_unit = action.payload.value
+            thisUsrp.usl_quan_unit = action.payload.value
         },
         setNsu_menge: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUnit = getUnit(state.stags, action.payload.UnitFinder)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUnit.nsu_menge = action.payload.value;
-            thisUsrp.nsu_menge = action.payload.value;
+            thisUnit.nsu_menge = action.payload.value
+            thisUsrp.nsu_menge = action.payload.value
             calcSumm(thisUsrp)
             calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setPrices_user: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUsrp.prices_user = action.payload.value;
+            thisUsrp.prices_user = action.payload.value
             calcSumm(thisUsrp)
             calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setVat_rate: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUsrp.vat_rate = action.payload.value;
+            thisUsrp.vat_rate = action.payload.value
             calcSumm(thisUsrp)
             calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
         },
         setNds_comm: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
-            thisUsrp.nds_comm = action.payload.value;
+            thisUsrp.nds_comm = action.payload.value
         },
-
         setStageNoNds: (state, action: PayloadAction<any>) => {
             const index = state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
             state.stags[index].isNoNds = action.payload.checked;
@@ -150,6 +149,10 @@ export const sampSlice = createSlice({
             state.stags[index].stagSumm_nds = action.payload.value.summ
             state.stags[index].stagSumm_nds = action.payload.value.summ_nds
         },
+        isValid: (state, action: PayloadAction<any>) => {
+            const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
+            thisUsrp.isValid = action.payload.value
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -159,18 +162,22 @@ export const sampSlice = createSlice({
                     //debugger
                     console.warn(payload);
 
-                    payload.stags.forEach( stag => {
-                        stag.units.forEach( unit => {
-                            let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === payload.link)[0];
-                            calcSumm(thisUsrps)
-                        })
-                        calcStageSumm(payload, stag, payload.link)
-                    })
+                    if (payload) {
+                        if (payload.stags && payload.stags.length > 0) {
+                            payload.stags.forEach(stag => {
+                                stag.units.forEach(unit => {
+                                    let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === payload.link)[0];
+                                    calcSumm(thisUsrps)
+                                })
+                                calcStageSumm(payload, stag, payload.link)
+                            })
+                        }
 
-                    if ( payload.links.travel_exp || payload.links.travel_exp_comm) {
-                        payload.isTravel = true
-                    } else {
-                        payload.isTravel = false
+                        if (payload.links.travel_exp || payload.links.travel_exp_comm) {
+                            payload.isTravel = true
+                        } else {
+                            payload.isTravel = false
+                        }
                     }
 
                     //server data to reducer

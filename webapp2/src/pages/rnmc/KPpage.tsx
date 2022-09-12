@@ -8,13 +8,15 @@ import { useFetchSampQuery } from "../../services/SampService";
 import KPBlock from "../../components/fragments/KP/KPBlock";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
+import { useAppSelector } from "../../hooks/redux";
 
 const KPpage: FC = () => {
 
     //test
     const params = useLocation().search;
-    const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
-    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
+    const {kp_sample_guid} = useAppSelector(state => state.authReducer)
+    const this_kp_sample_guid = new URLSearchParams(params).get("guid") || kp_sample_guid || ''
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_kp_sample_guid);
     //.test
 
     return (
