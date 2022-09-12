@@ -3,7 +3,7 @@ import { Text } from "@consta/uikit/Text";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { TextField } from "@consta/uikit/TextField";
 import { useAppSelector, useAppDispatch } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/main/sampSlice";
+import { sampSlice } from "../../store/reducers/samp/sampSlice";
 
 const KomandBar: FC = () => {
     const dispatch = useAppDispatch()

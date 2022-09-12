@@ -16,7 +16,7 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
 import { useAppSelector } from "../../hooks/redux";
-import {sampSlice} from "../../store/reducers/main/sampSlice";
+import {sampSlice} from "../../store/reducers/samp/sampSlice";
 import { useDispatch } from "react-redux";
 
 

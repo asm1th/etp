@@ -1,6 +1,6 @@
 import authReducer from './authRTK/authSlice'
 import regReducer from './reg/regSlice'
-import sampReducer from './main/sampSlice'
+import sampReducer from './samp/sampSlice'
 import { sampAPI } from '../../services/SampService'
 
 const reducers = {
