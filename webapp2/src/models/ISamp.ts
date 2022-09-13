@@ -64,5 +64,6 @@ export interface IUsrp {
     // added
     isSubToggle: boolean,
     summ: string,
-    summ_nds: string
+    summ_nds: string,
+    isValid: boolean
 }

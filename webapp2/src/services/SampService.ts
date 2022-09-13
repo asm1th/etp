@@ -6,6 +6,7 @@ export const sampAPI = createApi({
     reducerPath: "sampAPI",
 
     baseQuery: fetchBaseQuery({
+        //baseUrl: 'http://sapdp7.gazprom-neft.local:50000/NDI_EPCOMMON_D~gzpn~kp~service~rs~gazprom-neft.ru/rs/kp/',
         //baseUrl: 'http://109.195.85.121:5010/',
         baseUrl: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/`,
         prepareHeaders: (headers, { getState }) => {
@@ -20,8 +21,8 @@ export const sampAPI = createApi({
     tagTypes: ['Samp'],
 
     endpoints: (builder) => ({
-        fetchSamp: builder.query<ISampNew, string>({
-            query: (kp_sample_guid: string) => ({
+        fetchSamp: builder.query<ISampNew, any>({
+            query: (kp_sample_guid: any) => ({
                 url: `/samp/${kp_sample_guid}`,
             }),
             providesTags: result => ['Samp'],

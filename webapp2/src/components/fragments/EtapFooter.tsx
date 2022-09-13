@@ -7,7 +7,7 @@ import { Button } from "@consta/uikit/Button";
 import { IconCheck } from '@consta/uikit/IconCheck';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/main/sampSlice";
+import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import PopoverCustom from '../util/PopoverCustom';
 import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../services/SampService";
 

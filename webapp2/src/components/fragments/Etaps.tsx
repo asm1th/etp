@@ -7,17 +7,16 @@ import EtapFooter from "./EtapFooter";
 import KomandBar from "./KomandBar";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { Popover } from '@consta/uikit/Popover';
-//import { useAppSelector } from "../../hooks/redux";
-//import { IEtap } from "../../models/IMain"
+import { useAppSelector } from "../../hooks/redux";
 import { IStag } from "../../models/ISamp"
 import { useFetchSampQuery } from "../../services/SampService";
 import { useLocation } from "react-router-dom";
-// import { sampSlice } from "../../store/reducers/main/sampSlice";
 
 const Etaps: FC = () => {
     const params = useLocation().search;
-    const kp_sample_guid = new URLSearchParams(params).get("guid") || '0050569CDC861EED87DD0FCCDBEA808C'
-    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(kp_sample_guid);
+    const {kp_sample_guid} = useAppSelector(state => state.authReducer)
+    const this_kp_sample_guid = new URLSearchParams(params).get("kp_sample_guid") || kp_sample_guid || ''
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_kp_sample_guid);
 
     const [tab, setTab] = useState<IStag>({
         "kp_stage_guid": "",

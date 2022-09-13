@@ -6,7 +6,7 @@ import { DatePicker } from '@consta/uikit/DatePickerCanary';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/main/sampSlice";
+import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import { format } from "date-fns";
 import WaersSelect from "../controls/WaersSelect";
 

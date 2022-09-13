@@ -1,25 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { regData } from "./regData"
-import { IRegData } from "../../../models/IRegistration"
+import { IRegData, IFormErrors, regData } from "../../../models/IRegistration"
 import { authService } from "../../../services/authService"
 
-interface IFormErrors {
-    "lastname": string,
-    "firstname": string,
-    "patronymic": string,
-    "email": string,
-    "org_fullname": string,
-    "org_shortname": string,
-    "org_telephone": string,
-    "org_email": string,
-    "password": string,
-    "inn": string,
-    "kpp": string,
-    "isResident": string,
-    "isIndividual": string,
-    "isToken": string,
-    "isSmsp": string
-}
 
 interface regState {
     regData: IRegData;
@@ -47,7 +29,10 @@ const initialState: regState = {
         "isResident": "",
         "isIndividual": "",
         "isToken": "",
-        "isSmsp": ""
+        "isSmsp": "",
+
+        "regnum": "",
+        "country": ""
     },
 }
 

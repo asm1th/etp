@@ -6,7 +6,7 @@ import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/main/sampSlice";
+import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import { IStag } from "../../models/ISamp";
 
 const EtapRow = (props: { etapId: number }) => {

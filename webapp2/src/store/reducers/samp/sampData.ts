@@ -35,7 +35,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -48,7 +49,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           }
         ]
       }
@@ -86,7 +88,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -99,7 +102,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           }
         ]
       },
@@ -125,7 +129,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -138,7 +143,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           }
         ]
       },
@@ -164,7 +170,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -177,7 +184,8 @@ export const Stags: IStag[] = [
             "nds_comm": "22.08.2022",
             isSubToggle: false,
             summ: "",
-            summ_nds: ""
+            summ_nds: "",
+            isValid: true
           }
         ]
       }
@@ -207,7 +215,7 @@ export const initialState: ISampNew = {
   },
   "stags": Stags,
 
-  kp_summ:"",
-  kp_summ_nds:"",
+  kp_summ: "",
+  kp_summ_nds: "",
   isTravel: false
 }

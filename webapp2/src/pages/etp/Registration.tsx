@@ -36,21 +36,21 @@ const Registration: FC = () => {
             statusStep,
             lineStatus: 'normal',
             // content: <Step1 />,
-            onClick: () => clickAction(0),
+            //onClick: () => clickAction(0),
         },
         {
             label: 'Шаг 2',
             point: 2,
             statusStep,
             lineStatus: 'normal',
-            onClick: () => clickAction(1),
+            //onClick: () => clickAction(1),
         },
         {
             label: 'Шаг 3',
             point: 3,
             statusStep,
             lineStatus: 'normal',
-            onClick: () => clickAction(2),
+            //onClick: () => clickAction(2),
         }
     ];
 
@@ -91,6 +91,7 @@ const Registration: FC = () => {
             validateTextField("org_shortname", regData.org_shortname, null) &&
             validateINN("inn", regData.inn) &&
             validateKPP("kpp", regData.kpp) &&
+            validatePhone("org_telephone", regData.org_telephone) &&
             validateTextField("org_telephone", regData.org_telephone, null) &&
             validateTextField("org_email", regData.org_email, null)
 
@@ -126,7 +127,7 @@ const Registration: FC = () => {
         // } else if (typeof inn !== 'string') {
         //     inn = '';
         // }
-        if (!inn.length) {
+        if (!inn) {
             error.code = 1;
             error.message = 'ИНН пуст';
         } else if (/[^0-9]/.test(inn)) {
@@ -180,7 +181,7 @@ const Registration: FC = () => {
         // } else if (typeof val !== 'string') {
         //     val = '';
         // }
-        if (!val.length) {
+        if (!val) {
             error.code = 1;
             error.message = 'КПП пуст';
         } else if (/[^0-9]/.test(val)) {
@@ -246,6 +247,21 @@ const Registration: FC = () => {
         return result
     }
 
+    const validatePhone = (prop: string, value: string) => {
+        let result = false;
+        const minLen = 3;
+        let iffer = value && value.length >= minLen
+
+        if (iffer) {
+            result = true;
+            dispatch(regSlice.actions.setRegDataError({ prop: prop, value: "" }))
+        } else {
+            dispatch(regSlice.actions.setRegDataError({ prop: prop, value: "Ошибка! Не правильный телефон" }))
+        }
+        console.log("validateTextField:" + result);
+        return result
+    }
+
     const handleNext = async () => {
         if (activeStep === 0) {
             if (validateStep0(regData)) {
@@ -278,11 +294,11 @@ const Registration: FC = () => {
         try {
             await regRequest(regData).unwrap()
             generateHandleAdd('success', 'Вы зарегистрировались! В течении 5 минут на вашу почту придет письмо с временным паролем');
-            setStatusMessage({isError: false, errorMsg: "", isSuccess: true})
+            setStatusMessage({ isError: false, errorMsg: "", isSuccess: true })
 
-            setTimeout(() =>  navigate('/'), 6000)
+            setTimeout(() => navigate('/'), 6000)
         } catch (err) {
-            setStatusMessage({isError: true, errorMsg: err.data.message, isSuccess: false})
+            setStatusMessage({ isError: true, errorMsg: err.data.message, isSuccess: false })
             generateHandleAdd('alert', err.data.message);
         }
     };
@@ -291,7 +307,7 @@ const Registration: FC = () => {
         navigate('/')
     }
 
-// snack
+    // snack
     type Item = {
         key: number;
         message: string;
@@ -328,7 +344,7 @@ const Registration: FC = () => {
         };
         dispatchItems({ type: 'add', item });
     };
-// snack
+    // snack
 
     return (
         <>
@@ -343,8 +359,8 @@ const Registration: FC = () => {
             <Grid gap="l" cols="1" xAlign="center" yAlign="center">
                 <GridItem>
                     <Card
-                        verticalSpace="s"
-                        horizontalSpace="s"
+                        verticalSpace="2xl"
+                        horizontalSpace="2xl"
                         form="round"
                         shadow={false}
                         className="regform">
@@ -407,12 +423,12 @@ const Registration: FC = () => {
 
                         {isSuccess ? (
                             <Layout className="acc aic jcc mt2 mb2">
-                               <Button 
+                                <Button
                                     onClick={onHome}
-                                    label="Войти" 
+                                    label="Войти"
                                     size="l" />
                             </Layout>
-                        ):null}
+                        ) : null}
 
                         <SnackBar
                             items={items}
@@ -420,8 +436,6 @@ const Registration: FC = () => {
                             getItemShowProgress={getItemShowProgress}
                             getItemAutoClose={() => 5}
                         />
-
-
 
                         {/* {statusMessage.isError ? (
                             <Informer

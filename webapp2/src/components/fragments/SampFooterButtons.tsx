@@ -16,11 +16,13 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
 import { useAppSelector } from "../../hooks/redux";
+import {sampSlice} from "../../store/reducers/samp/sampSlice";
+import { useDispatch } from "react-redux";
 
 
 const SampFooterButtons: FC = () => {
-
-    const { kp_send_date } = useAppSelector(state => state.sampReducer)
+    const dispatch = useDispatch()
+    const { kp_send_date, stags } = useAppSelector(state => state.sampReducer)
 
     const attach = (e: any) => {
         console.log(e)
@@ -34,8 +36,24 @@ const SampFooterButtons: FC = () => {
     });
 
     let navigate = useNavigate();
-    const toKP = () => navigate('/kp');
+    const toKP = () => {
+        navigate('/kp');
+        validateKP()
+    }
     const toHome = () => navigate('/');
+
+    const validateKP = () => {
+        stags.forEach(stag => {
+            stag.units.forEach(unit => {
+                unit.usrps.forEach(usrp => {
+                    if (usrp.prices_user === "" || parseInt(usrp.prices_user) === 0 ) {
+                        let UnitFinder = { kp_stage_guid: unit.kp_stage_guid, kp_unit_guid: unit.kp_unit_guid, link_id: usrp.link_id }
+                        dispatch(sampSlice.actions.isValid({ UnitFinder: UnitFinder, value: false }))
+                    }
+                })
+            })
+        })
+    }
 
 
     return (

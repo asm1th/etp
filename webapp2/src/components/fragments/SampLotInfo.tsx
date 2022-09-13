@@ -5,12 +5,23 @@ import { Button } from "@consta/uikit/Button";
 import { IconExit } from '@consta/uikit/IconExit';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { IconDownload } from "@consta/uikit/IconDownload";
-import { useAppSelector } from "../../hooks/redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { format } from "date-fns";
+import { authSlice } from "../../store/reducers/authRTK/authSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const SampLotInfo: FC = () => {
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate();
     const { lot_name, links, waers, kp_accep_date, kp_send_date } = useAppSelector(state => state.sampReducer)
+    const getTz = () => {
+        alert('getTz');
+    }
+    const logout = () => {
+        dispatch(authSlice.actions.logout())
+        navigate('/logout');
+    }
 
     return (
         <>
@@ -63,19 +74,19 @@ const SampLotInfo: FC = () => {
                         </Layout>
                     </Layout>
                     <Layout flex={1} direction="row">
+                        
                         <Button
-                            disabled={true}
                             size="m"
                             label="Скачать ТЗ"
                             view="secondary"
+                            onClick={getTz}
                             iconLeft={IconDownload} />
-
-                        <Button
-                            disabled={true}
+                            <Button
                             size="m"
-                            view="secondary"
+                            view="clear"
                             onlyIcon={true}
                             iconLeft={IconExit}
+                            onClick={logout}
                             className="ml1" />
                     </Layout>
                 </Layout>

@@ -26,9 +26,6 @@ const AppRouter = () => {
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 
           <Route path="/logout" element={<Logout/>}/> 
           <Route path="*" element={<Responses404 />} />
-
-          {/* /etp/?guid=0050569CDC861EED87DD0FCCDBEA808C */}
-
           <Route path="/etp" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
