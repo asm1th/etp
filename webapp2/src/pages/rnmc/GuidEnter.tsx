@@ -10,11 +10,11 @@ import { useNavigate } from 'react-router-dom'
 
 const GuidEnter: FC = () => {
 
-    const [guid, setGuid] = useState<string | null>("0050569CDC861EED87DD0FCCDBEA808C");
+    const [kp_sample_guid, setGuid] = useState<string | null>("0050569CDC861EED87DD0FCCDBEA808C");
 
     const navigate = useNavigate()
     const onSubmit = () => {
-        navigate('/?guid=' + guid)
+        navigate('/?kp_sample_guid=' + kp_sample_guid)
     }
 
     return (
@@ -22,33 +22,35 @@ const GuidEnter: FC = () => {
             <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
                 <GridItem>
                     <Card
-                        verticalSpace="5xl"
-                        horizontalSpace="xs"
+                        verticalSpace="3xl"
+                        horizontalSpace="2xl"
                         form="round"
                         shadow={false}
-                        className='loginform'>
+                        className='loginform mb2 mt2'
+                        style={{ width: '430px', maxWidth: '430px' }}
+                        >
 
                         <Text
                             className="tac mb1 jcc"
                             size="m"
                             lineHeight="xs">
-                            Введите GUID для загрузки данных
+                            Введите kp_sample_guid для загрузки данных
                         </Text>
 
                         <TextField
                             name="email"
                             type="text"
-                            placeholder="Введите email"
+                            placeholder="Введите kp_sample_guid"
                             width="full"
                             onChange={({ e }: any) => { setGuid(e.target.value) }}
-                            value={guid}
+                            value={kp_sample_guid}
                         />
                         <Button
                             onClick={onSubmit}
                             label="Отправить"
                             size="m"
                             width="full"
-                            className="mt1 mb2" />
+                            className="mt1" />
                     </Card>
 
                 </GridItem>

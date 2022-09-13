@@ -221,3 +221,36 @@ body .Modal-Window {
 button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
     padding-left: 5px;
 }
+
+.PhoneInputInput{
+    height: 40px;
+    margin-left: 3px;
+    padding: 0 8px;
+
+    --container-border-color: var(--color-control-bg-border-default);
+    overflow-x: hidden;
+    color: var(--color-control-typo-default);
+    background: var(--color-control-bg-default);
+    border: var(--control-border-width) solid var(--container-border-color);
+    border-radius: var(--control-radius);
+
+    position: relative;
+    display: inline-flex;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: var(--input-height);
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-text-regular);
+    transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+
+    flex: 1 1;
+    width: 100%;
+    min-width: 80px;
+    outline: none;
+    font-family: var(--font-primary);
+    font-size: var(--input-font-size);
+}
+
+.InputContainer_status_alert .PhoneInputInput{
+    --container-border-color: var(--color-bg-alert);
+}

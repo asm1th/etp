@@ -15,7 +15,7 @@ const KPpage: FC = () => {
     //test
     const params = useLocation().search;
     const {kp_sample_guid} = useAppSelector(state => state.authReducer)
-    const this_kp_sample_guid = new URLSearchParams(params).get("guid") || kp_sample_guid || ''
+    const this_kp_sample_guid = new URLSearchParams(params).get("kp_sample_guid") || kp_sample_guid || ''
     const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_kp_sample_guid);
     //.test
 

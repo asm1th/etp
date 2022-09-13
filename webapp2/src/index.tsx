@@ -23,7 +23,8 @@ store.subscribe(() => {
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    {/* <BrowserRouter basename='/NDI_EPCOMMON_D~gzpn~kp~service~rs~gazprom-neft.ru/rs/kp/'> */}
+    <BrowserRouter >
       <App />
     </BrowserRouter>
   </Provider>

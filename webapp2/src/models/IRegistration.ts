@@ -47,7 +47,7 @@ export const regData: IRegData = {
     "email": "aa@aa.aa",
     "org_fullname": "aa",
     "org_shortname": "aa",
-    "org_telephone": "aa",
+    "org_telephone": "+7",
     "org_email": "aa@aa.aa",
     "password": "1",
     "inn": "5504036333",

@@ -12,11 +12,12 @@ import { IconClose } from '@consta/uikit/IconClose';
 
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { regSlice } from '../../store/reducers/reg/regSlice'
-import { isToken } from "typescript";
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
+import ru from 'react-phone-number-input/locale/ru.json'
+
 
 const Step2: FC = () => {
-
-
     //popover
     type Position = any;
     const [position, setPosition] = useState<Position>(undefined);
@@ -49,6 +50,10 @@ const Step2: FC = () => {
     const handleCheckboxIsIndividual = (e: any) => {
         handleCheckbox(e)
         dispatch(regSlice.actions.setRegDataProp({ prop: "kpp", value: "" }))
+    }
+
+    const handlePhoneField = (e: any) => {
+        dispatch(regSlice.actions.setRegDataProp({ prop: "org_telephone", value: e }))
     }
 
     return (
@@ -206,7 +211,7 @@ const Step2: FC = () => {
                     </>
                 )}
 
-                <TextField
+                {/* <TextField
                     label="Телефон организации"
                     placeholder="Введите Телефон организации"
                     name="org_telephone"
@@ -216,10 +221,26 @@ const Step2: FC = () => {
                     required
                     maxLength={20}
                     value={regData.org_telephone}
-                    onChange={(e: any) => handleField(e)}
+                    onChange={(e: any) => handlePhoneField(e)}
                     status={formErrors.org_telephone === "" ? undefined : "alert"}
                     caption={formErrors.org_telephone}
-                />
+                /> */}
+                <Text className="Text_size_m Text_view_secondary FieldLabel TextField-Label TextField-Label_labelPosition_top mt1">
+                    Телефон организации
+                    <span className="FieldLabel-Star">*</span>
+                </Text>
+                <PhoneInput
+                    placeholder="Введите Телефон организации"
+                    defaultCountry="RU"
+                    initialValueFormat="national"
+                    international
+                    labels={ru}
+                    className={`PhoneInput mt05 ${formErrors.org_telephone && ('InputContainer_status_alert')}`}
+                    name="org_telephone"
+                    value={regData.org_telephone}
+                    onChange={(e: any) => handlePhoneField(e)} 
+                    />
+                <div className="Text Text_lineHeight_2xs Text_size_xs Text_view_alert FieldCaption TextField-Caption mt1" style={{marginLeft:"44px"}}>{formErrors.org_telephone}</div>
                 <TextField
                     label="Эл. почта организации"
                     placeholder="Эл. почта организации"
