@@ -82,54 +82,6 @@ body .Modal-Window {
     font-weight: bold;
 }
 
-.Tabs-List_linePosition_right {
-    padding-right: 6px;
-}
-
-.TabsTab_checked {
-    position: relative;
-    z-index: 1;
-}
-
-.App .TabsTab:before {
-    display: none;
-}
-
-/* .TabsTab_checked:after {
-    content: "";
-    display: block;
-    border-left: 1px solid #0067a3;
-    border-top: 1px solid #0067a3;
-    border-bottom: 1px solid #0067a3;
-    position: absolute;
-    width: 68px;
-    height: 100%;
-    left: -8px;
-    border-radius: 5px 0 0 5px;
-    background: #fff;
-    z-index: -1;
-} */
-
-.App .Tabs-Tab {
-    position: relative;
-    z-index: 1;
-}
-
-.App .TabsLine_type_running {
-    border: 1px;
-    border-left: 1px solid #0067a3;
-    border-top: 1px solid #0067a3;
-    border-bottom: 1px solid #0067a3;
-    width: 68px;
-    border-radius: 5px 0 0 5px;
-    background: #fff;
-    margin-top: 1px;
-}
-
-.Tabs-List.Tabs-List_direction_vertical.Tabs-List_linePosition_right {
-    padding-right: 6px;
-}
-
 .IconInfo {
     border: 1px solid;
     border-radius: 50%;
@@ -214,7 +166,7 @@ body .Modal-Window {
 }
 /* .KPItog */
 
-.isErrorIsLoading{
+.isErrorIsLoading {
     text-align: center;
 }
 
@@ -222,7 +174,7 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
     padding-left: 5px;
 }
 
-.PhoneInputInput{
+.PhoneInputInput {
     height: 40px;
     margin-left: 3px;
     padding: 0 8px;
@@ -251,6 +203,7 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
     font-size: var(--input-font-size);
 }
 
-.InputContainer_status_alert .PhoneInputInput{
+.InputContainer_status_alert .PhoneInputInput {
     --container-border-color: var(--color-bg-alert);
 }
+

@@ -6,8 +6,8 @@ import { Layout } from '@consta/uikit/LayoutCanary';
 
 // RTK
 import { useNavigate } from 'react-router-dom'
-import { useLoginCodeMutation } from '../services/authService'
-import type { LoginCodeRequest } from '../services/authService'
+import { useLoginCodeMutation } from '../../services/authService'
+import type { LoginCodeRequest } from '../../services/authService'
 //
 
 const LoginFormCode: FC = () => {

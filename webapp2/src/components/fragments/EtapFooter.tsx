@@ -36,7 +36,6 @@ const EtapFooter = (props: { etapId: number }) => {
         dispatch(sampSlice.actions.setStageNoNds({ etapId: etapId, checked: checked }))
     }
     const handleStageNdsComm = (etapId: number, value: string) => {
-        debugger
         dispatch(sampSlice.actions.setStageNoNdsComm({ etapId: etapId, value: value }))
         setStagSumm_nds_comment(value)
     }

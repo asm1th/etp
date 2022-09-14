@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
-import { IconQuestion } from '@consta/uikit/IconQuestion';
-import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
 import { Text } from '@consta/uikit/Text';
 import { TextField } from "@consta/uikit/TextField";

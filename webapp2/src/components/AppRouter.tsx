@@ -13,6 +13,7 @@ import KPpage from "../pages/rnmc/KPpage";
 import EtpLoginCode from "../pages/etp/LoginCode";
 import EtpLogin from "../pages/etp/Login";
 import Registration from "../pages/etp/Registration";
+import Dash from "../pages/etp/Dash";
 
 const AppRouter = () => {
     const {isAuth} = useAppSelector(state => state.authReducer)
@@ -26,10 +27,13 @@ const AppRouter = () => {
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 
           <Route path="/logout" element={<Logout/>}/> 
           <Route path="*" element={<Responses404 />} />
-          <Route path="/etp" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
+
+          <Route path="/etp" element={<Dash />} />
+          <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/reg" element={<Registration />} />
+          
         </Routes>
     );
 };

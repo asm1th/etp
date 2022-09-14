@@ -6,10 +6,9 @@ import { IconMail } from '@consta/uikit/IconMail';
 
 // RTK
 import { useNavigate } from 'react-router-dom'
-import { isFetchBaseQueryError, isErrorWithMessage } from "../helpers";
-import { useLoginMutation } from '../services/authService'
-import type { LoginRequest } from '../services/authService'
-import { SnackBar } from '@consta/uikit/SnackBar';
+import { isFetchBaseQueryError, isErrorWithMessage } from "../../helpers";
+import { useLoginMutation } from '../../services/authService'
+import type { LoginRequest } from '../../services/authService'
 
 
 const LoginForm: FC = () => {
@@ -34,12 +33,6 @@ const LoginForm: FC = () => {
     const onSubmit = async () => {
         try {
             await login(formState).unwrap()
-
-            
-            // Being that the result is handled in extraReducers in authSlice,
-            // we know that we're authenticated after this, so the user
-            // and token will be present in the store
-
             navigate('/')
         } catch (err) {
             console.log(err)
@@ -87,7 +80,6 @@ const LoginForm: FC = () => {
                 size="m" 
                 width="full"
                 className={cnMixSpace({ mT: 'm' })} />
-            {/* <SnackBar items={messageState} /> */}
         </>
     );
 };

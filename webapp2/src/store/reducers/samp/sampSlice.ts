@@ -173,7 +173,7 @@ export const sampSlice = createSlice({
                             })
                         }
 
-                        if (payload.links.travel_exp || payload.links.travel_exp_comm) {
+                        if (payload.links && (payload.links.travel_exp || payload.links.travel_exp_comm)) {
                             payload.isTravel = true
                         } else {
                             payload.isTravel = false

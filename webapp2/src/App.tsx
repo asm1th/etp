@@ -9,15 +9,16 @@ const App: FC = () => {
     <div className="App">
       <Theme preset={presetGpnDefault}>
         <AppRouter />
-        <Link to="/etp/">etp rnmc</Link> .
-        <Link to="/etp/login">login</Link> .
-        <Link to="/etp/logincode">login code</Link> .
-        <Link to="/etp/reg">регистрация</Link>  .
+        <Link to="/etp/rnmc">etp rnmc</Link> ..
+        <Link to="/etp/login">login</Link> ..
+        <Link to="/etp/logincode">login code</Link> ..
+        <Link to="/etp/reg">регистрация</Link>  ..
+        <Link to="/etp/">дашборд</Link>  ..
         <hr/>
-        <Link to="/">rnmc</Link> .
-        <Link to="/login">login</Link> .
-        <Link to="/code">login code</Link> .
-        <Link to="/logout">logout</Link> .
+        <Link to="/">rnmc</Link> ..
+        <Link to="/login">login</Link> ..
+        <Link to="/code">login code</Link> ..
+        <Link to="/logout">logout</Link> ..
         <Link to="/404">404</Link> 
       </Theme>
     </div>

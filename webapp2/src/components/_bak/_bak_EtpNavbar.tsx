@@ -9,7 +9,7 @@ import {
 } from "@consta/uikit/Header";
 import { IconRing } from "@consta/uikit/IconRing";
 import { Text } from '@consta/uikit/Text';
-import { useAppSelector } from "../hooks/redux";
+import { useAppSelector } from "../../hooks/redux";
 
 const Navbar: FC = () => {
 

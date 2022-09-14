@@ -8,7 +8,7 @@ import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import { format } from "date-fns";
-import WaersSelect from "../controls/WaersSelect";
+import WaersSelect from "./WaersSelect"
 
 
 const SampKpInfo: FC = () => {

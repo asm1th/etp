@@ -20,6 +20,7 @@ import { IRegData } from "../../models/IRegistration";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
+import './Etp.css';
 
 const Registration: FC = () => {
     const navigate = useNavigate()
@@ -278,27 +279,12 @@ const Registration: FC = () => {
         }
     }
 
-    interface IStatusMessageState {
-        isError: boolean,
-        isSuccess: boolean,
-        errorMsg: string
-    }
-
-    const [statusMessage, setStatusMessage] = useState<IStatusMessageState>({
-        isError: false,
-        isSuccess: false,
-        errorMsg: ""
-    })
-
     const onSubmit = async () => {
         try {
             await regRequest(regData).unwrap()
             generateHandleAdd('success', 'Вы зарегистрировались! В течении 5 минут на вашу почту придет письмо с временным паролем');
-            setStatusMessage({ isError: false, errorMsg: "", isSuccess: true })
-
             setTimeout(() => navigate('/'), 6000)
         } catch (err) {
-            setStatusMessage({ isError: true, errorMsg: err.data.message, isSuccess: false })
             generateHandleAdd('alert', err.data.message);
         }
     };
@@ -347,7 +333,7 @@ const Registration: FC = () => {
     // snack
 
     return (
-        <>
+        <div className="etpStyle">
             <Layout className="jcfe">
                 <Button
                     label="Ссылка на инструкцию"
@@ -436,31 +422,11 @@ const Registration: FC = () => {
                             getItemShowProgress={getItemShowProgress}
                             getItemAutoClose={() => 5}
                         />
-
-                        {/* {statusMessage.isError ? (
-                            <Informer
-                                className="mt2"
-                                title={"Ошибка"}
-                                label={statusMessage.errorMsg}
-                                view="filled"
-                                status="alert"
-                            />
-                        ) : statusMessage.isSuccess ? (
-                            <Informer
-                                className="mt2"
-                                title="Регистрация пройдена"
-                                label="В течении 5 минут на вашу почту придет письмо с временным паролем"
-                                view="filled"
-                                status="success"
-                                icon={IconThumbUp}
-                            />
-                        ) : null} */}
-
                         <pre>{JSON.stringify(regData, null, 2)}</pre>
                     </Card>
                 </GridItem>
             </Grid>
-        </>
+        </div>
     );
 };
 
