@@ -1,0 +1,138 @@
+@import url("../../css/theme_colors.css");
+@import url("../../css/margins.css");
+@import url("../../css/table.css");
+@import url("../../css/base.css");
+@import url("../../css/tabs.css");
+
+/* component main style .etpStyle */
+
+body {
+    --color-control-typo-default: #667985;
+}
+
+body {
+    background-color: #fff;
+    background-image: url(../../assets/img/bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+body .Theme {
+    font-weight: 400;
+    font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.etpStyle {
+    flex-grow: 1;
+}
+
+.etpStyle .Button_view_primary {
+    --color-control-bg-primary: #0078d2;
+    background-color: var(--color-control-bg-primary);
+}
+
+.etpStyle .Button_view_primary.Button_disabled,
+.etpStyle .Button_view_primary.Button_loading {
+    background-color: var(--color-control-bg-disable);
+}
+
+.etpStyle .Button_disabled {
+    color: var(--color-control-typo-disable);
+}
+
+.etpStyle .Button_disabled,
+.Button_loading {
+    background-color: var(--color-control-bg-disable);
+    border-color: transparent;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.etpStyle .regform {
+    background: transparent;
+    width: 500px;
+}
+
+.etpStyle .ProgressStepBarLine.ProgressStepBarLine_size_m.ProgressStepBarLine_direction_horizontal {
+    top: 15px;
+}
+
+.etpStyle .ProgressStepBar-List.ProgressStepBar-List_direction_horizontal {
+    padding-top: 5px;
+    overflow: visible;
+}
+
+.etpStyle .nolabels .FieldLabel {
+    opacity: 1;
+    background: #fff;
+    margin-bottom: -7px;
+    font-size: 10px;
+    z-index: 10;
+    place-self: flex-start;
+}
+
+.etpStyle .Checkbox-Label {
+    color: var(--color-control-typo-default);
+}
+
+.etpStyle .infoPopoverIcon {
+    background: rgba(0, 120, 210, 0.05);
+    border-radius: 4px;
+    margin: 0 0 0 5px;
+    position: relative;
+    top: 2px;
+    color: #0078d2;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.etpStyle .infoPopoverIcon:hover {
+    opacity: 1;
+    background: rgba(0, 120, 210, 0.2);
+}
+
+.etpStyle .loginform {
+    max-width: 530px;
+}
+
+.etpStyle a {
+    color: #0078d2;
+}
+
+.etpStyle .loginform a {
+    text-decoration: none;
+}
+
+.Icon_view_ghost,
+.TextField-InputContainer_withValue .TextField-Icon {
+    color: var(--color-bg-link);
+}
+.TopBar {
+    background-color: #eafafe;
+    border-radius: 0;
+}
+
+.RNMCappETP {
+    margin-top: 60px;
+}
+
+.RNMCappETP .Title2 {
+    color: #008efa;
+    font-weight: 500;
+}
+.subTitleOpr_usl_stage {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+.subTitleOpr_usl_stageLabel {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #6a6d70;
+}
+.TopBarKPinfo {
+    padding: 0 2rem;
+}

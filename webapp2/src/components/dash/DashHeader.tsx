@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { Header } from '@consta/header/Header'
-import logo from '../../img/gazprom-neft-logo-rus.svg';
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 
 
 type MenuItem = {
@@ -79,7 +79,7 @@ const DashHeader: FC = () => {
             // tileMenuTitle="Сервисы"
             menu={menu}
             style={{ zIndex: 100 }}
-            fixed
+            //fixed
         />
     );
 };

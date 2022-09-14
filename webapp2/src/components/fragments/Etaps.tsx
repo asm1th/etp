@@ -95,7 +95,7 @@ const Etaps: FC = () => {
                                         Состав этапа / услуги (работы)
                                     </Text>
                                 </Layout>
-                                <Layout className="Header">
+                                <Layout className="tableHeader">
                                     <Layout flex={3} className="tar">
                                         <Text className="label">
                                             Наименование расценки

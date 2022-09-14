@@ -9,6 +9,7 @@ export interface IDashItem {
     chart: IDashChartItem[]
 }
 export interface IDash {
+    isToggleSidebar: boolean
     dashItems: IDashItem[]
 }
 

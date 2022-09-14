@@ -1,17 +1,38 @@
 
 import React, { FC } from "react";
-import DashHeader from "../../components/dash/DashHeader";
-import RNMCapp from "../../pages/rnmc/RNMCapp"; 
-import './Etp.css';
+import DashHeader2 from '../../components/dash/DashHeader2';
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { dashSlice } from "../../store/reducers/dash/dashSlice";
+import RNMCapp from "../../pages/rnmc/RNMCapp";
+import './RNMCappETP.css';
+import Sidebar from "./Sidebar";
 
 const RNMCappEtp: FC = () => {
     document.body.classList.add('etpStyle');
+    const dispatch = useAppDispatch()
+
+    const { isToggleSidebar } = useAppSelector(state => state.dashReducer)
+    const handleToggleSidebar = (checked: boolean) => {
+        dispatch(dashSlice.actions.setToggleSidebar())
+    };
+
 
     return (
-        <div className="RNMCappETP">
-            <DashHeader/>
-            <RNMCapp />
-        </div>
+
+
+        <>
+            <Sidebar
+                collapsed={isToggleSidebar}
+                toggled={isToggleSidebar}
+                handleToggleSidebar={handleToggleSidebar}
+            />
+            <main>
+                <DashHeader2 />
+                <div className="RNMCappETP">
+                    <RNMCapp />
+                </div>
+            </main>
+        </>
     );
 };
 

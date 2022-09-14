@@ -6,7 +6,9 @@ export const dashSlice = createSlice({
     name: 'dashData',
     initialState,
     reducers: {
-        
+        setToggleSidebar: (state) => {
+            state.isToggleSidebar = !state.isToggleSidebar;
+        }
     },
     extraReducers: {},
 })

@@ -1,6 +1,7 @@
 import { IDash } from "./IDash"
 
 export const initialState: IDash = {
+    isToggleSidebar: true,
     dashItems: [{
         id: 1,
         label: "Расценки от контрагентов",

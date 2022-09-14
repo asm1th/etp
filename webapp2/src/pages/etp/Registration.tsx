@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { IconArrowRight } from '@consta/uikit/IconArrowRight';
 import { IconArrowLeft } from '@consta/uikit/IconArrowLeft';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
-import logo from '../../img/gazprom-neft-logo-rus.svg';
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { useNavigate } from 'react-router-dom'
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
@@ -20,7 +20,7 @@ import { IRegData } from "../../models/IRegistration";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
-import './Etp.css';
+import './RNMCappETP.css';
 
 const Registration: FC = () => {
     const navigate = useNavigate()

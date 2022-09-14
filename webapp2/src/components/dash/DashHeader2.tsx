@@ -1,17 +1,33 @@
 import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import {
     Header,
     HeaderModule,
     HeaderMenu,
     HeaderButton,
     HeaderLogin,
-    HeaderLogo
+    HeaderLogo,
+    HeaderSearchBar
 } from "@consta/uikit/Header";
 import { IconRing } from "@consta/uikit/IconRing";
+import { IconChatStroked } from "@consta/uikit/IconChatStroked";
 import { Text } from '@consta/uikit/Text';
-import { useAppSelector } from "../../hooks/redux";
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
+import { Button } from "@consta/uikit/Button";
+import { IconHamburger } from '@consta/uikit/IconHamburger';
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { dashSlice } from "../../store/reducers/dash/dashSlice";
 
-const Navbar: FC = () => {
+
+const DashHeader2: FC = () => {
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch()
+
+    const { dashItems } = useAppSelector(state => state.dashReducer)
+    const {isToggleSidebar} = useAppSelector(state => state.dashReducer)
+    const handleToggleSidebar = () => {
+        dispatch(dashSlice.actions.setToggleSidebar())
+    };
 
     const menuItems = [
         {
@@ -21,18 +37,14 @@ const Navbar: FC = () => {
         },
         {
             label: "Задачи",
-            href: "#tasks"
-        },
-        {
-            label: "Какой-то пункт",
             onClick: () => alert("Какой-то пункт")
         }
     ];
 
     const { isAuth } = useAppSelector(state => state.authReducer)
 
-    const handleLogout = async () => {
-        //
+    const handleLogin = async () => {
+        handleToggleSidebar()
     }
 
     return (
@@ -42,11 +54,19 @@ const Navbar: FC = () => {
                 leftSide={
                     <>
                         <HeaderModule>
-                            <HeaderLogo>
-                                <Text as="p" size="l" weight="bold">
-                                    Logotype
-                                </Text>
-                            </HeaderLogo>
+                            {/* <HeaderLogo>
+                                 <img alt="logo" src={logo} width="100" />
+                            </HeaderLogo> */}
+                            <Button iconLeft={IconHamburger} onClick={handleLogin} view="clear"/>
+                        </HeaderModule> 
+                        <HeaderModule indent="s">
+                            <HeaderSearchBar 
+                                placeholder="я ищу"
+                                label="поиск"
+                                //value={value}
+                                //onChange={handleChange}
+                                //onSearch={handleSearch}
+                            />
                         </HeaderModule>
                         <HeaderModule indent="l">
                             <HeaderMenu items={menuItems} />
@@ -55,9 +75,9 @@ const Navbar: FC = () => {
                 }
                 rightSide={
                     <>
-                        {/* <HeaderModule indent="s">
-                              <HeaderButton iconLeft={IconChat} />
-                            </HeaderModule> */}
+                        <HeaderModule indent="s">
+                            <HeaderButton iconLeft={IconChatStroked} />
+                        </HeaderModule>
                         <HeaderModule indent="s">
                             <HeaderButton iconLeft={IconRing} />
                         </HeaderModule>
@@ -68,7 +88,7 @@ const Navbar: FC = () => {
                                 personInfo="В другом офисе"
                                 personStatus="available"
                                 personAvatarUrl="https://www.pngarts.com/files/3/Cool-Avatar-Transparent-Image.png"
-                                onClick={handleLogout}
+                                onClick={handleLogin}
                                 className="Login"
                             />
                         </HeaderModule>
@@ -79,4 +99,4 @@ const Navbar: FC = () => {
     );
 };
 
-export default Navbar;
+export default DashHeader2;

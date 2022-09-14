@@ -9,12 +9,6 @@ import { Link } from 'react-router-dom';
 import './DashItem.css'
 
 
-import { Theme, presetGpnDefault } from '@consta/uikit/Theme'
-//import { Stats } from '@consta/stats'
-import { IconLightningBolt } from '@consta/uikit/IconLightningBolt';
-
-
-
 const DashItem = (props: { id: number }) => {
     const { dashItems } = useAppSelector(state => state.dashReducer)
     const item = dashItems[dashItems.findIndex(dashItems => dashItems.id === props.id)]

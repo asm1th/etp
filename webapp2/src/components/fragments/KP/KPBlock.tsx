@@ -43,7 +43,7 @@ const KPBlock: FC = () => {
                         hoverEffect
                         iconPosition="right"
                         onClick={() => handleCollapse(opr_usl_stage_num)}>
-                        <Layout className="Header">
+                        <Layout className="tableHeader">
                             <Layout flex={3} className="tar">
                                 <Text className="label">
                                     Наименование расценки

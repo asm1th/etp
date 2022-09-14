@@ -4,12 +4,12 @@ import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { Text } from '@consta/uikit/Text';
-import logo from '../../img/gazprom-neft-logo-rus.svg';
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { Timer } from '@consta/uikit/Timer';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
-import './Etp.css';
+import './RNMCappETP.css';
 
 const LoginCode: FC = () => {
     return (

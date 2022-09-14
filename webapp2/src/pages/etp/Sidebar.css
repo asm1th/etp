@@ -1,0 +1,58 @@
+.pro-sidebar{
+    width: 370px;
+    min-width: 370px;
+}
+
+.pro-sidebar-header {
+    padding: 0 20px;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.pro-sidebar > .pro-sidebar-inner > .pro-sidebar-layout .pro-sidebar-header {
+    border-bottom: 1px solid rgb(204 217 224);
+}
+
+.pro-sidebar-header .DashLogo {
+    width: 70px;
+}
+
+.pro-sidebar > .pro-sidebar-inner {
+    background: #ffffff;
+    height: 100%;
+    position: relative;
+    z-index: 101;
+    border-right: 1px solid #ccd9e0;
+}
+
+.pro-sidebar .pro-menu.shaped .pro-menu-item > .pro-inner-item > .pro-icon-wrapper {
+    background-color: #ffffff;
+}
+
+.pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item > .pro-item-content {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 116%;
+
+    /* or 19px */
+    display: flex;
+    align-items: center;
+
+    color: #2F5E7B;
+}
+
+.pro-sidebar .pro-menu > ul > .pro-sub-menu > .pro-inner-list-item {
+    position: relative;
+    background-color: #e3faff;
+}
+
+.pro-sidebar.collapsed .pro-menu > ul > .pro-menu-item.pro-sub-menu > .pro-inner-list-item > .popper-inner {
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 4px 1px #00000036;
+}

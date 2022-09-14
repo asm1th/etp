@@ -112,7 +112,7 @@ body .Modal-Window {
     color: var(--color-typo-brand);
 }
 
-.KPItog .Header {
+.KPItog .tableHeader {
     margin-bottom: 10px;
     padding: 0 10px;
 }

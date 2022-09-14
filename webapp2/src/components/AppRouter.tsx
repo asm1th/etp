@@ -33,7 +33,6 @@ const AppRouter = () => {
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/reg" element={<Registration />} />
-          
         </Routes>
     );
 };

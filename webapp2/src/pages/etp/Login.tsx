@@ -6,9 +6,9 @@ import { Card } from '@consta/uikit/Card';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
-import logo from '../../img/gazprom-neft-logo-rus.svg';
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { Text } from '@consta/uikit/Text';
-import './Etp.css';
+import './RNMCappETP.css';
 
 const Login: FC = () => {
     return (
