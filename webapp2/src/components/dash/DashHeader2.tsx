@@ -68,9 +68,9 @@ const DashHeader2: FC = () => {
                                 //onSearch={handleSearch}
                             />
                         </HeaderModule>
-                        <HeaderModule indent="l">
+                        {/* <HeaderModule indent="l">
                             <HeaderMenu items={menuItems} />
-                        </HeaderModule>
+                        </HeaderModule> */}
                     </>
                 }
                 rightSide={

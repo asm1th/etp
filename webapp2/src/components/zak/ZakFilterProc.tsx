@@ -44,7 +44,7 @@ const ZakFilterProc = () => {
         //dispatch(sampSlice.actions.setKp_offer_expire_date(format(value, 'yyyy-MM-dd')))
     }
     const handleFilter = () => {
-
+        alert("фильтруем")
     }
 
 
