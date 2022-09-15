@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
 import RNMCapp from "../rnmc/RNMCapp";
 import './RNMCappETP.css';
-import Sidebar from "./Sidebar";
+import Sidebar from "../../components/dash/Sidebar";
 
 const RNMCappEtp: FC = () => {
     document.body.classList.add('etpStyle');

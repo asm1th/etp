@@ -11,6 +11,7 @@ import { Text } from '@consta/uikit/Text';
 import './RNMCappETP.css';
 
 const Login: FC = () => {
+    document.body.classList.add('etpStyle');
     return (
         <div className="etpStyle">
             <Layout className="jcfe">

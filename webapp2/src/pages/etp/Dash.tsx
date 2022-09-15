@@ -3,9 +3,10 @@ import DashHeader2 from '../../components/dash/DashHeader2';
 import DashItem from '../../components/dash/DashItem';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
-import Sidebar from "./Sidebar";
+import Sidebar from "../../components/dash/Sidebar";
 
 const Dash: FC = () => {
+    document.body.classList.add('etpStyle');
     //const [theme, setTheme] = useState<ThemeItem>(themes[0])
     const { dashItems } = useAppSelector(state => state.dashReducer)
     const dispatch = useAppDispatch()

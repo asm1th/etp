@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import DashHeader2 from '../../components/dash/DashHeader2';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
-import Sidebar from "./Sidebar";
+import Sidebar from "../../components/dash/Sidebar";
 import ZakFilterProc from '../../components/zak/ZakFilterProc';
 
 const Zak: FC = () => {

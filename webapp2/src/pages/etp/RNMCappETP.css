@@ -6,11 +6,11 @@
 
 /* component main style .etpStyle */
 
-body {
+body.etpStyle {
     --color-control-typo-default: #667985;
 }
 
-body {
+body.etpStyle {
     background-color: #fff;
     background-image: url(../../assets/img/bg.png);
     background-size: contain;
@@ -18,7 +18,7 @@ body {
     background-position: bottom;
 }
 
-body .Theme {
+body.etpStyle .Theme {
     font-weight: 400;
     font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell",
         "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -43,7 +43,7 @@ body .Theme {
 }
 
 .etpStyle .Button_disabled,
-.Button_loading {
+.etpStyle .Button_loading {
     background-color: var(--color-control-bg-disable);
     border-color: transparent;
     cursor: not-allowed;
@@ -109,7 +109,8 @@ body .Theme {
 .TextField-InputContainer_withValue .TextField-Icon {
     color: var(--color-bg-link);
 }
-.TopBar {
+
+.etpStyle .TopBar {
     background-color: #eafafe;
     border-radius: 0;
 }
@@ -118,21 +119,24 @@ body .Theme {
     margin-top: 60px;
 }
 
-.RNMCappETP .Title2 {
+.etpStyle .Title2 {
     color: #008efa;
     font-weight: 500;
 }
-.subTitleOpr_usl_stage {
+
+.etpStyle .subTitleOpr_usl_stage {
     font-weight: 500;
     font-size: 16px;
     line-height: 22px;
 }
-.subTitleOpr_usl_stageLabel {
+
+.etpStyle .subTitleOpr_usl_stageLabel {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     color: #6a6d70;
 }
-.TopBarKPinfo {
+
+.etpStyle .TopBarKPinfo {
     padding: 0 2rem;
 }
