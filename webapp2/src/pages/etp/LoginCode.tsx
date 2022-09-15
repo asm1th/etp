@@ -12,6 +12,7 @@ import { IconQuestion } from '@consta/uikit/IconQuestion';
 import './RNMCappETP.css';
 
 const LoginCode: FC = () => {
+    document.body.classList.add('etpStyle');
     return (
         <div className="etpStyle">
             <Layout className="jcfe">

@@ -23,6 +23,7 @@ import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
 import './RNMCappETP.css';
 
 const Registration: FC = () => {
+    document.body.classList.add('etpStyle');
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { regData, isAccept } = useAppSelector(state => state.regReducer)
