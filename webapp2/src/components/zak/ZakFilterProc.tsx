@@ -46,7 +46,9 @@ const ZakFilterProc = () => {
     const handleFilter = () => {
         alert("фильтруем")
     }
-
+    const handleClearFilter = () => {
+        alert("очищаем")
+    }
 
     return (
         <div className="topFilter">
@@ -156,7 +158,7 @@ const ZakFilterProc = () => {
                 </Layout>
                 <Layout>
                     <Button className="mr1 ml1"
-                        iconRight={IconSearch}
+                        iconLeft={IconSearch}
                         iconSize="s"
                         size="s"
                         view="primary"
@@ -167,7 +169,7 @@ const ZakFilterProc = () => {
                         size="s"
                         view="secondary"
                         label="Очистить фильтр"
-                        onClick={handleFilter} />
+                        onClick={handleClearFilter} />
                 </Layout>
             </Layout>
         </div>

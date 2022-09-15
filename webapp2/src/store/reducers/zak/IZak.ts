@@ -1,5 +1,5 @@
 export interface IProc {
-    id: number
+    id: string
     title: string
     num: string
     status: string
