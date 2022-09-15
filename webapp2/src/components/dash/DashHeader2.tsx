@@ -31,14 +31,14 @@ const DashHeader2: FC = () => {
 
     const menuItems = [
         {
-            label: "Проекты",
+            label: "Раздел",
             href: "#projects",
             active: true
         },
-        {
-            label: "Задачи",
-            onClick: () => alert("Какой-то пункт")
-        }
+        // {
+        //     label: "Задачи",
+        //     onClick: () => alert("Какой-то пункт")
+        // }
     ];
 
     const { isAuth } = useAppSelector(state => state.authReducer)

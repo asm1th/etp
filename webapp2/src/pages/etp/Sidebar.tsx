@@ -13,6 +13,7 @@ import { IconDiamond } from '@consta/uikit/IconDiamond';
 import 'react-pro-sidebar/dist/css/styles.css';
 import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Badge } from '@consta/uikit/Badge';
 import './Sidebar.css'
 
@@ -26,9 +27,23 @@ import icons_menu6 from '../../assets/icons/icons_menu-6.svg';
 import icons_menu7 from '../../assets/icons/icons_menu-7.svg';
 import icons_menu8 from '../../assets/icons/icons_menu-8.svg';
 import icons_menu9 from '../../assets/icons/icons_menu-9.svg';
+import { IconArrowRight } from '@consta/uikit/IconArrowRight';
 
 
 const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSidebar: any }) => {
+    const navigate = useNavigate();
+    const handleLogoClick = () => {
+        navigate('/etp')
+    }
+
+    const handleLinkRNMC = () => {
+        navigate('/etp/rnmc')
+    }
+
+    const handleLinkZak = () => {
+        navigate('/etp/zak')
+    }
+
     return (
         <ProSidebar
             //image={sidebarBg}
@@ -38,17 +53,19 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
             onToggle={props.handleToggleSidebar}
         >
             <SidebarHeader>
-                <img alt="logo" className='DashLogo' onClick={props.handleToggleSidebar} src={logo} />
+                {/* <img alt="logo" className='DashLogo' onClick={props.handleToggleSidebar} src={logo} /> */}
+                <img alt="logo" className='DashLogo' onClick={handleLogoClick} src={logo} />
             </SidebarHeader>
 
             <SidebarContent>
                 <Menu iconShape="circle">
                     <MenuItem
+                        //tooltip="Счет-фактуры"
                         icon={<img alt="ico" src={icons_menu} width="24" />}
                         suffix={<Badge status="warning" label="4" />}>
                         Счет-фактуры
                     </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu1} width="24" />}>
+                    <MenuItem onClick={handleLinkRNMC} icon={<img alt="ico" src={icons_menu1} width="24" />}>
                         Заявки на участие в процедуре
                     </MenuItem>
                     <MenuItem icon={<img alt="ico" src={icons_menu2} width="24" />}>
@@ -70,12 +87,14 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
                         Управление выполненем работ
                     </MenuItem>
                     <SubMenu
+                        defaultOpen={true}
                         suffix={<Badge status="normal" label="2" />}
                         title='Закупочные процедуры'
+                        onClick={handleLinkZak}
                         icon={<img alt="ico" src={icons_menu8} width="24" />}
                     >
-                        <MenuItem>Перечень процедур</MenuItem>
-                        <MenuItem>Лоты процедуры</MenuItem>
+                        <MenuItem onClick={handleLinkZak} active={true} icon={<IconArrowRight/>} popperarrow={true}>Перечень процедур</MenuItem>
+                        <MenuItem onClick={handleLinkZak} icon={<IconArrowRight/>}>Лоты процедуры</MenuItem>
                     </SubMenu>
                     {/*
                     <SubMenu

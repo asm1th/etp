@@ -18,7 +18,7 @@ export const initialState: IDash = {
         status: "down",
         percent: 5,
         period: "За год",
-        url: "/etp/rnmc?kp_sample_guid=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/zak",
         chart: [
             { parameter: 'Параметр 1', number: 1234 },
             { parameter: 'Параметр 2', number: 1083 },

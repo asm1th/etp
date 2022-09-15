@@ -1,5 +1,5 @@
 import '../../App.css';
-import './rnmc.css';
+import './RNMCapp.css';
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
 import SampLotInfo from "../../components/fragments/SampLotInfo";
@@ -28,7 +28,7 @@ const RNMCapp: FC = () => {
     
 
     return (
-        <>
+        <div className='RNMCapp'>
             <div className='isErrorIsLoading jcc'>
                 {error && <Responses503 />}
                 {(isLoading && isSuccess) && <ProgressSpin size="2xl" />}
@@ -48,7 +48,7 @@ const RNMCapp: FC = () => {
                     <GuidEnter/>
                 </>
             )}
-        </>
+        </div>
     );
 };
 

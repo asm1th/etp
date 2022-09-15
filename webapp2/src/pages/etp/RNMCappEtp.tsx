@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import DashHeader2 from '../../components/dash/DashHeader2';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
-import RNMCapp from "../../pages/rnmc/RNMCapp";
+import RNMCapp from "../rnmc/RNMCapp";
 import './RNMCappETP.css';
 import Sidebar from "./Sidebar";
 
@@ -18,8 +18,6 @@ const RNMCappEtp: FC = () => {
 
 
     return (
-
-
         <>
             <Sidebar
                 collapsed={isToggleSidebar}

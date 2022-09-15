@@ -14,12 +14,7 @@ const EtapRow = (props: { etapId: number }) => {
     const { stags } = useAppSelector(state => state.sampReducer)
     const { link } = useAppSelector(state => state.sampReducer)
 
-    const currentStage: IStag[] = []
-    stags.forEach((stag: IStag) => {
-        if (stag.opr_usl_stage_num === props.etapId) {
-            currentStage.push(stag)
-        }
-    })
+    const currentStage = stags[stags.findIndex((stag: any) => stag.opr_usl_stage_num === props.etapId)]
 
     type Item = {
         label: string;
@@ -44,17 +39,17 @@ const EtapRow = (props: { etapId: number }) => {
         label: string
         value: string
     };
-    
+
     const ndsList: ndsItem[] = [{
         label: '20%',
         value: "20"
-    },{
+    }, {
         label: '10%',
         value: "10"
-    },{
+    }, {
         label: 'без НДС',
         value: "0"
-    },{
+    }, {
         label: '',
         value: ""
     }];
@@ -83,8 +78,8 @@ const EtapRow = (props: { etapId: number }) => {
     }
 
     const handleChangeNsu_menge = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
-            let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
-            dispatch(sampSlice.actions.setNsu_menge({ UnitFinder: UnitFinder, value: value }))
+        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
+        dispatch(sampSlice.actions.setNsu_menge({ UnitFinder: UnitFinder, value: value }))
     }
 
     const handleChangePrices_user = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
@@ -104,142 +99,138 @@ const EtapRow = (props: { etapId: number }) => {
 
     return (
         <>
-            {currentStage.map(({ isNoNds, units }) => (
+            {currentStage.units.map(({ kp_stage_guid, kp_unit_guid, opr_usl_unit, opr_usl_unit_restr_menge, opr_usl_unit_restr_quan, usrps }) => (
+                usrps.filter(usrp => usrp.link_id === link).map(curUsrp => (
 
-                units.map(({ kp_stage_guid, kp_unit_guid, opr_usl_unit, opr_usl_unit_restr_menge, opr_usl_unit_restr_quan, usrps }) => (
-                    usrps.filter(usrp => usrp.link_id === link).map(curUsrp => (
-
-                        <div key={kp_stage_guid + "_" + kp_unit_guid}>
-                            <Layout className="Row mb1">
-                                <Layout flex={3} direction="column">
-                                    <Layout>
-                                        <TextField
-                                            name="name"
-                                            value={opr_usl_unit}
-                                            size="s"
-                                            className="mr05"
-                                            width="full"
-                                            disabled
-                                        />
-                                        <Button
-                                            className="mr1"
-                                            iconRight={IconTeam}
-                                            iconSize="s"
-                                            size="s"
-                                            onlyIcon={true}
-                                            view="clear"
-                                            onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
-                                        />
-                                    </Layout>
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Select
-                                        name="usl_quan_unit"
-                                        placeholder="Выберите ЕИ"
-                                        view="default"
-                                        items={eiList}
-                                        value={getSelected(eiList, curUsrp.usl_quan_unit)}
-                                        labelPosition="left"
+                    <div key={kp_stage_guid + "_" + kp_unit_guid}>
+                        <Layout className="Row mb1">
+                            <Layout flex={3} direction="column">
+                                <Layout>
+                                    <TextField
+                                        name="name"
+                                        value={opr_usl_unit}
                                         size="s"
-                                        className="RowInput"
-                                        onChange={({ value }) => handleChangeUsl_quan_unit(kp_stage_guid, kp_unit_guid, value)}
-                                        disabled={opr_usl_unit_restr_quan === "" ? false : true}
+                                        className="mr05"
+                                        width="full"
+                                        disabled
+                                    />
+                                    <Button
+                                        className="mr1"
+                                        iconRight={IconTeam}
+                                        iconSize="s"
+                                        size="s"
+                                        onlyIcon={true}
+                                        view="clear"
+                                        onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
                                     />
                                 </Layout>
-                                <Layout flex={1}>
-                                    <TextField
-                                        name="ei_value"
-                                        value={curUsrp.nsu_menge}
-                                        size="s"
-                                        className="RowInput"
-                                        onChange={({ e }: any) => handleChangeNsu_menge(kp_stage_guid, kp_unit_guid, e.target.value)}
-                                        disabled={opr_usl_unit_restr_menge === "" ? false : true}
-                                    />
-                                </Layout>
-
-                                <Layout flex={1}>
-                                    <TextField
-                                        name="ei_price"
-                                        value={curUsrp.prices_user}
-                                        size="s"
-                                        className="RowInput"
-                                        onChange={({ e }: any) => handleChangePrices_user(kp_stage_guid, kp_unit_guid, e.target.value)} />
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Select
-                                        view="default"
-                                        items={ndsList}
-                                        value={getSelectedNDS(ndsList, curUsrp.vat_rate)}
-                                        labelPosition="left"
-                                        size="s"
-                                        className="RowInput"
-                                        onChange={({ value }) => handleChangeVat_rate(kp_stage_guid, kp_unit_guid, value)} />
-                                </Layout>
-
-                                <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ) || '-- --'}</Layout>
-                                <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ_nds) || '-- --'}</Layout>
-
+                            </Layout>
+                            <Layout flex={1}>
+                                <Select
+                                    name="usl_quan_unit"
+                                    placeholder="Выберите ЕИ"
+                                    view="default"
+                                    items={eiList}
+                                    value={getSelected(eiList, curUsrp.usl_quan_unit)}
+                                    labelPosition="left"
+                                    size="s"
+                                    className="RowInput"
+                                    onChange={({ value }) => handleChangeUsl_quan_unit(kp_stage_guid, kp_unit_guid, value)}
+                                    disabled={opr_usl_unit_restr_quan === "" ? false : true}
+                                />
+                            </Layout>
+                            <Layout flex={1}>
+                                <TextField
+                                    name="ei_value"
+                                    value={curUsrp.nsu_menge}
+                                    size="s"
+                                    className="RowInput"
+                                    onChange={({ e }: any) => handleChangeNsu_menge(kp_stage_guid, kp_unit_guid, e.target.value)}
+                                    disabled={opr_usl_unit_restr_menge === "" ? false : true}
+                                />
                             </Layout>
 
+                            <Layout flex={1}>
+                                <TextField
+                                    name="ei_price"
+                                    value={curUsrp.prices_user}
+                                    size="s"
+                                    className="RowInput"
+                                    onChange={({ e }: any) => handleChangePrices_user(kp_stage_guid, kp_unit_guid, e.target.value)} />
+                            </Layout>
+                            <Layout flex={1}>
+                                <Select
+                                    view="default"
+                                    items={ndsList}
+                                    value={getSelectedNDS(ndsList, curUsrp.vat_rate)}
+                                    labelPosition="left"
+                                    size="s"
+                                    className="RowInput"
+                                    onChange={({ value }) => handleChangeVat_rate(kp_stage_guid, kp_unit_guid, value)} />
+                            </Layout>
 
-                            {curUsrp.isSubToggle || curUsrp.vat_rate === "0" ? (
-                                <>
-                                    <Layout className="Row subRow mt05 mb2">
-                                        <Layout flex={3}>
-                                            <Layout>
-                                                <TextField
-                                                    name="alt_name_unit"
-                                                    value={curUsrp.alt_name_unit}
-                                                    size="s"
-                                                    className="mr05"
-                                                    width="full"
-                                                    onChange={({ value }) => handleAlt_name_unit(kp_stage_guid, kp_unit_guid, value)}
-                                                />
-                                                <Button
-                                                    className="mr1"
-                                                    iconRight={IconClose}
-                                                    iconSize="s"
-                                                    size="s"
-                                                    onlyIcon={true}
-                                                    view="clear"
-                                                    onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
-                                                />
-                                            </Layout>
-                                        </Layout>
+                            <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ) || '-- --'}</Layout>
+                            <Layout flex={1} className="aic jcc">{parseFloat(curUsrp.summ_nds) || '-- --'}</Layout>
 
-                                        <Layout flex={6} className="aic acc">
-                                            {curUsrp.vat_rate === "0" && !isNoNds ? (
-                                                <>
-                                                    <Text as="div" className="mr1" size="xs">
-                                                        Стоимость предложения не облагается НДС, в соответствии со статьей
-                                                    </Text>
-                                                    <TextField
-                                                        name="sub.statia"
-                                                        placeholder="Указать статью"
-                                                        size="xs"
-                                                        labelPosition="left"
-                                                        value={curUsrp.nds_comm}
-                                                        required
-                                                        onChange={({ value }) => handleChangeNds_comm(kp_stage_guid, kp_unit_guid, value)}
-                                                        style={{ width: '100px' }} />
-                                                    <Text
-                                                        as="div"
-                                                        className="ml1"
-                                                        size="xs">
-                                                        НК РФ
-                                                    </Text>
-                                                </>
-                                            ) : null}
+                        </Layout>
+
+
+                        {curUsrp.isSubToggle || curUsrp.vat_rate === "0" ? (
+                            <>
+                                <Layout className="Row subRow mt05 mb2">
+                                    <Layout flex={3}>
+                                        <Layout>
+                                            <TextField
+                                                name="alt_name_unit"
+                                                value={curUsrp.alt_name_unit}
+                                                size="s"
+                                                className="mr05"
+                                                width="full"
+                                                onChange={({ value }) => handleAlt_name_unit(kp_stage_guid, kp_unit_guid, value)}
+                                            />
+                                            <Button
+                                                className="mr1"
+                                                iconRight={IconClose}
+                                                iconSize="s"
+                                                size="s"
+                                                onlyIcon={true}
+                                                view="clear"
+                                                onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
+                                            />
                                         </Layout>
                                     </Layout>
-                                </>
-                            ) : null}
 
-                        </div>
-                    ))
+                                    <Layout flex={6} className="aic acc">
+                                        {curUsrp.vat_rate === "0" && !currentStage.isNoNds ? (
+                                            <>
+                                                <Text as="div" className="mr1" size="xs">
+                                                    Стоимость предложения не облагается НДС, в соответствии со статьей
+                                                </Text>
+                                                <TextField
+                                                    name="sub.statia"
+                                                    placeholder="Указать статью"
+                                                    size="xs"
+                                                    labelPosition="left"
+                                                    value={curUsrp.nds_comm}
+                                                    required
+                                                    onChange={({ value }) => handleChangeNds_comm(kp_stage_guid, kp_unit_guid, value)}
+                                                    style={{ width: '100px' }} />
+                                                <Text
+                                                    as="div"
+                                                    className="ml1"
+                                                    size="xs">
+                                                    НК РФ
+                                                </Text>
+                                            </>
+                                        ) : null}
+                                    </Layout>
+                                </Layout>
+                            </>
+                        ) : null}
+
+                    </div>
                 ))
             ))}
-
         </>
     );
 };

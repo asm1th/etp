@@ -1,13 +1,11 @@
 import React, { FC, useState } from "react";
 import DashHeader2 from '../../components/dash/DashHeader2';
-import DashItem from '../../components/dash/DashItem';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
 import Sidebar from "./Sidebar";
+import ZakFilterProc from '../../components/zak/ZakFilterProc';
 
-const Dash: FC = () => {
-    //const [theme, setTheme] = useState<ThemeItem>(themes[0])
-    const { dashItems } = useAppSelector(state => state.dashReducer)
+const Zak: FC = () => {
     const dispatch = useAppDispatch()
 
     const {isToggleSidebar} = useAppSelector(state => state.dashReducer)
@@ -24,15 +22,14 @@ const Dash: FC = () => {
             />
             <main>
                 <DashHeader2 />
-                <div className="DashContainer">
-                    {dashItems.map(({ id }) => (
-                        <DashItem id={id} key={id}/>
-                    ))}
-                </div>
+                
+                <ZakFilterProc />
+
+                
             </main>
         </>
     );
 };
 
-export default Dash;
+export default Zak;
 

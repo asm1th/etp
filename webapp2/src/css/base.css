@@ -207,3 +207,6 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
     --container-border-color: var(--color-bg-alert);
 }
 
+.Responses .ResponsesImageNothingFound {
+    width: 190px;
+}

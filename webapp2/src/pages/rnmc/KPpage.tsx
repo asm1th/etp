@@ -1,5 +1,5 @@
 import '../../App.css';
-import './rnmc.css';
+import './RNMCapp.css';
 import { FC } from "react";
 import { useLocation } from "react-router-dom";
 import SampLotInfo from "../../components/fragments/SampLotInfo";
