@@ -4,9 +4,12 @@ import { TextField } from "@consta/uikit/TextField";
 
 // RTK
 import { useNavigate } from 'react-router-dom'
-import { useLoginMutation } from '../services/authService'
-import type { LoginRequest } from '../services/authService'
+import { useLoginMutation } from '../../services/authService'
+import type { LoginRequest } from '../../services/authService'
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
+import { IconMail } from '@consta/uikit/IconMail';
+import { IconLock } from '@consta/uikit/IconLock';
+
 
 interface IStatusMessageState {
     isError: boolean,
@@ -88,7 +91,7 @@ const LoginForm: FC = () => {
 
     return (
         <>
-            <div className="mt3">
+            <div className="mt2">
                 <TextField
                     name="email"
                     type="text"
@@ -96,24 +99,26 @@ const LoginForm: FC = () => {
                     width="full"
                     onChange={handleChange}
                     value={formState.email}
+                    leftSide={IconMail}
                 />
                 <TextField
-                    className="mt2"
+                    className="mt1"
                     name="password"
-                    type="text"
+                    type="password"
                     placeholder="Введите пароль"
                     width="full"
                     onChange={handleChange}
                     value={formState.password}
+                    leftSide={IconLock}
                 />
             </div>
             <Button
                 onClick={onSubmit}
                 loading={isLoading}
-                label="Отправить"
+                label="Войти"
                 size="m"
                 width="full"
-                className="mt2 mb2" />
+                className="mt1 mb2" />
             <SnackBar
                 items={items}
                 onItemClose={(item) => dispatchItems({ type: 'remove', item })}

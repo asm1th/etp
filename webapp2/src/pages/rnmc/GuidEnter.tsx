@@ -1,8 +1,6 @@
 import React, { FC, useState } from "react";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
-import { IconQuestion } from '@consta/uikit/IconQuestion';
-import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
 import { Text } from '@consta/uikit/Text';
 import { TextField } from "@consta/uikit/TextField";
@@ -14,7 +12,7 @@ const GuidEnter: FC = () => {
 
     const navigate = useNavigate()
     const onSubmit = () => {
-        navigate('/?kp_sample_guid=' + kp_sample_guid)
+        navigate('?kp_sample_guid=' + kp_sample_guid)
     }
 
     return (
@@ -25,8 +23,7 @@ const GuidEnter: FC = () => {
                         verticalSpace="3xl"
                         horizontalSpace="2xl"
                         form="round"
-                        shadow={false}
-                        className='loginform mb2 mt2'
+                        className='loginform'
                         style={{ width: '430px', maxWidth: '430px' }}
                         >
 

@@ -79,7 +79,7 @@ const PrintKP: FC = () => {
                                 Этап {opr_usl_stage_num} {opr_usl_stage}
                             </Text>
                         </Layout>
-                        <Layout className="Header">
+                        <Layout className="tableHeader">
                             <Layout flex={3} className="tar">
                                 <Text className="label">
                                     Наименование расценки

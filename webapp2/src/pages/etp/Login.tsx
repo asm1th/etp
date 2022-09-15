@@ -1,18 +1,18 @@
 import React, { FC } from "react";
 import { Link } from 'react-router-dom';
-import LoginForm from "../../components/LoginForm";
+import LoginFormETP from "../../components/login/LoginFormETP";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
-import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { IconQuestion } from '@consta/uikit/IconQuestion';
 import { Layout } from '@consta/uikit/LayoutCanary';
 import { Button } from '@consta/uikit/Button';
-import logo from '../../img/gazprom-neft-logo-rus.svg';
+import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { Text } from '@consta/uikit/Text';
+import './RNMCappETP.css';
 
 const Login: FC = () => {
     return (
-        <>
+        <div className="etpStyle">
             <Layout className="jcfe">
                 <Button
                     label="Ссылка на инструкцию"
@@ -21,10 +21,16 @@ const Login: FC = () => {
                     className="mt1"
                     iconLeft={IconQuestion} />
             </Layout>
-            <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
+            <Grid 
+                gap="xl" 
+                cols="1" xAlign="center" yAlign="center">
                 <GridItem>
-                    <Card verticalSpace="4xl" horizontalSpace="4xl" form="round" shadow={false}
-                        className={`loginform ${cnMixSpace({ mT: '3xl', })}`}>
+                    <Card 
+                        verticalSpace="4xl" 
+                        horizontalSpace="4xl" 
+                        form="round" 
+                        shadow={false}
+                        className="loginform">
                         <div className="tac mb1">
                             <img alt="logo" src={logo} width="160"/>
                         </div>
@@ -32,25 +38,21 @@ const Login: FC = () => {
                             className="tac mb1 jcc"
                             size="m" 
                             lineHeight="xs">
-                            Для входа на платформу введите код, который пришел на вашу электронную почту
+                            Вход на электронную торговую площадку<br/> ПАО «Газпромнефть» 
                         </Text>
-                        {/* <LoginFormEmail /> */}
-
-                        <LoginForm />
+                        <LoginFormETP />
+                        <Layout flex={1} className="acc aic jcc" direction="column">
+                            <Text
+                                size="xs" 
+                                lineHeight="xs"
+                                view="secondary">
+                                Если возникли проблемы со входом на платформу,  <Link to="/etp/write">напишите нам</Link>
+                            </Text>
+                        </Layout>
                     </Card>
-                    <Layout flex={1} className="acc aic jcc" direction="column">
-                        <Text
-                            size="xs" lineHeight="xs">
-                            Нет учетной записи? <Link to="/etp/reg">Регистрация в системе</Link>
-                        </Text>
-                        <Text
-                            size="xs" lineHeight="xs">
-                            Полчучили код <Link to="/etp/logincode">Введите код</Link>
-                        </Text>
-                    </Layout>
                 </GridItem>
             </Grid>
-        </>
+        </div>
     );
 };
 

@@ -4,13 +4,15 @@
 @import url("./css/table.css");
 @import url("./css/base.css");
 
-body .Theme {
-  font-weight: 500;
-  font-family: "PT Root UI", "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+.App .Theme {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .Theme_font_gpnDefault {
+  font-weight: 500;
   --font-primary: "PT Root UI", "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   --font-mono: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -19,12 +21,27 @@ body .Theme {
 
 body {
   background: #f7f7f9;
+  margin: 0;
+  height: 100vh;
 }
 
 .App {
-  padding: 1rem;
+  display: flex;
+  position: relative;
+  height: 100%;
 }
 
+.App main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+#root {
+  height: 100%;
+}
 /*loginform*/
 
 .Card {
@@ -45,7 +62,8 @@ body {
 }
 /**/
 
-.App .label, .label {
+.App .label,
+.label {
   font-family: PT Root UI;
   font-size: 12px;
   font-weight: 500;
@@ -191,22 +209,22 @@ body {
   font-weight: 700;
 }
 
-.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled{
+.App .TextField-InputContainer_view_default.TextField-InputContainer_disabled {
   border-color: #d1d1d1;
 }
 
 .App .TextField-InputContainer_view_default.TextField-InputContainer_disabled .TextField-Input {
-  color: #000
+  color: #000;
 }
 
-.jcr{
+.jcr {
   justify-content: right;
 }
 
-.aib{
+.aib {
   align-items: baseline;
 }
 
-.App .Title{
+.App .Title {
   font-size: 18px;
 }

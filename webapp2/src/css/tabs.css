@@ -1,0 +1,78 @@
+.App .Tabs-Tab {
+    position: relative;
+    z-index: 3;
+    padding: 7px 0;
+}
+
+.App .TabsLine_type_running {
+    border: 1px;
+    border-left: 1px solid #008EFA;
+    border-top: 1px solid #008EFA;
+    border-bottom: 1px solid #008EFA;
+    width: 45px;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    /* margin-top: 1px; */
+
+    right: 0px;
+    z-index: 2;
+}
+
+.App .TabsLine_type_border {
+    --line-thickness: 1px;
+    background-color: #008EFA;
+}
+
+.Tabs-List.Tabs-List_direction_vertical.Tabs-List_linePosition_right {
+    padding-right: 6px;
+}
+
+.Tabs-List_linePosition_right {
+    padding-right: 6px;
+}
+
+.TabsTab_checked {
+    position: relative;
+    z-index: 1;
+    color: #008EFA;
+}
+
+.App .TabsTab:before {
+    display: none;
+}
+
+/* .TabsTab_checked:after {
+    content: "";
+    display: block;
+    border-left: 1px solid #0067a3;
+    border-top: 1px solid #0067a3;
+    border-bottom: 1px solid #0067a3;
+    position: absolute;
+    width: 68px;
+    height: 100%;
+    left: -8px;
+    border-radius: 5px 0 0 5px;
+    background: #fff;
+    z-index: -1;
+} */
+
+.TabsPageContainer {
+    align-self: flex-start;
+}
+
+.TabsTab {
+    flex-direction: column;
+}
+
+.tabNum {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 18px;
+}
+
+.tabLabel {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+}
+

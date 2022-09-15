@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Tabs } from '@consta/uikit/Tabs';
+import { Tabs, cnTabsTab } from '@consta/uikit/Tabs';
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Text } from "@consta/uikit/Text";
 import EtapRow from "./EtapRow";
@@ -16,7 +16,7 @@ const Etaps: FC = () => {
     const params = useLocation().search;
     const {kp_sample_guid} = useAppSelector(state => state.authReducer)
     const this_kp_sample_guid = new URLSearchParams(params).get("kp_sample_guid") || kp_sample_guid || ''
-    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_kp_sample_guid);
+    const { data: samp } = useFetchSampQuery(this_kp_sample_guid);
 
     const [tab, setTab] = useState<IStag>({
         "kp_stage_guid": "",
@@ -51,8 +51,8 @@ const Etaps: FC = () => {
                         //onClickOutside={action('onClickOutside')}
                         isInteractive={false}
                         position={position}
-                        className="tipPopover"
-                    >
+                        className="tipPopover">
+
                         {(direction) => (
                             <div>
                                 <Text size="xs">
@@ -66,27 +66,36 @@ const Etaps: FC = () => {
                         <Layout>
                             <Tabs
                                 className="Tabs"
+                                linePosition="right"
                                 value={tab}
                                 onChange={({ value }) => setTab(value)}
                                 items={samp.stags}
-                                getLabel={(item) => "Этап " + item.opr_usl_stage_num}
-                                linePosition="right"
+                                getLabel={(item) => "этап "+item.opr_usl_stage_num}
+                                renderItem={({ label, checked, onChange, item}) => (
+                                    <button type="button" onClick={onChange} className={cnTabsTab({ checked })}>
+                                      <span role="img" aria-label="img" className="tabNum">
+                                        {/* {checked ? '🤘' : '✋'} */}
+                                        {item.opr_usl_stage_num}
+                                      </span>
+                                      <span className="tabLabel">{label.split(' ')[0]}</span>
+                                    </button>
+                                  )}
                             />
                             <Layout flex={1} className="TabsPageContainer" direction="column">
                                 <Layout flex={1} direction="row" className="mb1 aib mt05">
-                                    <Text as="div" className="label mr2">
-                                        Полное наименование этапа / услуги (работы)
+                                    <Text as="div" className="subTitleOpr_usl_stageLabel mr2">
+                                        Полное наименование этапа / услуги (работы):
                                     </Text>
-                                    <Text as="div" className="labeltext">
+                                    <Text as="div" className="labeltext subTitleOpr_usl_stage">
                                         {samp.stags[tab.opr_usl_stage_num - 1].opr_usl_stage}
                                     </Text>
                                 </Layout>
                                 <Layout>
-                                    <Text as="div" className="Title mb1">
+                                    <Text as="div" className="Title Title2 mb1">
                                         Состав этапа / услуги (работы)
                                     </Text>
                                 </Layout>
-                                <Layout className="Header">
+                                <Layout className="tableHeader">
                                     <Layout flex={3} className="tar">
                                         <Text className="label">
                                             Наименование расценки

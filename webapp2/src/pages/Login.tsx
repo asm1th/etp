@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import '../App.css';
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/login/LoginForm";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
 import { cnMixSpace } from '@consta/uikit/MixSpace';

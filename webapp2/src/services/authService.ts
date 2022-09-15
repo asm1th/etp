@@ -2,7 +2,6 @@
 // todo auth https://codevoweb.com/react-redux-toolkit-refresh-token-authentication/
 
 import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { IUser } from '../models/test/IUser'
 import { RootState } from '../store/store'
 import { IRegData } from '../models/IRegistration'
 

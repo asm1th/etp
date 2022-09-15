@@ -9,15 +9,14 @@ import { IconEdit } from '@consta/uikit/IconEdit';
 import { IconAttach } from '@consta/uikit/IconAttach';
 import { IconSendMessage } from '@consta/uikit/IconSendMessage';
 import { FileField, FileFieldProps } from '@consta/uikit/FileField';
-
-import { Attachment } from '@consta/uikit/Attachment';
-import { IconClose } from '@consta/uikit/IconClose';
-
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
 import { useAppSelector } from "../../hooks/redux";
 import {sampSlice} from "../../store/reducers/samp/sampSlice";
 import { useDispatch } from "react-redux";
+
+import { Attachment } from '@consta/uikit/Attachment';
+import { IconClose } from '@consta/uikit/IconClose';
 
 
 const SampFooterButtons: FC = () => {

@@ -25,7 +25,7 @@ const SampLotInfo: FC = () => {
 
     return (
         <>
-            <Layout className="aic">
+            <Layout className="aic TopBarKPinfo">
                 <Layout flex={2} direction="column" className="mr1">
                     <Text as="div" className="label">
                         Предмет закупки
