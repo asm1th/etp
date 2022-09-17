@@ -13,6 +13,8 @@ import { Pagination } from '@consta/uikit/Pagination';
 import { Button } from "@consta/uikit/Button";
 import { IconHamburger } from "@consta/uikit/IconHamburger";
 import { IconBento } from "@consta/uikit/IconBento";
+import  ProcItem  from "../../../components/zak/ProcItem";
+import  ProcItemHor  from "../../../components/zak/ProcItemHor";
 
 
 const Zak: FC = () => {
@@ -63,64 +65,9 @@ const Zak: FC = () => {
                     </Layout>
                     {procList.map(({ id, title, num, desc, date_start, date_end }) => (
                         listStyle ? (
-                            <div className="procItem">
-                                <Link to={'/etp/zak/proc?id='+id}>
-                                    <Layout className="mt05 jcsb">
-                                        <Text size="m" className="proclink">
-                                            {title}
-                                        </Text>
-                                        <Badge size="xs" status="system" label="Заявка не подана" className="mt05" />
-                                    </Layout>
-                                    <Text size="s" className="mb05 mt1">
-                                        <b>№ Процедуры</b> — {num}
-                                    </Text>
-                                    <Text size="s" className="mb05">
-                                        {desc}
-                                    </Text>
-                                    <Layout className="mt05">
-                                        <Layout direction="column" className="mr2">
-                                            <Text size="xs" view="secondary" className="mb05">Начало приема</Text>
-                                            <Layout><Badge status="system" view="stroked" label={date_start} /></Layout>
-                                        </Layout>
-                                        <Layout direction="column">
-                                            <Text size="xs" view="secondary" className="mb05">Окончание приема</Text>
-                                            <Layout><Badge status="warning" view="stroked" label={date_end} /></Layout>
-                                        </Layout>
-                                    </Layout>
-                                </Link>
-                            </div>
+                            <ProcItem proc_id={id}/>
                         ) : (
-                            <div className="procItem procItemHorizontal">
-                                <Link to={'/zak/proc'}>
-                                    <Layout className="mt05 aic bb pb1">
-                                        <Layout flex={1}>
-                                            <Text size="s" className="proclink">
-                                                {title}
-                                            </Text>
-                                        </Layout>
-                                        <Layout flex={3}>
-                                            <Text size="xs" className="ml2">
-                                                <b>№ Процедуры</b> — {num}
-                                            </Text>
-                                        </Layout>
-                                        <Layout flex={3} className="jcfe aic acc">
-
-                                            <Text size="xs" view="secondary" className="mr1">Начало приема</Text>
-                                            <Layout><Badge status="system" view="stroked" label={date_start} /></Layout>
-
-                                            <Text size="xs" view="secondary" className="mr1">Окончание приема</Text>
-                                            <Layout><Badge status="warning" view="stroked" label={date_end} /></Layout>
-                                            <Badge size="xs" status="system" label="Заявка не подана" className="ml2" />
-
-                                        </Layout>
-                                    </Layout>
-
-                                    <Text size="s" className="mt1">
-                                        {desc}
-                                    </Text>
-
-                                </Link>
-                            </div>
+                            <ProcItemHor proc_id={id}/>
                         )
                     ))}
 

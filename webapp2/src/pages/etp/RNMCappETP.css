@@ -115,8 +115,8 @@ body.etpStyle .Theme {
     border-radius: 0;
 }
 
-.RNMCappETP {
-    margin-top: 60px;
+.RNMCappETP .RNMCapp{
+    width: auto;
 }
 
 .etpStyle .Title2 {

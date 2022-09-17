@@ -1,0 +1,9 @@
+.btnBack{
+    color: #0A6ED1;
+}
+.colorBlue{
+    color: #0078D2
+}
+.checkbox_s .Checkbox-Label{
+    font-size: var(--size-text-s);
+}
