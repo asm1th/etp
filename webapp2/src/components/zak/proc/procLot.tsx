@@ -1,6 +1,6 @@
 import { Layout } from "@consta/uikit/LayoutCanary";
 
-const procLot = () => {
+const ProcLot = () => {
 
     return (
         <>
@@ -10,4 +10,4 @@ const procLot = () => {
     );
 };
 
-export default procLot;
+export default ProcLot;

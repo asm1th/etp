@@ -1,6 +1,6 @@
 import { Layout } from "@consta/uikit/LayoutCanary";
 
-const procHeader = () => {
+const ProcHeader = () => {
 
     return (
         <>
@@ -10,4 +10,4 @@ const procHeader = () => {
     );
 };
 
-export default procHeader;
+export default ProcHeader;
