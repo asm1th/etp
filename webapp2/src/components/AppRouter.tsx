@@ -16,6 +16,7 @@ import Registration from "../pages/etp/Registration";
 import Dash from "../pages/etp/Dash";
 import Zak from "../pages/etp/zak/Zak";
 import Proc from "../pages/etp/zak/Proc";
+import Zayavka from "../pages/etp/zak/Zayavka";
 
 const AppRouter = () => {
     const {isAuth} = useAppSelector(state => state.authReducer)
@@ -34,6 +35,7 @@ const AppRouter = () => {
           <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak" element={isAuth ? <Zak /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak/proc" element={<Proc />} />
+          <Route path="/etp/zak/proc/zayavka" element={<Zayavka />} />
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/reg" element={<Registration />} />

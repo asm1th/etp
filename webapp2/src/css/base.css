@@ -6,6 +6,10 @@
     align-content: center;
 }
 
+.aifs{
+    align-items: flex-start;
+}
+
 .tac {
     text-align: center;
 }
