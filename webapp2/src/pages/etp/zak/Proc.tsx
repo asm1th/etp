@@ -46,7 +46,7 @@ const Proc = () => {
 
     const { procList } = useAppSelector(state => state.zakReducer)
     const params = useLocation().search;
-    const proc_id = new URLSearchParams(params).get("id") || ''
+    const proc_id = new URLSearchParams(params).get("proc_id") || ''
     const procCur = procList[procList.findIndex((proc: IProc) => proc.id === proc_id)]
 
     const [collapsed, setCollapsed] = useState(true)
