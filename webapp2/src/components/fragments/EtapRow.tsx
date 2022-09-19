@@ -178,27 +178,29 @@ const EtapRow = (props: { etapId: number }) => {
                         {curUsrp.isSubToggle || curUsrp.vat_rate === "0" ? (
                             <>
                                 <Layout className="Row subRow mt05 mb2">
-                                    <Layout flex={3}>
-                                        <Layout>
-                                            <TextField
-                                                name="alt_name_unit"
-                                                value={curUsrp.alt_name_unit}
-                                                size="s"
-                                                className="mr05"
-                                                width="full"
-                                                onChange={({ value }) => handleAlt_name_unit(kp_stage_guid, kp_unit_guid, value)}
-                                            />
-                                            <Button
-                                                className="mr1"
-                                                iconRight={IconClose}
-                                                iconSize="s"
-                                                size="s"
-                                                onlyIcon={true}
-                                                view="clear"
-                                                onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
-                                            />
+                                    {curUsrp.isSubToggle ? (
+                                        <Layout flex={3}>
+                                            <Layout>
+                                                <TextField
+                                                    name="alt_name_unit"
+                                                    value={curUsrp.alt_name_unit}
+                                                    size="s"
+                                                    className="mr05"
+                                                    width="full"
+                                                    onChange={({ value }) => handleAlt_name_unit(kp_stage_guid, kp_unit_guid, value)}
+                                                />
+                                                <Button
+                                                    className="mr1"
+                                                    iconRight={IconClose}
+                                                    iconSize="s"
+                                                    size="s"
+                                                    onlyIcon={true}
+                                                    view="clear"
+                                                    onClick={() => handleSubToggle(kp_stage_guid, kp_unit_guid)}
+                                                />
+                                            </Layout>
                                         </Layout>
-                                    </Layout>
+                                    ) : null}
 
                                     <Layout flex={6} className="aic acc">
                                         {curUsrp.vat_rate === "0" && !currentStage.isNoNds ? (

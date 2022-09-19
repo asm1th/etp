@@ -20,7 +20,7 @@ const KPpage: FC = () => {
     //.test
 
     return (
-        <>
+        <main className='pt2 pl2 pr2'>
             <div className='isErrorIsLoading'>
                 {error && <Responses503 />}
                 {isLoading && <ProgressSpin size="2xl" />}
@@ -32,7 +32,7 @@ const KPpage: FC = () => {
                     <KPBlock />
                 </>
             )}
-        </>
+        </main>
     );
 };
 

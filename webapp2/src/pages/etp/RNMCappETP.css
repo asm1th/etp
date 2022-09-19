@@ -140,3 +140,10 @@ body.etpStyle .Theme {
 .etpStyle .TopBarKPinfo {
     padding: 0 2rem;
 }
+
+.etpStyle .logoutButton{
+    display: inline-flex;
+}
+.logoutButton{
+    display: none;
+}
