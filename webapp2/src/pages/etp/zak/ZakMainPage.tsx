@@ -63,9 +63,9 @@ const ZakMainPage: FC = () => {
                     </Layout>
                     {procList.map(({ id, title, num, desc, date_start, date_end }) => (
                         listStyle ? (
-                            <ProcItem proc_id={id}/>
+                            <ProcItem key={id} proc_id={id}/>
                         ) : (
-                            <ProcItemHor proc_id={id}/>
+                            <ProcItemHor key={id} proc_id={id}/>
                         )
                     ))}
 

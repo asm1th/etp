@@ -1,5 +1,6 @@
 export interface IZak {
     procList: IProc[]
+    zakForm: IZakForm
 }
 
 export interface IProc {
@@ -35,4 +36,11 @@ export interface IFile {
     fileName: string
     fileExtension: string
     fileDescription: string
+}
+
+export interface IZakForm{
+    fio: string
+    phone: string
+    address: string
+    email: string
 }

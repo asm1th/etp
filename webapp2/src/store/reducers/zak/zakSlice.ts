@@ -9,8 +9,10 @@ export const zakSlice = createSlice({
         setToggleSidebar: (state) => {
             
         },
-        setZayavka: (state, action: PayloadAction<any>) => {
-           // state.links.kp_offer_expire_date = action.payload
+        setZakForm: (state, action: PayloadAction<any>) => {
+            let prop: any = action.payload.prop
+            let zakForm: any = state.zakForm
+            zakForm[prop] = action.payload.value;
         },
     },
     extraReducers: {},

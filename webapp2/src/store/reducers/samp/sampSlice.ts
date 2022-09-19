@@ -119,7 +119,7 @@ export const sampSlice = createSlice({
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.prices_user = action.payload.value
-            thisUsrp.price_date = format(new Date(), 'yyyyMMdd')
+            thisUsrp.price_date = format(new Date(), 'yyyy-MM-dd')
             thisUsrp.price_time = format(new Date(), 'HHmmss')
             calcSumm(thisUsrp)
             calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
