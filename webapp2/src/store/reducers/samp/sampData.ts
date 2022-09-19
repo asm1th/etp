@@ -37,7 +37,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -52,7 +54,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           }
         ]
       }
@@ -92,7 +96,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -107,7 +113,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           }
         ]
       },
@@ -135,7 +143,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -150,7 +160,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           }
         ]
       },
@@ -178,7 +190,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -193,7 +207,9 @@ export const Stags: IStag[] = [
             isSubToggle: false,
             summ: "",
             summ_nds: "",
-            isValid: true
+            isValid: true,
+            price_date: "",
+            price_time: "",
           }
         ]
       }
