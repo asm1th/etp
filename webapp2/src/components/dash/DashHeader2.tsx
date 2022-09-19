@@ -85,7 +85,7 @@ const DashHeader2: FC = () => {
                             <HeaderLogin
                                 isLogged={isAuth}
                                 personName="Вадим Матвеев"
-                                personInfo="В другом офисе"
+                                personInfo="Эксперт"
                                 personStatus="available"
                                 personAvatarUrl="https://www.pngarts.com/files/3/Cool-Avatar-Transparent-Image.png"
                                 onClick={handleLogin}

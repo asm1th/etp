@@ -15,7 +15,7 @@ const ProcItemHor = (props: { proc_id: string }) => {
 
     return (
         <div className="procItem procItemHorizontal">
-            <Link to={'/etp/zak/proc?id=' + props.proc_id}>
+            <Link to={'/etp/zak/proc?proc_=' + props.proc_id}>
                 <Layout className="mt05 aic bb pb1">
                     <Layout flex={1}>
                         <Text size="s" className="proclink">

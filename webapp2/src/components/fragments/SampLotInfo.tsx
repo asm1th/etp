@@ -74,20 +74,21 @@ const SampLotInfo: FC = () => {
                         </Layout>
                     </Layout>
                     <Layout flex={1} direction="row">
-                        
+
                         <Button
                             size="m"
                             label="Скачать ТЗ"
                             view="secondary"
                             onClick={getTz}
                             iconLeft={IconDownload} />
-                            <Button
+
+                        <Button
                             size="m"
                             view="clear"
                             onlyIcon={true}
                             iconLeft={IconExit}
                             onClick={logout}
-                            className="ml1" />
+                            className="ml1 logoutButton" />
                     </Layout>
                 </Layout>
             </Layout>

@@ -23,25 +23,39 @@ const LoginCode: FC = () => {
                     className="mt1"
                     iconLeft={IconQuestion} />
             </Layout>
-            <Grid gap="xl" cols="1" xAlign="center" yAlign="center">
+            <Grid 
+                style={{height: 'calc(100% - 100px)'}}
+                gap="xl" 
+                cols="1" 
+                xAlign="center" 
+                yAlign="center">
                 <GridItem>
-                    <Card verticalSpace="4xl" horizontalSpace="4xl" form="round" shadow={false}
-                        className={`loginform ${cnMixSpace({ mT: '2xl', })}`}>
+                    <Card 
+                        verticalSpace="2xl" 
+                        horizontalSpace="2xl" 
+                        form="round" 
+                        shadow={false}
+                        className="loginform">
                         <div className="tac mb1">
                             <img alt="logo" src={logo} width="160" />
                         </div>
                         <Text
                             className="tac mb1 jcc"
-                            size="m" lineHeight="xs">
-                            Для входа на платформу введите код, который пришел на вашу электронную почту
+                            size="m" 
+                            lineHeight="xs">
+                                Для входа на платформу введите код, который пришел на вашу электронную почту
                         </Text>
 
                         <Layout flex={1} className="acc aic jcc">
                             <Text
-                                size="xs" lineHeight="xs">
+                                size="xs" 
+                                lineHeight="xs">
                                 Код действителен в течении
                             </Text>
-                            <Timer size="l" seconds={5} progress={80}
+                            <Timer 
+                                size="l" 
+                                seconds={5} 
+                                progress={80}
                                 className="mr05 ml05" />
                             <Text
                                 size="xs"
@@ -52,7 +66,6 @@ const LoginCode: FC = () => {
 
                         <LoginFormCode />
                     </Card>
-
                     <Button
                         label="Вам не пришел код подтверждения?"
                         size="xs"

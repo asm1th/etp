@@ -107,7 +107,7 @@ const KPBlock: FC = () => {
                     </Collapse>
                 ))}
 
-                <Layout className="TravelRow">
+                <Layout className="TravelRow mt1">
                     <Layout flex={4} className="tar">
                         <Text>
                             Командировочные расходы

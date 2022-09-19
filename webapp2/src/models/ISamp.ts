@@ -70,4 +70,6 @@ export interface IUsrp {
     summ: string
     summ_nds: string
     isValid: boolean
+    price_date: string //YYYYMMDD
+    price_time: string //HHMMSS
 }

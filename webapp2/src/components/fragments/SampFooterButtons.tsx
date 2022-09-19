@@ -12,7 +12,7 @@ import { FileField, FileFieldProps } from '@consta/uikit/FileField';
 import { useReactToPrint } from 'react-to-print';
 import { ComponentToPrint } from '../util/ComponentToPrint';
 import { useAppSelector } from "../../hooks/redux";
-import {sampSlice} from "../../store/reducers/samp/sampSlice";
+import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import { useDispatch } from "react-redux";
 
 import { Attachment } from '@consta/uikit/Attachment';
@@ -45,7 +45,7 @@ const SampFooterButtons: FC = () => {
         stags.forEach(stag => {
             stag.units.forEach(unit => {
                 unit.usrps.forEach(usrp => {
-                    if (usrp.prices_user === "" || parseInt(usrp.prices_user) === 0 ) {
+                    if (usrp.prices_user === "" || parseInt(usrp.prices_user) === 0) {
                         let UnitFinder = { kp_stage_guid: unit.kp_stage_guid, kp_unit_guid: unit.kp_unit_guid, link_id: usrp.link_id }
                         dispatch(sampSlice.actions.isValid({ UnitFinder: UnitFinder, value: false }))
                     }
@@ -54,29 +54,38 @@ const SampFooterButtons: FC = () => {
         })
     }
 
+    const segments = new URL(window.location.href).pathname.split('/');
+    const last = segments.pop() || segments.pop(); // Handle potential trailing slash
+    console.log(last);
+
 
     return (
         <>
             <Layout flex={1} className="EtapFooterButtons aic jce">
-                
-                { kp_send_date ? (
+
+                {kp_send_date ? (
                     <Text as="div" className="mr2 label">
                         КП отправлено {kp_send_date}
                     </Text>
                 ) : null}
-                
-                <Button
-                    onClick={toKP}
-                    label="Сформировать КП"
-                    size="m"
-                    iconLeft={IconDocFilled}
-                />
-                <Button
-                    onClick={toHome}
-                    label="Редактировать КП"
-                    size="m"
-                    iconLeft={IconEdit}
-                />
+
+
+                {last === 'kp' ? (
+                    <Button
+                        onClick={toHome}
+                        label="Редактировать КП"
+                        size="m"
+                        iconLeft={IconEdit}
+                    />
+                ) : (
+                    <Button
+                        onClick={toKP}
+                        label="Сформировать КП"
+                        size="m"
+                        iconLeft={IconDocFilled}
+                    />
+                )}
+
                 <div
                     style={{ display: "none" }}>
                     <ComponentToPrint ref={componentRef} />

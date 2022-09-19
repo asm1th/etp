@@ -8,7 +8,12 @@ export const zakSlice = createSlice({
     reducers: {
         setToggleSidebar: (state) => {
             
-        }
+        },
+        setZakForm: (state, action: PayloadAction<any>) => {
+            let prop: any = action.payload.prop
+            let zakForm: any = state.zakForm
+            zakForm[prop] = action.payload.value;
+        },
     },
     extraReducers: {},
 })

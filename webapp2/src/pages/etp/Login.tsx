@@ -23,12 +23,12 @@ const Login: FC = () => {
                     iconLeft={IconQuestion} />
             </Layout>
             <Grid 
-                gap="xl" 
-                cols="1" xAlign="center" yAlign="center">
+                style={{height: 'calc(100% - 100px)'}}
+                gap="xl" cols="1" xAlign="center" yAlign="center">
                 <GridItem>
                     <Card 
-                        verticalSpace="4xl" 
-                        horizontalSpace="4xl" 
+                        verticalSpace="2xl" 
+                        horizontalSpace="2xl" 
                         form="round" 
                         shadow={false}
                         className="loginform">

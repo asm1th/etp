@@ -343,7 +343,11 @@ const Registration: FC = () => {
                     className="mt1"
                     iconLeft={IconQuestion} />
             </Layout>
-            <Grid gap="l" cols="1" xAlign="center" yAlign="center">
+            <Grid 
+                gap="l" 
+                cols="1" 
+                xAlign="center" 
+                yAlign="center">
                 <GridItem>
                     <Card
                         verticalSpace="2xl"

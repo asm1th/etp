@@ -7,3 +7,14 @@
 .checkbox_s .Checkbox-Label{
     font-size: var(--size-text-s);
 }
+.likeInformer{
+    background-color: var(--color-bg-default);
+    border-left: var(--space-xs) solid var(--informer-status-color);
+    -webkit-box-shadow: var(--shadow-layer);
+    box-shadow: var(--shadow-layer);
+    padding: 20px;
+    border-radius: 5px;
+}
+.Informer_status_alert {
+    --informer-status-color: var(--color-bg-alert);
+}

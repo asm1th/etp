@@ -1,4 +1,4 @@
-import { IZak, IProc, ILot, IFile } from "./IZak"
+import { IZak, IProc, ILot, IFile, IZakForm } from "./IZak"
 
 
 export const files: IFile[] = [{
@@ -18,7 +18,6 @@ export const files: IFile[] = [{
     fileExtension: "pdf",
     fileDescription: "1,5 Mб  21.02.2019, 14:12"
 }]
-
 
 export const lots: ILot[] = [{
     id: "10000042873",
@@ -85,7 +84,14 @@ export const procList: IProc[] = [{
         lots: lots
 }]
 
+export const zakForm: IZakForm = {
+    fio: "",
+    phone: "",
+    address: "",
+    email: ""
+}
 
 export const initialState: IZak = {
-    procList: procList
+    procList: procList,
+    zakForm: zakForm
 }

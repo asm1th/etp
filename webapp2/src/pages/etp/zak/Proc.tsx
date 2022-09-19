@@ -6,7 +6,7 @@ import Sidebar from "../../../components/dash/Sidebar";
 import { Breadcrumbs } from '@consta/uikit/BreadcrumbsCanary';
 import './Proc.css'
 import { Text } from '@consta/uikit/Text';
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Badge } from "@consta/uikit/Badge";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Button } from "@consta/uikit/Button";
@@ -23,10 +23,12 @@ import { Modal } from '@consta/uikit/Modal';
 import { IconClose } from '@consta/uikit/IconClose';
 import { TextField } from "@consta/uikit/TextField";
 import { FileField, FileFieldProps } from '@consta/uikit/FileField';
+import { IProc } from "../../../store/reducers/zak/IZak";
 
 
 const Proc = () => {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate();
 
     const { isToggleSidebar } = useAppSelector(state => state.dashReducer)
     const handleToggleSidebar = (checked: boolean) => {
@@ -44,11 +46,15 @@ const Proc = () => {
 
     const { procList } = useAppSelector(state => state.zakReducer)
     const params = useLocation().search;
-    const proc_id = new URLSearchParams(params).get("id") || ''
-    const procListCur = procList[procList.findIndex((proc: any) => proc.id === proc_id)]
+    const proc_id = new URLSearchParams(params).get("proc_id") || ''
+    const procCur = procList[procList.findIndex((proc: IProc) => proc.id === proc_id)]
 
     const [collapsed, setCollapsed] = useState(true)
     const [isModalOpen1, setIsModalOpen1] = useState(false);
+
+    const sendZayavka = (lot_id: string) => {
+        navigate('/etp/zak/proc/zayavka?proc_id=' + proc_id + '&lot_id=' + lot_id)
+    }
 
     return (
         <>
@@ -63,22 +69,22 @@ const Proc = () => {
                 <div className="zakContainer">
                     <Breadcrumbs items={pagesNoIcon} size="s" className="mb2" />
                     <Button label="Назад к списку процедур" className="btnBack mt1" iconLeft={IconBackward} view="clear" />
-                    <Text size="m" className="Title mb1 mt1">{procListCur.title}</Text>
+                    <Text size="m" className="Title mb1 mt1">{procCur.title}</Text>
                     <Text size="s" view="secondary" className="mt1">Полное наименование процедуры:</Text>
-                    <Text size="m" className="mb2 mt05">{procListCur.desc}</Text>
+                    <Text size="m" className="mb2 mt05">{procCur.desc}</Text>
                     <Layout className="tableHeader mb1 mt1 jcsb">
                         <Text size="m" className="Title">Лоты процедуры</Text>
                     </Layout>
 
 
-                    {procListCur.lots.map(({ id, title, descr, status, num, price, price_nds, full_price, waers, closed, start_date, start_time, files }) => (
+                    {procCur.lots.map(({ id, title, descr, status, num, price, price_nds, full_price, waers, closed, start_date, start_time, files }) => (
                         <>
                             <Card horizontalSpace="2xl" verticalSpace="2xl">
                                 <Layout className="jcsb aic">
-                                    <Text size="l" className="colorBlue">{title}</Text>
+                                    <Text size="l" className="colorBlue mr2">{title}</Text>
                                     <Layout>
                                         <Button label="Задать вопрос" className="mr05" view="secondary" onClick={() => setIsModalOpen1(true)} />
-                                        <Button label="Подать заявку" className="mr05" iconRight={IconForward} view="primary" />
+                                        <Button label="Подать заявку" className="mr05" iconRight={IconForward} view="primary" onClick={()=>sendZayavka(id)} />
                                     </Layout>
                                 </Layout>
 
@@ -142,11 +148,11 @@ const Proc = () => {
                                     <Layout>
                                         <Layout direction="column" className="mr2">
                                             <Text size="xs" view="secondary" className="mb05">Начало приема</Text>
-                                            <Layout><Badge status="system" view="stroked" label={procListCur.date_start + " | " + procListCur.date_start_time} /></Layout>
+                                            <Layout><Badge status="system" view="stroked" label={procCur.date_start + " | " + procCur.date_start_time} /></Layout>
                                         </Layout>
                                         <Layout direction="column">
                                             <Text size="xs" view="secondary" className="mb05">Окончание приема</Text>
-                                            <Layout><Badge status="warning" view="stroked" label={procListCur.date_end + " | " + procListCur.date_end_time} /></Layout>
+                                            <Layout><Badge status="warning" view="stroked" label={procCur.date_end + " | " + procCur.date_end_time} /></Layout>
                                         </Layout>
                                     </Layout>
                                     <Button label={collapsed ? "Свернуть" : "Развернуть"} view="ghost" className="mr05" size="s" onClick={() => setCollapsed(!collapsed)} iconRight={collapsed ? IconArrowUp : IconArrowDown} />

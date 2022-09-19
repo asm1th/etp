@@ -7,7 +7,6 @@ export const sampAPI = createApi({
 
     baseQuery: fetchBaseQuery({
         //baseUrl: 'http://sapdp7.gazprom-neft.local:50000/NDI_EPCOMMON_D~gzpn~kp~service~rs~gazprom-neft.ru/rs/kp/',
-        //baseUrl: 'http://109.195.85.121:5010/',
         baseUrl: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/`,
         prepareHeaders: (headers, { getState }) => {
             // By default, if we have a token in the store, let's use that for authenticated requests

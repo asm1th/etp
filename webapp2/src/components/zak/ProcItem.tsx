@@ -3,9 +3,7 @@ import { Layout } from "@consta/uikit/LayoutCanary";
 import { IconTop } from '@consta/uikit/IconTop';
 import { IconDown } from '@consta/uikit/IconDown';
 import { useAppSelector } from "../../hooks/redux";
-import { Column } from '@consta/charts/Column'
 import { Link } from 'react-router-dom';
-import { IProc } from "../../store/reducers/zak/IZak"
 import { Badge } from "@consta/uikit/Badge";
 
 const ProcItem = (props: { proc_id: string }) => {
@@ -15,7 +13,7 @@ const ProcItem = (props: { proc_id: string }) => {
 
     return (
         <div className="procItem">
-            <Link to={'/etp/zak/proc?id=' + props.proc_id}>
+            <Link to={'/etp/zak/proc?proc_id=' + props.proc_id}>
                 <Layout className="mt05 jcsb">
                     <Text size="m" className="proclink">
                         {proc.title}
@@ -32,13 +30,13 @@ const ProcItem = (props: { proc_id: string }) => {
                     <Layout direction="column" className="mr2">
                         <Text size="xs" view="secondary" className="mb05">Начало приема</Text>
                         <Layout>
-                            <Badge status="system" view="stroked" label={proc.date_start} />
+                            <Badge status="system" view="stroked" label={proc.date_start +' | '+proc.date_start_time} />
                         </Layout>
                     </Layout>
                     <Layout direction="column">
                         <Text size="xs" view="secondary" className="mb05">Окончание приема</Text>
                         <Layout>
-                            <Badge status="warning" view="stroked" label={proc.date_end} />
+                            <Badge status="warning" view="stroked" label={proc.date_end +' | '+proc.date_end_time} />
                         </Layout>
                     </Layout>
                 </Layout>

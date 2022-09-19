@@ -6,6 +6,10 @@
     align-content: center;
 }
 
+.aifs{
+    align-items: flex-start;
+}
+
 .tac {
     text-align: center;
 }
@@ -106,6 +110,7 @@ body .Modal-Window {
 .KPItog .Collapse-Label {
     background: #e9eaff;
     padding: 3px 1rem;
+    border: 3px;
 }
 
 .KPItog .CollapseIcon {

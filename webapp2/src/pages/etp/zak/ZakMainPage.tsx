@@ -4,10 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { dashSlice } from "../../../store/reducers/dash/dashSlice";
 import Sidebar from "../../../components/dash/Sidebar";
 import ZakFilterProc from '../../../components/zak/ZakFilterProc';
-import './Zak.css'
+import './ZakMainPage.css'
 import { Text } from '@consta/uikit/Text';
-import { Link } from "react-router-dom";
-import { Badge } from "@consta/uikit/Badge";
 import { Layout } from "@consta/uikit/LayoutCanary";
 import { Pagination } from '@consta/uikit/Pagination';
 import { Button } from "@consta/uikit/Button";
@@ -17,7 +15,7 @@ import  ProcItem  from "../../../components/zak/ProcItem";
 import  ProcItemHor  from "../../../components/zak/ProcItemHor";
 
 
-const Zak: FC = () => {
+const ZakMainPage: FC = () => {
     const dispatch = useAppDispatch()
 
     const { isToggleSidebar } = useAppSelector(state => state.dashReducer)
@@ -65,9 +63,9 @@ const Zak: FC = () => {
                     </Layout>
                     {procList.map(({ id, title, num, desc, date_start, date_end }) => (
                         listStyle ? (
-                            <ProcItem proc_id={id}/>
+                            <ProcItem key={id} proc_id={id}/>
                         ) : (
-                            <ProcItemHor proc_id={id}/>
+                            <ProcItemHor key={id} proc_id={id}/>
                         )
                     ))}
 
@@ -87,5 +85,5 @@ const Zak: FC = () => {
     );
 };
 
-export default Zak;
+export default ZakMainPage;
 
