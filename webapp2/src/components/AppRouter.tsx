@@ -14,7 +14,7 @@ import EtpLoginCode from "../pages/etp/LoginCode";
 import EtpLogin from "../pages/etp/Login";
 import Registration from "../pages/etp/Registration";
 import Dash from "../pages/etp/Dash";
-import Zak from "../pages/etp/zak/Zak";
+import ZakMainPage from "../pages/etp/zak/ZakMainPage";
 import Proc from "../pages/etp/zak/Proc";
 import Zayavka from "../pages/etp/zak/Zayavka";
 
@@ -33,7 +33,7 @@ const AppRouter = () => {
 
           <Route path="/etp" element={<Dash />} />
           <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
-          <Route path="/etp/zak" element={isAuth ? <Zak /> : <Navigate to="/etp/login" />} />
+          <Route path="/etp/zak" element={isAuth ? <ZakMainPage /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak/proc" element={<Proc />} />
           <Route path="/etp/zak/proc/zayavka" element={<Zayavka />} />
           <Route path="/etp/login" element={<EtpLogin />} />

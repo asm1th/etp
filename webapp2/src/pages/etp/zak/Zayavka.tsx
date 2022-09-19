@@ -30,6 +30,7 @@ import { Timer } from "@consta/uikit/Timer";
 import './Proc.css'
 import { Tabs } from '@consta/uikit/Tabs';
 import { zakSlice } from "../../../store/reducers/zak/zakSlice";
+import ZayavkaForm from "../../../components/zak/proc/ZayavkaForm";
 
 
 
@@ -59,37 +60,6 @@ const Zayavka = () => {
 
     const [date1, setDate1] = useState<Date | null>(null);
 
-    type Item = {
-        name: string;
-    };
-
-    const items = [{
-        name: 'Контактные данные'
-    }, {
-        name: 'Информация по критериям'
-    }, {
-        name: 'Документация по формам'
-    }, {
-        name: 'Ценовое предложение'
-    }];
-    const [tab, setTab] = useState<Item>(items[0]);
-
-    const handleField = (e: any) => {
-        //dispatch(zakSlice.actions.setZayavka({ prop: e.name, value: e.value }))
-    }
-
-    const zayavka = {
-        fio: "",
-        phone: "",
-        address: "",
-        email: ""
-    }
-    const formErrors = {
-        fio: "",
-        phone: "",
-        address: "",
-        email: ""
-    }
 
     return (
         <>
@@ -121,6 +91,7 @@ const Zayavka = () => {
                                 <Text size="s">{lotCur.title}</Text>
                             </Layout>
                             <Layout className="mt1 mb1">
+                                {/* <DatePicker type="date-time" label="Дата и время последнего изменения" value={date1} onChange={({ value }) => setDate1(value)} />;*/}
                                 <Layout direction="column" className="mr2">
                                     <Text size="xs" view="secondary" className="mb05">Дата и время изменения</Text>
                                     <Layout>
@@ -163,92 +134,7 @@ const Zayavka = () => {
                         <Button label="Отказаться от участия" view="secondary" disabled={true} iconLeft={IconCancel} onClick={() => handleToggleSidebar(true)} />
                     </Layout>
 
-
-                    <Tabs
-                        value={tab}
-                        onChange={({ value }) => setTab(value)}
-                        items={items}
-                        getLabel={(item) => item.name}
-                        className="mb1"
-                    />
-                    <div style={{ display: tab.name === items[0].name ? 'block' : 'none' }}>
-                        <Text size="m" className="mb1">Заполните данные контактного лица</Text>
-                        <TextField
-                            className="mt1"
-                            label="ФИО"
-                            name="fio"
-                            type="text"
-                            placeholder="Введите ФИО"
-                            width="full"
-                            required
-                            value={zayavka.fio}
-                            onChange={(e: any) => handleField(e)}
-                            status={formErrors.fio === "" ? undefined : "alert"}
-                            caption={formErrors.fio}
-                        />
-                        <TextField
-                            className="mt1"
-                            label="Телефон"
-                            name="phone"
-                            type="text"
-                            placeholder="Введите телефон"
-                            width="full"
-                            required
-                            value={zayavka.phone}
-                            onChange={(e: any) => handleField(e)}
-                            status={formErrors.phone === "" ? undefined : "alert"}
-                            caption={formErrors.phone}
-                        />
-                        <TextField
-                            className="mt1"
-                            label="Email"
-                            name="email"
-                            type="text"
-                            placeholder="Введите email"
-                            width="full"
-                            required
-                            value={zayavka.email}
-                            onChange={(e: any) => handleField(e)}
-                            status={formErrors.email === "" ? undefined : "alert"}
-                            caption={formErrors.email}
-                        />
-                        <TextField
-                            className="mt1"
-                            label="Адрес"
-                            name="address"
-                            type="text"
-                            placeholder="Введите адрес"
-                            width="full"
-                            required
-                            value={zayavka.address}
-                            onChange={(e: any) => handleField(e)}
-                            status={formErrors.address === "" ? undefined : "alert"}
-                            caption={formErrors.address}
-                        />
-
-                    </div>
-                    <div style={{ display: tab.name === items[1].name ? 'block' : 'none' }}>
-                        <Text size="m" className="mb1">1</Text>
-
-                    </div>
-                    <div style={{ display: tab.name === items[2].name ? 'block' : 'none' }}>
-                        <Text size="m" className="mb1">2</Text>
-
-                    </div>
-                    <div style={{ display: tab.name === items[3].name ? 'block' : 'none' }}>
-                        <Text size="m" className="mb1">3</Text>
-
-                    </div>
-
-
-
-                    {/* <DatePicker type="date-time" label="Дата и время последнего изменения" value={date1} onChange={({ value }) => setDate1(value)} />;
- */}
-
-
-
-
-
+                    <ZayavkaForm/>
 
                 </div>
             </main>
