@@ -10,6 +10,10 @@
     align-items: flex-start;
 }
 
+.aife{
+    align-items: flex-end;
+}
+
 .tac {
     text-align: center;
 }
@@ -214,4 +218,8 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
 
 .Responses .ResponsesImageNothingFound {
     width: 190px;
+}
+
+.SelectDropdown_form_default {
+    z-index: 15;
 }

@@ -14,28 +14,17 @@ import { IconBackward } from "@consta/uikit/IconBackward";
 import { IconCancel } from "@consta/uikit/IconCancel";
 import { IconAllDone } from "@consta/uikit/IconAllDone";
 import { IconRevert } from "@consta/uikit/IconRevert";
-
-import { Card } from "@consta/uikit/Card";
-import { Checkbox } from '@consta/uikit/Checkbox';
-import { Attachment } from '@consta/uikit/Attachment';
-import { Grid, GridItem } from '@consta/uikit/Grid';
-import { IconDownload } from '@consta/uikit/IconDownload';
-import { Modal } from '@consta/uikit/Modal';
-import { IconClose } from '@consta/uikit/IconClose';
-import { TextField } from "@consta/uikit/TextField";
-import { FileField, FileFieldProps } from '@consta/uikit/FileField';
 import { ILot, IProc } from "../../../store/reducers/zak/IZak";
-import { DatePicker } from "@consta/uikit/DatePickerCanary";
 import { Timer } from "@consta/uikit/Timer";
 import './Proc.css'
-import { Tabs } from '@consta/uikit/Tabs';
-import { zakSlice } from "../../../store/reducers/zak/zakSlice";
 import ZayavkaForm from "../../../components/zak/proc/ZayavkaForm";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Zayavka = () => {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate();
 
     const { isToggleSidebar } = useAppSelector(state => state.dashReducer)
     const handleToggleSidebar = (checked: boolean) => {
@@ -45,7 +34,7 @@ const Zayavka = () => {
 
     const pagesNoIcon = [{
         label: 'Главная',
-        href: '/',
+        href: '/etp',
     }, {
         label: 'Закупочные процедуры',
         href: '/etp/zak',
@@ -58,8 +47,9 @@ const Zayavka = () => {
     const procCur = procList[procList.findIndex((proc: IProc) => proc.id === proc_id)]
     const lotCur = procCur.lots[procCur.lots.findIndex((lot: ILot) => lot.id === lot_id)]
 
-    const [date1, setDate1] = useState<Date | null>(null);
-
+    const handleBack = () => {
+        navigate('/etp/zak/proc?proc_id=' + proc_id)
+    };
 
     return (
         <>
@@ -73,11 +63,13 @@ const Zayavka = () => {
 
                 <div className="zakContainer">
                     <Breadcrumbs items={pagesNoIcon} size="s" className="mb2" />
-                    <Button label="Назад к списку лотов" className="btnBack mt1" iconLeft={IconBackward} view="clear" />
+                    <Button label="Назад к списку лотов" onClick={handleBack} className="btnBack mt1" iconLeft={IconBackward} view="clear" />
                     <Layout className="mb1 aifs jcsb">
                         <Layout direction="column" className="mr2">
                             <Text size="m" className="Title mb1 mt1">Заявка участника к процедуре {procCur.num}, Лот №{lot_id}</Text>
-                            <Layout><Badge size="s" status="system" label="Заявка не подана" /></Layout>
+                            <Layout>
+                                <Badge size="s" status={lotCur.status === "Заявка не подана" ? "normal" : lotCur.status === "Завершена" ? "system" : "success" } label={lotCur.status} />
+                            </Layout>
                             {/* <Layout className="mt1 mr2">
                                 <Text size="s" view="secondary" className="mr05">Номер лота:</Text>
                                 <Text size="s">{lotCur.num}</Text>
@@ -95,7 +87,7 @@ const Zayavka = () => {
                                 <Layout direction="column" className="mr2">
                                     <Text size="xs" view="secondary" className="mb05">Дата и время изменения</Text>
                                     <Layout>
-                                        <Badge status="system" view="stroked" label={procCur.date_start + ' | ' + procCur.date_start_time} />
+                                        <Badge status="normal" view="stroked" label={procCur.date_start + ' | ' + procCur.date_start_time} />
                                     </Layout>
                                 </Layout>
                                 <Layout direction="column">
@@ -117,21 +109,24 @@ const Zayavka = () => {
                                     </Layout>
                                     <Layout direction="column" className="aic mt05 ml1 mr1">
                                         <Timer size="2xl" seconds={10} progress={80} />
-                                        <Text view="brand" size="xs" className="mt05" transform="uppercase">Минут</Text>
+                                        <Text view="brand" size="xs" className="mt05" transform="uppercase">Часов</Text>
                                     </Layout>
                                     <Layout direction="column" className="aic mt05">
                                         <Timer size="2xl" seconds={5} progress={80} />
-                                        <Text view="brand" size="xs" className="mt05" transform="uppercase">Часов</Text>
+                                        <Text view="brand" size="xs" className="mt05" transform="uppercase">Минут</Text>
                                     </Layout>
                                 </Layout>
                             </Layout>
                         </Layout>
                     </Layout>
 
-                    <Layout className="mb2 pb2 bb">
-                        <Button label="Подать заявку" className="mr05" view="primary" iconLeft={IconAllDone} onClick={() => handleToggleSidebar(true)} />
-                        <Button label="Отозвать заявку и изменить" className="mr05" view="secondary" iconLeft={IconRevert} onClick={() => handleToggleSidebar(true)} />
-                        <Button label="Отказаться от участия" view="secondary" disabled={true} iconLeft={IconCancel} onClick={() => handleToggleSidebar(true)} />
+                    <Layout className="mb2 pb2 bt pt2">
+                        {lotCur.status==="Заявка подана" ? (
+                            <Button label="Отозвать заявку и изменить" className="mr05" iconLeft={IconRevert} onClick={() => handleToggleSidebar(true)} />
+                        ) : (
+                            <Button label="Подать заявку" className="mr05" view="primary" iconLeft={IconAllDone} onClick={() => handleToggleSidebar(true)} />
+                        )}
+                        <Button label="Отказаться от участия" view="secondary" disabled={lotCur.status==="Заявка подана" ? false : true} iconLeft={IconCancel} onClick={() => handleToggleSidebar(true)} />
                     </Layout>
 
                     <ZayavkaForm/>

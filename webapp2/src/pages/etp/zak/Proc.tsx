@@ -38,7 +38,7 @@ const Proc = () => {
 
     const pagesNoIcon = [{
         label: 'Главная',
-        href: '/',
+        href: '/etp',
     }, {
         label: 'Закупочные процедуры',
         href: '/etp/zak',
@@ -56,6 +56,11 @@ const Proc = () => {
         navigate('/etp/zak/proc/zayavka?proc_id=' + proc_id + '&lot_id=' + lot_id)
     }
 
+    const handleBack = () => {
+        navigate('/etp/zak/')
+    };
+
+
     return (
         <>
             <Sidebar
@@ -68,7 +73,7 @@ const Proc = () => {
 
                 <div className="zakContainer">
                     <Breadcrumbs items={pagesNoIcon} size="s" className="mb2" />
-                    <Button label="Назад к списку процедур" className="btnBack mt1" iconLeft={IconBackward} view="clear" />
+                    <Button label="Назад к списку процедур" onClick={handleBack} className="btnBack mt1" iconLeft={IconBackward} view="clear" />
                     <Text size="m" className="Title mb1 mt1">{procCur.title}</Text>
                     <Text size="s" view="secondary" className="mt1">Полное наименование процедуры:</Text>
                     <Text size="m" className="mb2 mt05">{procCur.desc}</Text>
@@ -83,15 +88,19 @@ const Proc = () => {
                                 <Layout className="jcsb aic">
                                     <Text size="l" className="colorBlue mr2">{title}</Text>
                                     <Layout>
-                                        <Button label="Задать вопрос" className="mr05" view="secondary" onClick={() => setIsModalOpen1(true)} />
-                                        <Button label="Подать заявку" className="mr05" iconRight={IconForward} view="primary" onClick={()=>sendZayavka(id)} />
+                                        <Button label="Задать вопрос" size="s" className="mr05" view="secondary" onClick={() => setIsModalOpen1(true)} />
+                                        {status === "Заявка не подана" ? (
+                                            <Button label="Подать заявку" size="s" className="mr05" iconRight={IconForward} view="primary" onClick={()=>sendZayavka(id)} />
+                                        ) : (
+                                            <Button label="Смотреть отправленную завку" size="s" className="mr05" onClick={()=>sendZayavka(id)} />
+                                        )}
                                     </Layout>
                                 </Layout>
 
                                 <Layout className="bb pb1 mb1" direction="column">
                                     <Layout direction={collapsed ? "column" : "row"}>
                                         <Layout className="mt1 mr2">
-                                            <Badge status={status === "ЗАЯВКА НЕ ПОДАНА" ? "system" : "success"} label={status} />
+                                            <Badge status={status === "Заявка не подана" ? "system" : "success"} label={status} />
                                         </Layout>
                                         <Layout className="mt1 mr2">
                                             <Text size="s" view="secondary" className="mr05">Номер лота:</Text>
@@ -144,11 +153,11 @@ const Proc = () => {
                                         </Layout>
                                     ) : null}
                                 </Layout>
-                                <Layout className="mt05 jcsb">
+                                <Layout className="mt05 jcsb aife">
                                     <Layout>
                                         <Layout direction="column" className="mr2">
                                             <Text size="xs" view="secondary" className="mb05">Начало приема</Text>
-                                            <Layout><Badge status="system" view="stroked" label={procCur.date_start + " | " + procCur.date_start_time} /></Layout>
+                                            <Layout><Badge status="normal" view="stroked" label={procCur.date_start + " | " + procCur.date_start_time} /></Layout>
                                         </Layout>
                                         <Layout direction="column">
                                             <Text size="xs" view="secondary" className="mb05">Окончание приема</Text>
