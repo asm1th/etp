@@ -1,6 +1,9 @@
 export interface IZak {
     procList: IProc[]
     zakForm: IZakForm
+    criterions: IZakCriterionsRow[]
+    docs: IDocsRow[]
+    formPrice: IFormPrice
 }
 
 export interface IProc {
@@ -38,9 +41,49 @@ export interface IFile {
     fileDescription: string
 }
 
-export interface IZakForm{
+export interface IZakForm {
     fio: string
     phone: string
     address: string
     email: string
+}
+
+export interface IZakCriterionsRow {
+    id: string
+    num: string
+    name: string
+    critNum: string
+    status: boolean
+    menge: string
+    treb: string
+    docs: string
+    answer: string
+    answer_descr: string
+    action: boolean
+    rows: IZakCriterionsRow[]
+}
+
+export interface IDocFile {
+    fileName: string
+    fileExtension: string
+    fileBody: string
+    fileCreated: string
+    fileUser: string
+}
+
+export interface IDocsRow {
+    id: string
+    num: string
+    reqired: boolean
+    title: string
+    ki: boolean
+    format: string
+    fileName: string
+    file: IDocFile[]
+    action: boolean
+}
+
+export interface IFormPrice {
+   waers: string
+   price: string
 }

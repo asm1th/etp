@@ -18,7 +18,7 @@ import { Checkbox } from '@consta/uikit/Checkbox';
 
 const pagesNoIcon = [{
     label: 'Главная',
-    href: '/',
+    href: '/etp',
 }, {
     label: 'Закупочные процедуры',
     href: '/etp/zak',

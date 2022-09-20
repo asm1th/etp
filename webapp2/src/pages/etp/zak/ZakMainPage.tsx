@@ -26,7 +26,7 @@ const ZakMainPage: FC = () => {
 
     const pagesNoIcon = [{
         label: 'Главная',
-        href: '/',
+        href: '/etp',
     }, {
         label: 'Закупочные процедуры',
         href: '/etp/zak',

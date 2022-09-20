@@ -14,11 +14,11 @@ const ProcItem = (props: { proc_id: string }) => {
     return (
         <div className="procItem">
             <Link to={'/etp/zak/proc?proc_id=' + props.proc_id}>
-                <Layout className="mt05 jcsb">
+                <Layout className="mt05 jcsb aic">
                     <Text size="m" className="proclink">
                         {proc.title}
                     </Text>
-                    <Badge size="xs" status="system" label="Заявка не подана" className="mt05" />
+                    <Badge size="xs" status={proc.status === "Заявка не подана" ? "normal" : proc.status === "Завершена" ? "system" : "success" } label={proc.status} />
                 </Layout>
                 <Text size="s" className="mb05 mt1">
                     <b>№ Процедуры</b> — {proc.num}
@@ -30,7 +30,7 @@ const ProcItem = (props: { proc_id: string }) => {
                     <Layout direction="column" className="mr2">
                         <Text size="xs" view="secondary" className="mb05">Начало приема</Text>
                         <Layout>
-                            <Badge status="system" view="stroked" label={proc.date_start +' | '+proc.date_start_time} />
+                            <Badge status="normal" view="stroked" label={proc.date_start +' | '+proc.date_start_time} />
                         </Layout>
                     </Layout>
                     <Layout direction="column">

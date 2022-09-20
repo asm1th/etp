@@ -28,21 +28,20 @@ const ProcItemHor = (props: { proc_id: string }) => {
                         </Text>
                     </Layout>
                     <Layout flex={3} className="jcfe aic acc">
-
                         <Text size="xs" view="secondary" className="mr1">Начало приема</Text>
-                        <Layout><Badge status="system" view="stroked" label={proc.date_start} /></Layout>
-
+                        <Layout>
+                            <Badge status="normal" view="stroked" label={proc.date_start} />
+                            </Layout>
                         <Text size="xs" view="secondary" className="mr1">Окончание приема</Text>
-                        <Layout><Badge status="warning" view="stroked" label={proc.date_end} /></Layout>
-                        <Badge size="xs" status="system" label="Заявка не подана" className="ml2" />
-
+                        <Layout>
+                            <Badge status="warning" view="stroked" label={proc.date_end} />
+                        </Layout>
+                        <Badge size="xs" status={proc.status === "Заявка не подана" ? "normal" : proc.status === "Завершена" ? "system" : "success" } label={proc.status} className="ml2" />
                     </Layout>
                 </Layout>
-
                 <Text size="s" className="mt1">
                     {proc.desc}
                 </Text>
-
             </Link>
         </div>
     );

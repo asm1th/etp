@@ -1,16 +1,21 @@
 import React, { useState } from "react";
-import { Layout } from "@consta/uikit/LayoutCanary";
 import { TextField } from "@consta/uikit/TextField";
 import { Tabs } from '@consta/uikit/Tabs';
 import { Text } from '@consta/uikit/Text';
 import { Button } from "@consta/uikit/Button";
-import { IconLock } from "@consta/uikit/IconLock";
+import { IconSave } from "@consta/uikit/IconSave";
+
 import { zakSlice } from "../../../store/reducers/zak/zakSlice";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import './ZayavkaForm.css'
 import PhoneInput from 'react-phone-number-input'
 import ru from 'react-phone-number-input/locale/ru.json'
 import ZayavkaFormCriterions from "./ZayavkaFormCriterions";
+import ZayavkaFormDocs from "./ZayavkaFormDocs";
+import ZayavkaFormPrice from "./ZayavkaFormPrice";
+
+
+
 
 type Item = {
     name: string;
@@ -34,7 +39,6 @@ let formErrors: any = {
 }
 
 let isSaveButtonValid = false
-
 
 
 const ZayavkaForm = () => {
@@ -149,16 +153,12 @@ const ZayavkaForm = () => {
                 <ZayavkaFormCriterions/>
             </div>
             <div style={{ display: tab.name === items[2].name ? 'block' : 'none' }}>
-                <Text size="m" className="mb1">2</Text>
-
+                <ZayavkaFormDocs/>
             </div>
             <div style={{ display: tab.name === items[3].name ? 'block' : 'none' }}>
-                <Text size="m" className="mb1">3</Text>
-
+                <ZayavkaFormPrice/>
             </div>
-
-            <Button onClick={sendForm} label="Сохранить заявку" iconLeft={IconLock} className="mt1" />
-
+            <Button onClick={sendForm} label="Сохранить заявку" iconLeft={IconSave} className="mt1" />
         </>
     );
 };
