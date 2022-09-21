@@ -290,7 +290,16 @@ export const docs: IDocsRow[] = [{
 
 export const formPrice: IFormPrice = {
     waers: "string",
-    price: "string"
+    price: "string",
+    price_vat: "string",
+    date_start_from: "string",
+    date_start_to: "string",
+    date_end_from: "string",
+    date_end_to: "string",
+    vat: "string",
+    isVat: false,
+    full_price: "string",
+    full_price_vat: "string"
 }
 
 export const initialState: IZak = {
