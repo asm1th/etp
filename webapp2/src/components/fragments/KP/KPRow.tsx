@@ -28,7 +28,7 @@ const KPRow = (props: { etapId: number }) => {
                             </Layout>
                             <Layout flex={1} className="cell jcc">
                                 <Text align="center">
-                                    {curUsrp.usl_quan_unit}
+                                    {curUsrp.usl_quan_unit_txt}
                                 </Text>
                             </Layout>
                             <Layout flex={1} className="cell jcc">

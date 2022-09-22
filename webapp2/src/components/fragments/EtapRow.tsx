@@ -21,19 +21,15 @@ const EtapRow = (props: { etapId: number }) => {
         id: string;
     };
 
-    const eiList: Item[] = [{
-        label: 'OBJ',
-        id: 'OBJ'
-    }, {
-        label: 'HAR',
-        id: 'HAR'
-    }, {
-        label: 'SRV',
-        id: 'SRV'
-    }, {
-        label: 'TAG',
-        id: 'TAG'
-    }];
+    const eiList: Item[] = [
+        {
+            label: 'Ч/Ч',
+            id: 'CHS'
+        },{
+            label: 'шт',
+            id: 'SHT'
+        }
+    ];
 
     type ndsItem = {
         label: string
@@ -55,6 +51,9 @@ const EtapRow = (props: { etapId: number }) => {
     }];
 
     const getSelected = (List: any, value: string) => {
+        
+        List.findIndex((List: any) => List.id === value)
+
         return List[List.findIndex((List: any) => List.id === value)]
     }
 
@@ -74,7 +73,7 @@ const EtapRow = (props: { etapId: number }) => {
 
     const handleChangeUsl_quan_unit = (kp_stage_guid: string, kp_unit_guid: string, value: { id: string, label: string }) => {
         let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
-        dispatch(sampSlice.actions.setUsl_quan_unit({ UnitFinder: UnitFinder, value: value.id }))
+        dispatch(sampSlice.actions.setUsl_quan_unit({ UnitFinder: UnitFinder, value: value.id, label: value.label }))
     }
 
     const handleChangeNsu_menge = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {

@@ -100,11 +100,12 @@ export const sampSlice = createSlice({
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUsrp.alt_name_unit = action.payload.value
         },
-        setUsl_quan_unit: (state, action: PayloadAction<IUnitStringPayload>) => {
+        setUsl_quan_unit: (state, action: PayloadAction<any>) => {
             const thisUnit = getUnit(state.stags, action.payload.UnitFinder)
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
             thisUnit.usl_quan_unit = action.payload.value
             thisUsrp.usl_quan_unit = action.payload.value
+            thisUsrp.usl_quan_unit_txt = action.payload.label
         },
         setNsu_menge: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thiStage = findStage(state.stags, action.payload.UnitFinder.kp_stage_guid)

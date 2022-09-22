@@ -10,13 +10,15 @@ import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
 import { useAppSelector } from "../../hooks/redux";
 
+
+
 const KPpage: FC = () => {
 
     //test
     const params = useLocation().search;
     const {kp_sample_guid} = useAppSelector(state => state.authReducer)
-    const this_kp_sample_guid = new URLSearchParams(params).get("kp_sample_guid") || kp_sample_guid || ''
-    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_kp_sample_guid);
+    const this_samp_id = new URLSearchParams(params).get("samp") || kp_sample_guid || ''
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_samp_id);
     //.test
 
     return (

@@ -17,16 +17,13 @@ import { zakSlice } from "../../../store/reducers/zak/zakSlice";
 
 
 type Item = {
-    label: string;
-    id: number;
+    label: string
+    id: string
 };
 
 const items: Item[] = [{
-    label: 'Rub',
-    id: 1,
-}, {
-    label: 'USD',
-    id: 2,
+    label: 'Российский рубль',
+    id: 'RUB',
 }];
 
 const ZayavkaFormPrice = () => {
@@ -50,7 +47,7 @@ const ZayavkaFormPrice = () => {
 
     }
 
-    const msg = "Подсказка"
+    const msg = "При активном индикаторе расчет стоимости с учетом НДС выполняется автоматически"
 
     const getSelected = (List: any, value: string) => {
         return List[List.findIndex((List: any) => List.id === value)]
@@ -64,9 +61,9 @@ const ZayavkaFormPrice = () => {
     return (
         <>
             <PopoverCustom position={position} text={msg} />
+            <Text size="m" className="mb1 mt2">Ценовое предложение</Text>
             <Layout >
-                <Layout direction="column" className="ml2">
-                    <Text size="m" className="mb1 mt2">Ценовое предложение</Text>
+                <Layout direction="column">
                     <Select
                         name="vat"
                         label="Валюта"
@@ -76,7 +73,6 @@ const ZayavkaFormPrice = () => {
                         value={getSelected(items, formPrice.waers)}
                         required={true}
                         onChange={({ value }) => handleFieldWaers(value)}
-
                     />
                     <TextField
                         name="price"
@@ -97,7 +93,7 @@ const ZayavkaFormPrice = () => {
                         className="mt1"
                         width="full" />
                 </Layout>
-                <Layout direction="column" className="ml2">
+                <Layout direction="column" className="ml2 mr2">
                     <DatePicker
                         name="date_start_from"
                         value={formPrice.date_start_from ? [new Date(formPrice.date_start_from), new Date(formPrice.date_start_to)] : undefined}
@@ -107,7 +103,7 @@ const ZayavkaFormPrice = () => {
                         leftSide={IconCalendar}
                         size="s"
                         type="date-range"
-                        className="mt1" />
+                        style={{width: '250px'}}/>
                     <DatePicker
                         name="date_end_from"
                         value={formPrice.date_start_from ? [new Date(formPrice.date_end_from), new Date(formPrice.date_end_to)] : undefined}
@@ -117,22 +113,25 @@ const ZayavkaFormPrice = () => {
                         leftSide={IconCalendar}
                         size="s"
                         type="date-range"
-                        className="mt1" />
+                        className="mt1" 
+                        style={{width: '250px'}}/>
                 </Layout>
                 <Layout direction="column">
-                    <Layout>
+                    <Layout className="aic">
                         <TextField
                             placeholder="Ставка НДС"
                             label="Ставка НДС"
                             size="s"
                             value={formPrice.vat}
                             onChange={({ e }: any) => { handleField(e) }}
-                            className="mt1"
+                            className="mr1"
                         />
-                        <Checkbox label="Расчет НДС" checked={formPrice.isVat} />
-                        <div onMouseMove={(e) => handleMouseMove(e)} onMouseLeave={() => setPosition(undefined)}>
-                            <IconInfo size="s" view="ghost" className="infoPopoverIcon" />
-                        </div>
+                        <Layout style={{marginTop: '27px'}} className="aic">
+                            <Checkbox label="Расчет НДС" checked={formPrice.isVat} />
+                            <div onMouseMove={(e) => handleMouseMove(e)} onMouseLeave={() => setPosition(undefined)}>
+                                <IconInfo size="s" view="ghost" className="infoPopoverIcon" />
+                            </div>
+                        </Layout>
                     </Layout>
                     <TextField
                         placeholder="Сумма НДС"
