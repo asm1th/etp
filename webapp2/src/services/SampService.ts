@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { json } from "stream/consumers";
 import { ISampNew, ILink, IUsrp } from "../models/ISamp";
 import { RootState } from '../store/store'
 
@@ -13,6 +14,7 @@ export const sampAPI = createApi({
             const token = (getState() as RootState).authReducer.token
             if (token) {
                 headers.set('authorization', `Bearer ${token}`)
+                //headers.set('content-type','application/json;charset=UTF-8')
             }
             return headers
         },
@@ -30,7 +32,8 @@ export const sampAPI = createApi({
             query: (linkBody) => ({
                 url: `/link`,
                 method: 'PUT',
-                body: linkBody
+                body: linkBody 
+                //body: encodeURI(JSON.stringify(linkBody))
             }),
             invalidatesTags: ['Samp']
         }),

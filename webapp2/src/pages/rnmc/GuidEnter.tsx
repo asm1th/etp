@@ -12,7 +12,7 @@ const GuidEnter: FC = () => {
 
     const navigate = useNavigate()
     const onSubmit = () => {
-        navigate('?kp_sample_guid=' + kp_sample_guid)
+        navigate('?samp=' + kp_sample_guid)
     }
 
     return (

@@ -61,6 +61,7 @@ export interface IUsrp {
     link_id: string
     prices_user: string
     usl_quan_unit: string
+    usl_quan_unit_txt: string
     nsu_menge: string
     vat_rate: string
     alt_name_unit: string
