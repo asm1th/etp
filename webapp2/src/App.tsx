@@ -10,7 +10,7 @@ const App: FC = () => {
             <Theme preset={presetGpnDefault}>
                 <AppRouter />
 
-                <div style={{ position: 'fixed', zIndex: '200', background: '#ccc', right: '0', bottom: '0', padding:'2px 5px' }}>
+                <div style={{ display:'none', position: 'fixed', zIndex: '200', background: '#ccc', right: '0', bottom: '0', padding:'2px 5px' }}>
                 <Link to="/etp/login">login</Link> ..
                     <Link to="/etp/logincode">login code</Link> ..
                     <Link to="/etp/reg">регистрация</Link>  ..

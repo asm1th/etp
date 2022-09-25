@@ -21,7 +21,7 @@ import { IconClose } from '@consta/uikit/IconClose';
 
 const SampFooterButtons: FC = () => {
     const dispatch = useDispatch()
-    const { kp_send_date, stags } = useAppSelector(state => state.sampReducer)
+    const { kp_sample_guid, kp_send_date, stags } = useAppSelector(state => state.sampReducer)
 
     const attach = (e: any) => {
         console.log(e)
@@ -39,7 +39,8 @@ const SampFooterButtons: FC = () => {
         navigate('/kp');
         validateKP()
     }
-    const toHome = () => navigate('/');
+
+    const toHome = () => navigate('/?samp=' + kp_sample_guid)
 
     const validateKP = () => {
         stags.forEach(stag => {

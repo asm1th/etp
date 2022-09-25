@@ -22,8 +22,8 @@ export interface ILink {
     info_ka_email: string
     info_ka_name: string
     kp_offer_expire_date: string | null
-    travel_exp: string
-    travel_exp_comm: string
+    travel_exp: string | null
+    travel_exp_comm: string | null
 
     kp_sample_guid: string
 }
