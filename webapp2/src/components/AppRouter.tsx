@@ -29,7 +29,7 @@ const AppRouter = () => {
           <Route path="/login" element={isAuth ? <Navigate to="/" /> : <Login />}/> 
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 
           <Route path="/logout" element={<Logout/>}/> 
-          <Route path="*" element={<Responses404 />} />
+          <Route path="*" element={<Responses404 actions={<></>}/>} />
 
           <Route path="/etp" element={<Dash />} />
           <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
