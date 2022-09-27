@@ -40,7 +40,7 @@ const Zayavka = () => {
         href: '/etp/zak',
     }]
 
-    const { procList } = useAppSelector(state => state.zakReducer)
+    const { procList, isZakReadyToSend } = useAppSelector(state => state.zakReducer)
     const params = useLocation().search;
     const proc_id = new URLSearchParams(params).get("proc_id") || ''
     const lot_id = new URLSearchParams(params).get("lot_id") || ''
@@ -124,7 +124,9 @@ const Zayavka = () => {
                         {lotCur.status==="Заявка подана" ? (
                             <Button label="Отозвать заявку и изменить" className="mr05" iconLeft={IconRevert} onClick={() => handleToggleSidebar(true)} />
                         ) : (
-                            <Button label="Подать заявку" className="mr05" view="primary" iconLeft={IconAllDone} onClick={() => handleToggleSidebar(true)} />
+                            <Button label="Подать заявку" disabled={!isZakReadyToSend} 
+                            className={`mr05 ${isZakReadyToSend ? 'pulse' : ''}`}
+                            view="primary" iconLeft={IconAllDone} onClick={() => handleToggleSidebar(true)} />
                         )}
                         <Button label="Отказаться от участия" view="secondary" disabled={lotCur.status==="Заявка подана" ? false : true} iconLeft={IconCancel} onClick={() => handleToggleSidebar(true)} />
                     </Layout>

@@ -6,11 +6,11 @@
     align-content: center;
 }
 
-.aifs{
+.aifs {
     align-items: flex-start;
 }
 
-.aife{
+.aife {
     align-items: flex-end;
 }
 
@@ -225,4 +225,32 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
 
 .SelectDropdown_form_default {
     z-index: 15;
+}
+
+.Button.pulse {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+
+.Button.pulse:hover {
+    -webkit-animation: none;
+    animation: none;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(109, 177, 240, 0.9);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(109, 177, 240, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(109, 177, 240, 0);
+	}
 }

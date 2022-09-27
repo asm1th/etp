@@ -12,18 +12,22 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { IconAdd } from '@consta/uikit/IconAdd';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import PopoverCustom from "../../util/PopoverCustom";
-import { Tooltip } from '@consta/uikit/Tooltip';
 import { Modal } from '@consta/uikit/Modal';
 import { Select } from '@consta/uikit/Select';
 import { IconAttach } from '@consta/uikit/IconAttach';
 import { IconDocFilled } from '@consta/uikit/IconDocFilled';
+import { IconSave } from "@consta/uikit/IconSave";
+import { IZakCriterionsRow, IZakFormTab } from "../../../store/reducers/zak/IZak";
+import { zakSlice } from "../../../store/reducers/zak/zakSlice";
 
 
 
 const msg = "Статус обработки данных"
 
 const ZayavkaFormCriterions = () => {
-
+    const dispatch = useAppDispatch()
+    const { criterions: rows, zakFormTabs } = useAppSelector(state => state.zakReducer)
+    
     //popover
     type Position = any;
     const [position, setPosition] = useState<Position>(undefined)
@@ -32,8 +36,6 @@ const ZayavkaFormCriterions = () => {
         setPosition({ x: event.clientX, y: event.clientY })
     };
     ///
-
-    const { criterions: rows } = useAppSelector(state => state.zakReducer)
 
     const columns: TableColumn<typeof rows[number]>[] = [
         {
@@ -78,7 +80,7 @@ const ZayavkaFormCriterions = () => {
         }, {
             title: 'Подтвержд. документы',
             accessor: 'docs',
-            renderCell: (row: any) => <>{row.action ? <><Button view="clear" iconSize="s" iconLeft={IconAttach}/><Button view="clear" iconSize="s" iconLeft={IconDocFilled}/></> :null}</>,
+            renderCell: (row: any) => <>{row.action ? <><Button view="clear" iconSize="s" iconLeft={IconAttach} /><Button view="clear" iconSize="s" iconLeft={IconDocFilled} /></> : null}</>,
         }, {
             title: 'Ответ',
             accessor: 'answer'
@@ -120,7 +122,22 @@ const ZayavkaFormCriterions = () => {
     const [answer, setAnswer] = useState<Item | null>();
     const [answer_descr, setAnswerDescr] = useState<any>();
 
-    //const buttonRef = React.createRef()
+    const sendTable = () => {
+        console.log(rows);
+        if (validateTable(rows)) {
+            dispatch(zakSlice.actions.setZakFormTabValid({ tabId: 1, isValid: true }))
+            alert("Данные сохранены")
+            setTab(zakFormTabs[2])
+        }
+    }
+
+    const validateTable = (rows: IZakCriterionsRow[]) => {
+        return rows.length > 0
+    }
+
+    const setTab = (tab:IZakFormTab) => {
+        dispatch(zakSlice.actions.setZakFormCurrentTab({ tab: tab }))
+    }
 
 
     return (
@@ -131,6 +148,12 @@ const ZayavkaFormCriterions = () => {
             </Tooltip> */}
             <Text size="l" className="mb1 mt2">Квалификационно - технические требования</Text>
             <Table rows={rows} columns={columns} borderBetweenRows onRowClick={handleCell} />
+
+            <Button
+                onClick={sendTable}
+                label="Сохранить требования"
+                iconLeft={IconSave} 
+                className="mt1" />
 
             <Modal
                 isOpen={isModalOpen}
@@ -166,10 +189,10 @@ const ZayavkaFormCriterions = () => {
                         type="textarea"
                         rows={7}
                         cols={50}
-                        className="mt1" 
+                        className="mt1"
                         value={answer_descr}
                         onChange={({ value }) => setAnswerDescr(value)}
-                        />
+                    />
                 </div>
                 <div className="ModalFooter">
                     <Button
