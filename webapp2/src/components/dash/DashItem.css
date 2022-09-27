@@ -5,31 +5,34 @@
 .dashItem {
     height: 120px;
     background: #ffffff;
-    box-shadow: 0px 4px 8px rgba(138, 138, 138, 0.25);
+    box-shadow: 0px 4px 8px rgb(138 138 138 / 25%);
     border-radius: 20px;
     padding: 1rem 2rem;
-
     min-width: 120px;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
     float: left;
     margin-right: 20px;
     text-decoration: none;
     display: flex;
-
     transition: all linear .1s;
+    width: 270px;
+    margin-bottom: 20px;
 }
 
 .dashItem:hover {
     transform: scale(1.05);
 }
 
+.dashItemCont{
+    justify-content: space-between;
+    width: 100%;
+}
 
 .dashItemLabel {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 19px;
     color: #6b6b6b;
+    max-width: 210px;
+    margin-bottom: 6px;
 }
 
 .dashItemNumbers {
@@ -62,4 +65,12 @@
 }
 .dashItemChart{
     margin-left: 10px;
+    width: 40%;
+    align-self: center;
 }
+.dashItemNumber {
+    flex-grow: 1;
+    align-self: center;
+}
+
+

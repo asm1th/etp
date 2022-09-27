@@ -3,7 +3,7 @@ export interface IZak {
     zakForm: IZakForm
     criterions: IZakCriterionsRow[]
     docs: IDocsRow[]
-    formPrice: IFormPrice
+    zakPrice: IZakPrice
 }
 
 export interface IProc {
@@ -83,7 +83,7 @@ export interface IDocsRow {
     action: boolean
 }
 
-export interface IFormPrice {
+export interface IZakPrice {
    waers: string
    price: string
    price_vat: string

@@ -13,6 +13,7 @@ import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import PopoverCustom from "../../util/PopoverCustom";
 import { zakSlice } from "../../../store/reducers/zak/zakSlice";
+import { format } from "date-fns";
 
 
 
@@ -26,9 +27,9 @@ const items: Item[] = [{
     id: 'RUB',
 }];
 
-const ZayavkaFormPrice = () => {
+const ZayavkazakPrice = () => {
     const dispatch = useAppDispatch()
-    const { formPrice } = useAppSelector(state => state.zakReducer)
+    const { zakPrice } = useAppSelector(state => state.zakReducer)
 
     //popover
     type Position = any;
@@ -40,11 +41,11 @@ const ZayavkaFormPrice = () => {
     //
 
     const handleField = (e: any) => {
-        dispatch(zakSlice.actions.setZakForm({ prop: e.name, value: e.value }))
+        dispatch(zakSlice.actions.setZakPrice({ prop: e.target.name, value: e.target.value }))
     }
 
     const handleFieldWaers = (e: any) => {
-
+        dispatch(zakSlice.actions.setZakPrice({ prop: "waers", value: e.id }))
     }
 
     const msg = "При активном индикаторе расчет стоимости с учетом НДС выполняется автоматически"
@@ -53,10 +54,14 @@ const ZayavkaFormPrice = () => {
         return List[List.findIndex((List: any) => List.id === value)]
     }
 
-    const handleFieldDate = (e: any) => {
-
+    const handleFieldDate1 = (value:any) => {
+        dispatch(zakSlice.actions.setZakPrice({ prop: "date_start_from", value: format(value[0], 'yyyy-MM-dd')}))
+        dispatch(zakSlice.actions.setZakPrice({ prop: "date_start_to", value: format(value[1], 'yyyy-MM-dd')}))
     }
-
+    const handleFieldDate2 = (value:any) => {
+        dispatch(zakSlice.actions.setZakPrice({ prop: "date_end_from", value: format(value[0], 'yyyy-MM-dd')}))
+        dispatch(zakSlice.actions.setZakPrice({ prop: "date_end_to", value: format(value[1], 'yyyy-MM-dd')}))
+    }
 
     return (
         <>
@@ -70,7 +75,7 @@ const ZayavkaFormPrice = () => {
                         placeholder="Выберите значение"
                         size="s"
                         items={items}
-                        value={getSelected(items, formPrice.waers)}
+                        value={getSelected(items, zakPrice.waers)}
                         required={true}
                         onChange={({ value }) => handleFieldWaers(value)}
                     />
@@ -79,7 +84,7 @@ const ZayavkaFormPrice = () => {
                         placeholder="Стоимость без НДС"
                         label="Стоимость без НДС"
                         size="s"
-                        value={formPrice.price}
+                        value={zakPrice.price}
                         onChange={({ e }: any) => { handleField(e) }}
                         className="mt1"
                         width="full" />
@@ -88,7 +93,7 @@ const ZayavkaFormPrice = () => {
                         placeholder="Стоимость c НДС"
                         label="Стоимость c НДС"
                         size="s"
-                        value={formPrice.price_vat}
+                        value={zakPrice.price_vat}
                         onChange={({ e }: any) => { handleField(e) }}
                         className="mt1"
                         width="full" />
@@ -96,8 +101,8 @@ const ZayavkaFormPrice = () => {
                 <Layout direction="column" className="ml2 mr2">
                     <DatePicker
                         name="date_start_from"
-                        value={formPrice.date_start_from ? [new Date(formPrice.date_start_from), new Date(formPrice.date_start_to)] : undefined}
-                        onChange={({ value }) => handleFieldDate(value)}
+                        value={zakPrice.date_start_from ? [new Date(zakPrice.date_start_from), new Date(zakPrice.date_start_to)] : undefined}
+                        onChange={({ value }) => handleFieldDate1(value)}
                         labelPosition="top"
                         label="Начало приема"
                         leftSide={IconCalendar}
@@ -106,8 +111,8 @@ const ZayavkaFormPrice = () => {
                         style={{width: '250px'}}/>
                     <DatePicker
                         name="date_end_from"
-                        value={formPrice.date_start_from ? [new Date(formPrice.date_end_from), new Date(formPrice.date_end_to)] : undefined}
-                        onChange={({ value }) => handleFieldDate(value)}
+                        value={zakPrice.date_start_from ? [new Date(zakPrice.date_end_from), new Date(zakPrice.date_end_to)] : undefined}
+                        onChange={({ value }) => handleFieldDate2(value)}
                         labelPosition="top"
                         label="Начало приема"
                         leftSide={IconCalendar}
@@ -122,12 +127,12 @@ const ZayavkaFormPrice = () => {
                             placeholder="Ставка НДС"
                             label="Ставка НДС"
                             size="s"
-                            value={formPrice.vat}
+                            value={zakPrice.vat}
                             onChange={({ e }: any) => { handleField(e) }}
                             className="mr1"
                         />
                         <Layout style={{marginTop: '27px'}} className="aic">
-                            <Checkbox label="Расчет НДС" checked={formPrice.isVat} />
+                            <Checkbox label="Расчет НДС" checked={zakPrice.isVat} />
                             <div onMouseMove={(e) => handleMouseMove(e)} onMouseLeave={() => setPosition(undefined)}>
                                 <IconInfo size="s" view="ghost" className="infoPopoverIcon" />
                             </div>
@@ -137,7 +142,7 @@ const ZayavkaFormPrice = () => {
                         placeholder="Сумма НДС"
                         label="Сумма НДС"
                         size="s"
-                        value={formPrice.vat}
+                        value={zakPrice.vat}
                         onChange={({ e }: any) => { handleField(e) }}
                         className="mt1"
                     />
@@ -148,5 +153,5 @@ const ZayavkaFormPrice = () => {
     )
 }
 
-export default ZayavkaFormPrice;
+export default ZayavkazakPrice;
 

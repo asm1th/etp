@@ -1,4 +1,4 @@
-import { IZak, IProc, ILot, IFile, IZakForm, IZakCriterionsRow, IDocsRow, IDocFile, IFormPrice } from "./IZak"
+import { IZak, IProc, ILot, IFile, IZakForm, IZakCriterionsRow, IDocsRow, IDocFile, IZakPrice } from "./IZak"
 
 
 
@@ -288,7 +288,7 @@ export const docs: IDocsRow[] = [{
 },
 ]
 
-export const formPrice: IFormPrice = {
+export const zakPrice: IZakPrice = {
     waers: "",
     price: "",
     price_vat: "",
@@ -307,5 +307,5 @@ export const initialState: IZak = {
     zakForm: zakForm,
     criterions: criterions,
     docs: docs,
-    formPrice: formPrice
+    zakPrice: zakPrice
 }

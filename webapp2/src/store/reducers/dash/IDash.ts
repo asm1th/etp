@@ -5,7 +5,8 @@ export interface IDashItem {
     status: string
     percent: number
     period: string
-    url: string,
+    url: string
+    chart_type: string
     chart: IDashChartItem[]
 }
 export interface IDash {

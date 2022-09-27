@@ -14,6 +14,13 @@ export const zakSlice = createSlice({
             let zakForm: any = state.zakForm
             zakForm[prop] = action.payload.value;
         },
+        setZakPrice: (state, action: PayloadAction<any>) => {
+            //debugger
+            let prop: any = action.payload.prop
+            let zakPrice: any = state.zakPrice
+            zakPrice[prop] = action.payload.value;
+        },
+
     },
     extraReducers: {},
 })

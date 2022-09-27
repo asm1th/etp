@@ -70,3 +70,16 @@
     background: rgba(234, 250, 254, 0.8);
     border-left: 4px solid #0aa5ff;
 }
+
+.pro-sidebar.collapsed .pro-menu > ul > .pro-menu-item > .pro-inner-item > .suffix-wrapper{
+    opacity: 1;
+    margin-left: -10px;
+    position: relative;
+    top: -12px;
+}
+
+.pro-sidebar.collapsed .pro-menu > ul > .pro-menu-item > .pro-inner-item > .suffix-wrapper .Badge{
+    height: 20px;
+    line-height: 20px;
+    padding: 0 3px;
+}
