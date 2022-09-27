@@ -3,7 +3,7 @@
 
 import { BaseQueryFn, createApi, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RootState } from '../store/store'
-import { IRegData } from '../models/IRegistration'
+import { IRegData } from '../store/reducers/reg/IRegistration'
 
 export interface RegResponse {
     // не понятно что в ответе?

@@ -15,6 +15,7 @@ export interface ISampNew {
     kp_summ: string
     kp_summ_nds: string
     isTravel: boolean
+    file_guid: string
 }
 
 export interface ILink {
@@ -22,9 +23,9 @@ export interface ILink {
     info_ka_email: string
     info_ka_name: string
     kp_offer_expire_date: string | null
-    travel_exp: string
-    travel_exp_comm: string
-
+    travel_exp: string | null
+    travel_exp_comm: string | null
+    //added
     kp_sample_guid: string
 }
 
@@ -57,7 +58,6 @@ export interface IUnit {
 export interface IUsrp {
     kp_unit_guid: string
     kp_usrp_guid: string
-    
     link_id: string
     prices_user: string
     usl_quan_unit: string
@@ -73,4 +73,30 @@ export interface IUsrp {
     isValid: boolean
     price_date: string //YYYYMMDD
     price_time: string //HHMMSS
+}
+
+export interface  IFileKP  {
+    file_guid: string
+    file_name: string
+    file_type: string
+    file_size: number
+    file_mime_type: string
+    file_body: string
+    description: string
+}
+
+
+export interface  IFileId  {
+    file_guid: string
+    bsid: string
+}
+
+export interface  IFileTZ  {
+    file_guid: string
+    file_name: string
+    file_type: string
+    file_size: number
+    file_mime_type: string
+    file_body: string
+    description: string
 }

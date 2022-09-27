@@ -79,8 +79,8 @@ export const sampSlice = createSlice({
         setTravelChecked: (state, action: PayloadAction<boolean>) => {
             state.isTravel = action.payload;
             if (!state.isTravel) {
-                state.links.travel_exp = "";
-                state.links.travel_exp_comm = "";
+                state.links.travel_exp = null;
+                state.links.travel_exp_comm = null;
             }
         },
         setKp_offer_expire_date: (state, action: PayloadAction<string>) => {
@@ -131,6 +131,17 @@ export const sampSlice = createSlice({
             thisUsrp.vat_rate = action.payload.value
             calcSumm(thisUsrp)
             calcStageSumm(state, thiStage, action.payload.UnitFinder.link_id)
+
+            // check NDS of stage
+            let isNoNdsFlag = true
+            thiStage.units.forEach(unit => {
+                let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === action.payload.UnitFinder.link_id)[0];
+                if (thisUsrps.vat_rate !== "") {
+                    isNoNdsFlag = false
+                }
+            })
+            thiStage.isNoNds = isNoNdsFlag
+
         },
         setNds_comm: (state, action: PayloadAction<IUnitStringPayload>) => {
             const thisUsrp = getUspsr(state.stags, action.payload.UnitFinder)
@@ -139,6 +150,14 @@ export const sampSlice = createSlice({
         setStageNoNds: (state, action: PayloadAction<any>) => {
             const index = state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
             state.stags[index].isNoNds = action.payload.checked;
+
+            if (action.payload.checked) {
+                state.stags[index].units.forEach(unit => {
+                    let thisUsrps = unit.usrps[unit.usrps.findIndex(usrp => usrp.link_id === state.link)]
+                    thisUsrps.vat_rate = ""
+                    thisUsrps.nds_comm = ""
+                })
+            }
         },
         setStageNoNdsComm: (state, action: PayloadAction<any>) => {
             const index = state.stags.findIndex(stage => stage.opr_usl_stage_num === action.payload.etapId)
@@ -146,7 +165,6 @@ export const sampSlice = createSlice({
                 let thisUsrps = unit.usrps[unit.usrps.findIndex(usrp => usrp.link_id === state.link)]
                 thisUsrps.nds_comm = action.payload.value
             })
-
         },
         setStageSumm: (state, action: PayloadAction<any>) => {
             const index = state.stags.findIndex(stage => stage.opr_usl_stage_id === action.payload.opr_usl_stage_id)
@@ -169,10 +187,15 @@ export const sampSlice = createSlice({
                     if (payload) {
                         if (payload.stags && payload.stags.length > 0) {
                             payload.stags.forEach(stag => {
+                                let isNoNdsFlag = true
                                 stag.units.forEach(unit => {
                                     let thisUsrps = unit.usrps.filter(usrp => usrp.link_id === payload.link)[0];
                                     calcSumm(thisUsrps)
+                                    if (thisUsrps.vat_rate !== "") {
+                                        isNoNdsFlag = false
+                                    }
                                 })
+                                stag.isNoNds = isNoNdsFlag
                                 calcStageSumm(payload, stag, payload.link)
                             })
                         }

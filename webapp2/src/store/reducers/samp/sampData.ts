@@ -241,7 +241,7 @@ export const initialState: ISampNew = {
     "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
     "info_ka_email": "test@adsdddd.com",
     "info_ka_name": "Петр Петров Петрович",
-    "kp_offer_expire_date": "2022-08-10",// null,
+    "kp_offer_expire_date": "20220810",// null,
     "travel_exp": "1.00",
     "travel_exp_comm": "тест",
 
@@ -252,4 +252,5 @@ export const initialState: ISampNew = {
   kp_summ: "",
   kp_summ_nds: "",
   isTravel: false,
+  file_guid: ""
 }

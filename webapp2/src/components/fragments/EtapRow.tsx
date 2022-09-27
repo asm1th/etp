@@ -7,7 +7,6 @@ import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { sampSlice } from "../../store/reducers/samp/sampSlice";
-import { IStag } from "../../models/ISamp";
 
 const EtapRow = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
@@ -38,22 +37,22 @@ const EtapRow = (props: { etapId: number }) => {
 
     const ndsList: ndsItem[] = [{
         label: '20%',
-        value: "20"
+        value: '20'
     }, {
         label: '10%',
-        value: "10"
+        value: '10'
     }, {
         label: 'без НДС',
-        value: "0"
-    }, {
-        label: '',
-        value: ""
-    }];
+        value: ''
+    }, 
+    // {
+    //     label: '',
+    //     value: ''
+    // }
+];
 
     const getSelected = (List: any, value: string) => {
-        
         List.findIndex((List: any) => List.id === value)
-
         return List[List.findIndex((List: any) => List.id === value)]
     }
 
@@ -174,7 +173,7 @@ const EtapRow = (props: { etapId: number }) => {
                         </Layout>
 
 
-                        {curUsrp.isSubToggle || curUsrp.vat_rate === "0" ? (
+                        { (curUsrp.isSubToggle || curUsrp.vat_rate === "") && !currentStage.isNoNds ? (
                             <>
                                 <Layout className="Row subRow mt05 mb2">
                                     {curUsrp.isSubToggle ? (
@@ -202,7 +201,7 @@ const EtapRow = (props: { etapId: number }) => {
                                     ) : null}
 
                                     <Layout flex={6} className="aic acc">
-                                        {curUsrp.vat_rate === "0" && !currentStage.isNoNds ? (
+                                        {curUsrp.vat_rate === "" && !currentStage.isNoNds ? (
                                             <>
                                                 <Text as="div" className="mr1" size="xs">
                                                     Стоимость предложения не облагается НДС, в соответствии со статьей
