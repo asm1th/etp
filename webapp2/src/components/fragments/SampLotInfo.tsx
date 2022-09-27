@@ -9,15 +9,22 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { format } from "date-fns";
 import { authSlice } from "../../store/reducers/authRTK/authSlice";
 import { useNavigate } from "react-router-dom";
+import { useFetchFileIDQuery, useFetchFileTZQuery } from "../../services/SampService";
 
 
 const SampLotInfo: FC = () => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate();
-    const { lot_name, links, waers, kp_accep_date, kp_send_date } = useAppSelector(state => state.sampReducer)
+    const { lot_name, links, waers, kp_accep_date, kp_send_date, kp_sample_guid } = useAppSelector(state => state.sampReducer)
+    
+    const { data: fileGuid } = useFetchFileIDQuery(kp_sample_guid)
+
+    //const { getFile,  isLoading } = useFetchFileTZQuery()
+
     const getTz = () => {
-        alert('getTz');
+        //const File = getFile(file_guid)
     }
+
     const logout = () => {
         dispatch(authSlice.actions.logout())
         navigate('/logout');

@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { json } from "stream/consumers";
-import { ISampNew, ILink, IUsrp } from "../models/ISamp";
+import { ISampNew, ILink, IUsrp, IFileKP, IFileTZ, IFileId } from "../models/ISamp";
 import { RootState } from '../store/store'
 
 export const sampAPI = createApi({
@@ -23,7 +22,7 @@ export const sampAPI = createApi({
 
     endpoints: (builder) => ({
         fetchSamp: builder.query<ISampNew, any>({
-            query: (kp_sample_guid: any) => ({
+            query: (kp_sample_guid: string) => ({
                 url: `/samp/${kp_sample_guid}`,
             }),
             providesTags: result => ['Samp'],
@@ -45,12 +44,29 @@ export const sampAPI = createApi({
             }),
             invalidatesTags: ['Samp']
         }),
-        // deletePost: build.mutation<IPost, IPost>({
-        //     query: (post) => ({
-        //         url: `/posts/${post.id}`,
+        updateFile: builder.mutation<IFileKP, IFileKP>({
+            query: (file) => ({
+                url: `/file`,
+                method: 'PUT',
+                body: file
+            })
+        }),
+        fetchFileID: builder.query<IFileId, any>({
+            query: (kp_sample_guid: string) => ({
+                url: `/fileid/${kp_sample_guid}`,
+            })
+        }),
+        fetchFileTZ: builder.query<IFileTZ, any>({
+            query: (kp_sample_guid: string) => ({
+                url: `/filetz/${kp_sample_guid}`,
+            })
+        }),
+        // delete: build.mutation<IUsrp, IUsrp>({
+        //     query: (usrp) => ({
+        //         url: `/usrp/${usrp.id}`,
         //         method: 'DELETE'
         //     }),
-        //     invalidatesTags: ['Post']
+        //     invalidatesTags: ['Samp']
         // }),
     })
 })
@@ -58,5 +74,8 @@ export const sampAPI = createApi({
 export const {
     useFetchSampQuery,
     useUpdateUsrpMutation,
-    useUpdateLinkMutation
+    useUpdateLinkMutation,
+    useUpdateFileMutation,
+    useFetchFileIDQuery,
+    useFetchFileTZQuery
 } = sampAPI

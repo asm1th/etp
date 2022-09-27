@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IRegData, IFormErrors, regData } from "../../../models/IRegistration"
+import { IRegData, IFormErrors, regData } from "./IRegistration"
 import { authService } from "../../../services/authService"
 
 

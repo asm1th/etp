@@ -252,4 +252,5 @@ export const initialState: ISampNew = {
   kp_summ: "",
   kp_summ_nds: "",
   isTravel: false,
+  file_guid: ""
 }

@@ -16,7 +16,7 @@ import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";
 import Step3 from "../../components/reg/Step3";
 import { regSlice } from '../../store/reducers/reg/regSlice';
-import { IRegData } from "../../models/IRegistration";
+import { IRegData } from "../../store/reducers/reg/IRegistration";
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
