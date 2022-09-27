@@ -1,5 +1,4 @@
-import { IZak, IProc, ILot, IFile, IZakForm, IZakCriterionsRow, IDocsRow, IDocFile, IFormPrice } from "./IZak"
-
+import { IProc, ILot, IFile, IZakForm, IZakCriterionsRow, IDocsRow, IDocFile, IZakPrice, IZakFormErrors, IZakFormTab } from "./IZak"
 
 
 export const files: IFile[] = [{
@@ -86,11 +85,33 @@ export const procList: IProc[] = [{
 }]
 
 export const zakForm: IZakForm = {
-    fio: "",
-    phone: "",
-    address: "",
-    email: ""
+    "fio": "",
+    "phone": "",
+    "address": "",
+    "email": ""
 }
+
+export const zakFormErrors: IZakFormErrors = {
+    "fio": "",
+    "phone": "",
+    "address": "",
+    "email": ""
+}
+
+export const zakFormTabs: IZakFormTab[] = [{
+    name: 'Контактные данные',
+    isValid: false
+}, {
+    name: 'Информация по критериям',
+    isValid: false
+}, {
+    name: 'Документация по формам',
+    isValid: false
+}, {
+    name: 'Ценовое предложение',
+    isValid: false
+}]
+
 
 export const criterions: IZakCriterionsRow[] = [
     {
@@ -191,11 +212,11 @@ export const criterions: IZakCriterionsRow[] = [
 ]
 
 export const docFiles: IDocFile[] = [{
-    fileName: "Заявка на участие.pdf",
-    fileExtension: "pdf",
-    fileBody: "",
-    fileCreated: "10.10.2022",
-    fileUser: "IVANOVII"
+    'fileName': "Заявка на участие.pdf",
+    'fileExtension': "pdf",
+    'fileBody': "",
+    'fileCreated': "10.10.2022",
+    'fileUser': "IVANOVII"
 }]
 
 export const docs: IDocsRow[] = [{
@@ -288,7 +309,7 @@ export const docs: IDocsRow[] = [{
 },
 ]
 
-export const formPrice: IFormPrice = {
+export const zakPrice: IZakPrice = {
     waers: "",
     price: "",
     price_vat: "",
@@ -297,15 +318,7 @@ export const formPrice: IFormPrice = {
     date_end_from: "",
     date_end_to: "",
     vat: "",
-    isVat: false,
+    is_vat: false,
     full_price: "",
     full_price_vat: ""
-}
-
-export const initialState: IZak = {
-    procList: procList,
-    zakForm: zakForm,
-    criterions: criterions,
-    docs: docs,
-    formPrice: formPrice
 }

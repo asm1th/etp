@@ -61,3 +61,10 @@
     line-height: 12px;
 }
 
+.Tabs-Tab .TabsTab.notValid .Icon {
+    color: #EB5757;
+}
+
+.Tabs-Tab .TabsTab.valid .Icon {
+    color: green;
+}

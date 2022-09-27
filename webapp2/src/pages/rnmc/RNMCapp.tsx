@@ -44,7 +44,7 @@ const RNMCapp: FC = () => {
                 </>
             ) : (
                 <>
-                    <ResponsesNothingFound actions={<Text />}/>
+                    <ResponsesNothingFound actions={<></>} />
                     <GuidEnter/>
                 </>
             )}

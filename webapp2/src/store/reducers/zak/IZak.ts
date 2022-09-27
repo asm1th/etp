@@ -1,9 +1,13 @@
 export interface IZak {
     procList: IProc[]
     zakForm: IZakForm
+    zakFormErrors: IZakFormErrors
+    zakFormTabs: IZakFormTab[]
+    zakFormCurrentTab: IZakFormTab
     criterions: IZakCriterionsRow[]
     docs: IDocsRow[]
-    formPrice: IFormPrice
+    zakPrice: IZakPrice
+    isZakReadyToSend: boolean
 }
 
 export interface IProc {
@@ -30,7 +34,7 @@ export interface ILot {
     full_price: string
     waers: string
     closed: boolean
-    start_date: string,
+    start_date: string
     start_time: string
     files: IFile[]
 }
@@ -46,6 +50,18 @@ export interface IZakForm {
     phone: string
     address: string
     email: string
+}
+
+export interface IZakFormErrors {
+    fio: string
+    phone: string
+    address: string
+    email: string
+}
+
+export interface IZakFormTab {
+    name: string
+    isValid: boolean
 }
 
 export interface IZakCriterionsRow {
@@ -83,7 +99,7 @@ export interface IDocsRow {
     action: boolean
 }
 
-export interface IFormPrice {
+export interface IZakPrice {
    waers: string
    price: string
    price_vat: string
@@ -92,7 +108,7 @@ export interface IFormPrice {
    date_end_from: string
    date_end_to: string
    vat: string
-   isVat: boolean
+   is_vat: boolean
    full_price: string
    full_price_vat: string
 }

@@ -21,9 +21,11 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { useRegistrationMutation } from '../../services/authService'
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
 import './RNMCappETP.css';
+import { validateSymbols, validateSymbolsOnlyLetters } from "../../components/reg/validate";
 
 const Registration: FC = () => {
     document.body.classList.add('etpStyle');
+
     const navigate = useNavigate()
     const dispatch = useAppDispatch()
     const { regData, isAccept } = useAppSelector(state => state.regReducer)
@@ -196,41 +198,6 @@ const Registration: FC = () => {
             result = true;
         }
         dispatch(regSlice.actions.setRegDataError({ prop: prop, value: error.message }))
-        return result;
-    }
-
-    const validateSymbolsOnlyLetters = (txt: string) => {
-        const reSpace = /^((?!\s{2}).)*$/;
-        let result = false;
-        if (reSpace.test(String(txt))) {
-            //const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁ0-9a-zA-Z\s]+$/;
-            const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁa-zA-Z\s]+$/;
-            if (re.test(String(txt))) {
-                result = true;
-            } else {
-                result = false;
-            }
-            console.log("validateInput:" + result);
-        } else {
-            result = false;
-        }
-        return result;
-    }
-
-    const validateSymbols = (txt: string) => {
-        const reSpace = /^((?!\s{2}).)*$/;
-        let result = false;
-        if (reSpace.test(String(txt))) {
-            const re = /^[?!,'":@*—+«‎»()\\/\-_.а-яА-ЯёЁ0-9a-zA-Z\s]+$/;
-            if (re.test(String(txt))) {
-                result = true;
-            } else {
-                result = false;
-            }
-            console.log("validateInput:" + result);
-        } else {
-            result = false;
-        }
         return result;
     }
 
@@ -427,7 +394,7 @@ const Registration: FC = () => {
                             getItemShowProgress={getItemShowProgress}
                             getItemAutoClose={() => 5}
                         />
-                        <pre>{JSON.stringify(regData, null, 2)}</pre>
+                        {/* <pre>{JSON.stringify(regData, null, 2)}</pre> */}
                     </Card>
                 </GridItem>
             </Grid>
