@@ -20,7 +20,7 @@ type AuthState = {
 // }
 
 const initialState = {
-    isAuth: false, // getLocalIsAuth(), // отключение auth = false \ true 
+    isAuth: true, // getLocalIsAuth(), // отключение auth = false \ true 
     user: null, 
     token: null,
     kp_sample_guid: "", //"0050569CDC861EED87DD0FCCDBEA808C"
@@ -37,6 +37,9 @@ export const authSlice = createSlice({
         },
         setKp_sample_guid: (state, action: PayloadAction<string>) => {
             state.kp_sample_guid = action.payload;
+        },
+        setLink_id: (state, action: PayloadAction<string>) => {
+            state.link_id = action.payload;
         }
     },
     extraReducers: (builder) => {

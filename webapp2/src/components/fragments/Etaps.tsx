@@ -10,15 +10,15 @@ import { Popover } from '@consta/uikit/Popover';
 import { useAppSelector } from "../../hooks/redux";
 import { IStag } from "../../models/ISamp"
 import { useFetchSampQuery } from "../../services/SampService";
-import { useLocation } from "react-router-dom";
 
 
 
 const Etaps: FC = () => {
-    const params = useLocation().search;
-    const {kp_sample_guid} = useAppSelector(state => state.authReducer)
-    const this_samp_id = new URLSearchParams(params).get("samp") || kp_sample_guid || ''
-    const { data: samp } = useFetchSampQuery(this_samp_id);
+    
+    const { link_id } = useAppSelector(state => state.authReducer)
+    //const params = useLocation().search;
+    //const this_samp_id = new URLSearchParams(params).get("samp") || kp_sample_guid || ''
+    const { data: samp } = useFetchSampQuery(link_id);
 
     const [tab, setTab] = useState<IStag>({
         "kp_stage_guid": "",

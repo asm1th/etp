@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom'
 
 const GuidEnter: FC = () => {
 
-    const [kp_sample_guid, setGuid] = useState<string | null>("0050569CDC861EED87DD0FCCDBEA808C");
+    const [link, setGuid] = useState<string | null>(null)   //("0050569CDC861EED87DD0FCCDBEA808C");
 
     const navigate = useNavigate()
     const onSubmit = () => {
-        navigate('?samp=' + kp_sample_guid)
+        navigate('?samp=' + link)
     }
 
     return (
@@ -40,7 +40,7 @@ const GuidEnter: FC = () => {
                             placeholder="Введите kp_sample_guid"
                             width="full"
                             onChange={({ e }: any) => { setGuid(e.target.value) }}
-                            value={kp_sample_guid}
+                            value={link}
                         />
                         <Button
                             onClick={onSubmit}

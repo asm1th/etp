@@ -21,10 +21,10 @@ const RNMCapp: FC = () => {
     const dispatch = useAppDispatch()
 
     const params = useLocation().search;
-    const this_samp_id = new URLSearchParams(params).get("samp") || ''
-    dispatch(authSlice.actions.setKp_sample_guid(this_samp_id))
-    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_samp_id);
+    const link_id = new URLSearchParams(params).get("samp") || ''
     
+    dispatch(authSlice.actions.setLink_id(link_id))
+    const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(link_id);
     
 
     return (

@@ -15,9 +15,10 @@ import { useAppSelector } from "../../hooks/redux";
 const KPpage: FC = () => {
 
     //test
+    const {link_id} = useAppSelector(state => state.authReducer)
     const params = useLocation().search;
-    const {kp_sample_guid} = useAppSelector(state => state.authReducer)
-    const this_samp_id = new URLSearchParams(params).get("samp") || kp_sample_guid || ''
+    const this_samp_id = new URLSearchParams(params).get("samp") || link_id || ''
+
     const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(this_samp_id);
     //.test
 
