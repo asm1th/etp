@@ -8,6 +8,7 @@ type AuthState = {
     user: IUser | null
     token: string | null
     kp_sample_guid: string | null
+    link_id: string | null
 }
 
 // const getLocalIsAuth = () => {
@@ -22,7 +23,8 @@ const initialState = {
     isAuth: false, // getLocalIsAuth(), // отключение auth = false \ true 
     user: null, 
     token: null,
-    kp_sample_guid: "" //"0050569CDC861EED87DD0FCCDBEA808C"
+    kp_sample_guid: "", //"0050569CDC861EED87DD0FCCDBEA808C"
+    link_id: ""
 }
 
 export const authSlice = createSlice({

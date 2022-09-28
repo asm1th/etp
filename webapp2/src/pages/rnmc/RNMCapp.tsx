@@ -43,6 +43,7 @@ const RNMCapp: FC = () => {
                     {/* <pre>{JSON.stringify(samp, null, 2)}</pre> */}
                 </>
             ) : (
+                !isLoading &&
                 <>
                     <ResponsesNothingFound actions={<></>} />
                     <GuidEnter/>
