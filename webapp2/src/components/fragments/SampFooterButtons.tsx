@@ -14,16 +14,16 @@ import { ComponentToPrint } from '../util/ComponentToPrint';
 import { useAppSelector } from "../../hooks/redux";
 import { sampSlice } from "../../store/reducers/samp/sampSlice";
 import { useDispatch } from "react-redux";
-
 import { Attachment } from '@consta/uikit/Attachment';
 import { IconClose } from '@consta/uikit/IconClose';
 import { IFileKP } from "../../models/ISamp";
 import { useUpdateFileMutation } from "../../services/SampService";
 
 
+
 const SampFooterButtons: FC = () => {
     const dispatch = useDispatch()
-    const { kp_sample_guid, kp_send_date, stags, link, files } = useAppSelector(state => state.sampReducer)
+    const { kp_send_date, stags, link, files } = useAppSelector(state => state.sampReducer)
 
     let lastFile = files.length > 0 ? files[files.length - 1] : null
 
@@ -39,7 +39,7 @@ const SampFooterButtons: FC = () => {
         validateKP()
     }
 
-    const toHome = () => navigate('/?samp=' + kp_sample_guid)
+    const toHome = () => navigate('/?samp=' + link)
 
     const validateKP = () => {
         stags.forEach(stag => {
@@ -108,43 +108,33 @@ const SampFooterButtons: FC = () => {
 
     const download = (file: IFileKP | null) => {
         if (file && file.file_name) {
-            getFile(link, file.file_docid)
+            getFile(link, file)
         }
     }
 
-    const getFile = (link_id: string, file_docid: string) => {
-        const fileURL = `/link/${link_id}/docid/${file_docid}`;
+    const getFile = (link_id: string, file: IFileKP) => {
+        const fileURL = `/link/${link_id}/docid/${file.file_docid}`;
         fetch(fileURL, {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/pdf',
+                'Content-Type': file.file_mime_type,
             },
         })
         .then((response) => response.blob())
-            .then((blob) => {
-                debugger
-
-
-                // Create blob link to download
-                const url = window.URL.createObjectURL(
-                    new Blob([blob]),
-                );
-                const link = document.createElement('a');
-                link.href = url;
-                link.setAttribute(
-                    'download',
-                    `FileName.pdf`,
-                );
-
-                // Append to html link element page
-                document.body.appendChild(link);
-
-                // Start download
-                link.click();
-
-                // Clean up and remove the link
-                link.parentNode && link.parentNode.removeChild(link);
-            });
+        .then((blob) => {
+            const url = window.URL.createObjectURL(
+                new Blob([blob]),
+            );
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute(
+                'download',
+                file.file_name + '.' + file.file_type,
+            );
+            document.body.appendChild(link);
+            link.click();
+            link.parentNode && link.parentNode.removeChild(link);
+        });
     }
 
 
@@ -210,13 +200,13 @@ const SampFooterButtons: FC = () => {
 
                 {file.file_name !== "" ? (
                     <Attachment
-                        style={{ width: "250px" }}
+                        style={{ width: "280px" }}
                         className="attach"
                         fileName={file.file_name}
                         fileExtension={file.file_type}
                         //loading
                         //loadingText="Загружено на 51%"
-                        fileDescription={file.file_size && (parseInt("000000000103") / 1024).toFixed(2) + "Kb"}
+                        fileDescription={file.file_size && (parseInt(file.file_size) / 1024).toFixed(2) + " Kb"}
                         buttonIcon={IconClose}
                         buttonTitle="Отменить"
                         //onClick={downloadNotLoaded}
@@ -227,13 +217,13 @@ const SampFooterButtons: FC = () => {
                     />
                 ) : lastFile ? (
                     <Attachment
-                        style={{ width: "250px" }}
+                        style={{ width: "280px" }}
                         className="attach"
                         fileName={lastFile.file_name}
                         fileExtension={lastFile.file_type}
                         //loading
                         //loadingText="Загружено на 51%"
-                        fileDescription={lastFile.file_size && (parseInt("000000000103") / 1024).toFixed(2) + "Kb"}
+                        fileDescription={lastFile.file_size && (parseInt(lastFile.file_size) / 1024).toFixed(2) + "Kb"}
                         //buttonIcon={IconClose}
                         //buttonTitle="Отменить"
                         onClick={() => download(lastFile)}
