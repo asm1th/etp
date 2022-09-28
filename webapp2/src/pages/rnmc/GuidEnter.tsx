@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const GuidEnter: FC = () => {
 
-    const [link, setGuid] = useState<string | null>(null)   //("0050569CDC861EED87DD0FCCDBEA808C");
+    const [link, setGuid] = useState<string | null>("0050569CDC861EDD8EE3805C575DA0E2")   //("0050569CDC861EED87DD0FCCDBEA808C");
 
     const navigate = useNavigate()
     const onSubmit = () => {
@@ -31,13 +31,12 @@ const GuidEnter: FC = () => {
                             className="tac mb1 jcc"
                             size="m"
                             lineHeight="xs">
-                            Введите kp_sample_guid для загрузки данных
+                            Введите link_id для загрузки данных
                         </Text>
 
                         <TextField
                             name="email"
                             type="text"
-                            placeholder="Введите kp_sample_guid"
                             width="full"
                             onChange={({ e }: any) => { setGuid(e.target.value) }}
                             value={link}

@@ -1,6 +1,6 @@
 export interface ISampNew {
     kp_sample_guid: string
-    link: string
+
     konkurs_id: string
     konkurs_name: string
     lot_id: string
@@ -8,15 +8,29 @@ export interface ISampNew {
     waers: string
     kp_accep_date: string
     kp_send_date: string
-    usl_period_end: string
     links: ILink
     stags: IStag[]
+    files: IFileKP[]
+    // no in portal /samp/ service
+    link: string
+    usl_period_end: string
     // added
     kp_summ: string
     kp_summ_nds: string
     isTravel: boolean
-    file_guid: string
 }
+
+export interface IFileKP {
+    "file_mime_type": string
+    "file_body": string
+    "file_size": string
+    "description": string
+    "file_guid": string
+    "file_name": string
+    "file_type": string
+    "file_docid": string
+}
+
 
 export interface ILink {
     link: string
@@ -75,23 +89,8 @@ export interface IUsrp {
     price_time: string //HHMMSS
 }
 
-export interface  IFileKP  {
-    file_guid: string
-    file_name: string
-    file_type: string
-    file_size: number
-    file_mime_type: string
-    file_body: string
-    description: string
-}
 
-
-export interface  IFileId  {
-    file_guid: string
-    bsid: string
-}
-
-export interface  IFileTZ  {
+export interface IFileTZ {
     file_guid: string
     file_name: string
     file_type: string

@@ -23,14 +23,16 @@ import { useUpdateFileMutation } from "../../services/SampService";
 
 const SampFooterButtons: FC = () => {
     const dispatch = useDispatch()
-    const { kp_sample_guid, kp_send_date, stags, link } = useAppSelector(state => state.sampReducer)
+    const { kp_sample_guid, kp_send_date, stags, link, files } = useAppSelector(state => state.sampReducer)
+
+    let lastFile = files.length > 0 ? files[files.length - 1] : null
 
     //print
     let componentRef = useRef(null);
     const handlePrint = useReactToPrint({
         content: () => componentRef.current,
     });
-    
+
     let navigate = useNavigate();
     const toKP = () => {
         navigate('/kp');
@@ -54,24 +56,16 @@ const SampFooterButtons: FC = () => {
 
     const segments = new URL(window.location.href).pathname.split('/');
     const last = segments.pop() || segments.pop(); // Handle potential trailing slash
-    
-    // type fff = {
-    //     lastModified: number
-    //     lastModifiedDate: Date
-    //     name: string
-    //     size: number
-    //     type: string
-    //     webkitRelativePath: string
-    // }
 
     const emptyFile: IFileKP = {
+        "file_mime_type": "",
+        "file_body": "",
+        "file_size": "",
+        "description": "",
         "file_guid": "",
         "file_name": "",
         "file_type": "",
-        "file_size": 0,
-        "file_mime_type": "",
-        "file_body": "",
-        "description": "",
+        "file_docid": ""
     }
 
     const [file, setFile] = useState<IFileKP>(emptyFile)
@@ -81,6 +75,7 @@ const SampFooterButtons: FC = () => {
         const base64: string = await convertBase64(fff) as string
         let File: IFileKP = {
             "file_guid": link,//"bf50de7e74724ff5a6759663f9073505",
+            "file_docid": "",
             "file_name": fff.name,
             "file_type": fff.name.substr(fff.name.lastIndexOf('.') + 1), //"txt",
             "file_size": fff.size, //"5294",
@@ -109,6 +104,47 @@ const SampFooterButtons: FC = () => {
 
     const handlSendFile = () => {
         updateFile(file)
+    }
+
+    const download = (file: IFileKP | null) => {
+        if (file && file.file_name) {
+            getFile(link, file.file_docid)
+        }
+    }
+
+    const getFile = (link_id: string, file_docid: string) => {
+        const fileURL = `/link/${link_id}/docid/${file_docid}`;
+        fetch(fileURL, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/pdf',
+            },
+        })
+        .then((response) => response.blob())
+            .then((blob) => {
+                debugger
+
+
+                // Create blob link to download
+                const url = window.URL.createObjectURL(
+                    new Blob([blob]),
+                );
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute(
+                    'download',
+                    `FileName.pdf`,
+                );
+
+                // Append to html link element page
+                document.body.appendChild(link);
+
+                // Start download
+                link.click();
+
+                // Clean up and remove the link
+                link.parentNode && link.parentNode.removeChild(link);
+            });
     }
 
 
@@ -180,10 +216,27 @@ const SampFooterButtons: FC = () => {
                         fileExtension={file.file_type}
                         //loading
                         //loadingText="Загружено на 51%"
-                        // fileDescription={file.file_size.toString()}
+                        fileDescription={file.file_size && (parseInt("000000000103") / 1024).toFixed(2) + "Kb"}
                         buttonIcon={IconClose}
                         buttonTitle="Отменить"
-                        onClick={() => console.log('onClick')}
+                        //onClick={downloadNotLoaded}
+                        onButtonClick={(e) => {
+                            e.stopPropagation();
+                            setFile(emptyFile)
+                        }}
+                    />
+                ) : lastFile ? (
+                    <Attachment
+                        style={{ width: "250px" }}
+                        className="attach"
+                        fileName={lastFile.file_name}
+                        fileExtension={lastFile.file_type}
+                        //loading
+                        //loadingText="Загружено на 51%"
+                        fileDescription={lastFile.file_size && (parseInt("000000000103") / 1024).toFixed(2) + "Kb"}
+                        //buttonIcon={IconClose}
+                        //buttonTitle="Отменить"
+                        onClick={() => download(lastFile)}
                         onButtonClick={(e) => {
                             e.stopPropagation();
                             setFile(emptyFile)

@@ -1,5 +1,5 @@
 
-import { ISampNew, IStag } from "../../../models/ISamp"
+import { IFileKP, ISampNew, IStag } from "../../../models/ISamp"
 
 
 export const Stags: IStag[] = [
@@ -225,6 +225,38 @@ export const Stags: IStag[] = [
   },
 ]
 
+export const Files: IFileKP[] = [
+    {
+        "file_mime_type": "text/plain",
+        "file_body": "",
+        "file_size": "000000005297",
+        "description": "",
+        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+        "file_name": "Code",
+        "file_type": "TXT",
+        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
+    },
+    {
+        "file_mime_type": "text/plain",
+        "file_body": "",
+        "file_size": "000000005297",
+        "description": "",
+        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+        "file_name": "Code",
+        "file_type": "TXT",
+        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4CB275634F23A"
+    },
+    {
+        "file_mime_type": "text/plain",
+        "file_body": "",
+        "file_size": "000000005297",
+        "description": "Code Programm",
+        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+        "file_name": "Code",
+        "file_type": "TXT",
+        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
+    },
+]
 
 export const initialState: ISampNew = {
   "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
@@ -248,9 +280,9 @@ export const initialState: ISampNew = {
     kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"
   },
   "stags": Stags,
+  "files": Files,
 
   kp_summ: "",
   kp_summ_nds: "",
-  isTravel: false,
-  file_guid: ""
+  isTravel: false
 }

@@ -30,7 +30,7 @@ const RNMCapp: FC = () => {
     return (
         <div className='RNMCapp'>
             <div className='isErrorIsLoading jcc'>
-                {error && <Responses503 />}
+                {/* {error  && <Responses503 />} */}
                 {(isLoading && isSuccess) && <ProgressSpin size="2xl" />}
             </div>
             { isSuccess && samp && samp.stags && (samp.stags.length > 0) ? (
