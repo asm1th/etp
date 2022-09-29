@@ -25,7 +25,7 @@ const SampFooterButtons: FC = () => {
     const dispatch = useDispatch()
     const { kp_send_date, stags, link, files } = useAppSelector(state => state.sampReducer)
 
-    let lastFile = files.length > 0 ? files[files.length - 1] : null
+    let lastFile = files && files.length > 0 ? files[files.length - 1] : null
 
     //print
     let componentRef = useRef(null);
