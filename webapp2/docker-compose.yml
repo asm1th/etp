@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  app:
+    container_name: react-app
+    image: react-app
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: production
+    volumes:
+      - ./src:/app/src
+    env_file:
+    - .env.development
+    # Run a command against the development stage of the image
+    command: npm run start:prod
+    ports:
+      - 5011:5011
