@@ -7,7 +7,8 @@ export class StagService {
   constructor(@InjectModel(Stag) private userRepository: typeof Stag) { }
 
   async getAllStags() {
-    const Stags = await this.userRepository.findAll({include: { all: true, nested: true }});
+    const Stags = await this.userRepository.findAll({order: [ ['opr_usl_stage_num', 'ASC'] ], include: { all: true, nested: true }});
+
     return Stags;
   }
 
