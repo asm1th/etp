@@ -1,16 +1,19 @@
+
+version: '3.0'
+
 services:
-  api:
+  main:
+    container_name: etp_backend
     build:
-      dockerfile: Dockerfile
       context: .
-      # Only will build development stage from our dockerfile
-      target: development
-    volumes:
-      - .:/usr/src/app
     env_file:
-    - .env
+      - .development.env
+    volumes:
+      - .:/app
+      - /app/node_modules
     # Run a command against the development stage of the image
     command: npm run start:dev
     ports:
       - 5010:5010
       - 5011:5011
+    restart: always
