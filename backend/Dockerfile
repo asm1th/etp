@@ -10,6 +10,6 @@ RUN npm link cross-env
 
 COPY . .
 
-COPY ./dist ./dist
+#COPY ./dist ./dist
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start"]
