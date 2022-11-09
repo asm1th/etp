@@ -1,6 +1,6 @@
 .DashContainer {
     padding: 40px 40px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .dashItem {
     height: 120px;

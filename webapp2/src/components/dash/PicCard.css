@@ -1,0 +1,45 @@
+
+.picCard{
+    border: 2px solid rgba(0, 120, 210, 0.5);
+    border-radius: 12px;
+    padding: 5px;
+    
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: flex;
+    transition: all linear .1s;
+}
+
+.picCard:hover{
+    border-color: rgb(0, 85, 150);
+}
+
+.picCard:hover .picCardBody{
+    background-size: 103%;
+}
+
+.picCardBody{
+    background-color: #ffffff;
+    background-size: cover;
+    min-width: 120px;
+    width: 263px;
+    border-radius: 8px;
+    height: 125px;
+    position: relative;
+    overflow: hidden;
+}
+
+.picCardLabel{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,212,255,0) 100%);
+}
