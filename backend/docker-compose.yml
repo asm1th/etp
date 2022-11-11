@@ -1,10 +1,10 @@
-
 version: '3.0'
 
 services:
   main:
     container_name: etp_backend
     build:
+      dockerfile: Dockerfile
       context: .
     env_file:
       - .production.env
