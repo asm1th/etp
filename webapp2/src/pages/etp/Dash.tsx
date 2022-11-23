@@ -182,7 +182,7 @@ const Dash: FC = () => {
                     <div className="DashToolbar">
                         <Icon4 className="mr1" />
                         <h3 className="h3">
-                        Основные KPI
+                            Основные KPI
                         </h3>
                         <div className="ToolbarSpacer"></div>
                         <div>
@@ -197,7 +197,7 @@ const Dash: FC = () => {
                             <Link to={link} className="DashKpiItem"><img src={kpi3} /></Link>
                             <Layout direction="column">
                                 <Link to={link} className="DashKpiItem"><img src={kpi4} /></Link>
-                                <Link to={link} className="DashKpiItem"><img src={kpi5} style={{marginTop: '-25px'}}/></Link>
+                                <Link to={link} className="DashKpiItem"><img src={kpi5} style={{ marginTop: '-25px' }} /></Link>
                             </Layout>
                         </Layout>
                     </div>
@@ -205,7 +205,7 @@ const Dash: FC = () => {
                     <div className="DashToolbar">
                         <Icon5 className="mr1" />
                         <h3 className="h3">
-                        Статистика производства
+                            Статистика производства
                         </h3>
                         <div className="ToolbarSpacer"></div>
                         <div>
@@ -231,15 +231,10 @@ const Dash: FC = () => {
                         </div>
                     </div>
                     <div className="DashScroller">
-                    <Link to={link} className="DashInsiteItem"><img src={insite1} /></Link>
-                    <Link to={link} className="DashInsiteItem"><img src={insite2} /></Link>
-                    <Link to={link} className="DashInsiteItem"><img src={insite3} /></Link>
-                        
-
-                        
+                        <Link to={link} className="DashInsiteItem"><img src={insite1} /></Link>
+                        <Link to={link} className="DashInsiteItem"><img src={insite2} /></Link>
+                        <Link to={link} className="DashInsiteItem"><img src={insite3} /></Link>
                     </div>
-
-
 
                 </div>
 

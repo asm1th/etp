@@ -31,11 +31,11 @@ const AppRouter = () => {
           <Route path="/logout" element={<Logout/>}/> 
           <Route path="*" element={<Responses404 actions={<></>}/>} />
 
-          <Route path="/etp" element={<Dash />} />
+          <Route path="/etp" element={isAuth ? <Dash /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak" element={isAuth ? <ZakMainPage /> : <Navigate to="/etp/login" />} />
-          <Route path="/etp/zak/proc" element={<Proc />} />
-          <Route path="/etp/zak/proc/zayavka" element={<Zayavka />} />
+          <Route path="/etp/zak/proc" element={isAuth ? <Proc /> : <Navigate to="/etp/login" />} />
+          <Route path="/etp/zak/proc/zayavka" element={isAuth ? <Zayavka /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/login" element={<EtpLogin />} />
           <Route path="/etp/logincode" element={<EtpLoginCode />} />
           <Route path="/etp/reg" element={<Registration />} />

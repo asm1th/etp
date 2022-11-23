@@ -1,22 +1,27 @@
 import '../../App.css';
-import './RNMCapp.css';
-import { FC } from "react";
+import '../rnmc/RNMCapp.css';
+import {useState, FC } from "react";
 import { useLocation } from "react-router-dom";
 import SampLotInfo from "../../components/fragments/SampLotInfo";
-import SampKpInfo from "../../components/fragments/SampKpInfo";
 import { useFetchSampQuery } from "../../services/SampService";
-import Etaps from "../../components/fragments/Etaps";
+import EtapsCost from "../../components/fragments/costmetod/EtapsCost";
 import SampItog from "../../components/fragments/SampItog";
-import SampFooterButtons from "../../components/fragments/SampFooterButtons";
+import SampFooterButtons from "../../components/fragments/costmetod/costdescription/SampFooterButtons";
 import { ProgressSpin } from '@consta/uikit/ProgressSpin';
 import { Responses503 } from '@consta/uikit/Responses503';
 import { ResponsesNothingFound } from '@consta/uikit/ResponsesNothingFound';
-import GuidEnter from './GuidEnter';
+import GuidEnter from '../rnmc/GuidEnter';
 import { useAppDispatch } from "../../hooks/redux";
 import { authSlice } from '../../store/reducers/authRTK/authSlice';
-import { Text } from "@consta/uikit/Text";
 import { Layout } from '@consta/uikit/LayoutCanary';
+import SampItogCost from '../../components/fragments/costmetod/SampItogCost';
+import DescriptionCostMetod from '../../components/fragments/costmetod/costdescription/DescriptionCostMetod';
+import { Tabs } from '@consta/uikit/Tabs';
+import SampKpInfoCost from '../../components/fragments/costmetod/SampKpInfoCost';
 
+
+type Item = string;
+const items: Item[] = ['Форма КП', 'Расшифровка ставок'];
 
 const RNMCapp: FC = () => {
     const dispatch = useAppDispatch()
@@ -26,7 +31,8 @@ const RNMCapp: FC = () => {
     
     dispatch(authSlice.actions.setLink_id(link_id))
     const { data: samp, error, isLoading, isSuccess } = useFetchSampQuery(link_id);
-    
+
+    const [tab, setTab] = useState<string  | null>(items[0]);
 
     return (
         <div className='RNMCapp'>
@@ -37,11 +43,22 @@ const RNMCapp: FC = () => {
             { isSuccess && samp && samp.stags && (samp.stags.length > 0) ? (
                 <>
                     <SampLotInfo />
-                    <SampKpInfo isTravelShow={true}/>
+                    <SampKpInfoCost isTravelShow={false}/>
                     <Layout className="TabsPage" direction="column">
-                        <Etaps isTravelShow={true}/>
+                        <Tabs
+                            value={tab}
+                            onChange={({ value }) => setTab(value)}
+                            items={items}
+                            getLabel={(item) => item}
+                            className="mb2"
+                        />
+                        { tab === 'Форма КП' ? (
+                            <EtapsCost isTravelShow={false}/>
+                        ) : (
+                            <DescriptionCostMetod/>
+                        )}
                     </Layout>
-                    <SampItog />
+                    <SampItogCost />
                     <SampFooterButtons />
                     {/* <pre>{JSON.stringify(samp, null, 2)}</pre> */}
                 </>

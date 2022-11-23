@@ -1,28 +1,41 @@
 
-import { ISampNew, IStag } from "../../../models/ISamp"
+import { IFileKP, ISamp, IStag } from "../../../models/ISamp"
 
 
 export const Stags: IStag[] = [
   {
     "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
-    "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
+    "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
     "opr_usl_stage_id": "7",
-    "opr_usl_stage": "ПриобретениеАЗСиземли ___LOCAL",
+    "opr_usl_stage": "Архитектор ***",
     "opr_usl_stage_num": 1,
-    isNoNds: false,
-    stagSumm: "",
-    stagSumm_nds: "",
+    "isNoNds": false,
+    "stagSumm": "",
+    "stagSumm_nds": "",
+    "isValid": true,
+    "nds_comm": "",
+    //cost
+    "stage_laboriousness": "",
+    "stage_price_ei":  "",
+    "stage_price":  "",
+    "stage_price_nds": "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
         "opr_usl_unit_id": "28",
         "usl_quan_unit": "CHS",
-        "opr_usl_unit": "Стоимость земельного участка Loc",
+        "opr_usl_unit": "Архитектор",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
+        "man_number": "1",
+        "laboriousness": "0",
+        "work_days": "",
+        "sum_price_ei": "",
+        "sum_price": "",
+        "sum_price_nds": "",
         "usrps": [
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -35,12 +48,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -53,12 +66,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           }
         ]
       }
@@ -66,24 +79,37 @@ export const Stags: IStag[] = [
   },
   {
     "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
-    "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
+    "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
     "opr_usl_stage_id": "11",
-    "opr_usl_stage": "Арендаземли",
+    "opr_usl_stage": "Инженер",
     "opr_usl_stage_num": 2,
-    isNoNds: false,
-    stagSumm: "",
-    stagSumm_nds: "",
+    "isNoNds": false,
+    "stagSumm": "",
+    "stagSumm_nds": "",
+    "isValid": true,
+    "nds_comm": "",
+    //cost
+    "stage_laboriousness": "",
+    "stage_price_ei":  "",
+    "stage_price":  "",
+    "stage_price_nds": "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "CHS",
-        "opr_usl_unit": "Стоимость права аренды земельного участка CHS",
+        "opr_usl_unit": "Инженер",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
+        "man_number": "1",
+        "laboriousness": "0",
+        "work_days": "",
+        "sum_price_ei": "",
+        "sum_price": "",
+        "sum_price_nds": "",
         "usrps": [
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -96,12 +122,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -114,12 +140,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           }
         ]
       },
@@ -128,11 +154,17 @@ export const Stags: IStag[] = [
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "CHS",
-        "opr_usl_unit": "Стоимость права аренды земельного участка CHS",
+        "opr_usl_unit": "Разработчик iOS",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
+        "man_number": "1",
+        "laboriousness": "0",
+        "work_days": "",
+        "sum_price_ei": "",
+        "sum_price": "",
+        "sum_price_nds": "",
         "usrps": [
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -145,12 +177,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -163,12 +195,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           }
         ]
       },
@@ -177,11 +209,17 @@ export const Stags: IStag[] = [
         "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
         "opr_usl_unit_id": "68",
         "usl_quan_unit": "CHS",
-        "opr_usl_unit": "Стоимость права аренды земельного участка TAG",
+        "opr_usl_unit": "Дизайнер UI/UX",
         "nsu_menge": "0.000",
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
+        "man_number": "1",
+        "laboriousness": "0",
+        "work_days": "",
+        "sum_price_ei": "",
+        "sum_price": "",
+        "sum_price_nds": "",
         "usrps": [
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -194,12 +232,12 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           },
           {
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -212,21 +250,53 @@ export const Stags: IStag[] = [
             "alt_name_unit": "",
             "kp_usrp_guid": "",
             "nds_comm": "22.08.2022",
-            isSubToggle: false,
-            summ: "",
-            summ_nds: "",
-            isValid: true,
-            price_date: "",
-            price_time: "",
+            "isSubToggle": false,
+            "summ": "",
+            "summ_nds": "",
+            "isValid": true,
+            "price_date": "",
+            "price_time": ""
           }
         ]
       }
     ]
+  }
+]
+
+export const Files: IFileKP[] = [
+  {
+    "file_mime_type": "text/plain",
+    "file_body": "",
+    "file_size": "000000005297",
+    "description": "",
+    "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+    "file_name": "Code",
+    "file_type": "TXT",
+    "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
+  },
+  {
+    "file_mime_type": "text/plain",
+    "file_body": "",
+    "file_size": "000000005297",
+    "description": "",
+    "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+    "file_name": "Code",
+    "file_type": "TXT",
+    "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4CB275634F23A"
+  },
+  {
+    "file_mime_type": "text/plain",
+    "file_body": "",
+    "file_size": "000000005297",
+    "description": "Code Programm",
+    "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+    "file_name": "Code",
+    "file_type": "TXT",
+    "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
   },
 ]
 
-
-export const initialState: ISampNew = {
+export const initialState: ISamp = {
   "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
   "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
   "konkurs_id": "_____100000037153",
@@ -248,9 +318,75 @@ export const initialState: ISampNew = {
     kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"
   },
   "stags": Stags,
+  "files": Files,
 
   kp_summ: "",
   kp_summ_nds: "",
   isTravel: false,
-  file_guid: ""
+  saveDate: "",
+  isValidateOn: false,
+
+  // cost metod
+  "full_laboriousness": "0",
+
+  "cntrb_oms": "0",
+  "cntrb_pension": "0",
+  "cntrb_disability": "0",
+  "profitability": "",
+  "salary": [],
+  "cost_depreciation": [],
+  "cost_overhead": [],
+  "btrip_price": "0",
+  "cost_other_bfoh": [],
+  "cost_other": [],
+  "cost_btrip": [],
+
+  cost: {
+    "cntrb_oms": "0",  //Взносы в фонд ОМС
+    "cntrb_pension": "0", //Взносы в ПФ
+    "cntrb_disability": "0",//Отчисления по временной нетрудоспособности
+    "profitability": "0", //Рентабельность
+    "salary": [],
+    "cost_depreciation": [],
+    "cost_overhead": [],
+    "btrip_price": "0", //Командировочные расходы(общая)
+    "cost_other_bfoh": [],
+    "cost_other": [],
+    "cost_btrip": [],
+
+    "kp_price_ei": "",
+    "kp_price": "",
+    "kp_price_nds": ""
+  },
+
+  cost_sums: {
+    "cost_insurance": {
+      "sum_cntrb_oms": "0",
+      "sum_cntrb_pension": "0",
+      "sum_cntrb_disability": "0",
+    },
+    "cost_depreciation": {
+      "sum_price_per_month": "0",
+      "sum_price": "0",
+      "sum_price_per_user": "0",
+      "sum_cost_meins_price": "0",
+    },
+    "cost_other_bfoh": {
+      "sum_full_price": "0",
+      "sum_user_per_month": "0",
+      "sum_price_per_user_per_month": "0",
+    },
+    "cost_overhead": {
+
+    },
+    "cost_profitability": "0",
+    "cost_other": {
+      "sum_full_price": "0",
+      "sum_user_per_month": "0",
+      "sum_price_per_user_per_month": "0",
+    },
+    "cost_btrip": {
+
+    }
+  }
 }

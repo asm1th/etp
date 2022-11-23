@@ -8,22 +8,20 @@ import { IconDocExport } from '@consta/uikit/IconDocExport';
 import { IconEdit } from '@consta/uikit/IconEdit';
 import { IconAttach } from '@consta/uikit/IconAttach';
 import { IconSendMessage } from '@consta/uikit/IconSendMessage';
-import { FileField } from '@consta/uikit/FileField';
 import { useReactToPrint } from 'react-to-print';
-import { ComponentToPrint } from '../util/ComponentToPrint';
-import { useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/samp/sampSlice";
+import { ComponentToPrint } from '../../../util/ComponentToPrint';
+import { useAppSelector } from "../../../../hooks/redux";
+import { sampSlice } from "../../../../store/reducers/samp/sampSlice";
 import { useDispatch } from "react-redux";
 import { Attachment } from '@consta/uikit/Attachment';
 import { IconClose } from '@consta/uikit/IconClose';
-import { IFileKP } from "../../models/ISamp";
-import { useUpdateFileMutation } from "../../services/SampService";
+import { IFileKP } from "../../../../models/ISamp";
+import { useUpdateFileMutation } from "../../../../services/SampService";
 import { format } from "date-fns";
 import { Modal } from "@consta/uikit/Modal";
 import { DragNDropField } from '@consta/uikit/DragNDropField';
-import { getFile, binaryToString } from "../../helpers/fileHelper";
-import packageJson from "../../../package.json";
-
+import { getFile, binaryToString } from "../../../../helpers/fileHelper";
+import packageJson from "../../../../../package.json";
 
 
 const emptyFile: IFileKP = {
@@ -42,7 +40,7 @@ const SampFooterButtons: FC = () => {
     const { stags, link, files, links } = useAppSelector(state => state.sampReducer)
 
     //const filesKP = files && files.length > 0 && files[files.findIndex(file => file.description === "подписанный файл КП")]
-    const filesKP = files.filter(file => file.description === "подписанный файл КП");
+    const filesKP = files ? files.filter(file => file.description === "подписанный файл КП") : null;
     const lastFile = filesKP && filesKP.length > 0 ? filesKP[filesKP.length - 1] : null
 
     //print
@@ -54,7 +52,7 @@ const SampFooterButtons: FC = () => {
     let navigate = useNavigate();
     const toKP = () => {
         if (validateKP().isValid) {
-            navigate('/kp_view?samp=' + link);
+            navigate('zatr/kp_view?samp=' + link);
         } else {
             setErrorStage(validateKP().msg.join(', '))
             setIsModalOpenError(true)

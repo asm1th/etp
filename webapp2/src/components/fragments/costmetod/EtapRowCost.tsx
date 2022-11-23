@@ -6,34 +6,36 @@ import { IconTeam } from '@consta/uikit/IconTeam';
 import { IconClose } from '@consta/uikit/IconClose';
 import { Select } from '@consta/uikit/Select';
 import { Combobox } from '@consta/uikit/Combobox';
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/samp/sampSlice";
-import quan_unit from "../../assets/quan_unit.json";
-import { IStag } from "../../models/ISamp";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { sampSlice } from "../../../store/reducers/samp/sampSlice";
+import quan_unit from "../../../assets/quan_unit.json";
+import { IStag } from "../../../models/ISamp";
+import { numberWithSpaces } from "../../../helpers";
 //import { validateEmailUtil } from "../reg/validate";
 
-const EtapRow = (props: { etapId: number }) => {
+
+const EtapRowCost = (props: { etapId: number }) => {
     const dispatch = useAppDispatch()
     const { stags, isValidateOn, link } = useAppSelector(state => state.sampReducer)
 
     const currentStage = stags[stags.findIndex((stag: IStag) => stag.opr_usl_stage_num === props.etapId)]
 
     type Item = {
-        "MANDT": number
-        "SPRAS": string
-        "MSEHI": string // код
-        "MSEH3": string
-        "MSEH6": string
-        "MSEHT": string
-        "MSEHL": string // человеческие название
-    }
+        "MANDT": number;
+        "SPRAS": string;
+        "MSEHI": string; // код
+        "MSEH3": string;
+        "MSEH6": string;
+        "MSEHT": string;
+        "MSEHL": string; // чел
+    };
 
     const quan_units: Item[] = quan_unit
     
     type ndsItem = {
         label: string
         value: string
-    }
+    };
 
     const ndsList: ndsItem[] = [
         {
@@ -50,7 +52,7 @@ const EtapRow = (props: { etapId: number }) => {
             label: 'без НДС',
             value: 'NN'
         }, {
-            label: '',
+            label: '-- --',
             value: ''
         }
     ];
@@ -79,21 +81,6 @@ const EtapRow = (props: { etapId: number }) => {
         dispatch(sampSlice.actions.setUsl_quan_unit({ UnitFinder: UnitFinder, value: value.MSEHI, label: value.MSEHL }))
     }
 
-    const handleChangeNsu_menge = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
-        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
-        if (value === '' || value.match(/^([0-9]{1,8})?$/) || value.match(/^([0-9]{1,8}\.)?([0-9]{1,3})?$/)) {
-            //debugger
-            dispatch(sampSlice.actions.setNsu_menge({ UnitFinder: UnitFinder, value: value }))
-        }
-    }
-
-    const handleChangePrices_user = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
-        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
-        if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
-            dispatch(sampSlice.actions.setPrices_user({ UnitFinder: UnitFinder, value: value }))
-        }
-    }
-
     const handleChangeVat_rate = (kp_stage_guid: string, kp_unit_guid: string, value: { label: string, value: string }) => {
         let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
         dispatch(sampSlice.actions.setVat_rate({ UnitFinder: UnitFinder, value: value.value }))
@@ -104,13 +91,38 @@ const EtapRow = (props: { etapId: number }) => {
         dispatch(sampSlice.actions.setNds_comm({ UnitFinder: UnitFinder, value: value }))
     }
 
-    //1234567891123456
+    const handleManNumber = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
+        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
+        if (value === '' || value.match(/^([0-9]{1,8})?$/) || value.match(/^([0-9]{1,8}\.)?([0-9]{1,3})?$/)) {
+            dispatch(sampSlice.actions.setManNumber({ UnitFinder: UnitFinder, value: value }))
+        }
+    }
+
+    const handleLaboriousness = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
+        let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
+        if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
+            dispatch(sampSlice.actions.setLaboriousness({ UnitFinder: UnitFinder, value: value }))
+        }
+    }
 
     return (
         <>
-            {currentStage.units.map(({ kp_stage_guid, kp_unit_guid, opr_usl_unit, opr_usl_unit_restr_menge, opr_usl_unit_restr_quan, usrps }) => (
+            {currentStage.units.map(({ 
+                kp_stage_guid, 
+                kp_unit_guid, 
+                opr_usl_unit,
+                opr_usl_unit_restr_menge, 
+                opr_usl_unit_restr_quan, 
+                usrps, 
+                man_number, 
+                laboriousness, 
+                work_days,
+                sum_price_ei,
+                sum_price,
+                sum_price_nds
+                }) => (
                 usrps.filter(usrp => usrp.link_id === link).map(curUsrp => (
-
+                
                     <div key={kp_stage_guid + "_" + kp_unit_guid}>
                         <Layout className="Row mb1">
                             <Layout flex={2} direction="column">
@@ -135,7 +147,7 @@ const EtapRow = (props: { etapId: number }) => {
                                     />
                                 </Layout>
                             </Layout>
-                            <Layout flex={2}>
+                            <Layout flex={1}>
                                 <Combobox
                                     name="usl_quan_unit"
                                     placeholder="Выберите ЕИ"
@@ -146,7 +158,7 @@ const EtapRow = (props: { etapId: number }) => {
                                     size="s"
                                     className="RowInput"
                                     onChange={({ value }) => handleChangeUsl_quan_unit(kp_stage_guid, kp_unit_guid, value)}
-                                    disabled={opr_usl_unit_restr_quan === "" ? false : true}
+                                    //disabled={opr_usl_unit_restr_quan === "" ? false : true}
                                     getItemLabel={(item) => item.MSEHL}
                                     getItemKey={(item) => item.MSEHI}
                                 />
@@ -154,31 +166,41 @@ const EtapRow = (props: { etapId: number }) => {
                             <Layout flex={1}>
                                 <TextField
                                     maxLength={17}
-                                    name="ei_value"
-                                    value={curUsrp.nsu_menge}
+                                    name="man_number"
+                                    value={man_number}
                                     size="s"
                                     className="RowInput"
-                                    onChange={({ e }: any) => handleChangeNsu_menge(kp_stage_guid, kp_unit_guid, e.target.value)}
-                                    disabled={opr_usl_unit_restr_menge === "" ? false : true}
+                                    onChange={({ e }: any) => handleManNumber(kp_stage_guid, kp_unit_guid, e.target.value)}
+                                    //disabled={opr_usl_unit_restr_menge === "" ? false : true}
                                     required
-                                    status={ (isValidateOn && (parseFloat(curUsrp.nsu_menge) === 0 || curUsrp.nsu_menge === '')) ? 'alert' : undefined}
+                                    status={ (isValidateOn && (parseFloat(man_number) === 0 || man_number === '')) ? 'alert' : undefined}
                                 />
                             </Layout>
-
                             <Layout flex={1}>
                                 <TextField
                                     maxLength={20}
-                                    name="ei_price"
-                                    value={curUsrp.prices_user}
+                                    name="laboriousness"
+                                    value={laboriousness}
                                     size="s"
                                     className="RowInput"
-                                    onChange={({ e }: any) => handleChangePrices_user(kp_stage_guid, kp_unit_guid, e.target.value)} 
+                                    onChange={({ e }: any) => handleLaboriousness(kp_stage_guid, kp_unit_guid, e.target.value)} 
                                     required
-                                    status={(isValidateOn && (parseFloat(curUsrp.prices_user) === 0 || curUsrp.prices_user === '')) ? 'alert' : undefined}
+                                    status={(isValidateOn && (parseFloat(laboriousness) === 0 || laboriousness === '')) ? 'alert' : undefined}
                                 />
                             </Layout>
-                            <Layout flex={1}>
+                            <Layout flex={1} className="aic jcc mr1">
+                                {parseFloat(work_days) == 0 ? "-- --" : work_days}
+                            </Layout>
+
+                            <Layout flex={1} className="aic jcc mr1 calcFont sum_price_ei">
+                                {parseFloat(sum_price_ei) == 0 ? "-- --" : numberWithSpaces(sum_price_ei)}
+                            </Layout>
+                            <Layout flex={1} className="aic jcc mr1 calcFont sum_price">
+                                {parseFloat(sum_price) == 0 ? "-- --" : numberWithSpaces(sum_price)}
+                            </Layout>
+                            <Layout flex={1} className="mr1">
                                 <Select
+                                    name="vat_rate"
                                     view="default"
                                     items={ndsList}
                                     value={getSelectedNDS(ndsList, curUsrp.vat_rate)}
@@ -187,8 +209,10 @@ const EtapRow = (props: { etapId: number }) => {
                                     className="RowInput"
                                     onChange={({ value }) => handleChangeVat_rate(kp_stage_guid, kp_unit_guid, value)} />
                             </Layout>
-                            <Layout flex={1} className="aic jcc mr1 calcFont">{parseFloat(curUsrp.summ) == 0 ? "-- --" : curUsrp.summ}</Layout>
-                            <Layout flex={1} className="aic jcc calcFont">{parseFloat(curUsrp.summ_nds) == 0 ? "-- --" : curUsrp.summ_nds}</Layout>
+                            
+                            <Layout flex={1} className="aic jcc calcFont sum_price_nds">
+                                {parseFloat(sum_price_nds) == 0 ? "-- --" : numberWithSpaces(sum_price_nds)}
+                            </Layout>
                         </Layout>
 
 
@@ -257,5 +281,5 @@ const EtapRow = (props: { etapId: number }) => {
     );
 };
 
-export default EtapRow;
+export default EtapRowCost;
 

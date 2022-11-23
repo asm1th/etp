@@ -22,3 +22,13 @@ export function isErrorWithMessage(
     typeof (error as any).message === "string"
   );
 }
+
+export const numberWithSpaces = (x: string) => {
+  if(x != "NaN"){
+    let parts = x.split(".")
+    
+    let int = parts[0] ? parseInt(parts[0]).toLocaleString('ru-RU') : ""
+    return int + (parts[1] ? ('.' + parts[1] ) : '.00')
+  }
+  return '-- --'
+}

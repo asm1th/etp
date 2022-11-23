@@ -1,0 +1,4610 @@
+[
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "%",
+   "MSEH3": "%",
+   "MSEH6": "%",
+   "MSEHT": "%",
+   "MSEHL": "Процент"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "%/D",
+   "MSEH3": "%/Д",
+   "MSEH6": "%/Д",
+   "MSEHT": "Процент",
+   "MSEHL": "Процент"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "%O",
+   "MSEH3": "%O",
+   "MSEH6": "%O",
+   "MSEHT": "%0",
+   "MSEHL": "Промилле"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "%P",
+   "MSEH3": "%П",
+   "MSEH6": "%Пункт",
+   "MSEHT": "% пункт",
+   "MSEHL": "Процентный пункт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "1",
+   "MSEH3": "ЕД",
+   "MSEH6": "Ед.",
+   "MSEHT": "Единица",
+   "MSEHL": "Единица"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "1/M",
+   "MSEH3": "1МП",
+   "MSEH6": "1/МПа",
+   "MSEHT": "1/МПа*10-4",
+   "MSEHL": "1/МПа*10 в - 4 степени"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "1/S",
+   "MSEH3": "1/С",
+   "MSEH6": "1/С",
+   "MSEHT": "1/Сек",
+   "MSEHL": "1 в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "10",
+   "MSEH3": "ДН",
+   "MSEH6": "дн.",
+   "MSEHT": "Дни",
+   "MSEHL": "Дни"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "1GI",
+   "MSEH3": "1ГП",
+   "MSEH6": "1/ГП",
+   "MSEHT": "1/ГигаПа",
+   "MSEHL": "1 на Гигапаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "22S",
+   "MSEH3": "22С",
+   "MSEH6": "мм2/с",
+   "MSEHT": "мм2/с",
+   "MSEHL": "Квадратный миллиметр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "2DC",
+   "MSEH3": "2DC",
+   "MSEH6": "2 ДЕС",
+   "MSEHT": "2 ДЕС",
+   "MSEHL": "Два десятка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "2M",
+   "MSEH3": "СМС",
+   "MSEH6": "см./с.",
+   "MSEHT": "см./с.",
+   "MSEHL": "Сантиметр/Секунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "2X",
+   "MSEH3": "000",
+   "MSEH6": "м./мин",
+   "MSEHT": "м./мин.",
+   "MSEHL": "Метр/минута"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "4G",
+   "MSEH3": "МЛТ",
+   "MSEH6": "Мл",
+   "MSEHT": "Мл",
+   "MSEHL": "Микролитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "4O",
+   "MSEH3": "МФР",
+   "MSEH6": "МФ",
+   "MSEHT": "МФ",
+   "MSEHL": "Микрофарад"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "4T",
+   "MSEH3": "ПКФ",
+   "MSEH6": "пФ",
+   "MSEHT": "пФ",
+   "MSEHL": "Пикофарад"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "A",
+   "MSEH3": "А",
+   "MSEH6": "А",
+   "MSEHT": "А",
+   "MSEHL": "Ампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "A87",
+   "MSEH3": "ГОМ",
+   "MSEH6": "ГОм",
+   "MSEHT": "ГОм",
+   "MSEHL": "Гигаом"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "A93",
+   "MSEH3": "ГМ3",
+   "MSEH6": "г./м3",
+   "MSEHT": "г./м3",
+   "MSEHL": "Грамм/Куб. метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "AAV",
+   "MSEH3": "ААВ",
+   "MSEH6": "ат.абc",
+   "MSEHT": "атм абс",
+   "MSEHL": "атмосфера абсолютная величина"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ACR",
+   "MSEH3": "АКР",
+   "MSEH6": "Акр",
+   "MSEHT": "Акри",
+   "MSEHL": "Акри"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "AM",
+   "MSEH3": "АМ",
+   "MSEH6": "АМП",
+   "MSEHT": "Ампулы",
+   "MSEHL": "Ампулы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "AMH",
+   "MSEH3": "А.Ч",
+   "MSEH6": "А.ч",
+   "MSEHT": "Ампер.час",
+   "MSEHL": "Ампер в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ANL",
+   "MSEH3": "АНЛ",
+   "MSEH6": "АНЛ",
+   "MSEHT": "Анализ",
+   "MSEHL": "Анализ"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "APZ",
+   "MSEH3": "APZ",
+   "MSEH6": "APZ",
+   "MSEHT": "Унция СК",
+   "MSEHL": "Унция СК, США (31,10348 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "AR",
+   "MSEH3": "АР",
+   "MSEH6": "АР",
+   "MSEHT": "АР",
+   "MSEHL": "Ар (100 м2)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ARM",
+   "MSEH3": "АРМ",
+   "MSEH6": "АРМ",
+   "MSEHT": "",
+   "MSEHL": ""
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "AT",
+   "MSEH3": "ат",
+   "MSEH6": "АТТ",
+   "MSEHT": "АТТ",
+   "MSEHL": "Тех. атмосфера (98066,5 Па)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ATM",
+   "MSEH3": "атм",
+   "MSEH6": "АТМ",
+   "MSEHT": "АТМ",
+   "MSEHL": "Физ. атмосфера (101325 Па)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B34",
+   "MSEH3": "КД3",
+   "MSEH6": "кг/дм3",
+   "MSEHT": "кг/дм3",
+   "MSEHL": "Килограмм/куб. дециметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B45",
+   "MSEH3": "КМЛ",
+   "MSEH6": "кмоль",
+   "MSEHT": "кмоль",
+   "MSEHL": "Киломоль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B47",
+   "MSEH3": "КН",
+   "MSEH6": "кН",
+   "MSEHT": "кН",
+   "MSEHL": "Килоньютон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B73",
+   "MSEH3": "МН",
+   "MSEH6": "МН",
+   "MSEHT": "МН",
+   "MSEHL": "Меганьютон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B75",
+   "MSEH3": "МГО",
+   "MSEH6": "МОм",
+   "MSEHT": "МОм",
+   "MSEHL": "Мегаом"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B78",
+   "MSEH3": "МЗП",
+   "MSEH6": "МегаВ",
+   "MSEHT": "МВ",
+   "MSEHL": "Мегавольт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "B84",
+   "MSEH3": "МАМ",
+   "MSEH6": "МАМ",
+   "MSEHT": "МАМ",
+   "MSEHL": "Микроампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BAG",
+   "MSEH3": "ПК",
+   "MSEH6": "Пакет",
+   "MSEHT": "Пакет",
+   "MSEHL": "Пакет"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BAL",
+   "MSEH3": "Бал",
+   "MSEH6": "Балл",
+   "MSEHT": "Балл",
+   "MSEHL": "Балл"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BAM",
+   "MSEH3": "BAM",
+   "MSEH6": "бар/м",
+   "MSEHT": "бар/м",
+   "MSEHL": "Бар на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BAR",
+   "MSEH3": "БАР",
+   "MSEH6": "бар",
+   "MSEHT": "Бар",
+   "MSEHL": "Бар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BBT",
+   "MSEH3": "BBT",
+   "MSEH6": "BBLS/T",
+   "MSEHT": "Баррель/т",
+   "MSEHL": "Баррель на тонну"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BCH",
+   "MSEH3": "БЧ",
+   "MSEH6": "БЧ",
+   "MSEHT": "Бочка",
+   "MSEHL": "Бочка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BE",
+   "MSEH3": "БЭ",
+   "MSEH6": "Б/Э",
+   "MSEHT": "БАРН/ЭЛЕКТ",
+   "MSEHL": "БАРН/ЭЛЕКТРОН"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BHP",
+   "MSEH3": "ВНР",
+   "MSEH6": "ВНР",
+   "MSEHT": "Эфф мощн",
+   "MSEHL": "Эффективная мощность(245,7 Вт)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BIT",
+   "MSEH3": "бит",
+   "MSEH6": "БИТ",
+   "MSEHT": "БИТ",
+   "MSEHL": "Бит"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BK",
+   "MSEH3": "Бк",
+   "MSEH6": "БК",
+   "MSEHT": "БК",
+   "MSEHL": "Беккерель"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BL",
+   "MSEH3": "БЛ",
+   "MSEH6": "БЛ",
+   "MSEHT": "Баллон",
+   "MSEHL": "Баллон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BLD",
+   "MSEH3": "BLD",
+   "MSEH6": "BLD",
+   "MSEHT": "Сух бар",
+   "MSEHL": "Сухой баррель США 115,627 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BLL",
+   "MSEH3": "BLL",
+   "MSEH6": "BLL",
+   "MSEHT": "Баррель",
+   "MSEHL": "Баррель(нефт)США (158,987 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BN",
+   "MSEH3": "БН",
+   "MSEH6": "БН",
+   "MSEHT": "Банки",
+   "MSEHL": "Банки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BOB",
+   "MSEH3": "боб",
+   "MSEH6": "БОБ",
+   "MSEHT": "БОБ",
+   "MSEHL": "Бобина"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BOD",
+   "MSEH3": "бод",
+   "MSEH6": "БОД",
+   "MSEHT": "БОД",
+   "MSEHL": "Бод"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BOT",
+   "MSEH3": "БТ",
+   "MSEH6": "Бт",
+   "MSEHT": "Бутылка",
+   "MSEHL": "Бутылка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BQK",
+   "MSEH3": "БКК",
+   "MSEH6": "Бк/кг",
+   "MSEHT": "Бк/кг",
+   "MSEHL": "Беккерель на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BRH",
+   "MSEH3": "БРЧ",
+   "MSEH6": "БРЧ",
+   "MSEHT": "Бригадочас",
+   "MSEHL": "Бригадочас"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BRL",
+   "MSEH3": "БРЛ",
+   "MSEH6": "Баррел",
+   "MSEHT": "Баррель",
+   "MSEHL": "Баррель"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BRT",
+   "MSEH3": "БРТ",
+   "MSEH6": "Брутто",
+   "MSEHT": "Брутто",
+   "MSEHL": "Брутто - регистровая тонна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BRV",
+   "MSEH3": "БРВ",
+   "MSEH6": "б.в.",
+   "MSEHT": "безр. в-на",
+   "MSEHL": "Безразмерная величина"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BS3",
+   "MSEH3": "БС3",
+   "MSEH6": "Ба/см3",
+   "MSEHT": "Барн/см3",
+   "MSEHL": "Барн на кубический сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BST",
+   "MSEH3": "BST",
+   "MSEH6": "1/бар",
+   "MSEHT": "1/бар",
+   "MSEHL": "Бар в -1 степени"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BTH",
+   "MSEH3": "ПРТ",
+   "MSEH6": "Партия",
+   "MSEHT": "Партия",
+   "MSEHL": "Партия"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BTU",
+   "MSEH3": "BTU",
+   "MSEH6": "BTU",
+   "MSEHT": "Брит тепл",
+   "MSEHL": "Британ тепл ед-ца (1,055 кДж)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BUA",
+   "MSEH3": "BUA",
+   "MSEH6": "BUA",
+   "MSEHT": "Бушель США",
+   "MSEHL": "Бушель США (35,2391 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BUH",
+   "MSEH3": "БУХ",
+   "MSEH6": "БУХ",
+   "MSEHT": "БУХТА",
+   "MSEHL": "БУХТА"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BUI",
+   "MSEH3": "BUI",
+   "MSEH6": "BUI",
+   "MSEHT": "Бушель СК",
+   "MSEHL": "Бушель СК (36,36874 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "BYN",
+   "MSEH3": "BYN",
+   "MSEH6": "BYN",
+   "MSEHT": "Бел. рубль",
+   "MSEHL": "Белорусский рубль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C/S",
+   "MSEH3": "г/с",
+   "MSEH6": "гр/сек",
+   "MSEHT": "град./сек",
+   "MSEHL": "Градусов в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C10",
+   "MSEH3": "МФ",
+   "MSEH6": "мФр",
+   "MSEHT": "мФр",
+   "MSEHL": "Миллифарад"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C36",
+   "MSEH3": "М/М",
+   "MSEH6": "Мль/м3",
+   "MSEHT": "Моль/м3",
+   "MSEHL": "Моль на кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C38",
+   "MSEH3": "М/Л",
+   "MSEH6": "Мль/л",
+   "MSEHT": "Моль/Литр",
+   "MSEHL": "Моль на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C39",
+   "MSEH3": "НА",
+   "MSEH6": "нА",
+   "MSEHT": "нА",
+   "MSEHL": "Наноампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C3S",
+   "MSEH3": "С3С",
+   "MSEH6": "см3/с",
+   "MSEHT": "см3/с",
+   "MSEHL": "Кубический сантиметр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C41",
+   "MSEH3": "НФ",
+   "MSEH6": "нФ",
+   "MSEHT": "нФ",
+   "MSEHL": "Нанофарад"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "C56",
+   "MSEH3": "НМ2",
+   "MSEH6": "Н/мм2",
+   "MSEHT": "Н/мм2",
+   "MSEHL": "Ньютон/квадр. миллиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CCM",
+   "MSEH3": "СМ3",
+   "MSEH6": "см3",
+   "MSEHT": "см3",
+   "MSEHL": "Кубический сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CD",
+   "MSEH3": "КД",
+   "MSEH6": "кд",
+   "MSEHT": "кд",
+   "MSEHL": "Кандела"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CDM",
+   "MSEH3": "ДМ3",
+   "MSEH6": "дм3",
+   "MSEHT": "КубичДецим",
+   "MSEHL": "Кубический дециметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CHM",
+   "MSEH3": "Ч/М",
+   "MSEH6": "ч/мес",
+   "MSEHT": "чел/мес",
+   "MSEHL": "чел/мес"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CHS",
+   "MSEH3": "Ч/Ч",
+   "MSEH6": "ч/час",
+   "MSEHT": "чел/час",
+   "MSEHL": "чел/час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CIS",
+   "MSEH3": "ЦИС",
+   "MSEH6": "ЦИСТРН",
+   "MSEHT": "цистерна",
+   "MSEHL": "цистерна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CM",
+   "MSEH3": "СМ",
+   "MSEH6": "см",
+   "MSEHT": "см",
+   "MSEHL": "Сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CM2",
+   "MSEH3": "CM2",
+   "MSEH6": "см2",
+   "MSEHT": "см2",
+   "MSEHL": "Квадратный сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CMH",
+   "MSEH3": "СМЧ",
+   "MSEH6": "см/ч",
+   "MSEHT": "см/ч",
+   "MSEHL": "Сантиметр в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CNL",
+   "MSEH3": "CNT",
+   "MSEH6": "CNT",
+   "MSEHT": "Центал СК",
+   "MSEHL": "Центал СК (45,359237 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CNT",
+   "MSEH3": "ц",
+   "MSEH6": "Ц",
+   "MSEHT": "Ц",
+   "MSEHL": "Центнер (метрический) (100 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CS",
+   "MSEH3": "ЯЩК",
+   "MSEH6": "ЯЩК",
+   "MSEHT": "ТарныйЯщик",
+   "MSEHL": "(Тарный) ящик"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CTL",
+   "MSEH3": "СЛ",
+   "MSEH6": "cl",
+   "MSEHT": "Сантилитр",
+   "MSEHL": "Сантилитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CWA",
+   "MSEH3": "CWA",
+   "MSEH6": "CWA",
+   "MSEHT": "Центнер",
+   "MSEHL": "Центнер США (45,3592 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CWI",
+   "MSEH3": "CWI",
+   "MSEH6": "CWI",
+   "MSEHT": "Дл центнер",
+   "MSEHL": "Длинный центнер (50,802345 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "CYC",
+   "MSEH3": "Ц",
+   "MSEH6": "Цикл",
+   "MSEHT": "Цикл",
+   "MSEHL": "Цикл"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "D/T",
+   "MSEH3": "D/T",
+   "MSEH6": "дол/тн",
+   "MSEHT": "дол./тонн",
+   "MSEHL": "доллар США за тонну"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "D10",
+   "MSEH3": "C/М",
+   "MSEH6": "С/м",
+   "MSEHT": "Сименс/м.",
+   "MSEHL": "Сименс на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "D41",
+   "MSEH3": "ТМ3",
+   "MSEH6": "т/м3",
+   "MSEHT": "т/м3",
+   "MSEHL": "Тонна/куб. метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "D46",
+   "MSEH3": "VA",
+   "MSEH6": "ВА",
+   "MSEHT": "ВА",
+   "MSEHL": "Вольтампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DAL",
+   "MSEH3": "ДАЛ",
+   "MSEH6": "Дал",
+   "MSEHT": "Декалитр",
+   "MSEHL": "Декалитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DAN",
+   "MSEH3": "СУТ",
+   "MSEH6": "СУТ",
+   "MSEHT": "Сутки",
+   "MSEHL": "Сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DB",
+   "MSEH3": "дБ",
+   "MSEH6": "дБ",
+   "MSEHT": "Децибел",
+   "MSEHL": "Децибел"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DCD",
+   "MSEH3": "дек",
+   "MSEH6": "ДЕК",
+   "MSEHT": "ДЕК",
+   "MSEHL": "Декада"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DCM",
+   "MSEH3": "ДЦМ",
+   "MSEH6": "Дец/М",
+   "MSEHT": "Децибел/М",
+   "MSEHL": "Децибел  на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DEG",
+   "MSEH3": "ГР",
+   "MSEH6": "гр.",
+   "MSEHT": "Градус",
+   "MSEHL": "Градус"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DL",
+   "MSEH3": "дл",
+   "MSEH6": "ДЛ",
+   "MSEHT": "ДЛ",
+   "MSEHL": "Децилитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DLE",
+   "MSEH3": "ДЛЕ",
+   "MSEH6": "д.е.",
+   "MSEHT": "доли ед-иц",
+   "MSEHL": "Доли единиц"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DM",
+   "MSEH3": "ДМ",
+   "MSEH6": "дм",
+   "MSEHT": "дм",
+   "MSEHL": "Дециметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DM2",
+   "MSEH3": "дм2",
+   "MSEH6": "ДМ2",
+   "MSEHT": "ДМ2",
+   "MSEHL": "Квадратный дециметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DOZ",
+   "MSEH3": "доз",
+   "MSEH6": "ДОЗ",
+   "MSEHT": "ДОЗ",
+   "MSEHL": "Доза"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DPT",
+   "MSEH3": "DPT",
+   "MSEH6": "DPT",
+   "MSEHT": "Водоизмещ",
+   "MSEHL": "Водоизмещение"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DR",
+   "MSEH3": "БРБ",
+   "MSEH6": "бараб.",
+   "MSEHT": "Барабан",
+   "MSEHL": "Барабан"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DRA",
+   "MSEH3": "DRA",
+   "MSEH6": "DRA",
+   "MSEHT": "Драхма США",
+   "MSEHL": "Драхма США (3,887935 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DRI",
+   "MSEH3": "DRI",
+   "MSEH6": "DRI",
+   "MSEHT": "Драхма СК",
+   "MSEHL": "Драхма СК (1,771745 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DRM",
+   "MSEH3": "DRM",
+   "MSEH6": "DRM",
+   "MSEHT": "Драхма СК",
+   "MSEHL": "Драхма СК (3,887935 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DWT",
+   "MSEH3": "DWT",
+   "MSEH6": "DWT",
+   "MSEHT": "Пеннивейт",
+   "MSEHL": "Пеннивейт СК, США (1,555174 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "DZ",
+   "MSEH3": "ДЮЖ",
+   "MSEH6": "дюж.",
+   "MSEHT": "Дюжина",
+   "MSEHL": "Дюжина"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EA",
+   "MSEH3": "КЖД",
+   "MSEH6": "кажд.",
+   "MSEHT": "Каждый",
+   "MSEHL": "Каждый"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EE",
+   "MSEH3": "ЕЭ",
+   "MSEH6": "ЕЭ",
+   "MSEHT": "ЕдЭнзимов",
+   "MSEHL": "Единицы для энзимов"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EGS",
+   "MSEH3": "ЕГС",
+   "MSEH6": "ЕГС",
+   "MSEHT": "ЕИ дл смет",
+   "MSEHL": "Техническая ЕИ для осмечевания"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EKZ",
+   "MSEH3": "ЭКЗ",
+   "MSEH6": "Экземп",
+   "MSEHT": "Экземпляр",
+   "MSEHL": "Экземпляр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EML",
+   "MSEH3": "ЭМЛ",
+   "MSEH6": "энз/мл",
+   "MSEHT": "Энз./мл",
+   "MSEHL": "Ед. энзимов на миллилитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EUR",
+   "MSEH3": "EUR",
+   "MSEH6": "EUR",
+   "MSEHT": "Евро",
+   "MSEHL": "Евро"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "EXM",
+   "MSEH3": "ОБР",
+   "MSEH6": "ОБР",
+   "MSEHT": "Образец",
+   "MSEHL": "Образец"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "F",
+   "MSEH3": "Ф",
+   "MSEH6": "Ф",
+   "MSEHT": "Ф",
+   "MSEHL": "Фарад"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FA",
+   "MSEH3": "0F",
+   "MSEH6": "0F",
+   "MSEHT": "0F",
+   "MSEHL": "Фаренгейт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FL",
+   "MSEH3": "ФЛ",
+   "MSEH6": "ФЛ",
+   "MSEHT": "Флакон",
+   "MSEHL": "Флакон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FRE",
+   "MSEH3": "фре",
+   "MSEH6": "фр.ед.",
+   "MSEHT": "фр.ед.",
+   "MSEHL": "фрахтовая единица"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FS",
+   "MSEH3": "ФН",
+   "MSEH6": "ФН",
+   "MSEHT": "ФизНаблюд",
+   "MSEHL": "Физическое наблюдение"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FT",
+   "MSEH3": "ФТ",
+   "MSEH6": "Фут",
+   "MSEHT": "Фут",
+   "MSEHL": "Фут"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FT2",
+   "MSEH3": "ФТ2",
+   "MSEH6": "фут2",
+   "MSEHT": "КвадрФут",
+   "MSEHL": "Квадратный фут"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "FT3",
+   "MSEH3": "FT3",
+   "MSEH6": "фут3",
+   "MSEHT": "КубичФут",
+   "MSEHL": "Кубический фут"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "G",
+   "MSEH3": "Г",
+   "MSEH6": "Г",
+   "MSEHT": "г",
+   "MSEHL": "Грамм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "G/L",
+   "MSEH3": "ГКН",
+   "MSEH6": "гАв/л",
+   "MSEHT": "гАв/литр",
+   "MSEHL": "Грамм акт. вещества на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "G10",
+   "MSEH3": "Г10",
+   "MSEH6": "ГР/10М",
+   "MSEHT": "ГРАД/10М",
+   "MSEHL": "Градусов на 10 метров"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GAS",
+   "MSEH3": "GAS",
+   "MSEH6": "Га/скв",
+   "MSEHT": "Га/скв",
+   "MSEHL": "Гектар на скважину"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GAU",
+   "MSEH3": "ГРЗ",
+   "MSEH6": "г зол.",
+   "MSEHT": "Гр. золота",
+   "MSEHL": "Грамм золота"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GB",
+   "MSEH3": "гб",
+   "MSEH6": "ГБАР",
+   "MSEHT": "ГБАР",
+   "MSEHL": "Гектобар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GBK",
+   "MSEH3": "ГБк",
+   "MSEH6": "ГИГАБК",
+   "MSEHT": "ГИГАБК",
+   "MSEHL": "Гигабеккерель"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GBP",
+   "MSEH3": "GBP",
+   "MSEH6": "GBP",
+   "MSEHT": "Фунт стерл",
+   "MSEHL": "Фунт стерлингов"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GC",
+   "MSEH3": "ГЦС",
+   "MSEH6": "ГЦС",
+   "MSEHT": "ГЦС",
+   "MSEHL": "Градус цельсия"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GG",
+   "MSEH3": "гг",
+   "MSEH6": "ГГ",
+   "MSEHT": "ГГ",
+   "MSEHL": "Гектограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GGR",
+   "MSEH3": "GGR",
+   "MSEH6": "GGR",
+   "MSEHT": "Бол гросс",
+   "MSEHL": "Большой гросс (12 гроссов)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GHG",
+   "MSEH3": "ГГГ",
+   "MSEH6": "г/гг",
+   "MSEHT": "г/гг",
+   "MSEHL": "Грамм на гектограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GIA",
+   "MSEH3": "GIA",
+   "MSEH6": "GIA",
+   "MSEHT": "Джилл США",
+   "MSEHL": "Джилл США (11,8294 см3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GIL",
+   "MSEH3": "GIl",
+   "MSEH6": "GIl",
+   "MSEHT": "Джилл СК",
+   "MSEHL": "Джилл СК (0,142065 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GJ",
+   "MSEH3": "ФГ",
+   "MSEH6": "ГДж",
+   "MSEHT": "ГДж",
+   "MSEHL": "Гигаджоуль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GKG",
+   "MSEH3": "ГКГ",
+   "MSEH6": "г/кг",
+   "MSEHT": "г/кг",
+   "MSEHL": "Грамм на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GKL",
+   "MSEH3": "ГКЛ",
+   "MSEH6": "ГКЛ",
+   "MSEHT": "Гкал",
+   "MSEHL": "Гигакалория"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GLD",
+   "MSEH3": "GLD",
+   "MSEH6": "GLD",
+   "MSEHT": "Сух галлон",
+   "MSEHL": "Сухой галлон США(4,404884 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GLI",
+   "MSEH3": "Г/Л",
+   "MSEH6": "г/л",
+   "MSEHT": "г/л",
+   "MSEHL": "Грамм на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GLL",
+   "MSEH3": "GLL",
+   "MSEH6": "ГалСША",
+   "MSEHT": "Галлон США",
+   "MSEHL": "Жидкостный галлон США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GLM",
+   "MSEH3": "ГЛМ",
+   "MSEH6": "ГЛМ US",
+   "MSEHT": "Гал/Ми(US)",
+   "MSEHL": "Галлонов в милю (США)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GLN",
+   "MSEH3": "GLN",
+   "MSEH6": "GLI",
+   "MSEHT": "Галлон СК",
+   "MSEHL": "Галлон СК (4,546092 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GM",
+   "MSEH3": "ГМ",
+   "MSEH6": "г/моль",
+   "MSEHT": "г/моль",
+   "MSEHL": "Грамм на моль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GM2",
+   "MSEH3": "ГМ2",
+   "MSEH6": "г/м2",
+   "MSEHT": "г/м2",
+   "MSEHL": "Грамм на квадратный метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GN",
+   "MSEH3": "ГН",
+   "MSEH6": "Гн",
+   "MSEHT": "Генри",
+   "MSEHL": "Генри"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GOL",
+   "MSEH3": "гол",
+   "MSEH6": "ГОЛ",
+   "MSEHT": "ГОЛ",
+   "MSEHL": "Голова"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GPA",
+   "MSEH3": "ГиП",
+   "MSEH6": "ГигПас",
+   "MSEHT": "Гигпаскаль",
+   "MSEHL": "Гигапаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GPH",
+   "MSEH3": "Г/Ч",
+   "MSEH6": "Г/Ч US",
+   "MSEHT": "Гал/Час US",
+   "MSEHL": "Галлонов в час (США)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GQ",
+   "MSEH3": "МКК",
+   "MSEH6": "мкг/м3",
+   "MSEHT": "мкг/м3",
+   "MSEHL": "Микрограмм на кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GRA",
+   "MSEH3": "ГAP",
+   "MSEH6": "ГР/API",
+   "MSEHT": "ГРАД API",
+   "MSEHL": "ГРАД API"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GRN",
+   "MSEH3": "GRN",
+   "MSEH6": "GRN",
+   "MSEHT": "Гран СК",
+   "MSEHL": "Гран СК, США (64,798910 мг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GRO",
+   "MSEH3": "ГРО",
+   "MSEH6": "гросс",
+   "MSEHT": "Гросс",
+   "MSEHL": "Гросс (12 дюжин)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "GW",
+   "MSEH3": "ГРА",
+   "MSEH6": "ГрАВ",
+   "MSEHT": "ГрАктВещ",
+   "MSEHL": "Грамм активного вещества"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "H",
+   "MSEH3": "Ч",
+   "MSEH6": "ч",
+   "MSEHT": "Час",
+   "MSEHL": "Час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "H/D",
+   "MSEH3": "Ч/Д",
+   "MSEH6": "Ч/Д",
+   "MSEHT": "Чел/день",
+   "MSEHL": "Чел/день"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HAR",
+   "MSEH3": "ГА",
+   "MSEH6": "Гектар",
+   "MSEHT": "Гектар",
+   "MSEHL": "Гектар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HIU",
+   "MSEH3": "HIU",
+   "MSEH6": "HIU",
+   "MSEHT": "Сто межд е",
+   "MSEHL": "Сто международных единиц"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HL",
+   "MSEH3": "ГЛ",
+   "MSEH6": "гл",
+   "MSEHT": "гл",
+   "MSEHL": "Гектолитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HMT",
+   "MSEH3": "HMT",
+   "MSEH6": "HMT",
+   "MSEHT": "Гектометр",
+   "MSEHL": "Гектометр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HPA",
+   "MSEH3": "ГПА",
+   "MSEH6": "гПа",
+   "MSEHT": "гПа",
+   "MSEHL": "Гектопаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HUM",
+   "MSEH3": "ЧЕЛ",
+   "MSEH6": "ЧЕЛ",
+   "MSEHT": "Человек",
+   "MSEHL": "Человек"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "HZ",
+   "MSEH3": "ГЦ",
+   "MSEH6": "Гц",
+   "MSEHT": "Гц",
+   "MSEHL": "Герц (1/секунда)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IMM",
+   "MSEH3": "ИММ",
+   "MSEH6": "ИМП/М",
+   "MSEHT": "ИМПУЛЬС/М",
+   "MSEHL": "ИМПУЛЬС/МИН"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IN",
+   "MSEH3": "ДЮМ",
+   "MSEH6": "\"",
+   "MSEHT": "Дюйм",
+   "MSEHL": "Дюйм (inch)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IN2",
+   "MSEH3": "\"2",
+   "MSEH6": "дюйм2",
+   "MSEHT": "КвадрДюйм",
+   "MSEHL": "Квадратный дюйм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IN3",
+   "MSEH3": "\"3",
+   "MSEH6": "дюйм3",
+   "MSEHT": "КубичДюйм",
+   "MSEHL": "Кубический дюйм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IN4",
+   "MSEH3": "ДЮ2",
+   "MSEH6": "1/64Д",
+   "MSEHT": "1/64 дюйм",
+   "MSEHL": "1/64 дюйм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IP",
+   "MSEH3": "IP",
+   "MSEH6": "IP",
+   "MSEHT": "ЕдСтепЗащ",
+   "MSEHL": "Единица степени защиты"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "IZD",
+   "MSEH3": "изд",
+   "MSEH6": "ИЗД",
+   "MSEHT": "ИЗД",
+   "MSEHL": "Изделие"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "J",
+   "MSEH3": "ДЖ",
+   "MSEH6": "Дж",
+   "MSEHT": "Дж",
+   "MSEHL": "Джоуль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "JHR",
+   "MSEH3": "ГОД",
+   "MSEH6": "г",
+   "MSEHT": "Год",
+   "MSEHL": "Годы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "JKG",
+   "MSEH3": "ДЖК",
+   "MSEH6": "Дж/кг",
+   "MSEHT": "Дж/кг",
+   "MSEHL": "Джоуль на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "JKK",
+   "MSEH3": "ДКК",
+   "MSEH6": "Д/кгК",
+   "MSEHT": "дж/кг*К",
+   "MSEHL": "Специфическая теплоемкость"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "JMO",
+   "MSEH3": "ДЖМ",
+   "MSEH6": "Дж/мол",
+   "MSEHT": "Дж/моль",
+   "MSEHL": "Джоуль на моль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "K",
+   "MSEH3": "К",
+   "MSEH6": "К",
+   "MSEHT": "К",
+   "MSEHL": "Кельвин"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "K/M",
+   "MSEH3": "К_М",
+   "MSEH6": "К.Мест",
+   "MSEHT": "Койко-мест",
+   "MSEHL": "Койко-место"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KA",
+   "MSEH3": "КА",
+   "MSEH6": "кА",
+   "MSEHT": "кА",
+   "MSEHL": "Килоампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KAM",
+   "MSEH3": "КАМ",
+   "MSEH6": "кам.",
+   "MSEHT": "Камера",
+   "MSEHL": "Камера"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KAN",
+   "MSEH3": "КАН",
+   "MSEH6": "Кан.",
+   "MSEHT": "Канистра",
+   "MSEHL": "Канистра"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KAR",
+   "MSEH3": "КОР",
+   "MSEH6": "кор.",
+   "MSEHT": "Коробка",
+   "MSEHL": "Коробка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KAT",
+   "MSEH3": "КАТ",
+   "MSEH6": "КАТ",
+   "MSEHT": "Катушка",
+   "MSEHL": "Катушка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KB",
+   "MSEH3": "кб",
+   "MSEH6": "КБАР",
+   "MSEHT": "КБАР",
+   "MSEHL": "Килобар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KBK",
+   "MSEH3": "КБК",
+   "MSEH6": "кБк/кг",
+   "MSEHT": "кБк/кг",
+   "MSEHL": "Килобеккерель на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KCM",
+   "MSEH3": "КСМ",
+   "MSEH6": "кс/см2",
+   "MSEHT": "кгс/см2",
+   "MSEHL": "Килограмм силы на квадратн. см"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KDM",
+   "MSEH3": "KDM",
+   "MSEH6": "кДж/м3",
+   "MSEHT": "кДж/м3",
+   "MSEHL": "Высш.теплотворная способноcть"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KG",
+   "MSEH3": "КГ",
+   "MSEH6": "кг",
+   "MSEHT": "кг",
+   "MSEHL": "Килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KG2",
+   "MSEH3": "KG2",
+   "MSEH6": "кгс/м2",
+   "MSEHT": "кгс/м2",
+   "MSEHL": "Килограмм сила на м2"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KG3",
+   "MSEH3": "KG3",
+   "MSEH6": "кг/см3",
+   "MSEHT": "кг/см3",
+   "MSEHL": "Килограмм на см3"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGF",
+   "MSEH3": "КГ2",
+   "MSEH6": "кг/м2",
+   "MSEHT": "кг/м2",
+   "MSEHL": "Килограмм на квадратный метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGH",
+   "MSEH3": "кгч",
+   "MSEH6": "кг/ч",
+   "MSEHT": "Кил. в час",
+   "MSEHL": "Килограмм в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGK",
+   "MSEH3": "КГК",
+   "MSEH6": "кг/кг",
+   "MSEHT": "кг/кг",
+   "MSEHL": "Килограмм на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGM",
+   "MSEH3": "КГМ",
+   "MSEH6": "кг/мол",
+   "MSEHT": "кг/моль",
+   "MSEHL": "Килограмм на моль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGS",
+   "MSEH3": "КГС",
+   "MSEH6": "кг/с",
+   "MSEHT": "кг/с",
+   "MSEHL": "Килограмм в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGV",
+   "MSEH3": "КГ3",
+   "MSEH6": "кг/м3",
+   "MSEHT": "кг/м3",
+   "MSEHL": "Килограмм на кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KGW",
+   "MSEH3": "КАВ",
+   "MSEH6": "КгАкВщ",
+   "MSEHT": "КгАктВещ",
+   "MSEHL": "Килограмм активного вещества"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KHZ",
+   "MSEH3": "КГЦ",
+   "MSEH6": "кГц",
+   "MSEHT": "кГц",
+   "MSEHL": "Килогерц"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KI",
+   "MSEH3": "ЯЩ",
+   "MSEH6": "Ящик",
+   "MSEHT": "Ящик",
+   "MSEHL": "Ящик"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KJ",
+   "MSEH3": "КДЖ",
+   "MSEH6": "кДж",
+   "MSEHT": "кДж",
+   "MSEHL": "Килоджоуль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KJK",
+   "MSEH3": "КДК",
+   "MSEH6": "кДж/кг",
+   "MSEHT": "кДж/кг",
+   "MSEHL": "Килоджоуль на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KJM",
+   "MSEH3": "КДМ",
+   "MSEH6": "кДж/мо",
+   "MSEHT": "кДж/моль",
+   "MSEHL": "Килоджоуль на моль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KKH",
+   "MSEH3": "ККЧ",
+   "MSEH6": "ккал/ч",
+   "MSEHT": "ККАЛ/Ч",
+   "MSEHL": "Килокалория в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KL",
+   "MSEH3": "Кл",
+   "MSEH6": "КЛ",
+   "MSEHT": "КЛ",
+   "MSEHL": "Кулон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KLG",
+   "MSEH3": "клг",
+   "MSEH6": "ккал/к",
+   "MSEHT": "ккал/кг",
+   "MSEHL": "Килокаллорий на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KM",
+   "MSEH3": "КМ",
+   "MSEH6": "км",
+   "MSEHT": "км",
+   "MSEHL": "Километр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KM2",
+   "MSEH3": "КМ2",
+   "MSEH6": "км2",
+   "MSEHT": "км2",
+   "MSEHL": "Квадратный километр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMD",
+   "MSEH3": "КМС",
+   "MSEH6": "км/сут",
+   "MSEHT": "км/сут",
+   "MSEHL": "Километр в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMH",
+   "MSEH3": "КМЧ",
+   "MSEH6": "км/ч",
+   "MSEHT": "км/ч",
+   "MSEHL": "Километр в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMK",
+   "MSEH3": "КМК",
+   "MSEH6": "м3/м3",
+   "MSEHT": "м3/м3",
+   "MSEHL": "Кубический метр на куб. метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMM",
+   "MSEH3": "K/M",
+   "MSEH6": "КГ/М",
+   "MSEHT": "Кг/м",
+   "MSEHL": "Килограмм на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMN",
+   "MSEH3": "К/М",
+   "MSEH6": "К/мин",
+   "MSEHT": "К/мин",
+   "MSEHL": "Кельвин в минуту"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KMS",
+   "MSEH3": "К/С",
+   "MSEH6": "К/с",
+   "MSEHT": "К/с",
+   "MSEHL": "Кельвин в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KNM",
+   "MSEH3": "КНМ",
+   "MSEH6": "КН/М",
+   "MSEHT": "КилоН/м",
+   "MSEHL": "Килоньютон на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KOH",
+   "MSEH3": "КОМ",
+   "MSEH6": "кОм",
+   "MSEHT": "кОм",
+   "MSEHL": "Килоом"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KPA",
+   "MSEH3": "КПА",
+   "MSEH6": "кПа",
+   "MSEHT": "кПа",
+   "MSEHL": "Килопаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KPS",
+   "MSEH3": "КС2",
+   "MSEH6": "кгс/с2",
+   "MSEHT": "кгс/см2",
+   "MSEHL": "Килограмм сила на см2"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KR",
+   "MSEH3": "КР",
+   "MSEH6": "КР",
+   "MSEHT": "Круг",
+   "MSEHL": "Круг"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KRT",
+   "MSEH3": "кар",
+   "MSEH6": "КАР",
+   "MSEHT": "КАР",
+   "MSEHL": "Метрический карат"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KS",
+   "MSEH3": "КС",
+   "MSEH6": "КС",
+   "MSEHT": "Комплекс",
+   "MSEHL": "Комплекс"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KSP",
+   "MSEH3": "КСП",
+   "MSEH6": "КСПОЗ",
+   "MSEHT": "К-с на поз",
+   "MSEHL": "Комплекс на позицию"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KT",
+   "MSEH3": "КТ",
+   "MSEH6": "КТ",
+   "MSEHT": "Комплект",
+   "MSEHL": "Комплект"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KUR",
+   "MSEH3": "Ки",
+   "MSEH6": "КИ",
+   "MSEHT": "КИ",
+   "MSEHL": "Кюри"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KV",
+   "MSEH3": "КВ",
+   "MSEH6": "кВ",
+   "MSEHT": "кВ",
+   "MSEHL": "Киловольт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KVA",
+   "MSEH3": "КВА",
+   "MSEH6": "кВА",
+   "MSEHT": "кВА",
+   "MSEHL": "Киловатампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KVR",
+   "MSEH3": "кВр",
+   "MSEH6": "кВар",
+   "MSEHT": "Киловар",
+   "MSEHL": "Киловар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KVS",
+   "MSEH3": "KVS",
+   "MSEH6": "кВ/см",
+   "MSEHT": "кВ/см",
+   "MSEHL": "Киловольт на сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KVT",
+   "MSEH3": "КЧТ",
+   "MSEH6": "кВтЧ.Т",
+   "MSEHT": "КВТ. Ч/Т",
+   "MSEHL": "Киловатт-часов за тонну"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KW",
+   "MSEH3": "КВТ",
+   "MSEH6": "кВт",
+   "MSEHT": "кВт",
+   "MSEHL": "Киловатт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KWH",
+   "MSEH3": "КВЧ",
+   "MSEH6": "кВт/ч",
+   "MSEHT": "кВт/ч",
+   "MSEHL": "Киловатт-час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KWK",
+   "MSEH3": "КАК",
+   "MSEH6": "кга/кг",
+   "MSEHT": "кга/кг",
+   "MSEHL": "Кг активного вещ-ва на кг"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "KZT",
+   "MSEH3": "KZT",
+   "MSEH6": "KZT",
+   "MSEHT": "Тенге",
+   "MSEHL": "Тенге"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "L",
+   "MSEH3": "Л",
+   "MSEH6": "л",
+   "MSEHT": "л",
+   "MSEHL": "Литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "L/S",
+   "MSEH3": "Л/С",
+   "MSEH6": "Л/С",
+   "MSEHT": "Литр в сек",
+   "MSEHL": "Литр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "L2",
+   "MSEH3": "Л/М",
+   "MSEH6": "л/мин",
+   "MSEHT": "л/мин",
+   "MSEHL": "Литр/Минута"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LB",
+   "MSEH3": "ФНТ",
+   "MSEH6": "фунт",
+   "MSEHT": "Фунт",
+   "MSEHL": "Фунт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LBT",
+   "MSEH3": "LBT",
+   "MSEH6": "LBT",
+   "MSEHT": "Тройский ф",
+   "MSEHL": "Тройский фунт США (373,242 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LE",
+   "MSEH3": "ЕР",
+   "MSEH6": "ЕР",
+   "MSEHT": "ЕдРаботы",
+   "MSEHL": "Единица работы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LHK",
+   "MSEH3": "ЛСК",
+   "MSEH6": "л/СтКм",
+   "MSEHT": "л/100 км.",
+   "MSEHL": "Литров на 100 км."
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LIS",
+   "MSEH3": "ЛИ",
+   "MSEH6": "ЛИ",
+   "MSEHT": "Лист",
+   "MSEHL": "Лист"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LM",
+   "MSEH3": "лм",
+   "MSEH6": "ЛМ",
+   "MSEHT": "ЛМ",
+   "MSEHL": "Люмен"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LMS",
+   "MSEH3": "ЛМС",
+   "MSEH6": "л/мо-с",
+   "MSEHT": "л/моль-с",
+   "MSEHL": "Литр на моль-секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LOG",
+   "MSEH3": "ЛОГ",
+   "MSEH6": "Логин",
+   "MSEHT": "",
+   "MSEHL": ""
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LPH",
+   "MSEH3": "Л/Ч",
+   "MSEH6": "Л/Час",
+   "MSEHT": "Литр/Час",
+   "MSEHL": "Литров в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LS",
+   "MSEH3": "ЛС",
+   "MSEH6": "ЛC",
+   "MSEHT": "ЛC",
+   "MSEHL": "Лошадиных сил"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LTN",
+   "MSEH3": "LTN",
+   "MSEH6": "LTN",
+   "MSEHT": "Дл тонна С",
+   "MSEHL": "Длинная тонна (1,0160469 т)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "LX",
+   "MSEH3": "лк",
+   "MSEH6": "ЛК",
+   "MSEHT": "ЛК",
+   "MSEHL": "Люкс"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M",
+   "MSEH3": "М",
+   "MSEH6": "м",
+   "MSEHT": "м",
+   "MSEHL": "Метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M%",
+   "MSEH3": "%МС",
+   "MSEH6": "% (м.)",
+   "MSEHT": "% (м.)",
+   "MSEHL": "Массовый процент"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M%O",
+   "MSEH3": "М%0",
+   "MSEH6": "%0(м.)",
+   "MSEHT": "%0(масса)",
+   "MSEHL": "Массовая промилле"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M/D",
+   "MSEH3": "ПМС",
+   "MSEH6": "ПМ/СУТ",
+   "MSEHT": "ПогМ/сутки",
+   "MSEHL": "погонный метр в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M/M",
+   "MSEH3": "м/м",
+   "MSEH6": "мм/м",
+   "MSEHT": "мм/м",
+   "MSEHL": "Миллиметр на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M/S",
+   "MSEH3": "М/С",
+   "MSEH6": "м/с",
+   "MSEHT": "м/с",
+   "MSEHL": "Метр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M2",
+   "MSEH3": "М2",
+   "MSEH6": "м2",
+   "MSEHT": "м2",
+   "MSEHL": "Квадратный метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M2D",
+   "MSEH3": "М2С",
+   "MSEH6": "М2/СУТ",
+   "MSEHT": "Кв.м/сутки",
+   "MSEHL": "квадратный метр в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M2I",
+   "MSEH3": "М-2",
+   "MSEH6": "1/М2",
+   "MSEHT": "1/М2",
+   "MSEHL": "1 / квадратный метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M2S",
+   "MSEH3": "M2С",
+   "MSEH6": "м2/с",
+   "MSEHT": "м2/с",
+   "MSEHL": "Квадратный метр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M2T",
+   "MSEH3": "М2Т",
+   "MSEH6": "М2ТЫС",
+   "MSEHT": "Тысяч м2",
+   "MSEHL": "Тысяч метров квадратных"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M3",
+   "MSEH3": "М3",
+   "MSEH6": "м3",
+   "MSEHT": "м3",
+   "MSEHL": "Кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M3G",
+   "MSEH3": "М3Г",
+   "MSEH6": "мм3/г",
+   "MSEHT": "МлнКубМГод",
+   "MSEHL": "Миллион кубическ. метров в год"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M3M",
+   "MSEH3": "M3M",
+   "MSEH6": "м3/мин",
+   "MSEHT": "м3/мин",
+   "MSEHL": "Кубический метр в минуту"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M3S",
+   "MSEH3": "М3С",
+   "MSEH6": "м3/с",
+   "MSEHT": "м3/с",
+   "MSEHL": "Кубический метр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "M3T",
+   "MSEH3": "М3Т",
+   "MSEH6": "тыс м3",
+   "MSEHT": "тыс м3",
+   "MSEHL": "Тысяч кубических метров"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MA",
+   "MSEH3": "МА",
+   "MSEH6": "мА",
+   "MSEHT": "мА",
+   "MSEHL": "Миллиампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MBA",
+   "MSEH3": "МБР",
+   "MSEH6": "мбар",
+   "MSEHT": "мбар",
+   "MSEHL": "Миллибар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MBF",
+   "MSEH3": "MBF",
+   "MSEH6": "MBF",
+   "MSEHT": "Тыс бордфу",
+   "MSEHL": "Тысяча бордфутов (2,36 м3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MBS",
+   "MSEH3": "МБС",
+   "MSEH6": "МБС",
+   "MSEHT": "Мбит/сек",
+   "MSEHL": "Мбит/сек"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MBZ",
+   "MSEH3": "МБЧ",
+   "MSEH6": "м-б/с",
+   "MSEHT": "м-бар/с",
+   "MSEHL": "Метр-бар в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MCH",
+   "MSEH3": "МШК",
+   "MSEH6": "МШК",
+   "MSEHT": "Мешок",
+   "MSEHL": "Мешок"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MD",
+   "MSEH3": "MD",
+   "MSEH6": "мД",
+   "MSEHT": "Миллидарси",
+   "MSEHL": "Миллидарси"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MDD",
+   "MSEH3": "МДС",
+   "MSEH6": "МД/сут",
+   "MSEHT": "млн.д/сут",
+   "MSEHL": "миллион долларов США в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MEJ",
+   "MSEH3": "МДЖ",
+   "MSEH6": "МДж",
+   "MSEHT": "МДж",
+   "MSEHL": "Мегаджоуль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MEM",
+   "MSEH3": "МИМ",
+   "MSEH6": "МИЛ/М",
+   "MSEHT": "миллисим/м",
+   "MSEHL": "миллисименс на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MEN",
+   "MSEH3": "МТЭ",
+   "MSEH6": "МТНЭ",
+   "MSEHT": "млн т.н.э.",
+   "MSEHL": "Миллион тонн нефтяного эквивал"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MG",
+   "MSEH3": "МГ",
+   "MSEH6": "мг",
+   "MSEHT": "мг",
+   "MSEHL": "Миллиграмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGF",
+   "MSEH3": "МГ/",
+   "MSEH6": "мг/см2",
+   "MSEHT": "мг/см2",
+   "MSEHL": "Миллиграмм на кв. сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGG",
+   "MSEH3": "МГГ",
+   "MSEH6": "мг/г",
+   "MSEHT": "мг/г",
+   "MSEHL": "Миллиграмм на грамм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGK",
+   "MSEH3": "МГК",
+   "MSEH6": "мг/кг",
+   "MSEHT": "мг/кг",
+   "MSEHL": "Миллиграмм на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGL",
+   "MSEH3": "МГЛ",
+   "MSEH6": "мг/л",
+   "MSEHT": "мг/л",
+   "MSEHL": "Миллиграмм на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGM",
+   "MSEH3": "Мгм",
+   "MSEH6": "МЕГАМ",
+   "MSEHT": "МЕГАМ",
+   "MSEHL": "Мегаметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGN",
+   "MSEH3": "МГН",
+   "MSEH6": "мГн",
+   "MSEHT": "Миллигенри",
+   "MSEHL": "Миллигенри"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGQ",
+   "MSEH3": "МГ3",
+   "MSEH6": "мг/м3",
+   "MSEHT": "мг/м3",
+   "MSEHL": "Миллиграмм на кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MGW",
+   "MSEH3": "МВТ",
+   "MSEH6": "МВ",
+   "MSEHT": "МВ",
+   "MSEHL": "Мегаватт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MHZ",
+   "MSEH3": "МГЦ",
+   "MSEH6": "МГц",
+   "MSEHT": "МГц",
+   "MSEHL": "Мегагерц"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MI",
+   "MSEH3": "МИЛ",
+   "MSEH6": "миля",
+   "MSEHT": "Миля",
+   "MSEHL": "Миля"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MI2",
+   "MSEH3": "МИ2",
+   "MSEH6": "Миля2",
+   "MSEHT": "КвадрМиля",
+   "MSEHL": "Квадратная миля"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MIM",
+   "MSEH3": "МКМ",
+   "MSEH6": "мкм",
+   "MSEHT": "мкм",
+   "MSEHL": "Микрометр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MIN",
+   "MSEH3": "МИН",
+   "MSEH6": "Мин.",
+   "MSEHT": "Мин.",
+   "MSEHL": "Минута"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MIS",
+   "MSEH3": "МСК",
+   "MSEH6": "мксек",
+   "MSEHT": "мкс",
+   "MSEHL": "Микросекунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MJ",
+   "MSEH3": "МИД",
+   "MSEH6": "мДж",
+   "MSEHT": "мДж",
+   "MSEHL": "Миллиджоуль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MKI",
+   "MSEH3": "мКи",
+   "MSEH6": "МКИ",
+   "MSEHT": "МКИ",
+   "MSEHL": "Милликюри"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MKM",
+   "MSEH3": "MKM",
+   "MSEH6": "МАШКМ",
+   "MSEHT": "машиинокм",
+   "MSEHL": "машино-километр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MKS",
+   "MSEH3": "МКС",
+   "MSEH6": "Микс/М",
+   "MSEHT": "Микросек/М",
+   "MSEHL": "Микросекунда на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ML",
+   "MSEH3": "МЛ",
+   "MSEH6": "мл",
+   "MSEHT": "мл",
+   "MSEHL": "Миллилитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MLD",
+   "MSEH3": "МРД",
+   "MSEH6": "мол.д",
+   "MSEHT": "мол. доля",
+   "MSEHL": "Молярная доля"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MLK",
+   "MSEH3": "МЛ3",
+   "MSEH6": "мл/м3",
+   "MSEHT": "мл/м3",
+   "MSEHL": "Миллилитр на кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MLM",
+   "MSEH3": "МЛН",
+   "MSEH6": "МЛН.М3",
+   "MSEHT": "Млн.М3",
+   "MSEHL": "Млн.М3"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MLT",
+   "MSEH3": "Мл",
+   "MSEH6": "МЕГАЛ",
+   "MSEHT": "МЕГАЛ",
+   "MSEHL": "Мегалитр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MLW",
+   "MSEH3": "МЛА",
+   "MSEH6": "МлАкВщ",
+   "MSEHT": "МлАктВещ",
+   "MSEHL": "Миллилитр активного вещества"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MM",
+   "MSEH3": "ММ",
+   "MSEH6": "мм",
+   "MSEHT": "мм",
+   "MSEHL": "Миллиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MM2",
+   "MSEH3": "ММ2",
+   "MSEH6": "мм2",
+   "MSEHT": "мм2",
+   "MSEHL": "Квадратный миллиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MM3",
+   "MSEH3": "ММ3",
+   "MSEH6": "МЛР М3",
+   "MSEHT": "МЛРД М3",
+   "MSEHL": "Миллиардов кубических метров"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMA",
+   "MSEH3": "ММГ",
+   "MSEH6": "мм/год",
+   "MSEHT": "мм/год",
+   "MSEHL": "Миллиметр в год"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMG",
+   "MSEH3": "МОГ",
+   "MSEH6": "ммль/г",
+   "MSEHT": "ммоль/г",
+   "MSEHL": "Миллимоль на грамм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMH",
+   "MSEH3": "ММЧ",
+   "MSEH6": "мм/ч",
+   "MSEHT": "мм/ч",
+   "MSEHL": "Миллиметр в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMK",
+   "MSEH3": "ММК",
+   "MSEH6": "ммл/кг",
+   "MSEHT": "ммоль/кг",
+   "MSEHL": "Миллимоль на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMO",
+   "MSEH3": "ММО",
+   "MSEH6": "ммоль",
+   "MSEHT": "ммоль",
+   "MSEHL": "Миллимоль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMQ",
+   "MSEH3": "КММ",
+   "MSEH6": "мм3",
+   "MSEHT": "мм3",
+   "MSEHL": "Кубич. миллиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MMS",
+   "MSEH3": "ММС",
+   "MSEH6": "мм/с",
+   "MSEHT": "мм/с",
+   "MSEHL": "Миллиметр в секунду"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MNM",
+   "MSEH3": "МНМ",
+   "MSEH6": "мН/м",
+   "MSEHT": "мН/м",
+   "MSEHL": "Миллиньютон на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MO",
+   "MSEH3": "М_О",
+   "MSEH6": "М_О",
+   "MSEHT": "МвОтрезке",
+   "MSEHL": "Метров в отрезке"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MOK",
+   "MSEH3": "МОК",
+   "MSEH6": "мль/кг",
+   "MSEHT": "моль/кг",
+   "MSEHL": "Моль на килограмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MOL",
+   "MSEH3": "МЛЬ",
+   "MSEH6": "моль",
+   "MSEHT": "моль",
+   "MSEHL": "Моль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MOM",
+   "MSEH3": "МОМ",
+   "MSEH6": "МОМ/М",
+   "MSEHT": "МилОМ/Метр",
+   "MSEHL": "Миллиомм на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MON",
+   "MSEH3": "МСЦ",
+   "MSEH6": "Месяцы",
+   "MSEHT": "Месяцы",
+   "MSEHL": "Месяцы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MP",
+   "MSEH3": "МП",
+   "MSEH6": "МП",
+   "MSEHT": "Метр погон",
+   "MSEHL": "Метр погонный"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPA",
+   "MSEH3": "МПА",
+   "MSEH6": "МПа",
+   "MSEHT": "МПа",
+   "MSEHL": "Мегапаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPB",
+   "MSEH3": "МДМ",
+   "MSEH6": "ммд(м)",
+   "MSEHT": "ммд(м)",
+   "MSEHL": "Миллиардные массовые доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPE",
+   "MSEH3": "МПЕ",
+   "MSEH6": "1/мПЕ4",
+   "MSEHT": "1/мПа*E-4",
+   "MSEHL": "1 на миллипаскаль на E в -4 ст"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPG",
+   "MSEH3": "М/Г",
+   "MSEH6": "М/Г US",
+   "MSEHT": "Мл/Гал(US)",
+   "MSEHL": "Миля/Галлон (CIF)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPM",
+   "MSEH3": "ММД",
+   "MSEH6": "мд(м)",
+   "MSEHT": "мд(м)",
+   "MSEHL": "Миллионные массовые доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPS",
+   "MSEH3": "ПВП",
+   "MSEH6": "мПа-с",
+   "MSEHT": "мПа-с",
+   "MSEHL": "Миллипаскаль-секунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPT",
+   "MSEH3": "TДМ",
+   "MSEH6": "тд(м)",
+   "MSEHT": "тд(м)",
+   "MSEHL": "Трилионные массовые доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MPZ",
+   "MSEH3": "МЕП",
+   "MSEH6": "м-Па/с",
+   "MSEHT": "м-Па/с",
+   "MSEHL": "Метр-паскаль/секунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MQD",
+   "MSEH3": "М3C",
+   "MSEH6": "м3/сут",
+   "MSEHT": "м3/сут",
+   "MSEHL": "Кубический метр/сут"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MQH",
+   "MSEH3": "М3Ч",
+   "MSEH6": "м3/ч",
+   "MSEHT": "м3/ч",
+   "MSEHL": "Кубический метр/час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRD",
+   "MSEH3": "МДР",
+   "MSEH6": "МЛРД",
+   "MSEHT": "МЛРД РУБ",
+   "MSEHL": "Миллиард рублей"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRH",
+   "MSEH3": "МРЧ",
+   "MSEH6": "МР/Ч",
+   "MSEHT": "МКРТГН/ЧАС",
+   "MSEHL": "МКРЕНТГЕН/ЧАС"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRK",
+   "MSEH3": "MRK",
+   "MSEH6": "м.р/ку",
+   "MSEHT": "млн.руб/ку",
+   "MSEHL": "Миллион рублей на куст"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRS",
+   "MSEH3": "МРС",
+   "MSEH6": "ммртст",
+   "MSEHT": "мм.рт.ст.",
+   "MSEHL": "миллиметр ртутного столба"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRT",
+   "MSEH3": "МРТ",
+   "MSEH6": "м.р/т",
+   "MSEHT": "млн.руб/т",
+   "MSEHL": "Миллион рублей за тонну"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MRU",
+   "MSEH3": "МРУ",
+   "MSEH6": "МРУ",
+   "MSEHT": "Млн.рублей",
+   "MSEHL": "Миллион рублей"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MS",
+   "MSEH3": "МС",
+   "MSEH6": "мс",
+   "MSEHT": "мс",
+   "MSEHL": "Миллисекунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MS2",
+   "MSEH3": "МС2",
+   "MSEH6": "м/с2",
+   "MSEHT": "м/с2",
+   "MSEHL": "Метр на секунду в квадрате"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MSA",
+   "MSEH3": "МСА",
+   "MSEH6": "м3/с/а",
+   "MSEHT": "м3/сут/атм",
+   "MSEHL": "Метр куб. на сутки на атмосф."
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MSH",
+   "MSEH3": "МШЧ",
+   "MSEH6": "МШЧ",
+   "MSEHT": "Машиночас",
+   "MSEHL": "Машиночас"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MST",
+   "MSEH3": "МШС",
+   "MSEH6": "м/сут",
+   "MSEHT": "маш/сут",
+   "MSEHL": "машино/сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MT",
+   "MSEH3": "М_Т",
+   "MSEH6": "М_Т",
+   "MSEHT": "МвТонне",
+   "MSEHL": "Метров в тонне"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MT2",
+   "MSEH3": "МТ",
+   "MSEH6": "Мил. т",
+   "MSEHT": "Мил. тонн",
+   "MSEHL": "Миллионов тонн"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MT3",
+   "MSEH3": "MT3",
+   "MSEH6": "M3_T",
+   "MSEHT": "М3вТонне",
+   "MSEHL": "Метров кубических в тонне"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MTE",
+   "MSEH3": "ЭДМ",
+   "MSEH6": "мТл",
+   "MSEHT": "мТл",
+   "MSEHL": "Миллитесла"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MTG",
+   "MSEH3": "МТГ",
+   "MSEH6": "млнт/г",
+   "MSEHT": "МлнТоннГод",
+   "MSEHL": "Миллион тонн в год"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MTH",
+   "MSEH3": "МТЧ",
+   "MSEH6": "МОТЧАС",
+   "MSEHT": "Моточас",
+   "MSEHL": "Моточас"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MTN",
+   "MSEH3": "МТН",
+   "MSEH6": "М_ТОН",
+   "MSEHT": "МвТонне",
+   "MSEHL": "Метров в тонне (ТОН)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MTS",
+   "MSEH3": "МЧ",
+   "MSEH6": "м/ч",
+   "MSEHT": "м/ч",
+   "MSEHL": "Метр/Час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MV",
+   "MSEH3": "МЛВ",
+   "MSEH6": "мВ",
+   "MSEHT": "мВ",
+   "MSEHL": "Милливольт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MVA",
+   "MSEH3": "МВА",
+   "MSEH6": "МВА",
+   "MSEHT": "МВА",
+   "MSEHL": "Мегавольтампер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MVC",
+   "MSEH3": "МВС",
+   "MSEH6": "ммводс",
+   "MSEHT": "мм вод ст",
+   "MSEHL": "Миллиметр водяного столба"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MW",
+   "MSEH3": "МВ",
+   "MSEH6": "мВт",
+   "MSEHT": "мВт",
+   "MSEHL": "Милливатт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MWC",
+   "MSEH3": "MWC",
+   "MSEH6": "м.в.ст",
+   "MSEHT": "м.вод.ст",
+   "MSEHL": "Метров водяного столба"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "MWH",
+   "MSEH3": "МВЧ",
+   "MSEH6": "МВт-ч",
+   "MSEHT": "МВт-час",
+   "MSEHL": "Мегаватт-час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "N",
+   "MSEH3": "Н",
+   "MSEH6": "Н",
+   "MSEHT": "Н",
+   "MSEHL": "Ньютон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NAM",
+   "MSEH3": "ННМ",
+   "MSEH6": "нм",
+   "MSEHT": "нм",
+   "MSEHL": "Нанометр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NB",
+   "MSEH3": "НБ",
+   "MSEH6": "Наборы",
+   "MSEHT": "Наборы",
+   "MSEHL": "Наборы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NIU",
+   "MSEH3": "NIU",
+   "MSEH6": "NIU",
+   "MSEHT": "Межд ед",
+   "MSEHL": "Международная единица"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NM",
+   "MSEH3": "НМ",
+   "MSEH6": "Н/м",
+   "MSEHT": "Н/м",
+   "MSEHL": "Ньютон на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NM3",
+   "MSEH3": "НМ3",
+   "MSEH6": "нм3",
+   "MSEHT": "нм3",
+   "MSEHL": "Нормальный кубический метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NS",
+   "MSEH3": "НС",
+   "MSEH6": "нс",
+   "MSEHT": "нс",
+   "MSEHL": "Наносекунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NTT",
+   "MSEH3": "NTT",
+   "MSEH6": "NTT",
+   "MSEHT": "НР тонна",
+   "MSEHL": "Нетто-регистровая тонна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "NUM",
+   "MSEH3": "ном",
+   "MSEH6": "НОМ",
+   "MSEHT": "НОМ",
+   "MSEHL": "Номер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OBJ",
+   "MSEH3": "ОБ",
+   "MSEH6": "Объект",
+   "MSEHT": "Объект",
+   "MSEHL": "Объект"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OBL",
+   "MSEH3": "OБЛ",
+   "MSEH6": "об/л",
+   "MSEHT": "Обор. на л",
+   "MSEHL": "Оборотов на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OBM",
+   "MSEH3": "О/М",
+   "MSEH6": "об/мин",
+   "MSEHT": "ОБ/МИН",
+   "MSEHL": "Оборот в минуту"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OCM",
+   "MSEH3": "OCM",
+   "MSEH6": "Ом*см",
+   "MSEHT": "Ом*см",
+   "MSEHL": "Специф. электр. сопротивление"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OHM",
+   "MSEH3": "ОМ",
+   "MSEH6": "Ом",
+   "MSEHT": "Ом",
+   "MSEHL": "Ом"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OLE",
+   "MSEH3": "ОПР",
+   "MSEH6": "Опер",
+   "MSEHT": "Операция",
+   "MSEHL": "Операция"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OM",
+   "MSEH3": "ОММ",
+   "MSEH6": "Ом*м",
+   "MSEHT": "Ом*м",
+   "MSEHL": "Специф. электр. сопротивление"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OMP",
+   "MSEH3": "ОМП",
+   "MSEH6": "1/мПа",
+   "MSEHT": "1 на мПа",
+   "MSEHL": "1 на миллипаскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OZ",
+   "MSEH3": "УЦ",
+   "MSEH6": "унция",
+   "MSEHT": "Унция",
+   "MSEHL": "Унция"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OZA",
+   "MSEH3": "ЖУ",
+   "MSEH6": "ЖУ США",
+   "MSEHT": "ЖидкУнцСША",
+   "MSEHL": "Жидкостная унция США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "OZI",
+   "MSEH3": "OZI",
+   "MSEH6": "OZI",
+   "MSEHT": "Жид унция",
+   "MSEHL": "Жидкостная унция (28,413 см3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "P",
+   "MSEH3": "ТЧК",
+   "MSEH6": "Т",
+   "MSEHT": "Точки",
+   "MSEHL": "Точки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PA",
+   "MSEH3": "ПА",
+   "MSEH6": "Па",
+   "MSEHT": "Па",
+   "MSEHL": "Паскаль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PAA",
+   "MSEH3": "ПАР",
+   "MSEH6": "пара",
+   "MSEHT": "Пара",
+   "MSEHL": "Пара"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PAC",
+   "MSEH3": "PAC",
+   "MSEH6": "Па*с^n",
+   "MSEHT": "Па*с^n",
+   "MSEHL": "Паскаль на секунду в степени n"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PAK",
+   "MSEH3": "ПАЧ",
+   "MSEH6": "пачка",
+   "MSEHT": "Пачка",
+   "MSEHL": "Пачка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PAL",
+   "MSEH3": "ПОД",
+   "MSEH6": "поддон",
+   "MSEHT": "Поддон",
+   "MSEHL": "Поддон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PAS",
+   "MSEH3": "ПАС",
+   "MSEH6": "Па-с",
+   "MSEHT": "Па-с",
+   "MSEHL": "Паскаль-секунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PCD",
+   "MSEH3": "Ш/С",
+   "MSEH6": "ШТ/СУТ",
+   "MSEHT": "шт/сутки",
+   "MSEHL": "штук в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PCT",
+   "MSEH3": "МВП",
+   "MSEH6": "МВП",
+   "MSEHT": "ДолКн",
+   "MSEHL": "Доля концерна в процентах"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PGL",
+   "MSEH3": "PGL",
+   "MSEH6": "PGL",
+   "MSEHT": "Галлон",
+   "MSEHL": "Галлон спирта уст крепости"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PGN",
+   "MSEH3": "ПГН",
+   "MSEH6": "ПГН",
+   "MSEHT": "ПГН",
+   "MSEHL": "Пункт геофизических наблюдений"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PIE",
+   "MSEH3": "ОТР",
+   "MSEH6": "ОТР",
+   "MSEHT": "Отрезок",
+   "MSEHL": "Отрезок"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PKM",
+   "MSEH3": "ПКМ",
+   "MSEH6": "ПОГ КМ",
+   "MSEHT": "ПОГ КМ",
+   "MSEHL": "Погонный километр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PMI",
+   "MSEH3": "1/М",
+   "MSEH6": "1/мин",
+   "MSEHT": "1/мин",
+   "MSEHL": "1/минута"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PMR",
+   "MSEH3": "СПС",
+   "MSEH6": "кг/м2с",
+   "MSEHT": "кг/м2*с",
+   "MSEHL": "СтепПроникСпособ: МеждунСистЕд"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PN",
+   "MSEH3": "PN",
+   "MSEH6": "PN",
+   "MSEHT": "Герметичн.",
+   "MSEHL": "Герметичность"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PPB",
+   "MSEH3": "МДЛ",
+   "MSEH6": "млрд-1",
+   "MSEHT": "млрд-1",
+   "MSEHL": "Миллиардные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PPM",
+   "MSEH3": "МЛД",
+   "MSEH6": "млн-1",
+   "MSEHT": "млн-1",
+   "MSEHL": "Миллионные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PPT",
+   "MSEH3": "PPT",
+   "MSEH6": "трлн-1",
+   "MSEHT": "трлн-1",
+   "MSEHL": "Триллионные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PRH",
+   "MSEH3": "ПРХ",
+   "MSEH6": "ПРХД",
+   "MSEHT": "Переход",
+   "MSEHL": "Переход"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PRM",
+   "MSEH3": "PRM",
+   "MSEH6": "Еg/c2м",
+   "MSEHT": "Еg/см2*мин",
+   "MSEHL": "Степень проникающ. способности"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PRS",
+   "MSEH3": "СТР",
+   "MSEH6": "СТР",
+   "MSEHT": "Лица",
+   "MSEHL": "Количество сотрудников"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PS",
+   "MSEH3": "ПС",
+   "MSEH6": "пс",
+   "MSEHT": "пс",
+   "MSEHL": "Пикосекунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PT",
+   "MSEH3": "ПИН",
+   "MSEH6": "ПинСША",
+   "MSEHT": "Ж/ПинтаСША",
+   "MSEHL": "Жидкостная пинта США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PTD",
+   "MSEH3": "PTD",
+   "MSEH6": "PTD",
+   "MSEHT": "Сух пинта",
+   "MSEHL": "Сухая пинта США (0,55061 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PTI",
+   "MSEH3": "PTI",
+   "MSEH6": "PTI",
+   "MSEHT": "Пинта СК",
+   "MSEHL": "Пинта СК (0,568262 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "PVA",
+   "MSEH3": "ПВГ",
+   "MSEH6": "П/ВАГ",
+   "MSEHT": "Полувагон",
+   "MSEHL": "Полувагон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "QAN",
+   "MSEH3": "QAN",
+   "MSEH6": "Кварт",
+   "MSEHT": "Квартал",
+   "MSEHL": "Квартал"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "QT",
+   "MSEH3": "КВР",
+   "MSEH6": "КварСШ",
+   "MSEHT": "Ж/КвартаСШ",
+   "MSEHL": "Жидкостная кварта США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "QTD",
+   "MSEH3": "QTD",
+   "MSEH6": "QTD",
+   "MSEHT": "Сух кварта",
+   "MSEHL": "Сухая кварта США(1,101221 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "QTI",
+   "MSEH3": "QTI",
+   "MSEH6": "QTI",
+   "MSEHT": "Кварта СК",
+   "MSEHL": "Кварта СК (1,136523 дм3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "QTR",
+   "MSEH3": "QTR",
+   "MSEH6": "QTR",
+   "MSEHT": "Квартер СК",
+   "MSEHL": "Квартер СК (12,700586 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "R",
+   "MSEH3": "Р",
+   "MSEH6": "Рейс",
+   "MSEHT": "Рейс",
+   "MSEHL": "Рейс"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "R/D",
+   "MSEH3": "P/Д",
+   "MSEH6": "P/Д",
+   "MSEHT": "Руб/долл",
+   "MSEHL": "Рубль за доллар США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "R/M",
+   "MSEH3": "R/M",
+   "MSEH6": "руб/км",
+   "MSEHT": "тыс.руб/кв",
+   "MSEHL": "тыс.руб/кв.км"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RAD",
+   "MSEH3": "РАД",
+   "MSEH6": "радиан",
+   "MSEHT": "Радиан",
+   "MSEHL": "Радиан"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "REM",
+   "MSEH3": "РЕМ",
+   "MSEH6": "рем.",
+   "MSEHT": "Ремонт",
+   "MSEHL": "Ремонт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RHO",
+   "MSEH3": "ГСМ",
+   "MSEH6": "гр/см3",
+   "MSEHT": "г/см3",
+   "MSEHL": "Грамм на кубический сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RKC",
+   "MSEH3": "РКЧ",
+   "MSEH6": "р/кВтч",
+   "MSEHT": "руб./кВт.ч",
+   "MSEHL": "Рублей за киловатт-час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RM3",
+   "MSEH3": "RM3",
+   "MSEH6": "руб/м3",
+   "MSEHT": "руб/тыс.м3",
+   "MSEHL": "рубль за тыс. м3"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ROL",
+   "MSEH3": "РУЛ",
+   "MSEH6": "рулон",
+   "MSEHT": "Рулон",
+   "MSEHL": "Рулон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RTE",
+   "MSEH3": "РТЕ",
+   "MSEH6": "тр/тнэ",
+   "MSEHT": "т.ру/т.н.э",
+   "MSEHL": "тыс руб/т.н.э"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RUB",
+   "MSEH3": "РУБ",
+   "MSEH6": "РУБ",
+   "MSEHT": "Рубль",
+   "MSEHL": "Рубль"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "RUT",
+   "MSEH3": "Р/Т",
+   "MSEH6": "РУБ/Т",
+   "MSEHT": "Руб/т",
+   "MSEHL": "Рублей за тонну"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "S",
+   "MSEH3": "С",
+   "MSEH6": "с",
+   "MSEHT": "с",
+   "MSEHL": "Секунда"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "S/D",
+   "MSEH3": "С/С",
+   "MSEH6": "С/СУТ",
+   "MSEHT": "Судно/сутк",
+   "MSEHL": "Судно/сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SCH",
+   "MSEH3": "ССЧ",
+   "MSEH6": "ССЧ",
+   "MSEHT": "Чел.(ССЧ)",
+   "MSEHL": "Человек (ССЧ)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SCR",
+   "MSEH3": "SCR",
+   "MSEH6": "SCR",
+   "MSEHT": "Скрупул",
+   "MSEHL": "Скрупул СК, США (1,295982 г)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SG",
+   "MSEH3": "сг",
+   "MSEH6": "СГ",
+   "MSEHT": "СГ",
+   "MSEHL": "Сантиграмм"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SGS",
+   "MSEH3": "SGS",
+   "MSEH6": "ск/г/с",
+   "MSEHT": "скв/год/ст",
+   "MSEHL": "Скважина в год на станок"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SHT",
+   "MSEH3": "SHT",
+   "MSEH6": "SHT",
+   "MSEHT": "Обмерн тон",
+   "MSEHL": "Обмерная (фрахтовая) тонна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SI",
+   "MSEH3": "си",
+   "MSEH6": "СИ",
+   "MSEHT": "СИ",
+   "MSEHL": "Сименс"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SKS",
+   "MSEH3": "СКС",
+   "MSEH6": "СК/СУТ",
+   "MSEHT": "Скв/сутки",
+   "MSEHL": "Скважин/сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SKV",
+   "MSEH3": "СКВ",
+   "MSEH6": "скв.",
+   "MSEHT": "Скважина",
+   "MSEHL": "Скважина"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SMP",
+   "MSEH3": "ПРБ",
+   "MSEH6": "Проба",
+   "MSEHT": "Проба",
+   "MSEHL": "Проба"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SMV",
+   "MSEH3": "ШМВ",
+   "MSEH6": "Шт/МВт",
+   "MSEHT": "Шт/МВт",
+   "MSEHL": "Шт/МВт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SOM",
+   "MSEH3": "SOM",
+   "MSEH6": "SOM",
+   "MSEHT": "Кыргыз.сом",
+   "MSEHL": "Кыргызский сом"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SP",
+   "MSEH3": "SP",
+   "MSEH6": "сП",
+   "MSEHT": "Сантипуаз",
+   "MSEHL": "Сантипуаз"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SPM",
+   "MSEH3": "Х/М",
+   "MSEH6": "ход/м",
+   "MSEHT": "ход в мин",
+   "MSEHL": "Ход в минуту"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SRV",
+   "MSEH3": "УСЛ",
+   "MSEH6": "УСЛ",
+   "MSEHT": "услуга",
+   "MSEHL": "Услуга"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "SST",
+   "MSEH3": "SST",
+   "MSEH6": "SST",
+   "MSEHT": "Кор станд",
+   "MSEHL": "Короткий стандарт(7200 единиц)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "ST",
+   "MSEH3": "ШТ",
+   "MSEH6": "шт.",
+   "MSEHT": "Штука",
+   "MSEHL": "Штука"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "STD",
+   "MSEH3": "ЧАС",
+   "MSEH6": "час",
+   "MSEHT": "Часы",
+   "MSEHL": "Часы"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "STI",
+   "MSEH3": "STI",
+   "MSEH6": "STI",
+   "MSEHT": "Стоун СК",
+   "MSEHL": "Стоун СК (6,350293 кг)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "STN",
+   "MSEH3": "STN",
+   "MSEH6": "STN",
+   "MSEHT": "Кор тонна",
+   "MSEHL": "Короткая тонна (0,90718474 т)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "STS",
+   "MSEH3": "STS",
+   "MSEH6": "сСт",
+   "MSEHT": "Сантистокс",
+   "MSEHL": "Сантистокс"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "T/M",
+   "MSEH3": "Т/М",
+   "MSEH6": "тонн*м",
+   "MSEHT": "Тоннаметр",
+   "MSEHL": "Тоннаметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "T10",
+   "MSEH3": "Т10",
+   "MSEH6": "100",
+   "MSEHT": "100 труб",
+   "MSEHL": "100 труб"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TAG",
+   "MSEH3": "ДЕН",
+   "MSEH6": "дни",
+   "MSEHT": "Дни",
+   "MSEHL": "Дни"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TB",
+   "MSEH3": "ТУБ",
+   "MSEH6": "Труб",
+   "MSEHT": "Труб",
+   "MSEHL": "Труб"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TC",
+   "MSEH3": "т/ч",
+   "MSEH6": "Т/Ч",
+   "MSEHT": "Т/Ч",
+   "MSEHL": "Тонна в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TC3",
+   "MSEH3": "КС3",
+   "MSEH6": "1/см3",
+   "MSEHT": "1/см3",
+   "MSEHL": "Кубич. сантиметр в -1 степени"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TE2",
+   "MSEH3": "TE2",
+   "MSEH6": "TE2",
+   "MSEHT": "test",
+   "MSEHL": "test"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TEN",
+   "MSEH3": "ТНЭ",
+   "MSEH6": "ТНЭ",
+   "MSEHT": "Тон.неф.эк",
+   "MSEHL": "Тонна нефтяного эквивалента"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TES",
+   "MSEH3": "ТЛ",
+   "MSEH6": "Тл",
+   "MSEHT": "Тл",
+   "MSEHL": "Тесла"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TH",
+   "MSEH3": "ТЫС",
+   "MSEH6": "тыс.",
+   "MSEHT": "Тысяча",
+   "MSEHL": "Тысяча"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "THR",
+   "MSEH3": "ТР",
+   "MSEH6": "ТР",
+   "MSEHT": "ТысРубТест",
+   "MSEHL": "ТысРубТест"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TJS",
+   "MSEH3": "TJS",
+   "MSEH6": "TJS",
+   "MSEHT": "Сомони",
+   "MSEHL": "Сомони"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TK",
+   "MSEH3": "ТК",
+   "MSEH6": "ТК",
+   "MSEHT": "Тыс. компл",
+   "MSEHL": "Тысячи косплектов"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TKH",
+   "MSEH3": "ТКЧ",
+   "MSEH6": "ТкВт/ч",
+   "MSEHT": "ТкВт/ч",
+   "MSEHL": "Тысяч киловатт-час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TKM",
+   "MSEH3": "ТКМ",
+   "MSEH6": "ТКМ",
+   "MSEHT": "Тонн/км",
+   "MSEHL": "Тоннокилометр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TM",
+   "MSEH3": "TM",
+   "MSEH6": "TM",
+   "MSEHT": "Тыс. метр.",
+   "MSEHL": "Тысяча метров"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TM2",
+   "MSEH3": "ТМ2",
+   "MSEH6": "ТОЧ/М2",
+   "MSEHT": "ТОЧ/М2",
+   "MSEHL": "Точек на квадратный метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TM3",
+   "MSEH3": "КМ3",
+   "MSEH6": "1/м3",
+   "MSEHT": "1/м3",
+   "MSEHL": "Кубич. сантиметр в -1 степени"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TMD",
+   "MSEH3": "TMD",
+   "MSEH6": "Т.м3/с",
+   "MSEHT": "Тыс.м3/сут",
+   "MSEHL": "Тыс. метров кубических в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TMH",
+   "MSEH3": "ТМЧ",
+   "MSEH6": "т.м3/ч",
+   "MSEHT": "тыс.м3/час",
+   "MSEHL": "Тысяча м3 в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TND",
+   "MSEH3": "Т/С",
+   "MSEH6": "Т/СУТ",
+   "MSEHT": "Тон. в сут",
+   "MSEHL": "Тонны в сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TNE",
+   "MSEH3": "ТТЭ",
+   "MSEH6": "ТТНЭ",
+   "MSEHT": "тыс.т.н.э.",
+   "MSEHL": "Тыс.тонн нефти эквивалентной"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TNH",
+   "MSEH3": "Т/Ч",
+   "MSEH6": "т/ч",
+   "MSEHT": "Тон. в час",
+   "MSEHL": "Тонны в час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TNY",
+   "MSEH3": "Т/Г",
+   "MSEH6": "т/г",
+   "MSEHT": "Тон. в год",
+   "MSEHL": "Тонны в год"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TO",
+   "MSEH3": "Т",
+   "MSEH6": "Тонна",
+   "MSEHT": "Тонна",
+   "MSEHL": "Тонна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TON",
+   "MSEH3": "ТОН",
+   "MSEH6": "ТонСША",
+   "MSEHT": "Тонна США",
+   "MSEHL": "Тонна США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TRB",
+   "MSEH3": "ТРБ",
+   "MSEH6": "ТЫСРУБ",
+   "MSEHT": "Тыс руб",
+   "MSEHL": "Тысяч рублей"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TRM",
+   "MSEH3": "ТРМ",
+   "MSEH6": "ТР/КМ2",
+   "MSEHT": "ТР/КМ2",
+   "MSEHL": "Трасс на квадратный километр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TRS",
+   "MSEH3": "TRS",
+   "MSEH6": "тр/г/с",
+   "MSEHT": "тыс.р./г/с",
+   "MSEHL": "Тысяча рублей в год на скважин"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TRU",
+   "MSEH3": "ТРУ",
+   "MSEH6": "ТРУ",
+   "MSEHT": "Тыс.рублей",
+   "MSEHL": "Тысяча рублей"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TSD",
+   "MSEH3": "TSD",
+   "MSEH6": "т/стад",
+   "MSEHT": "т/стадия",
+   "MSEHL": "Тонна на стадию"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TSE",
+   "MSEH3": "ШТД",
+   "MSEH6": "ШТ (Д)",
+   "MSEHT": "Штуки д/р",
+   "MSEHL": "Штуки (с десятичн разрядами)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TSH",
+   "MSEH3": "ТШ",
+   "MSEH6": "ТШ",
+   "MSEHT": "Тыс.шт.",
+   "MSEHL": "Тысяча штук"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TST",
+   "MSEH3": "001",
+   "MSEH6": "000001",
+   "MSEHT": "",
+   "MSEHL": ""
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TTN",
+   "MSEH3": "ТТН",
+   "MSEH6": "ТТН",
+   "MSEHT": "Тысяч тонн",
+   "MSEHL": "Тысяч тонн"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "TUB",
+   "MSEH3": "ТБ",
+   "MSEH6": "ТБ",
+   "MSEHT": "Тюбик",
+   "MSEHL": "Тюбик"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UBB",
+   "MSEH3": "UBB",
+   "MSEH6": "USD/bb",
+   "MSEHT": "USD/bbl",
+   "MSEHL": "Доллар США за баррель"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UGL",
+   "MSEH3": "МКЛ",
+   "MSEH6": "мкг/л",
+   "MSEHT": "мкг/л",
+   "MSEHL": "Микрограмм на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UP",
+   "MSEH3": "УП",
+   "MSEH6": "УП",
+   "MSEHT": "Упаковка",
+   "MSEHL": "Упаковка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "USD",
+   "MSEH3": "USD",
+   "MSEH6": "USD",
+   "MSEHT": "Доллар США",
+   "MSEHL": "Доллар США"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UST",
+   "MSEH3": "УЧТ",
+   "MSEH6": "УЧСТК",
+   "MSEHT": "Участок",
+   "MSEHL": "Участок"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UV",
+   "MSEH3": "UV",
+   "MSEH6": "кгс/м3",
+   "MSEHT": "кгс/м3",
+   "MSEHL": "Удельный вес"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UZ",
+   "MSEH3": "зуз",
+   "MSEH6": "УЗ",
+   "MSEHT": "УЗ",
+   "MSEHL": "Узел (миля/ч)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "UZL",
+   "MSEH3": "УЗЛ",
+   "MSEH6": "УЗЕЛ",
+   "MSEHT": "Узел",
+   "MSEHL": "Узел"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "V",
+   "MSEH3": "В",
+   "MSEH6": "В",
+   "MSEHT": "В",
+   "MSEHL": "Вольт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "V%",
+   "MSEH3": "ОБ%",
+   "MSEH6": "%(об.)",
+   "MSEHT": "%(об.)",
+   "MSEHL": "Объемный процент"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "V%O",
+   "MSEH3": "О%0",
+   "MSEH6": "%0(о.)",
+   "MSEHT": "%0(о.)",
+   "MSEHL": "Объемная промилле"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "V01",
+   "MSEH3": "МСС",
+   "MSEH6": "МС/см",
+   "MSEHT": "МС/см",
+   "MSEHL": "Микросименс на сантиметр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "V02",
+   "MSEH3": "MМЛ",
+   "MSEH6": "мМль/л",
+   "MSEHT": "Миллим./л.",
+   "MSEHL": "Миллимоль на литр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VAG",
+   "MSEH3": "ВАГ",
+   "MSEH6": "ВАГ",
+   "MSEHT": "Вагон",
+   "MSEHL": "Вагон"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VAL",
+   "MSEH3": "СТМ",
+   "MSEH6": "Стоим.",
+   "MSEHT": "Стоим.",
+   "MSEHL": "Стоимостный товар"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VAZ",
+   "MSEH3": "ВЦ",
+   "MSEH6": "В/Ц",
+   "MSEHT": "В/Ц",
+   "MSEHL": "Вагоноцистерна"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VB",
+   "MSEH3": "вБ",
+   "MSEH6": "ВБ",
+   "MSEHT": "ВБ",
+   "MSEHL": "Вебер"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VGH",
+   "MSEH3": "В/Ч",
+   "MSEH6": "В/ЧАС",
+   "MSEHT": "Ваг/час",
+   "MSEHL": "Вагоно/час"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VGS",
+   "MSEH3": "В/С",
+   "MSEH6": "В/СУТ",
+   "MSEHT": "Ваг/сутки",
+   "MSEHL": "Вагоно/сутки"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VM",
+   "MSEH3": "ВТМ",
+   "MSEH6": "Вт/м",
+   "MSEHT": "Ватт на ме",
+   "MSEHL": "Ватт на метр"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VPB",
+   "MSEH3": "МОД",
+   "MSEH6": "мдл(о)",
+   "MSEHT": "мдл(о)",
+   "MSEHL": "Миллиардные объемные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VPM",
+   "MSEH3": "МЛО",
+   "MSEH6": "млд(о)",
+   "MSEHT": "млд(о)",
+   "MSEHL": "Миллионные объемные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "VPT",
+   "MSEH3": "ТОД",
+   "MSEH6": "трд(о)",
+   "MSEHT": "трд(о)",
+   "MSEHL": "Триллионные объемные доли"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "W",
+   "MSEH3": "ВТ",
+   "MSEH6": "Вт",
+   "MSEHT": "Вт",
+   "MSEHL": "Ватт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "WCD",
+   "MSEH3": "WCD",
+   "MSEH6": "WCD",
+   "MSEHT": "Корд",
+   "MSEHL": "Корд (3,63 м3)"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "WCH",
+   "MSEH3": "НД",
+   "MSEH6": "Недели",
+   "MSEHT": "Недели",
+   "MSEHL": "Недели"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "WMK",
+   "MSEH3": "ВМК",
+   "MSEH6": "Вт/м*К",
+   "MSEHT": "Вт/(м*К)",
+   "MSEHL": "Теплопроводность"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "WSD",
+   "MSEH3": "WSD",
+   "MSEH6": "WSD",
+   "MSEHT": "Стандарт",
+   "MSEHL": "Стандарт"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "WTL",
+   "MSEH3": "ТПВ",
+   "MSEH6": "кг/см2",
+   "MSEHT": "кг/с*м2",
+   "MSEHL": "Скорость испарения"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "YAC",
+   "MSEH3": "яч",
+   "MSEH6": "ЯЧ",
+   "MSEHT": "ЯЧ",
+   "MSEHL": "Ячейка"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "YD",
+   "MSEH3": "ЯРД",
+   "MSEH6": "ярд",
+   "MSEHT": "Ярд",
+   "MSEHL": "Ярд"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "YD2",
+   "MSEH3": "ЯР2",
+   "MSEH6": "ярд2",
+   "MSEHT": "КвадрЯрд",
+   "MSEHL": "Квадратный ярд"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "YD3",
+   "MSEH3": "ЯР3",
+   "MSEH6": "ярд3",
+   "MSEHT": "КубичЯрд",
+   "MSEHL": "Кубический ярд"
+ },
+ {
+   "MANDT": 100,
+   "SPRAS": "R",
+   "MSEHI": "YE",
+   "MSEH3": "УЕ",
+   "MSEH6": "УЕ",
+   "MSEHT": "Усл. един",
+   "MSEHL": "Условн. единицы"
+ }
+]
