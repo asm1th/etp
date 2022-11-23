@@ -1,0 +1,23 @@
+version: "3"
+services:
+    backend:
+        container_name: backend
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        image: server
+        env_file:
+            - ./backend/.production.env
+        command: npm run start
+        ports:
+            - "5010:5010"
+    frontend:
+        container_name: client
+        build:
+            context: ./webapp2/
+            dockerfile: Dockerfile
+        image: react
+        env_file:
+            - ./webapp2/.env.development
+        ports:
+            - 5011:5011

@@ -59,21 +59,21 @@ export const authService = createApi({
     endpoints: (builder) => ({
         login: builder.mutation<UserResponse, LoginRequest>({
             query: (credentials) => ({
-                url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/login`,
+                url: `https://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/login`,
                 method: 'POST',
                 body: credentials,
             }),
         }),
         loginCode: builder.mutation<UserResponse, LoginCodeRequest>({
             query: (credentials) => ({
-                url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registerCode`,
+                url: `https://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registerCode`,
                 method: 'POST',
                 body: credentials,
             }),
         }),
         registration: builder.mutation<RegResponse, IRegData>({
             query: (body) => ({
-                url: `http://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registration`,
+                url: `https://${process.env.REACT_APP_API_ENDPOINT}:5010/auth/registration`,
                 method: 'POST',
                 body: body,
                 //responseHandler: (response) => response.text()
@@ -83,7 +83,7 @@ export const authService = createApi({
         }),
         //test
         protected: builder.mutation<{ message: string }, void>({
-            query: () => `http://${process.env.REACT_APP_API_ENDPOINT}:5010/users`,
+            query: () => `https://${process.env.REACT_APP_API_ENDPOINT}:5010/users`,
         }),
     }),
 })
