@@ -23,7 +23,7 @@ const initialState = {
     isAuth: true, // getLocalIsAuth(), // отключение auth = false \ true 
     user: null, 
     token: null,
-    kp_sample_guid: "",
+    kp_sample_guid: "", //"0050569CDC861EED87DD0FCCDBEA808C"
     link_id: ""
 }
 
