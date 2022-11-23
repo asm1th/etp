@@ -5,13 +5,13 @@ import { Card } from "@consta/uikit/Card";
 import { DatePicker } from '@consta/uikit/DatePickerCanary';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
-import { useAppDispatch, useAppSelector } from "../../hooks/redux";
-import { sampSlice } from "../../store/reducers/samp/sampSlice";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { sampSlice } from "../../../store/reducers/samp/sampSlice";
 import { format } from "date-fns";
-import WaersSelect from "./WaersSelect"
+import WaersSelect from "../WaersSelect"
 
 
-const SampKpInfo = (props: { isTravelShow: boolean }) => {
+const SampKpInfoCost = (props: { isTravelShow: boolean }) => {
     const dispatch = useAppDispatch()
     const { usl_period_end, links, isTravel } = useAppSelector(state => state.sampReducer)
 
@@ -31,9 +31,9 @@ const SampKpInfo = (props: { isTravelShow: boolean }) => {
                         className="Title mr1">
                         Коммерческое предложение
                     </Text>
-                    {/* <Text size="s" className="subTitle mr">
+                    <Text size="s" className="subTitle mr">
                         Срок действия договора: <span className="bold"> {usl_period_end && format(new Date(usl_period_end), 'dd.MM.yyyy')}</span>
-                    </Text> */}
+                    </Text>
                 </Layout>
                 <Layout className="aic jce">
                     {/* <TextField placeholder="" label="Срок действия КП" labelPosition="left" /> */}
@@ -68,4 +68,4 @@ const SampKpInfo = (props: { isTravelShow: boolean }) => {
     );
 };
 
-export default SampKpInfo;
+export default SampKpInfoCost;
