@@ -22,7 +22,7 @@ export class KpLink extends Model<KpLink, KpLinkAttrs> {
 
   @ApiProperty({description: '', example: 'uuid'})
   @Column({type: DataType.UUIDV4()})
-  kp_sample_guid: typeof UUIDV4;
+  kp_sample_guid: any;
 
   @ApiProperty({description: 'Email', example: 'string(128)'})
   @Column({type: DataType.STRING(128)})
@@ -41,18 +41,18 @@ export class KpLink extends Model<KpLink, KpLinkAttrs> {
   kpp: string;
 
   @ApiProperty({description: 'Срок действия предложения от контрагента', example: 'date(YYYYMMDD)'})
-  @Column({type: DataType.DATEONLY})
-  kp_offer_expire_date: DateOnlyDataType;
+  @Column({type: DataType.DATEONLY()})
+  kp_offer_expire_date: Date;
   
   @ApiProperty({description: 'Командировочные расходы', example: 'number'})
   @Column({type: DataType.DECIMAL(17,2)})
-  travel_exp: DecimalDataType;
+  travel_exp: number;
 
   @ApiProperty({description: 'Комментарий к командировочным расходам', example: 'string(1333)'})
   @Column({type: DataType.STRING(1333)})
   travel_exp_comm: string;
 
   @ApiProperty({description: '', example: 'boolean'})
-  @Column({type: DataType.BOOLEAN})
+  @Column({type: DataType.BOOLEAN()})
   fl_del: boolean;
 }

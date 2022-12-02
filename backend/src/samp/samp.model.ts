@@ -31,15 +31,15 @@ export class Samp extends Model<Samp, SampAttrs> {
   lot_id: string;
   
   @ApiProperty({description: 'Срок приема КП', example: 'date(YYYYMMDD)'})
-  @Column({type: DataType.DATE})
+  @Column({type: DataType.DATEONLY()})
   kp_accep_date: Date;
   
   @ApiProperty({description: 'Дата отправки КП', example: 'date(YYYYMMDD)'})
-  @Column({type: DataType.DATE})
+  @Column({type: DataType.DATEONLY()})
   kp_send_date: Date;
   
   @ApiProperty({description: 'Время отправки КП', example: 'time(hh-mm-ss)'})
-  @Column({type: DataType.TIME})
+  @Column({type: DataType.TIME()})
   kp_send_time: Date;
   
   @ApiProperty({description: 'Автор', example: 'varchar(12)'})
@@ -47,15 +47,15 @@ export class Samp extends Model<Samp, SampAttrs> {
   kp_author: string;
   
   @ApiProperty({description: '', example: 'date(YYYYMMDD)'})
-  @Column({type: DataType.DATE})
+  @Column({type: DataType.DATEONLY()})
   kp_crt_date: Date;
   
   @ApiProperty({description: '', example: 'time(hh-mm-ss)'})
-  @Column({type: DataType.TIME})
+  @Column({type: DataType.TIME()})
   kp_crt_time: Date;
   
   @ApiProperty({description: '', example: 'date(YYYYMMDD)'})
-  @Column({type: DataType.DATE})
+  @Column({type: DataType.DATEONLY()})
   kp_contr_end_date: Date;
   
   @ApiProperty({description: '', example: 'time(hh-mm-ss)'})
@@ -75,6 +75,6 @@ export class Samp extends Model<Samp, SampAttrs> {
   opr_usl_code: string;
   
   @ApiProperty({description: '', example: 'boolean'})
-  @Column({type: DataType.TIME})
+  @Column({type: DataType.BOOLEAN()})
   fl_del: boolean;
 }
