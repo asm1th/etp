@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from '@consta/uikit/Text';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Link } from "react-router-dom";
 import './PicCard.css'
 import card1 from "../../assets/img/dash/card1.png";

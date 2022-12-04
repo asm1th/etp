@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { Collapse } from '@consta/uikit/Collapse';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import KPRow from "./KPRow";
 import { useAppSelector } from "../../../hooks/redux";
 import SampFooterButtons from "../../../components/fragments/SampFooterButtons";

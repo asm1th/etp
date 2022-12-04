@@ -1,4 +1,4 @@
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 
 const ProcHeader = () => {
 

@@ -15,10 +15,9 @@ export const Stags: IStag[] = [
     "isValid": true,
     "nds_comm": "",
     //cost
-    "stage_laboriousness": "",
-    "stage_price_ei":  "",
-    "stage_price":  "",
-    "stage_price_nds": "",
+    "cost_stage_price_ei":  "",
+    "cost_stage_price":  "",
+    "cost_stage_price_nds": "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
@@ -30,8 +29,6 @@ export const Stags: IStag[] = [
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
-        "man_number": "1",
-        "laboriousness": "0",
         "work_days": "",
         "sum_price_ei": "",
         "sum_price": "",
@@ -89,10 +86,9 @@ export const Stags: IStag[] = [
     "isValid": true,
     "nds_comm": "",
     //cost
-    "stage_laboriousness": "",
-    "stage_price_ei":  "",
-    "stage_price":  "",
-    "stage_price_nds": "",
+    "cost_stage_price_ei":  "",
+    "cost_stage_price":  "",
+    "cost_stage_price_nds": "",
     "units": [
       {
         "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -104,8 +100,6 @@ export const Stags: IStag[] = [
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
-        "man_number": "1",
-        "laboriousness": "0",
         "work_days": "",
         "sum_price_ei": "",
         "sum_price": "",
@@ -159,8 +153,6 @@ export const Stags: IStag[] = [
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
-        "man_number": "1",
-        "laboriousness": "0",
         "work_days": "",
         "sum_price_ei": "",
         "sum_price": "",
@@ -214,8 +206,6 @@ export const Stags: IStag[] = [
         "vat_rate": "",
         "opr_usl_unit_restr_quan": "",
         "opr_usl_unit_restr_menge": "",
-        "man_number": "1",
-        "laboriousness": "0",
         "work_days": "",
         "sum_price_ei": "",
         "sum_price": "",
@@ -297,7 +287,7 @@ export const Files: IFileKP[] = [
 ]
 
 export const initialState: ISamp = {
-  "kp_sample_guid": "0050569CDC861EED87DD0FCCDBEA808C",
+  "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
   "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
   "konkurs_id": "_____100000037153",
   "konkurs_name": "Аренда недвижимости ____LOCAL",
@@ -315,7 +305,7 @@ export const initialState: ISamp = {
     "travel_exp": "1.00",
     "travel_exp_comm": "тест",
 
-    kp_sample_guid: "0050569CDC861EED87DD0FCCDBEA808C"
+    kp_sample_guid: "0050569CDC861EDD968FFC5F6F1A755C"
   },
   "stags": Stags,
   "files": Files,
@@ -327,21 +317,10 @@ export const initialState: ISamp = {
   isValidateOn: false,
 
   // cost metod
+  "sample_type": "C",
   "full_laboriousness": "0",
 
-  "cntrb_oms": "0",
-  "cntrb_pension": "0",
-  "cntrb_disability": "0",
-  "profitability": "",
-  "salary": [],
-  "cost_depreciation": [],
-  "cost_overhead": [],
-  "btrip_price": "0",
-  "cost_other_bfoh": [],
-  "cost_other": [],
-  "cost_btrip": [],
-
-  cost: {
+  costs: {
     "cntrb_oms": "0",  //Взносы в фонд ОМС
     "cntrb_pension": "0", //Взносы в ПФ
     "cntrb_disability": "0",//Отчисления по временной нетрудоспособности
@@ -353,12 +332,17 @@ export const initialState: ISamp = {
     "cost_other_bfoh": [],
     "cost_other": [],
     "cost_btrip": [],
+    "cost_result": {
+      "kp_price_ei": "",
+      "kp_price": "",
+      "kp_price_nds": ""
+    },
 
-    "kp_price_ei": "",
-    "kp_price": "",
-    "kp_price_nds": ""
+    "link": "0",
+    "kp_stage_guid": "0"
   },
 
+  //added
   cost_sums: {
     "cost_insurance": {
       "sum_cntrb_oms": "0",
@@ -376,9 +360,7 @@ export const initialState: ISamp = {
       "sum_user_per_month": "0",
       "sum_price_per_user_per_month": "0",
     },
-    "cost_overhead": {
-
-    },
+    "cost_overhead": [],
     "cost_profitability": "0",
     "cost_other": {
       "sum_full_price": "0",
@@ -386,7 +368,9 @@ export const initialState: ISamp = {
       "sum_price_per_user_per_month": "0",
     },
     "cost_btrip": {
-
+      "sum_full_price": "0",
+      "sum_user_per_month": "0",
+      "sum_price_per_user_per_month": "0",
     }
   }
 }

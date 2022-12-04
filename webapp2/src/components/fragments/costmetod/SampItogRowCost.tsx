@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { Text } from "@consta/uikit/Text";
 import { useAppSelector } from "../../../hooks/redux";
 import { numberWithSpaces } from "../../../helpers";
@@ -9,7 +9,13 @@ const SampItogRowCost: FC = () => {
 
     return (
         <>
-            {stags.map(({ kp_stage_guid, opr_usl_stage, opr_usl_stage_num, stage_price_ei, stage_price, stage_price_nds, stage_laboriousness }) => (
+            {stags.map(({ 
+                kp_stage_guid, 
+                opr_usl_stage, 
+                opr_usl_stage_num, 
+                cost_stage_price_ei, 
+                cost_stage_price, 
+                cost_stage_price_nds }) => (
                 <Layout key={kp_stage_guid} className="EtapsItogRow mb1">
                     <Layout flex={1}>
                         <Text className="weight700">Этап {opr_usl_stage_num}</Text>
@@ -19,15 +25,15 @@ const SampItogRowCost: FC = () => {
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr1" align="center">Трудоемкость</Text>
-                        <Text className="summ mr1" align="center">{parseFloat(stage_laboriousness) == 0 ? "-- --" : numberWithSpaces(stage_laboriousness)}</Text>
+                        <Text className="summ mr1" align="center">{parseFloat(cost_stage_price_ei) == 0 ? "-- --" : numberWithSpaces(cost_stage_price_ei)}</Text>
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr1" align="center">Сумма без НДС</Text>
-                        <Text className="summ mr1" align="center">{parseFloat(stage_price) == 0 ? "-- --" : numberWithSpaces(stage_price)}</Text>
+                        <Text className="summ mr1" align="center">{parseFloat(cost_stage_price) == 0 ? "-- --" : numberWithSpaces(cost_stage_price)}</Text>
                     </Layout>
                     <Layout flex={3} className="aic">
                         <Text className="label mr1" align="center">Сумма c НДС</Text>
-                        <Text className="summ" align="center">{parseFloat(stage_price_nds) == 0 ? "-- --" : numberWithSpaces(stage_price_nds)}</Text>
+                        <Text className="summ" align="center">{parseFloat(cost_stage_price_nds) == 0 ? "-- --" : numberWithSpaces(cost_stage_price_nds)}</Text>
                     </Layout>
                 </Layout>
             ))}

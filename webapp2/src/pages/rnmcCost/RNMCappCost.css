@@ -7,6 +7,10 @@ rnmc styles here from app css
     background-color: var(--color-control-bg-primary);
 }
 
+.Button_view_primary.Button_disabled{
+    background-color: inherit
+}
+
 .RNMCapp{
     width: 100%;
     padding: 20px 20px;

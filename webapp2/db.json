@@ -1,5 +1,6 @@
 {
   "samp": {
+    "sample_type": "A",
     "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
     "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
     "konkurs_id": "100000037153",
@@ -38,20 +39,18 @@
             "opr_usl_unit_id": "28",
             "usl_quan_unit": "CHS",
             "opr_usl_unit": "Архитектор",
-            "nsu_menge": "0.000",
+            "nsu_menge": "2",
             "vat_rate": "",
             "opr_usl_unit_restr_quan": "",
             "opr_usl_unit_restr_menge": "",
-            "man_number": "1",
-            "laboriousness": "0",
             "usrps": [
               {
                 "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
                 "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
-                "prices_user": "0.00",
+                "prices_user": "5",
                 "usl_quan_unit": "CHS",
                 "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
+                "nsu_menge": "2",
                 "vat_rate": "",
                 "alt_name_unit": "",
                 "kp_usrp_guid": "",
@@ -66,10 +65,10 @@
               {
                 "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
                 "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-                "prices_user": "0.00",
+                "prices_user": "4",
                 "usl_quan_unit": "CHS",
                 "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
+                "nsu_menge": "3",
                 "vat_rate": "",
                 "alt_name_unit": "",
                 "kp_usrp_guid": "",
@@ -107,8 +106,6 @@
             "vat_rate": "",
             "opr_usl_unit_restr_quan": "",
             "opr_usl_unit_restr_menge": "",
-            "man_number": "1",
-            "laboriousness": "0",
             "usrps": [
               {
                 "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
@@ -158,8 +155,6 @@
             "vat_rate": "",
             "opr_usl_unit_restr_quan": "",
             "opr_usl_unit_restr_menge": "",
-            "man_number": "1",
-            "laboriousness": "0",
             "usrps": [
               {
                 "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
@@ -209,8 +204,6 @@
             "vat_rate": "",
             "opr_usl_unit_restr_quan": "",
             "opr_usl_unit_restr_menge": "",
-            "man_number": "1",
-            "laboriousness": "0",
             "usrps": [
               {
                 "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
@@ -259,7 +252,7 @@
         "file_body": "",
         "file_size": "000000005297",
         "description": "",
-        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+        "file_guid": "0050569CDC861EDD968FFC5F6F1A755C",
         "file_name": "Code",
         "file_type": "TXT",
         "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
@@ -285,116 +278,44 @@
         "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
       }
     ],
-    "kp_summ": "",
-    "kp_summ_nds": "",
-    "isTravel": false,
-    "saveDate": "",
-    "isValidateOn": false,
-    "cntrb_oms": "0",
-    "cntrb_pension": "0",
-    "cntrb_disability": "0",
-    "profitability": "",
-    "salary": [],
-    "cost_depreciation": [],
-    "cost_overhead": [],
-    "btrip_price": "0",
-    "cost_other_bfoh": [],
-    "cost_other": [],
-    "cost_btrip": [],
-    "sum_cntrb_oms": "0",
-    "sum_cntrb_pension": "0",
-    "sum_cntrb_disability": "0",
-    "sum_price_per_month": "0",
-    "sum_price": "0",
-    "sum_price_per_user_per_month": "0",
-    "sum_cost_meins_price": "0"
-  },
-  "posts": [
-    {
-      "id": 1,
-      "title": "json-server 1",
-      "body": "typicode1"
-    },
-    {
-      "id": 2,
-      "title": "json-server 2",
-      "body": "typicode2 "
-    },
-    {
-      "id": 3,
-      "title": "json-server 3",
-      "body": "typicode3"
-    },
-    {
-      "id": 4,
-      "title": "json-server 4",
-      "body": "typicode4"
-    },
-    {
-      "id": 5,
-      "title": "json-server 5",
-      "body": "typicode4"
-    },
-    {
-      "id": 6,
-      "title": "json-server 6",
-      "body": "typicode4"
-    },
-    {
-      "id": 7,
-      "title": "json-server 7",
-      "body": "typicode4"
-    },
-    {
-      "id": 8,
-      "title": "json-server 8",
-      "body": "typicode4"
+    "costs": {
+      "cntrb_disability": "44.40",
+      "cost_btrip": [
+        {
+          "btrip_day_allow ": "5.00",
+          "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+          "btrip_days": "0",
+          "pers_count": "1",
+          "btrip_cost": "3.00",
+          "kp_btrip_guid": "0050569CDC861EED99D00DFEEC290CA8",
+          "btrip_day_cost": "4.00"
+        }
+      ],
+      "cost_overhead": [{
+        "cost_id": 4,
+        "cost_description": "Медицинское страхование",
+        "cost_value": "5"
+      },{
+        "cost_id": 0,
+        "cost_description": "Заработная плата, обучение и содержание административно-управленческого аппарата",
+        "cost_value": "1"
+      }],
+      "cntrb_pension": "33.30",
+      "btrip_price": "5.00",
+      "salary": [
+        {
+          "kp_unit_salary": "1000",
+          "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C"
+        }
+      ],
+      "cntrb_oms": "32.20",
+      "profitability": "55.50",
+      "kp_stage_guid": "0050569CDC861EED99CC3F9F43FEE65D",
+      "cost_result": {
+        "kp_price_nds": "0.00",
+        "kp_price": "0.00",
+        "kp_price_ei": "0.00"
+      }
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "users": [
-    {
-      "id": 1,
-      "lastname": "Test1",
-      "firstname": "Test1",
-      "patronymic": "Test1",
-      "username": "Test1",
-      "email": "Test1@Test1.com",
-      "resident": true,
-      "individual": true,
-      "org_fullname": "Test1",
-      "org_shortname": "Test1",
-      "org_telephone": "123123123",
-      "org_email": "Test1@Test1.ee",
-      "password": "Test1",
-      "createdAt": "2022-08-09T12:34:56.625Z",
-      "updatedAt": "2022-08-09T12:34:56.625Z"
-    },
-    {
-      "id": 2,
-      "lastname": "Test2",
-      "firstname": "Test2",
-      "patronymic": "Test2",
-      "username": "Test1",
-      "email": "Test1@Test2.com",
-      "resident": true,
-      "individual": true,
-      "org_fullname": "Test2",
-      "org_shortname": "Test2",
-      "org_telephone": "123123123",
-      "org_email": "Test2@Test1.ee",
-      "password": "Test2",
-      "createdAt": "2022-08-09T12:34:56.625Z",
-      "updatedAt": "2022-08-09T12:34:56.625Z"
-    }
-  ]
+  }
 }

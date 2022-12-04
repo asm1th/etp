@@ -45,88 +45,90 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
     }
 
     return (
-        <ProSidebar
-            //image={sidebarBg}
-            collapsed={props.collapsed}
-            toggled={props.toggled}
-            breakPoint="md"
-            onToggle={props.handleToggleSidebar}
-        >
-            <SidebarHeader>
-                {/* <img alt="logo" className='DashLogo' onClick={props.handleToggleSidebar} src={logo} /> */}
-                <img alt="logo" className='DashLogo' onClick={handleLogoClick} src={logo} />
-            </SidebarHeader>
+        <>
+            <ProSidebar
+                //image={sidebarBg}
+                collapsed={props.collapsed}
+                toggled={props.toggled}
+                breakPoint="md"
+                onToggle={props.handleToggleSidebar}
+            >
+                <SidebarHeader>
+                    {/* <img alt="logo" className='DashLogo' onClick={props.handleToggleSidebar} src={logo} /> */}
+                    <img alt="logo" className='DashLogo' onClick={handleLogoClick} src={logo} />
+                </SidebarHeader>
 
-            <SidebarContent>
-                <Menu iconShape="circle">
-                    <MenuItem
-                        //tooltip="Счет-фактуры"
-                        icon={<img alt="ico" src={icons_menu} width="24" />}
-                        suffix={<Badge status="warning" label="4" />}>
-                        Счет-фактуры
-                    </MenuItem>
-                    <MenuItem onClick={handleLinkRNMC} icon={<img alt="ico" src={icons_menu1} width="24" />}>
-                        Заявки на участие в процедуре
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu2} width="24" />}>
-                        Предквалификация
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu3} width="24" />}>
-                        Отборы по НСУ
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu4} width="24" />}>
-                        Отборы по ПИР и СМР
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu5} width="24" />}>
-                        Поставщик МТР
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu6} width="24" />}>
-                        Личный кабинет КА
-                    </MenuItem>
-                    <MenuItem icon={<img alt="ico" src={icons_menu7} width="24" />}>
-                        Управление выполненем работ
-                    </MenuItem>
-                    <SubMenu
-                        defaultOpen={true}
-                        suffix={<Badge status="normal" label="2" />}
-                        title='Закупочные процедуры'
-                        onClick={handleLinkZak}
-                        icon={<img alt="ico" src={icons_menu8} width="24" />}
-                    >
-                        <MenuItem onClick={handleLinkZak} active={true} icon={<IconArrowRight/>} popperarrow={true}>Перечень процедур</MenuItem>
-                        <MenuItem onClick={handleLinkZak} icon={<IconArrowRight/>}>Лоты процедуры</MenuItem>
-                    </SubMenu>
-                    {/*
-                    <SubMenu
-                        prefix={<span className="badge gray">3</span>}
-                        title='withPrefix'
-                        icon={<IconDiamond />}
-                    >
-                        <MenuItem>submenu1</MenuItem>
-                        <MenuItem>submenu2</MenuItem>
-                        <MenuItem>submenu3</MenuItem>
-                    </SubMenu>
-                    <SubMenu title='multiLevel' icon={<IconDiamond />}>
-                        <MenuItem>submenu1 </MenuItem>
-                        <MenuItem>submenu2 </MenuItem>
-                        <SubMenu title='submenu3'>
-                            <MenuItem>submenu3.1 </MenuItem>
-                            <MenuItem>submenu3.2 </MenuItem>
-                            <SubMenu title='submenu3.3'>
-                                <MenuItem>submenu3.3.1 </MenuItem>
-                                <MenuItem>submenu3.3.2 </MenuItem>
-                                <MenuItem>submenu3.3.3 </MenuItem>
-                            </SubMenu>
+                <SidebarContent>
+                    <Menu iconShape="circle">
+                        <MenuItem
+                            //tooltip="Счет-фактуры"
+                            icon={<img alt="ico" src={icons_menu} width="24" />}
+                            suffix={<Badge status="warning" label="4" />}>
+                            Счет-фактуры
+                        </MenuItem>
+                        <MenuItem onClick={handleLinkRNMC} icon={<img alt="ico" src={icons_menu1} width="24" />}>
+                            Заявки на участие в процедуре
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu2} width="24" />}>
+                            Предквалификация
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu3} width="24" />}>
+                            Отборы по НСУ
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu4} width="24" />}>
+                            Отборы по ПИР и СМР
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu5} width="24" />}>
+                            Поставщик МТР
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu6} width="24" />}>
+                            Личный кабинет КА
+                        </MenuItem>
+                        <MenuItem icon={<img alt="ico" src={icons_menu7} width="24" />}>
+                            Управление выполненем работ
+                        </MenuItem>
+                        <SubMenu
+                            defaultOpen={true}
+                            suffix={<Badge status="normal" label="2" />}
+                            title='Закупочные процедуры'
+                            onClick={handleLinkZak}
+                            icon={<img alt="ico" src={icons_menu8} width="24" />}
+                        >
+                            <MenuItem onClick={handleLinkZak} active={true} icon={<IconArrowRight/>} popperarrow={true}>Перечень процедур</MenuItem>
+                            <MenuItem onClick={handleLinkZak} icon={<IconArrowRight/>}>Лоты процедуры</MenuItem>
                         </SubMenu>
-                    </SubMenu> */}
-                </Menu>
-            </SidebarContent>
+                        {/*
+                        <SubMenu
+                            prefix={<span className="badge gray">3</span>}
+                            title='withPrefix'
+                            icon={<IconDiamond />}
+                        >
+                            <MenuItem>submenu1</MenuItem>
+                            <MenuItem>submenu2</MenuItem>
+                            <MenuItem>submenu3</MenuItem>
+                        </SubMenu>
+                        <SubMenu title='multiLevel' icon={<IconDiamond />}>
+                            <MenuItem>submenu1 </MenuItem>
+                            <MenuItem>submenu2 </MenuItem>
+                            <SubMenu title='submenu3'>
+                                <MenuItem>submenu3.1 </MenuItem>
+                                <MenuItem>submenu3.2 </MenuItem>
+                                <SubMenu title='submenu3.3'>
+                                    <MenuItem>submenu3.3.1 </MenuItem>
+                                    <MenuItem>submenu3.3.2 </MenuItem>
+                                    <MenuItem>submenu3.3.3 </MenuItem>
+                                </SubMenu>
+                            </SubMenu>
+                        </SubMenu> */}
+                    </Menu>
+                </SidebarContent>
 
-            <SidebarFooter style={{ textAlign: 'center' }}>
+                <SidebarFooter style={{ textAlign: 'center' }}>
 
 
-            </SidebarFooter>
-        </ProSidebar>
+                </SidebarFooter>
+            </ProSidebar>
+        </>
     );
 };
 

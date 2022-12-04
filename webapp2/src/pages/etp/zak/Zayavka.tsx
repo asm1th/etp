@@ -3,12 +3,12 @@ import DashHeader2 from '../../../components/dash/DashHeader2';
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { dashSlice } from "../../../store/reducers/dash/dashSlice";
 import Sidebar from "../../../components/dash/Sidebar";
-import { Breadcrumbs } from '@consta/uikit/BreadcrumbsCanary';
+import { Breadcrumbs } from '@consta/uikit/Breadcrumbs';
 import './Proc.css'
 import { Text } from '@consta/uikit/Text';
 import { useLocation } from "react-router-dom";
 import { Badge } from "@consta/uikit/Badge";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Button } from "@consta/uikit/Button";
 import { IconBackward } from "@consta/uikit/IconBackward";
 import { IconCancel } from "@consta/uikit/IconCancel";

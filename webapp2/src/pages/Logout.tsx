@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { ResponsesExit } from '@consta/uikit/ResponsesExit';
 import { Button } from "@consta/uikit/Button";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 
 
 const Logout: FC = () => {

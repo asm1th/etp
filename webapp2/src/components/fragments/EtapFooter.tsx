@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Checkbox } from '@consta/uikit/Checkbox';
 import { Button } from "@consta/uikit/Button";
 import { IconCheck } from '@consta/uikit/IconCheck';

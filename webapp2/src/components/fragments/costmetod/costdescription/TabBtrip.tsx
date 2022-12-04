@@ -1,13 +1,10 @@
 import { FC, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
-import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../../../services/SampService";
-import { Layout } from "@consta/uikit/LayoutCanary";
-import { IconCheck } from '@consta/uikit/IconCheck';
+import { Layout } from "@consta/uikit/Layout";
 import { TextField } from "@consta/uikit/TextField";
 import { Button } from "@consta/uikit/Button";
-import { format } from "date-fns";
-import { ICostBtrip, ICostOverhead } from "../../../../models/ISamp";
+import { ICostBtrip } from "../../../../models/ISamp";
 import { IconTrash } from "@consta/uikit/IconTrash";
 import { IconAdd } from "@consta/uikit/IconAdd";
 import { Modal } from "@consta/uikit/Modal";
@@ -15,15 +12,16 @@ import PopoverCustom from "../../../util/PopoverCustom";
 import { IconInfo } from "@consta/uikit/IconInfo";
 import { sampSlice } from "../../../../store/reducers/samp/sampSlice";
 import { numberWithSpaces } from "../../../../helpers";
-
+import SaveCostButton from "../SaveCostButton";
 
 
 const TabBtrip: FC = () => {
     const dispatch = useAppDispatch()
-    const { stags, link, links } = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
-    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
-
+    const { 
+        costs,
+        cost_sums, 
+        isValidateOn } = useAppSelector(state => state.sampReducer)
+    
     //popover
     type Position = any;
     const [position, setPosition] = useState<Position>(undefined)
@@ -32,79 +30,57 @@ const TabBtrip: FC = () => {
         setPosition({ x: event.clientX, y: event.clientY })
     };
 
-    const [savedDate, setSavedDate] = useState<string>("")
-    const onSave = () => {
-        updateLink(links)
-        stags.forEach(stag => {
-            stag.units.forEach(unit => {
-                const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
-                updateUsrp(usrp[0])
-            });
-        })
-
-        setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
-    }
-
-
     //list
     const item: ICostBtrip = {
-        "key": 0,                   //ID
-        "cost_name": "",
         "kp_btrip_guid": "",     //GUID командировочных расходов 
         "kp_unit_guid": "",      //GUID КР
         "pers_count": "0",         //Количество человек
         "btrip_days": "0",         //Количество дней
         "btrip_cost": "0",         //Проезд в одну сторону
         "btrip_day_cost": "0",     //Проживание в 1 сутки
-        "btrip_day_allow": "0"     //Суточные
+        "btrip_day_allow": "0",     //Суточные
+
+        "key": 0,                   //ID
+        "cost_name": "",
+        "full_price": "",
+        "user_per_day": "",
+        "user_per_month": "",
+        "price_per_user_per_month": "",
     }
-    const items: ICostBtrip[] = []
 
-    stags.forEach(stag => {
-        stag.units.forEach(curUnit => {
-            
-            let newItem = {
-                "key": 0,
-                "cost_name": "",
-                "kp_btrip_guid": "",
-                "kp_unit_guid": "",
-                "pers_count": "0",
-                "btrip_days": "0",
-                "btrip_cost": "0",
-                "btrip_day_cost": "0",
-                "btrip_day_allow": "0"
-            }
-            newItem.key = items.length > 0 ? items[items.length - 1].key + 1 : 1
-            newItem.cost_name = curUnit.opr_usl_unit
-            items.push(newItem)
-        })
-    })
-
-    const [itemList, setItemList] = useState(items);
+    const itemList = costs.cost_btrip;
+    
     const addItem = () => {
-        if (itemList.length > 0) {
-            item.key = itemList[itemList.length - 1].key + 1
-        } else {
-            item.key = 1
-        }
-        setItemList(itemList => [...itemList, item])
+        item.key = itemList.length > 0 ? itemList[itemList.length - 1].key + 1 : 1
+        dispatch(sampSlice.actions.addBtrip(item))
     }
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [delTItemKey, setDelTItemKey] = useState<number | null>(null);
+    const [delItemKey, setDelItemKey] = useState<number | null>(null);
 
     const delModalOpen = (key: number) => {
         setIsModalOpen(true)
-        setDelTItemKey(key)
+        setDelItemKey(key)
     }
 
     const delItem = () => {
-        const index = itemList.findIndex((List: any) => List.key === delTItemKey)
-        itemList.splice(index, 1)
-        setItemList(itemList)
         setIsModalOpen(false)
-        if (itemList.length == 1) {
-            setItemList([item])
+        dispatch(sampSlice.actions.delBtrip(delItemKey))
+    }
+
+    const handleBtrip = (value: string) => {
+        if (value === '' || value.match(/^([0-9]{1,3})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
+            dispatch(sampSlice.actions.setBtrip({ btrip_price: value }))
+        }
+    }
+
+    const handleBtripPropNumber = (key: number, name: string, value: string) => {
+        if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
+            dispatch(sampSlice.actions.setBtripProp({
+                key: key,
+                name: name,
+                value: value
+            }))
         }
     }
 
@@ -128,10 +104,12 @@ const TabBtrip: FC = () => {
                 <Layout className="aic ml1">
                     <TextField
                         name="profitability"
-                        value="-- --"
+                        value={costs.btrip_price}
                         size="s"
                         width="full"
                         className="textCenter"
+                        onChange={({ e }: any) => handleBtrip(e.target.value)}
+                        status={(isValidateOn && (parseFloat(costs.btrip_price) === 0)) ? 'alert' : undefined}
                     />
                     <Text className="ml05">руб.</Text>
                 </Layout>
@@ -175,8 +153,21 @@ const TabBtrip: FC = () => {
                 </Layout>
             </Layout>
             <div className="scrollBlock">
-                {itemList.map(({ key, kp_btrip_guid, cost_name, pers_count, btrip_days, btrip_cost, btrip_day_cost, btrip_day_allow }) => (
-                    <Layout className="Row mb1" key={cost_name}>
+                {itemList.map(({
+                    key,
+                    kp_btrip_guid,
+                    cost_name,
+                    pers_count,
+                    btrip_days,
+                    btrip_cost,
+                    btrip_day_cost,
+                    btrip_day_allow,
+                    full_price,
+                    user_per_day,
+                    user_per_month,
+                    price_per_user_per_month
+                }) => (
+                    <Layout className="Row mb1" key={`${cost_name}_${key}`}>
                         <Layout flex={6} className="aic">
                             <TextField
                                 name="cost_name"
@@ -184,57 +175,76 @@ const TabBtrip: FC = () => {
                                 size="s"
                                 width="full"
                                 className="mr05"
+                                disabled
                             />
                         </Layout>
                         <Layout flex={2} className="aic ">
                             <TextField
                                 name="pers_count"
-                                value={parseFloat(pers_count) == 0 ? "-- --" : pers_count}
+                                value={pers_count}
                                 size="s"
                                 width="full"
                                 className="textCenter RowInput"
+                                onChange={({ e }: any) => { handleBtripPropNumber(key, e.target.name, e.target.value) }}
+                                status={(isValidateOn && (parseFloat(pers_count) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
                         <Layout flex={2} className="aic ">
                             <TextField
                                 name="btrip_days"
-                                value={parseFloat(btrip_days) == 0 ? "-- --" : btrip_days}
+                                value={btrip_days}
                                 size="s"
                                 width="full"
                                 className="textCenter RowInput"
+                                onChange={({ e }: any) => { handleBtripPropNumber(key, e.target.name, e.target.value) }}
+                                status={(isValidateOn && (parseFloat(btrip_days) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
                         <Layout flex={2} className="aic ">
                             <TextField
                                 name="btrip_cost"
-                                value={parseFloat(btrip_cost) == 0 ? "-- --" : btrip_cost}
+                                value={btrip_cost}
                                 size="s"
                                 width="full"
                                 className="textCenter RowInput"
+                                onChange={({ e }: any) => { handleBtripPropNumber(key, e.target.name, e.target.value) }}
+                                status={(isValidateOn && (parseFloat(btrip_cost) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
                         <Layout flex={2} className="aic ">
                             <TextField
                                 name="btrip_day_allow"
-                                value={parseFloat(btrip_day_allow) == 0 ? "-- --" : btrip_day_allow}
+                                value={btrip_day_allow}
                                 size="s"
                                 width="full"
                                 className="textCenter RowInput"
+                                onChange={({ e }: any) => { handleBtripPropNumber(key, e.target.name, e.target.value) }}
+                                status={(isValidateOn && (parseFloat(btrip_day_allow) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
                         <Layout flex={2} className="aic ">
                             <TextField
                                 name="btrip_day_cost"
-                                value={parseFloat(btrip_day_cost) == 0 ? "-- --" : btrip_day_cost}
+                                value={btrip_day_cost}
                                 size="s"
                                 width="full"
                                 className="textCenter RowInput"
+                                onChange={({ e }: any) => { handleBtripPropNumber(key, e.target.name, e.target.value) }}
+                                status={(isValidateOn && (parseFloat(btrip_day_cost) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
-                        <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                        <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                        <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                        <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
+                        <Layout flex={2} className="aic jcc">
+                            {parseFloat(full_price) == 0 ? "-- --" : numberWithSpaces(full_price)}
+                        </Layout>
+                        <Layout flex={2} className="aic jcc">
+                            {parseFloat(user_per_day) == 0 ? "-- --" : numberWithSpaces(user_per_day)}
+                        </Layout>
+                        <Layout flex={2} className="aic jcc">
+                            {parseFloat(user_per_month) == 0 ? "-- --" : numberWithSpaces(user_per_month)}
+                        </Layout>
+                        <Layout flex={2} className="aic jcc">
+                            {parseFloat(price_per_user_per_month) == 0 ? "-- --" : numberWithSpaces(price_per_user_per_month)}
+                        </Layout>
                         <Layout flex={1} className="jcc aic">
                             <Button
                                 onlyIcon={true}
@@ -259,26 +269,28 @@ const TabBtrip: FC = () => {
             <hr />
 
             <Layout>
-                <Layout flex={4}></Layout>
-                <Layout flex={3} className="SubSummFooter">
-                    <Layout flex={1} className="aic jcc">Итого</Layout>
-                    {/* <Layout flex={1} className="aic jcc mr1">{parseFloat(currentStage.stagSumm) == 0 ? "-- --" : currentStage.stagSumm}</Layout>*/}
-                    <Layout flex={1} className="aic jcc"></Layout>
-                    <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                    <Layout flex={2} className="aic jcc"></Layout>
-                    <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                    <Layout flex={2} className="aic jcc">{numberWithSpaces("0")}</Layout>
-                    <Layout flex={1} className="aic jcc"></Layout>
+                <Layout flex={6}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={2}></Layout>
+
+                <Layout flex={2} className="aic jcc SubSummFooterLabel">Итого</Layout>
+                <Layout flex={2} className="aic jcc SubSummFooter">
+                    {parseFloat(cost_sums.cost_btrip.sum_full_price) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_btrip.sum_full_price)}
                 </Layout>
+                <Layout flex={2} className="aic jcc SubSummFooter"></Layout>
+                <Layout flex={2} className="aic jcc SubSummFooter">
+                    {parseFloat(cost_sums.cost_btrip.sum_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_btrip.sum_user_per_month)}
+                </Layout>
+                <Layout flex={2} className="aic jcc SubSummFooter">
+                    {parseFloat(cost_sums.cost_btrip.sum_price_per_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_btrip.sum_price_per_user_per_month)}
+                </Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter SubSummFooterLast"></Layout>
+
             </Layout>
 
-            <Layout flex={4} className="aic jcfe mt1">
-                {savedDate ? (
-                    <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
-                ) : null}
-                <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-            </Layout>
-
+            <SaveCostButton/>
 
             <Modal
                 isOpen={isModalOpen}

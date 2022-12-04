@@ -254,3 +254,141 @@ button.TabsTab.TabsTab_size_m.TabsTab_checked.MixFocus.MixFocus_before {
 		box-shadow: 0 0 0 0 rgba(109, 177, 240, 0);
 	}
 }
+
+
+.bt1 {
+    border-top: 1px solid #ccc;
+}
+
+.bb1 {
+    border-bottom: 1px solid #ccc;
+}
+
+.alertModal {
+    padding: 0 20px 20px;
+    width: 400px;
+}
+
+.modalAction {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+@media screen and (max-width:1090px) {
+    .EtapFooterButtons {
+        flex-wrap: wrap;
+    }
+
+    .EtapFooterButtons>*:first-child {
+        flex-basis: 100%;
+        text-align: right;
+        justify-content: end;
+    }
+}
+
+.App .Attachment {
+    margin-top: 20px;
+    background: #e9eaff;
+}
+
+.kp_send_date {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    align-content: center;
+}
+
+.AttachmentDiv {
+    justify-content: flex-end;
+}
+
+.calcFont {
+    font-size: 16px;
+    font-size: 1vw;
+}
+
+.btnReject {
+    background-color: red;
+}
+
+hr {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 1px;
+    width: 100%;
+    border: 0;
+    background-color: #ccc;
+}
+
+.scrollBlock {
+    max-height: 295px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.tabsFilled .Tabs-Tab {
+    margin-right: 5px;
+    position: relative;
+}
+
+.tabsFilled .TabsTab.tabFilled {
+    background: #f3f5ff;
+    color: #000;
+    padding: 8px 10px 5px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid transparent;
+}
+
+.tabsFilled .TabsTab.tabFilled.checked {
+    background: #fff;
+    color: #5066ff;
+    border-top: 1px solid #5066ff;
+    border-left: 1px solid #5066ff;
+    border-right: 1px solid #5066ff;
+    border-bottom: 1px solid #FFF;
+}
+
+.tabsFilled .TabsLine_type_border {
+    background-color: #5066ff;
+}
+
+.tabsFilled button.times {
+    background: transparent;
+    display: block;
+    border: 0;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    border-radius: 0 3px 0 12px;
+    z-index: 1;
+    line-height: 17px;
+}
+
+.tabsFilled button.times:hover {
+    background: #5066ff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tabsFilled .TabsTab.tabFilled.isHidable {
+    padding-right: 20px;
+}
+
+.generatedTable {
+    align-items: flex-end;
+}
+
+.generatedTable .tableHeader {
+    overflow: hidden;
+    align-items: flex-end;
+}
+
+.generated_cell>div {
+    height: 32.5px;
+}
+
+.generatedTable .generated_cell:nth-child(odd){
+    background: #0020330a;
+}

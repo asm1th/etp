@@ -1,18 +1,16 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
-import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../../../services/SampService";
-import { Layout } from "@consta/uikit/LayoutCanary";
-import { IconCheck } from '@consta/uikit/IconCheck';
+import { Layout } from "@consta/uikit/Layout";
 import { TextField } from "@consta/uikit/TextField";
 import { Button } from "@consta/uikit/Button";
-import { format } from "date-fns";
 import { ICostArray, ICostOverhead } from "../../../../models/ISamp";
 import { IconTrash } from "@consta/uikit/IconTrash";
 import { IconAdd } from "@consta/uikit/IconAdd";
 import { Modal } from "@consta/uikit/Modal";
 import { sampSlice } from "../../../../store/reducers/samp/sampSlice";
 import { numberWithSpaces } from "../../../../helpers";
+import SaveCostButton from "../SaveCostButton";
 
 
 
@@ -20,37 +18,31 @@ const TabCostOverhead: FC = () => {
     const dispatch = useAppDispatch()
     const {
         stags,
-        cost_overhead: itemList,
+        costs,
         cost_sums,
         isValidateOn } = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
-    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
 
-
-    const [savedDate, setSavedDate] = useState<string>("")
-    const onSave = () => {
-        //
-        setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
-    }
+    const itemList = costs.cost_overhead
 
     //list
     const item: ICostOverhead = {
-        "cost_id": 0,            //ID
+        "cost_id": "0",            //ID
         "cost_description": "",  //Наименование
         "cost_value": "0",
         "cost_array": [],       //Значение
-        "requered": false
+        "required": false,
+        "summ_cost": "0"
     }
 
     const addItem = () => {
-        item.cost_id = itemList.length > 0 ? itemList[itemList.length - 1].cost_id + 1 : 1
+        item.cost_id = (itemList.length > 0 ? itemList[itemList.length - 1].cost_id + 1 : 1).toString()
         dispatch(sampSlice.actions.addCostOverhead(item))
     }
 
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [delItemKey, setDelItemKey] = useState<number | null>(null);
+    const [delItemKey, setDelItemKey] = useState<string | null>(null);
 
-    const delModalOpen = (key: number) => {
+    const delModalOpen = (key: string) => {
         setIsModalOpen(true)
         setDelItemKey(key)
     }
@@ -60,7 +52,7 @@ const TabCostOverhead: FC = () => {
         dispatch(sampSlice.actions.delCostOverhead(delItemKey))
     }
 
-    const handleCostOverheadPropText = (key: number, name: string, value: string) => {
+    const handleCostOverheadPropText = (key: string, name: string, value: string) => {
         dispatch(sampSlice.actions.setCostOverheadProp({
             key: key,
             name: name,
@@ -68,8 +60,7 @@ const TabCostOverhead: FC = () => {
         }))
     }
 
-    const handleCostOverheadPropNumber = (key: number, name: string, value: string) => {
-        
+    const handleCostOverheadPropNumber = (key: string, name: string, value: string) => {
         if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
             dispatch(sampSlice.actions.setCostOverheadProp({
                 key: key,
@@ -78,6 +69,7 @@ const TabCostOverhead: FC = () => {
             }))
         }
     }
+
     return (
         <>
             <Layout className="aic mb1">
@@ -94,10 +86,10 @@ const TabCostOverhead: FC = () => {
                     onClick={() => addItem()} />
             </Layout>
 
-            {itemList.map(({ cost_id, cost_description, cost_value, requered }) => (
+            {itemList.map(({ cost_id, cost_description, cost_value, required }) => (
                 <Layout className="Row mb1" key={cost_id}>
-                    <Layout style={{width:'12px'}}>
-                        {requered ? (<span className="FieldLabel-Star mr05">*</span>) : null}
+                    <Layout style={{ width: '12px' }}>
+                        {required ? (<span className="FieldLabel-Star mr05">*</span>) : null}
                     </Layout>
                     <Layout flex={5} className="aic">
                         <TextField
@@ -108,13 +100,13 @@ const TabCostOverhead: FC = () => {
                             className="RowInput"
                             onChange={({ e }: any) => { handleCostOverheadPropText(cost_id, e.target.name, e.target.value) }}
                             status={(isValidateOn && (parseFloat(cost_description) === 0)) ? 'alert' : undefined}
-                            disabled = {requered}
+                            disabled={required}
                         />
                     </Layout>
                     <Layout flex={1} className="aic mr1">
                         <TextField
                             name="cost_value"
-                            value={parseFloat(cost_value) === 0 ? "-" : cost_value}
+                            value={cost_value}
                             size="s"
                             width="full"
                             className="textCenter RowInput"
@@ -123,21 +115,19 @@ const TabCostOverhead: FC = () => {
                         />
                         <Text className="ml05">%</Text>
                     </Layout>
-                    <Layout className="jcc aic" style={{width:'40px'}}>
-                        {requered ? ( "" ) : (
+                    <Layout className="jcc aic" style={{ width: '40px' }}>
+                        {required ? ("") : (
                             <Button
                                 onlyIcon={true}
                                 title="Удалить"
                                 iconLeft={IconTrash}
                                 onClick={() => delModalOpen(cost_id)}
                                 view="ghost" />
-                            )
+                        )
                         }
                     </Layout>
                 </Layout>
             ))}
-
-
             <hr />
             <Layout className="generatedTable">
                 <Layout flex={2} direction="column">
@@ -170,71 +160,37 @@ const TabCostOverhead: FC = () => {
                             </Layout>
                         ))}
                     </Layout>
-                    {stags.map(({ units }, index) => (
-                        units.map(curUnit => (
-                            <Layout className="Row mb1 generated_cell jcc aic acc" key={curUnit.opr_usl_unit}>
-                                {itemList.map(({ cost_id, cost_description, cost_value, cost_array }) => (
-                                    <Layout
-                                        key={`${curUnit.opr_usl_unit}_${cost_id}`}
-                                        className="jcc aic acc">
-                                        <Text>
-                                            {cost_array.length > 0 ? numberWithSpaces(cost_array[cost_array.findIndex((List: ICostArray) => List.cost_name === curUnit.opr_usl_unit)].value) : 0}
-                                        </Text>
-                                    </Layout>
-                                ))}
-                            </Layout>
-                        ))
+                    {costs.salary.map(({ kp_unit_guid, cost_name }) => (
+                        <Layout className="Row mb1 generated_cell jcc aic acc" key={cost_name}>
+                            {itemList.map(({ cost_id, cost_array }) => (
+                                <Layout
+                                    key={`${cost_name}_${cost_id}`}
+                                    className="jcc aic acc">
+                                    <Text>
+                                        {cost_array.length > 0 ? numberWithSpaces(cost_array[cost_array.findIndex((List: ICostArray) => List.cost_name === cost_name)].value) : 0}
+                                    </Text>
+                                </Layout>
+                            ))}
+                        </Layout>
                     ))}
                 </Layout>
             </Layout>
-
-
-            {/* <div className="scrollBlock">
-                {stags.map(({ units }) => (
-                    units.map(curUnit => (
-                        <Layout className="Row mb1" key={curUnit.opr_usl_unit}>
-                            <Layout flex={2}>
-                                <TextField
-                                    name="name"
-                                    value={curUnit.opr_usl_unit}
-                                    size="s"
-                                    width="full"
-                                    disabled
-                                />
-                            </Layout>
-                            <Layout className="scrollBlockHor">
-                                {itemList.map(({ cost_id, cost_description, cost_value }) => (
-                                    <Layout flex={1} 
-                                        key={`${curUnit.opr_usl_unit}_${cost_id}`}
-                                        className="jcc aic">
-                                        <Text className="label">
-
-                                        </Text>
-                                    </Layout>
-                                ))}
-                            </Layout>
-                        </Layout>
-                    ))
-                ))}
-            </div> */}
             <hr />
             <Layout>
-                <Layout flex={8}></Layout>
-                <Layout flex={10} className="SubSummFooter">
-                    <Layout flex={1} className="aic jcc">Итого</Layout>
-                    {/* <Layout flex={1} className="aic jcc mr1">{parseFloat(currentStage.stagSumm) == 0 ? "-- --" : currentStage.stagSumm}</Layout>*/}
-                    <Layout flex={1} className="aic jcc">-- --</Layout>
-                    <Layout flex={1} className="aic jcc">-- --</Layout>
-                    <Layout flex={1} className="aic jcc">-- --</Layout>
+                <Layout flex={2}>
+                    <Layout className="tableHeader"></Layout>
+                    <Layout className="aic jcc SubSummFooterLabel">Итого</Layout>
+                </Layout>
+                <Layout flex={5}>
+                    <Layout flex={1} className="SubSummFooter">
+                        {cost_sums.cost_overhead.map((summ_cost, i) => (
+                            <Layout flex={1} key={i} className="aic jcc">{parseFloat(summ_cost) == 0 ? "-- --" : numberWithSpaces(summ_cost)}</Layout>
+                        ))}
+                    </Layout>
                 </Layout>
             </Layout>
 
-            <Layout flex={4} className="aic jcfe mt1">
-                {savedDate ? (
-                    <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
-                ) : null}
-                <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-            </Layout>
+            <SaveCostButton />
 
             <Modal
                 isOpen={isModalOpen}

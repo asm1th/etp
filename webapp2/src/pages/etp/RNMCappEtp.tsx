@@ -6,6 +6,7 @@ import { dashSlice } from "../../store/reducers/dash/dashSlice";
 import RNMCapp from "../rnmc/RNMCapp";
 import './RNMCappETP.css';
 import Sidebar from "../../components/dash/Sidebar";
+import RnmcRouterByType from "../rnmcRouterByType";
 
 const RNMCappEtp: FC = () => {
     document.body.classList.add('etpStyle');
@@ -27,7 +28,7 @@ const RNMCappEtp: FC = () => {
             <main>
                 <DashHeader2 />
                 <div className="RNMCappETP">
-                    <RNMCapp />
+                    <RnmcRouterByType />
                 </div>
             </main>
         </>

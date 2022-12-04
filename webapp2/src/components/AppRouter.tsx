@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAppSelector } from "../hooks/redux";
-import RNMCapp from "../pages/rnmc/RNMCapp";
+import RnmcRouterByType from "../pages/rnmcRouterByType";
 import RNMCappEtp from "../pages/etp/RNMCappEtp";
 import Login from "../pages/Login";
 import LoginCode from "../pages/LoginCode";
@@ -24,7 +24,7 @@ const AppRouter = () => {
 
     return (
         <Routes>
-          <Route path="/" element={isAuth ? <RNMCapp /> : <Navigate to="/login" />} />
+          <Route path="/" element={isAuth ? <RnmcRouterByType /> : <Navigate to="/login" />} />
           <Route path="/kp" element={isAuth ? <KPpage /> : <Navigate to="/login" />} />
           <Route path="/login" element={isAuth ? <Navigate to="/" /> : <Login />}/> 
           <Route path="/code" element={isCodeLink ? <Navigate to="/" /> : <LoginCode />}/> 

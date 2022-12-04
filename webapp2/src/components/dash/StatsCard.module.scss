@@ -1,0 +1,51 @@
+.statCard {
+    background: #eee;
+    border-radius: 12px;
+    text-decoration: none;
+    padding: 20px;
+    min-width: 360px;
+
+    --color-typo-primary: #fff;
+    --color-typo-system: #fff;
+    --color-typo-secondary: #fff;
+    --color-typo-success: #fff;
+    --color-typo-warning: #fff;
+    --color-typo-error: #fff;
+    --color-typo-system: #fff;
+
+    align-items: center;
+
+    &.grow {
+        transition: all .2s ease-in-out;
+    }
+
+    &.grow:hover {
+        transform: scale(1.03);
+        box-shadow: 1px 1px #fff, 5px 10px 5px #00000010;
+    }
+
+    .statCardImg {
+        margin-left: 30px;
+
+        img {
+            width: 90px;
+            height: 90px;
+        }
+    }
+
+    &.success {
+        background: linear-gradient(92.47deg, #09B37B 1.82%, #64E3B9 60.73%, #CBFFEE 97.75%);
+    }
+
+    &.error {
+        background: linear-gradient(92.47deg, #FF4443 1.82%, #F07C7B 48.12%, #FCD0D0 97.75%);
+    }
+
+    &.warning {
+        background: linear-gradient(90deg, #FA9D21 0%, #FFCC89 65.99%, #FFDEB3 100%);
+    }
+
+    &.system {
+        background: linear-gradient(270.06deg, #CCEFFC 0.5%, #40BFF1 59.05%, #30B2E6 99.95%);
+    }
+}

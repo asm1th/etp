@@ -227,3 +227,7 @@ body {
 .App .Title {
   font-size: 18px;
 }
+
+.App .Select-SelectContainer_view_default.Select-SelectContainer_disabled .Select-Control {
+  color: rgba(0, 32, 51, 0.6);
+}

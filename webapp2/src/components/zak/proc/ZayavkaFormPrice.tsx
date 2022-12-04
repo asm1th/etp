@@ -1,13 +1,13 @@
 
 import React, { useState } from "react";
 import { Text } from '@consta/uikit/Text';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import './ZayavkaForm.css'
 import { Checkbox } from '@consta/uikit/Checkbox';
 import { TextField } from "@consta/uikit/TextField";
 import { Select } from '@consta/uikit/Select';
-import { DatePicker, DatePickerPropOnChange, DatePickerPropValue } from "@consta/uikit/DatePickerCanary";
+import { DatePicker, DatePickerPropOnChange, DatePickerPropValue } from "@consta/uikit/DatePicker";
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { IconInfo } from '@consta/uikit/IconInfo';
 import PopoverCustom from "../../util/PopoverCustom";

@@ -24,8 +24,9 @@ export function isErrorWithMessage(
 }
 
 export const numberWithSpaces = (x: string) => {
-  if(x != "NaN"){
-    let parts = x.split(".")
+  if(x != "NaN" && x != ""){
+    let parts = parseFloat(x).toFixed(2).split(".")
+    //parts = x.split(".")
     
     let int = parts[0] ? parseInt(parts[0]).toLocaleString('ru-RU') : ""
     return int + (parts[1] ? ('.' + parts[1] ) : '.00')

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Button } from '@consta/uikit/Button';
 import { cnMixSpace } from '@consta/uikit/MixSpace';
 import { TextField } from "@consta/uikit/TextField";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 
 // RTK
 import { useNavigate } from 'react-router-dom'

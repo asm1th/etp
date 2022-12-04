@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const GuidEnter: FC = () => {
 
-    const [link, setGuid] = useState<string | null>("0050569CDC861EDD8EE3805C575DA0E2")   //("0050569CDC861EED87DD0FCCDBEA808C");
+    const [link, setGuid] = useState<string | null>("0050569CDC861EDD8EE3805C575DA0E2")   //("0050569CDC861EDD968FFC5F6F1A755C");
 
     const navigate = useNavigate()
     const onSubmit = () => {
