@@ -33,7 +33,7 @@ const RNMCList: FC = () => {
                     {isSuccess ?
                         samps.map((samp) => (
                             <div className="procItem">
-                                <a href="/etp/zak/proc?proc_id=10000042371">
+                                <a href= {`/etp/rnmc?samp=${samp.kp_sample_guid}`}>
                                     <div className="Layout Layout_direction_row mt05 jcsb aic">
                                         <div className="Text Text_lineHeight_m Text_size_m Text_view_primary proclink">{samp.lot_name}</div>
                                         <div className="Badge Badge_size_xs Badge_view_filled Badge_status_system Badge_form_default">{samp.sample_type === "A" ? "Затратный метод" : "Анализ рынка"}</div>

@@ -57,7 +57,7 @@ import mi3 from "../../assets/img/dash/free-animated-icon-landing-page-1.svg";
 import mi4 from "../../assets/img/dash/free-animated-icon-list-1.svg";
 import { Grid, GridItem } from "@consta/uikit/Grid";
 
-const linkAnal = "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C"
+const linkAnal = "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755A"
 const linkZatr = "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C"
 
 
