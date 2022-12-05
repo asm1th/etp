@@ -3,7 +3,7 @@ import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from
 import { Route } from "src/route/route.model";
 import { Stag } from "src/stag/stag.model";
 
-interface ValueAttrs {
+interface CostAttrs {
   kp_cost_guid: any;
   kp_stage_guid: any;
   cost_type: string;
@@ -18,7 +18,7 @@ interface ValueAttrs {
 }
 
 @Table({tableName:'ztin_suz_kp_route', createdAt: false, updatedAt: false})
-export class Value extends Model<Value, ValueAttrs> {
+export class Cost extends Model<Cost, CostAttrs> {
   @ApiProperty({description: 'Ключ затраты', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
