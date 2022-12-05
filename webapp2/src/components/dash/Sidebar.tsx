@@ -37,7 +37,7 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
     }
 
     const handleLinkRNMC = () => {
-        navigate('/etp/rnmc')
+        navigate('/etp/RNMCList')
     }
 
     const handleLinkZak = () => {
@@ -62,6 +62,8 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
                     <Menu iconShape="circle">
                         <MenuItem
                             //tooltip="Счет-фактуры"
+                            className='disabled'
+                            active={false}
                             icon={<img alt="ico" src={icons_menu} width="24" />}
                             suffix={<Badge status="warning" label="4" />}>
                             Счет-фактуры
@@ -69,22 +71,22 @@ const Sidebar = (props: { collapsed: boolean, toggled: boolean, handleToggleSide
                         <MenuItem onClick={handleLinkRNMC} icon={<img alt="ico" src={icons_menu1} width="24" />}>
                             Заявки на участие в процедуре
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu2} width="24" />}>
+                        <MenuItem className='disabled' active={false} icon={<img alt="ico" src={icons_menu2} width="24" />}>
                             Предквалификация
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu3} width="24" />}>
+                        <MenuItem className='disabled' active={false} icon={<img alt="ico" src={icons_menu3} width="24" />}>
                             Отборы по НСУ
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu4} width="24" />}>
+                        <MenuItem className='disabled' active={false} icon={<img alt="ico" src={icons_menu4} width="24" />}>
                             Отборы по ПИР и СМР
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu5} width="24" />}>
+                        <MenuItem className='disabled' active={false} icon={<img alt="ico" src={icons_menu5} width="24" />}>
                             Поставщик МТР
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu6} width="24" />}>
+                        <MenuItem className='disabled' icon={<img alt="ico" src={icons_menu6} width="24" />}>
                             Личный кабинет КА
                         </MenuItem>
-                        <MenuItem icon={<img alt="ico" src={icons_menu7} width="24" />}>
+                        <MenuItem className='disabled' active={false} icon={<img alt="ico" src={icons_menu7} width="24" />}>
                             Управление выполненем работ
                         </MenuItem>
                         <SubMenu

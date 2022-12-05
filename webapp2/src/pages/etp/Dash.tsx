@@ -170,7 +170,7 @@ const Dash: FC = () => {
                         <div className="DashStatuses">
                             <StatsCard
                                 status="success"
-                                url="/etp/rnmc"
+                                url={linkAnal}
                                 value={11}
                                 title="Формирование РНМЦ (Анализ рынка)"
                                 rate="заявок"
@@ -179,7 +179,7 @@ const Dash: FC = () => {
                             />
                             <StatsCard
                                 status="warning"
-                                url="/etp/rnmc"
+                                url={linkZatr}
                                 value={4}
                                 title="Формирование РНМЦ (Затратный метод)"
                                 rate="заявки"

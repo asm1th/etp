@@ -1,321 +1,650 @@
 {
-  "samp": {
-    "sample_type": "A",
-    "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
-    "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-    "konkurs_id": "100000037153",
-    "konkurs_name": "Аренда недвижимости ****",
-    "lot_id": "100000037154",
-    "lot_name": "Аренда недвижимости",
-    "waers": "RUB",
-    "kp_accep_date": "2022-08-18",
-    "kp_send_date": "2022-08-10",
-    "usl_period_end": "2022-08-10",
-    "links": {
+  "samp": [
+    {
+      "sample_type": "A",
+      "id": "0050569CDC861EDD968FFC5F6F1A755A",
+      "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755A",
       "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-      "info_ka_email": "test@adsdddd.com",
-      "info_ka_name": "Петр Петров Петрович",
-      "kp_offer_expire_date": "2022-08-10",
-      "travel_exp": "1.00",
-      "travel_exp_comm": "тест",
-      "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C"
-    },
-    "stags": [
-      {
-        "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
-        "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
-        "opr_usl_stage_id": "7",
-        "opr_usl_stage": "Разработка 1",
-        "opr_usl_stage_num": 1,
-        "isNoNds": false,
-        "stagSumm": "",
-        "stagSumm_nds": "",
-        "isValid": true,
-        "nds_comm": "",
-        "units": [
+      "konkurs_id": "100000037153",
+      "konkurs_name": "Аренда недвижимости ****",
+      "lot_id": "100000037154",
+      "lot_name": "Аренда недвижимости",
+      "waers": "RUB",
+      "kp_accep_date": "2022-08-18",
+      "kp_send_date": "2022-08-10",
+      "usl_period_end": "2022-08-10",
+      "links": {
+        "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+        "info_ka_email": "test@adsdddd.com",
+        "info_ka_name": "Петр Петров Петрович",
+        "kp_offer_expire_date": "2022-08-10",
+        "travel_exp": "1.00",
+        "travel_exp_comm": "тест",
+        "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755A"
+      },
+      "stags": [
+        {
+          "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
+          "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755A",
+          "opr_usl_stage_id": "7",
+          "opr_usl_stage": "Разработка 1",
+          "opr_usl_stage_num": 1,
+          "isNoNds": false,
+          "stagSumm": "",
+          "stagSumm_nds": "",
+          "isValid": true,
+          "nds_comm": "",
+          "units": [
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
+              "opr_usl_unit_id": "28",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Архитектор",
+              "nsu_menge": "2",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "5",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "2",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "4",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "3",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+          "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755A",
+          "opr_usl_stage_id": "11",
+          "opr_usl_stage": "Разработка 2",
+          "opr_usl_stage_num": 2,
+          "isNoNds": false,
+          "stagSumm": "",
+          "stagSumm_nds": "",
+          "isValid": true,
+          "nds_comm": "",
+          "units": [
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Инженер",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            },
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Разработчик iOS",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            },
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Дизайнер UI/UX",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "",
+          "file_guid": "0050569CDC861EDD968FFC5F6F1A755A",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
+        },
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "",
+          "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4CB275634F23A"
+        },
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "Code Programm",
+          "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
+        }
+      ],
+      "costs": {
+        "cntrb_disability": "44.40",
+        "cost_btrip": [
           {
+            "btrip_day_allow ": "5.00",
             "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
-            "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
-            "opr_usl_unit_id": "28",
-            "usl_quan_unit": "CHS",
-            "opr_usl_unit": "Архитектор",
-            "nsu_menge": "2",
-            "vat_rate": "",
-            "opr_usl_unit_restr_quan": "",
-            "opr_usl_unit_restr_menge": "",
-            "usrps": [
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
-                "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
-                "prices_user": "5",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "2",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              },
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
-                "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-                "prices_user": "4",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "3",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              }
-            ]
+            "btrip_days": "0",
+            "pers_count": "1",
+            "btrip_cost": "3.00",
+            "kp_btrip_guid": "0050569CDC861EED99D00DFEEC290CA8",
+            "btrip_day_cost": "4.00"
           }
-        ]
-      },
-      {
-        "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
-        "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
-        "opr_usl_stage_id": "11",
-        "opr_usl_stage": "Разработка 2",
-        "opr_usl_stage_num": 2,
-        "isNoNds": false,
-        "stagSumm": "",
-        "stagSumm_nds": "",
-        "isValid": true,
-        "nds_comm": "",
-        "units": [
+        ],
+        "cost_overhead": [
           {
-            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
-            "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
-            "opr_usl_unit_id": "68",
-            "usl_quan_unit": "CHS",
-            "opr_usl_unit": "Инженер",
-            "nsu_menge": "0.000",
-            "vat_rate": "",
-            "opr_usl_unit_restr_quan": "",
-            "opr_usl_unit_restr_menge": "",
-            "usrps": [
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
-                "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              },
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
-                "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              }
-            ]
+            "cost_id": 4,
+            "cost_description": "Медицинское страхование",
+            "cost_value": "5"
           },
           {
-            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
-            "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
-            "opr_usl_unit_id": "68",
-            "usl_quan_unit": "CHS",
-            "opr_usl_unit": "Разработчик iOS",
-            "nsu_menge": "0.000",
-            "vat_rate": "",
-            "opr_usl_unit_restr_quan": "",
-            "opr_usl_unit_restr_menge": "",
-            "usrps": [
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
-                "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              },
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
-                "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              }
-            ]
+            "cost_id": 0,
+            "cost_description": "Заработная плата, обучение и содержание административно-управленческого аппарата",
+            "cost_value": "1"
+          }
+        ],
+        "cntrb_pension": "33.30",
+        "btrip_price": "5.00",
+        "salary": [
+          {
+            "kp_unit_salary": "1000",
+            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C"
+          }
+        ],
+        "cntrb_oms": "32.20",
+        "profitability": "55.50",
+        "kp_stage_guid": "0050569CDC861EED99CC3F9F43FEE65D",
+        "cost_result": {
+          "kp_price_nds": "0.00",
+          "kp_price": "0.00",
+          "kp_price_ei": "0.00"
+        }
+      }
+    },
+    {
+      "sample_type": "C",
+      "id": "0050569CDC861EDD968FFC5F6F1A755C",
+      "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
+      "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+      "konkurs_id": "100000037153",
+      "konkurs_name": "Аренда недвижимости ****",
+      "lot_id": "100000037154",
+      "lot_name": "Аренда недвижимости",
+      "waers": "RUB",
+      "kp_accep_date": "2022-08-18",
+      "kp_send_date": "2022-08-10",
+      "usl_period_end": "2022-08-10",
+      "links": {
+        "link": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+        "info_ka_email": "test@adsdddd.com",
+        "info_ka_name": "Петр Петров Петрович",
+        "kp_offer_expire_date": "2022-08-10",
+        "travel_exp": "1.00",
+        "travel_exp_comm": "тест",
+        "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C"
+      },
+      "stags": [
+        {
+          "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
+          "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
+          "opr_usl_stage_id": "7",
+          "opr_usl_stage": "Разработка 1",
+          "opr_usl_stage_num": 1,
+          "isNoNds": false,
+          "stagSumm": "",
+          "stagSumm_nds": "",
+          "isValid": true,
+          "nds_comm": "",
+          "units": [
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAA08C",
+              "opr_usl_unit_id": "28",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Архитектор",
+              "nsu_menge": "2",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "5",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "2",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "4",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "3",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+          "kp_sample_guid": "0050569CDC861EDD968FFC5F6F1A755C",
+          "opr_usl_stage_id": "11",
+          "opr_usl_stage": "Разработка 2",
+          "opr_usl_stage_num": 2,
+          "isNoNds": false,
+          "stagSumm": "",
+          "stagSumm_nds": "",
+          "isValid": true,
+          "nds_comm": "",
+          "units": [
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Инженер",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB008C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            },
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Разработчик iOS",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB208C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            },
+            {
+              "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+              "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
+              "opr_usl_unit_id": "68",
+              "usl_quan_unit": "CHS",
+              "opr_usl_unit": "Дизайнер UI/UX",
+              "nsu_menge": "0.000",
+              "vat_rate": "",
+              "opr_usl_unit_restr_quan": "",
+              "opr_usl_unit_restr_menge": "",
+              "usrps": [
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+                  "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                },
+                {
+                  "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
+                  "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
+                  "prices_user": "0.00",
+                  "usl_quan_unit": "CHS",
+                  "usl_quan_unit_txt": "Ч/Ч",
+                  "nsu_menge": "0.000",
+                  "vat_rate": "",
+                  "alt_name_unit": "",
+                  "kp_usrp_guid": "",
+                  "nds_comm": "22.08.2022",
+                  "isSubToggle": false,
+                  "summ": "",
+                  "summ_nds": "",
+                  "isValid": true,
+                  "price_date": "",
+                  "price_time": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "files": [
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "",
+          "file_guid": "0050569CDC861EDD968FFC5F6F1A755C",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
+        },
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "",
+          "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4CB275634F23A"
+        },
+        {
+          "file_mime_type": "text/plain",
+          "file_body": "",
+          "file_size": "000000005297",
+          "description": "Code Programm",
+          "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
+          "file_name": "Code",
+          "file_type": "TXT",
+          "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
+        }
+      ],
+      "costs": {
+        "cntrb_disability": "44.40",
+        "cost_btrip": [
+          {
+            "btrip_day_allow ": "5.00",
+            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
+            "btrip_days": "0",
+            "pers_count": "1",
+            "btrip_cost": "3.00",
+            "kp_btrip_guid": "0050569CDC861EED99D00DFEEC290CA8",
+            "btrip_day_cost": "4.00"
+          }
+        ],
+        "cost_overhead": [
+          {
+            "cost_id": 4,
+            "cost_description": "Медицинское страхование",
+            "cost_value": "5"
           },
           {
-            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
-            "kp_stage_guid": "0050569CDC861EED87DD0FCCDBEAE08C",
-            "opr_usl_unit_id": "68",
-            "usl_quan_unit": "CHS",
-            "opr_usl_unit": "Дизайнер UI/UX",
-            "nsu_menge": "0.000",
-            "vat_rate": "",
-            "opr_usl_unit_restr_quan": "",
-            "opr_usl_unit_restr_menge": "",
-            "usrps": [
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
-                "link_id": "0050569CDC861EDD87F2DE202ED7AFAB",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              },
-              {
-                "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEB408C",
-                "link_id": "0050569CDC861EDD87F2DC5C6EC0CFA1",
-                "prices_user": "0.00",
-                "usl_quan_unit": "CHS",
-                "usl_quan_unit_txt": "Ч/Ч",
-                "nsu_menge": "0.000",
-                "vat_rate": "",
-                "alt_name_unit": "",
-                "kp_usrp_guid": "",
-                "nds_comm": "22.08.2022",
-                "isSubToggle": false,
-                "summ": "",
-                "summ_nds": "",
-                "isValid": true,
-                "price_date": "",
-                "price_time": ""
-              }
-            ]
+            "cost_id": 0,
+            "cost_description": "Заработная плата, обучение и содержание административно-управленческого аппарата",
+            "cost_value": "1"
           }
-        ]
-      }
-    ],
-    "files": [
-      {
-        "file_mime_type": "text/plain",
-        "file_body": "",
-        "file_size": "000000005297",
-        "description": "",
-        "file_guid": "0050569CDC861EDD968FFC5F6F1A755C",
-        "file_name": "Code",
-        "file_type": "TXT",
-        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4C2BBDAF6F232"
-      },
-      {
-        "file_mime_type": "text/plain",
-        "file_body": "",
-        "file_size": "000000005297",
-        "description": "",
-        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
-        "file_name": "Code",
-        "file_type": "TXT",
-        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4CB275634F23A"
-      },
-      {
-        "file_mime_type": "text/plain",
-        "file_body": "",
-        "file_size": "000000005297",
-        "description": "Code Programm",
-        "file_guid": "0050569CDC861EDD8EE3805C575DA0E2",
-        "file_name": "Code",
-        "file_type": "TXT",
-        "file_docid": "BDS_LOC1  0050569CDC861EDD8FB4D9D881CFB25A"
-      }
-    ],
-    "costs": {
-      "cntrb_disability": "44.40",
-      "cost_btrip": [
-        {
-          "btrip_day_allow ": "5.00",
-          "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C",
-          "btrip_days": "0",
-          "pers_count": "1",
-          "btrip_cost": "3.00",
-          "kp_btrip_guid": "0050569CDC861EED99D00DFEEC290CA8",
-          "btrip_day_cost": "4.00"
+        ],
+        "cntrb_pension": "33.30",
+        "btrip_price": "5.00",
+        "salary": [
+          {
+            "kp_unit_salary": "1000",
+            "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C"
+          }
+        ],
+        "cntrb_oms": "32.20",
+        "profitability": "55.50",
+        "kp_stage_guid": "0050569CDC861EED99CC3F9F43FEE65D",
+        "cost_result": {
+          "kp_price_nds": "0.00",
+          "kp_price": "0.00",
+          "kp_price_ei": "0.00"
         }
-      ],
-      "cost_overhead": [{
-        "cost_id": 4,
-        "cost_description": "Медицинское страхование",
-        "cost_value": "5"
-      },{
-        "cost_id": 0,
-        "cost_description": "Заработная плата, обучение и содержание административно-управленческого аппарата",
-        "cost_value": "1"
-      }],
-      "cntrb_pension": "33.30",
-      "btrip_price": "5.00",
-      "salary": [
-        {
-          "kp_unit_salary": "1000",
-          "kp_unit_guid": "0050569CDC861EED87DD0FCCDBEAC08C"
-        }
-      ],
-      "cntrb_oms": "32.20",
-      "profitability": "55.50",
-      "kp_stage_guid": "0050569CDC861EED99CC3F9F43FEE65D",
-      "cost_result": {
-        "kp_price_nds": "0.00",
-        "kp_price": "0.00",
-        "kp_price_ei": "0.00"
       }
     }
-  }
+  ]
 }

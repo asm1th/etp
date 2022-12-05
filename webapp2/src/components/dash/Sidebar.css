@@ -83,3 +83,13 @@
     line-height: 20px;
     padding: 0 3px;
 }
+.pro-menu-item.disabled{
+    opacity: .5;
+}
+
+.pro-menu-item:hover{
+    background-color: #e3faff;
+}
+.pro-menu-item.disabled:hover{
+    background-color: inherit;
+}

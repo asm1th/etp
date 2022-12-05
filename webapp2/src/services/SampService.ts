@@ -27,17 +27,18 @@ export const sampAPI = createApi({
         // local
         fetchSamp: builder.query<ISamp, any>({
             query: (kp_sample_guid: string) => ({
-                url: `/samp/`,
+                //url: `/samp/`,
+                url: `/samp/${kp_sample_guid}`,
             }),
             providesTags: result => ['Samp'],
         }),
 
-        // fetchSamp: builder.query<ISamp, any>({
-        //     query: (kp_sample_guid: string) => ({
-        //         url: `/samp/${kp_sample_guid}`,
-        //     }),
-        //     providesTags: result => ['Samp'],
-        // }),
+        fetchSamps: builder.query<ISamp[], any>({
+            query: () => ({
+                url: `/samp/`,
+            }),
+            //providesTags: result => ['Samp'],
+        }),
 
         updateLink: builder.mutation<ILink, ILink>({
             query: (linkBody) => ({
@@ -84,6 +85,7 @@ export const sampAPI = createApi({
                 url: `/fileid/${kp_sample_guid}`,
             })
         }),
+
         fetchFileTZ: builder.query<IFileTZ, any>({
             query: (kp_sample_guid: string) => ({
                 url: `/filetz/${kp_sample_guid}`,
@@ -103,6 +105,7 @@ export const sampAPI = createApi({
 
 export const {
     useFetchSampQuery,
+    useFetchSampsQuery,
     useUpdateUsrpMutation,
     useUpdateLinkMutation,
     useUpdateFileMutation,

@@ -17,6 +17,7 @@ import Dash from "../pages/etp/Dash";
 import ZakMainPage from "../pages/etp/zak/ZakMainPage";
 import Proc from "../pages/etp/zak/Proc";
 import Zayavka from "../pages/etp/zak/Zayavka";
+import RNMCList from "../pages/etp/RNMCList";
 
 const AppRouter = () => {
     const {isAuth} = useAppSelector(state => state.authReducer)
@@ -32,6 +33,9 @@ const AppRouter = () => {
           <Route path="*" element={<Responses404 actions={<></>}/>} />
 
           <Route path="/etp" element={isAuth ? <Dash /> : <Navigate to="/etp/login" />} />
+
+          <Route path="/etp/RNMCList" element={isAuth ? <RNMCList /> : <Navigate to="/etp/RNMCList" />} />
+
           <Route path="/etp/rnmc" element={isAuth ? <RNMCappEtp /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak" element={isAuth ? <ZakMainPage /> : <Navigate to="/etp/login" />} />
           <Route path="/etp/zak/proc" element={isAuth ? <Proc /> : <Navigate to="/etp/login" />} />
