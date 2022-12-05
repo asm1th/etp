@@ -25,9 +25,7 @@
 }
 
 .DashScroller {
-    overflow: hidden;
     padding: 10px 0;
-    width: 104%;
     position: relative;
     z-index: 2;
 }
@@ -45,16 +43,16 @@
     color: #667985;
 }
 
+.DashStatuses{
+    display: flex;
+    gap: 20px;
+}
+
 .DashStatuses > *{
     float: left;
 }
 
-.DashStatuseItem{
-    
-}
-
 .DashStatuseItem {
-    margin: 0 20px 20px 0;
     border-radius: 12px;
 }
 
@@ -75,6 +73,7 @@
     margin-bottom: 20px;
     position: relative;
     z-index: 2;
+    clear: both;
 }
 
 .ToolbarSpacer {

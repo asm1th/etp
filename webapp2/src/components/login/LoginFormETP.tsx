@@ -4,7 +4,7 @@ import { TextField } from "@consta/uikit/TextField";
 import { SnackBar, SnackBarItemStatus } from "@consta/uikit/SnackBar";
 import { IconMail } from '@consta/uikit/IconMail';
 import { IconLock } from '@consta/uikit/IconLock';
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { useNavigate } from 'react-router-dom'
 import { useLoginMutation } from '../../services/authService'
 import type { LoginRequest } from '../../services/authService'

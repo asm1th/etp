@@ -1,89 +1,58 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Text } from "@consta/uikit/Text";
-import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
-import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../../../services/SampService";
-import { Layout } from "@consta/uikit/LayoutCanary";
-import { IconCheck } from '@consta/uikit/IconCheck';
+import { useAppSelector } from "../../../../hooks/redux";
+import { Layout } from "@consta/uikit/Layout";
 import { TextField } from "@consta/uikit/TextField";
-import { Button } from "@consta/uikit/Button";
-import { format } from "date-fns";
-import { ICostBtrip, ICostOverhead } from "../../../../models/ISamp";
-import { IconTrash } from "@consta/uikit/IconTrash";
-import { IconAdd } from "@consta/uikit/IconAdd";
-import { Modal } from "@consta/uikit/Modal";
 import PopoverCustom from "../../../util/PopoverCustom";
-import { IconInfo } from "@consta/uikit/IconInfo";
-import { sampSlice } from "../../../../store/reducers/samp/sampSlice";
-
+import SaveCostButton from "../SaveCostButton";
+import { numberWithSpaces } from "../../../../helpers";
 
 
 const TabSummary: FC = () => {
-    const dispatch = useAppDispatch()
-    const { stags, link, links } = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
-    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
-
-    //popover
-    type Position = any;
-    const [position, setPosition] = useState<Position>(undefined)
-    const msg = "Сумму можно расписать\n по специалистам или указать\n среднюю сумму, одинаковую для всех"
-    const handleMouseMove = (event: React.MouseEvent) => {
-        setPosition({ x: event.clientX, y: event.clientY })
-    };
-
-    const [savedDate, setSavedDate] = useState<string>("")
-    const onSave = () => {
-        updateLink(links)
-        stags.forEach(stag => {
-            stag.units.forEach(unit => {
-                const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
-                updateUsrp(usrp[0])
-            });
-        })
-
-        setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
-    }
+    const { costs, stags } = useAppSelector(state => state.sampReducer)
 
     //list
     type ISummary = {
         key: number
         "kp_unit_guid": string
         "cost_name": string
-        "cost_overhead": number
-        "cost_profitability": number
-        "cost_allcost": number
-        "cost_time_per_month": number
-        "rate_per_month": number
-        "rate_per_day": number
+        "cost_overhead": string
+        "cost_profitability": string
+        "cost_allcost": string
+        "cost_time_per_month": string
+        "rate_per_month": string
+        "rate_per_day": string
     }
     const items: ISummary[] = []
 
-    stags.forEach(stag => {
-        stag.units.forEach(curUnit => {
+    //const [itemList, setItemList] = useState(items);
+    const [itemList, setItemList] = useState<ISummary[]>(items)
 
+    const setItems = () => {
+        costs.salary.forEach(salary => {
             let newItem: ISummary = {
-                key: 0,
-                "kp_unit_guid": "",
-                "cost_name": "",
-                "cost_overhead": 0,
-                "cost_profitability": 0,
-                "cost_allcost": 0,
-                "cost_time_per_month": 0,
-                "rate_per_month": 0,
-                "rate_per_day": 0,
+                key: items.length > 0 ? items[items.length - 1].key + 1 : 1,
+                "kp_unit_guid": salary.kp_unit_guid,
+                "cost_name": salary.cost_name,
+                "cost_overhead": salary.cost_overhead,
+                "cost_profitability": salary.profitability,
+                "cost_allcost": (parseFloat(salary.cntrb_disability) + parseFloat(salary.cntrb_oms) + parseFloat(salary.cntrb_pension) + parseFloat(salary.cost_overhead)).toFixed(10), //add other costs
+                "cost_time_per_month": salary.cost_time_per_month,
+                "rate_per_month": salary.rate_per_month,
+                "rate_per_day": salary.rate_per_day
             }
-            newItem.key = items.length > 0 ? items[items.length - 1].key + 1 : 1
-            newItem.cost_name = curUnit.opr_usl_unit
             items.push(newItem)
         })
-    })
+    }
 
-    const [itemList, setItemList] = useState(items);
+    setItems()
 
+    useEffect(() => {
+        setItems()
+    }, [costs])
 
     return (
         <>
-            <PopoverCustom position={position} text={msg} />
             <Text as="div" size="l" className="mb1 weight700">
                 Итоговый расчет
             </Text>
@@ -127,22 +96,22 @@ const TabSummary: FC = () => {
                             />
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {cost_overhead == 0 ? "-- --" : cost_overhead.toFixed(2)}
+                            {parseFloat(cost_overhead) == 0 ? "-- --" : numberWithSpaces(cost_overhead)}
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {cost_profitability == 0 ? "-- --" : cost_profitability.toFixed(2)}
+                            {parseFloat(cost_profitability) == 0 ? "-- --" : numberWithSpaces(cost_profitability)}
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {cost_allcost == 0 ? "-- --" : cost_allcost.toFixed(2)}
+                            {parseFloat(cost_allcost) == 0 ? "-- --" : numberWithSpaces(cost_allcost)}
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {cost_time_per_month == 0 ? "-- --" : cost_time_per_month.toFixed(2)}
+                            {parseFloat(cost_time_per_month) == 0 ? "-- --" : numberWithSpaces(cost_time_per_month)}
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {rate_per_month == 0 ? "-- --" : rate_per_month.toFixed(2)}
+                            {parseFloat(rate_per_month) == 0 ? "-- --" : numberWithSpaces(rate_per_month)}
                         </Layout>
                         <Layout flex={2} className="aic jcc">
-                            {rate_per_day == 0 ? "-- --" : rate_per_day.toFixed(2)}
+                            {parseFloat(rate_per_day) == 0 ? "-- --" : numberWithSpaces(rate_per_day)}
                         </Layout>
                     </Layout>
                 ))}
@@ -150,12 +119,7 @@ const TabSummary: FC = () => {
 
             <hr />
 
-            <Layout flex={4} className="aic jcfe mt1">
-                {savedDate ? (
-                    <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
-                ) : null}
-                <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-            </Layout>
+            <SaveCostButton/>
         </>
     );
 };

@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { Button } from "@consta/uikit/Button";
 import { Text } from "@consta/uikit/Text";
 import { IconDocFilled } from '@consta/uikit/IconDocFilled';
@@ -166,7 +166,7 @@ const SampFooterButtons: FC = () => {
                             fileExtension={file.name.match(/\.(?!.*\.)(\w*)/)?.[1]}
                             //loading
                             //loadingText="Загружено на 51%"
-                            fileDescription={(file.size && (file.size / 1024).toFixed(2)).toString() + " Kb"}
+                            fileDescription={(file.size && (file.size / 1024).toFixed(10)).toString() + " Kb"}
                             buttonIcon={IconClose}
                             buttonTitle="Отменить"
                             //onClick={downloadNotLoaded}
@@ -183,7 +183,7 @@ const SampFooterButtons: FC = () => {
                             fileExtension={lastFile.file_type}
                             //loading
                             //loadingText="Загружено на 51%"
-                            fileDescription={lastFile.file_size && (parseInt(lastFile.file_size) / 1024).toFixed(2) + "Kb"}
+                            fileDescription={lastFile.file_size && (parseInt(lastFile.file_size) / 1024).toFixed(10) + "Kb"}
                             //buttonIcon={IconClose}
                             //buttonTitle="Отменить"
                             onClick={() => onDownload(lastFile)}
@@ -305,7 +305,7 @@ const SampFooterButtons: FC = () => {
                                 fileExtension={file.name.match(/\.(?!.*\.)(\w*)/)?.[1]}
                                 // loading
                                 // loadingText="Загружено на 51%"
-                                fileDescription={(file.size && (file.size / 1024).toFixed(2)).toString() + " Kb"}
+                                fileDescription={(file.size && (file.size / 1024).toFixed(10)).toString() + " Kb"}
                                 buttonIcon={IconClose}
                                 buttonTitle="Отменить"
                                 //onClick={downloadNotLoaded}
@@ -321,7 +321,7 @@ const SampFooterButtons: FC = () => {
                                 className="attach mb1"
                                 fileName={lastFile.file_name}
                                 fileExtension={lastFile.file_type}
-                                fileDescription={lastFile.file_size && (parseInt(lastFile.file_size) / 1024).toFixed(2) + "Kb"}
+                                fileDescription={lastFile.file_size && (parseInt(lastFile.file_size) / 1024).toFixed(10) + "Kb"}
                                 onClick={() => onDownload(lastFile)}
                                 onButtonClick={(e) => {
                                     e.stopPropagation();

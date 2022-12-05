@@ -9,7 +9,7 @@ import { numberWithSpaces } from "../../../helpers";
 
 const SampItogCost: FC = () => {
     const [isOpen, setOpen] = useState<boolean>(true)
-    const { full_laboriousness, cost } = useAppSelector(state => state.sampReducer)
+    const { costs } = useAppSelector(state => state.sampReducer)
 
     return (
         <>
@@ -21,11 +21,11 @@ const SampItogCost: FC = () => {
                 hoverEffect
                 rightSide={[
                     <Text className="label" align="center">Трудоемкость</Text>,
-                    <Text className="summ weight700 mr4 calcFont" align="center">{parseFloat(full_laboriousness) == 0 ? "-- --" : full_laboriousness}</Text>,
+                    <Text className="summ weight700 mr4 calcFont" align="center">{parseFloat(costs.cost_result.kp_price_ei) == 0 ? "-- --" : numberWithSpaces(costs.cost_result.kp_price_ei)}</Text>,
                     <Text className="label" align="center">Сумма без НДС</Text>,
-                    <Text className="summ weight700 mr4 calcFont" align="center">{parseFloat(cost.kp_price) == 0 ? "-- --" : numberWithSpaces(cost.kp_price)}</Text>,
+                    <Text className="summ weight700 mr4 calcFont" align="center">{parseFloat(costs.cost_result.kp_price) == 0 ? "-- --" : numberWithSpaces(costs.cost_result.kp_price)}</Text>,
                     <Text className="label" align="center">Сумма c НДС</Text>,
-                    <Text className="summ weight700 calcFont" align="center">{parseFloat(cost.kp_price_nds) == 0 ? "-- --" : numberWithSpaces(cost.kp_price_nds)}</Text>,
+                    <Text className="summ weight700 calcFont" align="center">{parseFloat(costs.cost_result.kp_price_nds) == 0 ? "-- --" : numberWithSpaces(costs.cost_result.kp_price_nds)}</Text>,
                     <Button label="Показать подробнее" size="xs" view="clear" />
                 ]}>
                 <SampItogRowCost />

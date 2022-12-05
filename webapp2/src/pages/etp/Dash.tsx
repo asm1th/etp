@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
 import Sidebar from "../../components/dash/Sidebar";
 import { IconPaste } from '@consta/uikit/IconPaste';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 
 import { ReactComponent as Icon1 } from "../../assets/img/dash/icon1.svg";
 import { ReactComponent as Icon2 } from "../../assets/img/dash/icon2.svg";
@@ -45,8 +45,21 @@ import insite1 from "../../assets/img/dash/insite1.png";
 import insite2 from "../../assets/img/dash/insite2.png";
 import insite3 from "../../assets/img/dash/insite3.png";
 
+import StatsCard from "../../components/dash/StatsCard";
+import s1 from "../../assets/img/dash/todo1.png";
+import s2 from "../../assets/img/dash/todo2.png";
+import s3 from "../../assets/img/dash/todo3.png";
+import s4 from "../../assets/img/dash/todo4.png";
+import { StatsCardBlue } from "../../components/dash/StatsCardBlue";
+import mi1 from "../../assets/img/dash/free-animated-icon-bill-1.svg";
+import mi2 from "../../assets/img/dash/free-animated-icon-certificate-1.svg";
+import mi3 from "../../assets/img/dash/free-animated-icon-landing-page-1.svg";
+import mi4 from "../../assets/img/dash/free-animated-icon-list-1.svg";
+import { Grid, GridItem } from "@consta/uikit/Grid";
 
-const link = "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C"
+const linkAnal = "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C"
+const linkZatr = "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C"
+
 
 const Dash: FC = () => {
     document.body.classList.add('etpStyle');
@@ -62,32 +75,32 @@ const Dash: FC = () => {
     const dashImgCards = [{
         id: 0,
         label: "Где просмотреть закупочные процедуры?",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card1.png"
     }, {
         id: 1,
         label: "Товары на инспекционном контроле",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card2.png"
     }, {
         id: 2,
         label: "Производственные процессы в газпромнефти",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card2.png"
     }, {
         id: 3,
         label: "Расчистка охранных зон основной территории",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card2.png"
     }, {
         id: 4,
         label: "Как заполнить правильно отчетность в 2022 году?",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card2.png"
     }, {
         id: 5,
         label: "Новые изменения согласования в ЭТП",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         pic: "../../assets/img/dash/card2.png"
     }]
 
@@ -100,9 +113,7 @@ const Dash: FC = () => {
             />
             <main>
                 <DashHeader2 />
-
                 <div className="DashContainer">
-
                     <div className="DashToolbar">
                         <h3 className="h3"><span>Здравствуйте</span>, Иван Александрович!</h3>
                         <div className="ToolbarSpacer"></div>
@@ -111,13 +122,40 @@ const Dash: FC = () => {
                         </div>
                     </div>
                     <div className="DashScroller">
-                        {dashImgCards.map(({ id, label, url, pic }) => (
-                            <PicCard id={id} key={id} label={label} url={url} pic={pic} />
-                        ))}
+
+                        <Grid cols="2" className="DashMenu"
+                            breakpoints={{
+                                xs: {
+                                    cols: 1,
+                                    gap: '2xl',
+                                },
+                                s: {
+                                    cols: 2,
+                                    gap: '2xl',
+                                },
+                                m: {
+                                    cols: 3,
+                                    gap: 'xl',
+                                },
+                                l: {
+                                    cols: 4,
+                                    gap: 'xl',
+                                },
+                                xl: {
+                                    cols: 6,
+                                    gap: 'xl',
+                                },
+                            }}>
+                            {dashImgCards.map(({ id, label, url, pic }) => (
+                                <GridItem >
+                                    <PicCard id={id} key={id} label={label} url={url} pic={pic} />
+                                </GridItem>
+                            ))}
+                        </Grid>
+
                     </div>
 
-
-                    <div className="DashToolbar">
+                    <div className="DashToolbar mt2">
                         <Icon1 className="mr1" />
                         <h3 className="h3">
                             Задачи
@@ -130,14 +168,32 @@ const Dash: FC = () => {
                     </div>
                     <div className="DashScroller">
                         <div className="DashStatuses">
-                            <Link to={link} className="DashStatuseItem"><img src={D1} /></Link>
-                            <Link to={link} className="DashStatuseItem"><img src={D2} /></Link>
-                            <Link to={link} className="DashStatuseItem"><img src={D3} /></Link>
-                            <Link to={link} className="DashStatuseItem"><img src={D4} /></Link>
+                            <StatsCard
+                                status="success"
+                                url="/etp/rnmc"
+                                value={11}
+                                title="Формирование РНМЦ (Анализ рынка)"
+                                rate="заявок"
+                                unit="требуют рассмотрения"
+                                imgSrc={s1}
+                            />
+                            <StatsCard
+                                status="warning"
+                                url="/etp/rnmc"
+                                value={4}
+                                title="Формирование РНМЦ (Затратный метод)"
+                                rate="заявки"
+                                unit="требуют рассмотрения"
+                                imgSrc={s3}
+                            />
+                            {/* <Link to={linkAnal} className="DashStatuseItem"><img src={D1} /></Link>
+                            <Link to={linkAnal} className="DashStatuseItem"><img src={D2} /></Link>
+                            <Link to={linkAnal} className="DashStatuseItem"><img src={D3} /></Link>
+                            <Link to={linkAnal} className="DashStatuseItem"><img src={D4} /></Link> */}
                         </div>
                     </div>
 
-                    <div className="DashToolbar">
+                    <div className="DashToolbar mt2">
                         <Icon2 className="mr1" />
                         <h3 className="h3">
                             Меню
@@ -149,21 +205,80 @@ const Dash: FC = () => {
                         </div>
                     </div>
                     <div className="DashScroller">
+                        <Grid cols="2" className="DashMenu"
+                            breakpoints={{
+                                xs: {
+                                    cols: 1,
+                                    gap: '2xl',
+                                },
+                                m: {
+                                    cols: 2,
+                                    gap: 'xl',
+                                },
+                                l: {
+                                    cols: 3,
+                                    gap: 'xl',
+                                },
+                                xl: {
+                                    cols: 4,
+                                    gap: 'xl',
+                                },
+                            }}>
+                            <GridItem >
+                                <StatsCardBlue
+                                    status="system"
+                                    url={linkAnal}
+                                    value={12}
+                                    title="Счет-фактуры"
+                                    rate="Документ налогового учёта"
+                                    //unit="1234"
+                                    imgSrc={mi1}
+                                />
+                            </GridItem>
+                            <GridItem >
+                                <StatsCardBlue
+                                    status="warning"
+                                    url={linkAnal}
+                                    value={52}
+                                    title="Заявки на участие в процедуре"
+                                    rate="Планирование участия"
+                                    //unit="43"
+                                    imgSrc={mi2}
+                                />
+                            </GridItem>
+                            <GridItem >
+                                <StatsCardBlue
+                                    status="error"
+                                    url={linkAnal}
+                                    value={31}
+                                    title="Предквалификация"
+                                    rate="Реестр участников"
+                                    //unit="31"
+                                    imgSrc={mi3}
+                                />
+                            </GridItem>
+                            <GridItem >
+                                <StatsCardBlue
+                                    status="success"
+                                    url={linkAnal}
+                                    value={34}
+                                    title="Отборы по НСУ"
+                                    rate="Автоматизация оценки"
+                                    //unit="42"
+                                    imgSrc={mi4}
+                                />
+                            </GridItem>
+                        </Grid>
 
-                        <div className="DashMenu">
-                            <Link to={link} className="DashMenuItem"><img src={Menu1} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu2} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu3} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu4} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu5} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu6} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu7} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu8} /></Link>
-                            <Link to={link} className="DashMenuItem"><img src={Menu9} /></Link>
-                        </div>
+                        {/* <div className="DashMenu">
+                            <Link to={linkAnal} className="DashMenuItem"><img src={Menu6} /></Link>
+                            <Link to={linkAnal} className="DashMenuItem"><img src={Menu7} /></Link>
+                            <Link to={linkAnal} className="DashMenuItem"><img src={Menu8} /></Link>
+                            <Link to={linkAnal} className="DashMenuItem"><img src={Menu9} /></Link>
+                        </div> */}
                     </div>
 
-                    <div className="DashToolbar">
+                    <div className="DashToolbar mt2">
                         <Icon3 className="mr1" />
                         <h3 className="h3">
                             Новые объявленные закупки
@@ -192,12 +307,12 @@ const Dash: FC = () => {
                     </div>
                     <div className="DashScroller">
                         <Layout>
-                            <Link to={link} className="DashKpiItem"><img src={kpi1} /></Link>
-                            <Link to={link} className="DashKpiItem"><img src={kpi2} /></Link>
-                            <Link to={link} className="DashKpiItem"><img src={kpi3} /></Link>
+                            <Link to={linkAnal} className="DashKpiItem"><img src={kpi1} /></Link>
+                            <Link to={linkAnal} className="DashKpiItem"><img src={kpi2} /></Link>
+                            <Link to={linkAnal} className="DashKpiItem"><img src={kpi3} /></Link>
                             <Layout direction="column">
-                                <Link to={link} className="DashKpiItem"><img src={kpi4} /></Link>
-                                <Link to={link} className="DashKpiItem"><img src={kpi5} style={{ marginTop: '-25px' }} /></Link>
+                                <Link to={linkAnal} className="DashKpiItem"><img src={kpi4} /></Link>
+                                <Link to={linkAnal} className="DashKpiItem"><img src={kpi5} style={{ marginTop: '-25px' }} /></Link>
                             </Layout>
                         </Layout>
                     </div>
@@ -231,9 +346,9 @@ const Dash: FC = () => {
                         </div>
                     </div>
                     <div className="DashScroller">
-                        <Link to={link} className="DashInsiteItem"><img src={insite1} /></Link>
-                        <Link to={link} className="DashInsiteItem"><img src={insite2} /></Link>
-                        <Link to={link} className="DashInsiteItem"><img src={insite3} /></Link>
+                        <Link to={linkAnal} className="DashInsiteItem"><img src={insite1} /></Link>
+                        <Link to={linkAnal} className="DashInsiteItem"><img src={insite2} /></Link>
+                        <Link to={linkAnal} className="DashInsiteItem"><img src={insite3} /></Link>
                     </div>
 
                 </div>

@@ -9,7 +9,7 @@ export const initialState: IDash = {
         status: "up",
         percent: 7,
         period: "За неделю",
-        url: "/etp/rnmc?samp=0050569CDC861EED87DD0FCCDBEA808C",
+        url: "/etp/rnmc?samp=0050569CDC861EDD968FFC5F6F1A755C",
         chart_type: "column" ,
         chart: []
     }, {

@@ -6,7 +6,7 @@ import Sidebar from "../../../components/dash/Sidebar";
 import ZakFilterProc from '../../../components/zak/ZakFilterProc';
 import './ZakMainPage.css'
 import { Text } from '@consta/uikit/Text';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Pagination } from '@consta/uikit/Pagination';
 import { Button } from "@consta/uikit/Button";
 import { IconHamburger } from "@consta/uikit/IconHamburger";

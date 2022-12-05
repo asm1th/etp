@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { ISamp, ILink, IUsrp, IFileKP, IFileTZ, IFileId } from "../models/ISamp";
+import { ISamp, ILink, IUsrp, IFileKP, IFileTZ, IFileId, ICosts } from "../models/ISamp";
 import { RootState } from '../store/store'
 
 export const sampAPI = createApi({
@@ -89,6 +89,15 @@ export const sampAPI = createApi({
                 url: `/filetz/${kp_sample_guid}`,
             })
         }),
+
+        updateCost: builder.mutation<ICosts, ICosts>({
+            query: (costsBody) => ({
+                url: `/cost`,
+                method: 'PUT',
+                body: costsBody
+            }),
+            invalidatesTags: ['Samp']
+        }),
     })
 })
 
@@ -98,5 +107,6 @@ export const {
     useUpdateLinkMutation,
     useUpdateFileMutation,
     useFetchFileIDQuery,
-    useFetchFileTZQuery
+    useFetchFileTZQuery,
+    useUpdateCostMutation
 } = sampAPI

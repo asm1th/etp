@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Text } from '@consta/uikit/Text';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { IconTop } from '@consta/uikit/IconTop';
 import { IconDown } from '@consta/uikit/IconDown';
 import { useAppSelector } from "../../hooks/redux";
 import './ZakFilterProc.css'
 import { TextField } from "@consta/uikit/TextField";
 import { Select } from '@consta/uikit/Select';
-import { Breadcrumbs } from '@consta/uikit/BreadcrumbsCanary';
-import { DatePicker } from '@consta/uikit/DatePickerCanary';
+import { Breadcrumbs } from '@consta/uikit/Breadcrumbs';
+import { DatePicker } from '@consta/uikit/DatePicker';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { Button } from "@consta/uikit/Button";
 import { IconSearch } from '@consta/uikit/IconSearch';

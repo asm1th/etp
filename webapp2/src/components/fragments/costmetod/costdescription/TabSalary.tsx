@@ -2,16 +2,15 @@ import { FC, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
 import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../../../services/SampService";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { IconInfo } from '@consta/uikit/IconInfo';
-import { IconCheck } from '@consta/uikit/IconCheck';
 import { TextField } from "@consta/uikit/TextField";
-import { Button } from "@consta/uikit/Button";
 import PopoverCustom from "../../../util/PopoverCustom";
 import { format } from "date-fns";
 import quan_unit from "../../../../assets/quan_unit.json";
 import {sampSlice} from "../../../../store/reducers/samp/sampSlice";
 import { numberWithSpaces } from "../../../../helpers";
+import SaveCostButton from "../SaveCostButton";
 
 type Qunit = {
     "MANDT": number;
@@ -27,9 +26,7 @@ const quan_units: Qunit[] = quan_unit
 
 const TabSalary: FC = () => {
     const dispatch = useAppDispatch()
-    const { stags, link, links, isValidateOn, salary } = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
-    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
+    const { isValidateOn, costs } = useAppSelector(state => state.sampReducer)
 
     //popover
     type Position = any;
@@ -39,29 +36,17 @@ const TabSalary: FC = () => {
         setPosition({ x: event.clientX, y: event.clientY })
     };
 
-    const [savedDate, setSavedDate] = useState<string>("")
-    const onSave = () => {
-        updateLink(links)
-        stags.forEach(stag => {
-            stag.units.forEach(unit => {
-                const usrp = unit.usrps.filter(usrp => usrp.link_id === link);
-                updateUsrp(usrp[0])
-            });
-        })
-
-        setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
-    }
-
     const getUnitText = (x: string) => {
         return x && quan_units[quan_units.findIndex(qunit => qunit.MSEHI === x)].MSEHL
     }
 
     const handleUnitSalary = (kp_unit_guid: string, value: string) => {
         value = value.replace(' ','');
+        value = value.replace(',','.');
         if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
             dispatch(sampSlice.actions.setUnitSalary({ 
                 kp_unit_guid: kp_unit_guid, 
-                unit_salary: value
+                kp_unit_salary: value
             }))
         }
     }
@@ -91,7 +76,7 @@ const TabSalary: FC = () => {
             </Layout>
 
             <div className="scrollBlock">
-                {salary.map(({ kp_unit_guid, unit_salary, cost_name, usl_quan_unit }) => (
+                {costs.salary.map(({ kp_unit_guid, kp_unit_salary, cost_name, usl_quan_unit }) => (
                     <Layout className="Row mb1" key={kp_unit_guid}>
                         <Layout flex={5} direction="column">
                             <TextField
@@ -106,14 +91,14 @@ const TabSalary: FC = () => {
                         <Layout flex={1}>
                             <TextField
                                 maxLength={17}
-                                name="unit_salary"
-                                value={parseFloat(unit_salary) == 0 ? "" : numberWithSpaces(unit_salary)}
+                                name="kp_unit_salary"
+                                value={parseFloat(kp_unit_salary) == 0 ? "" : kp_unit_salary}
                                 size="s"
                                 className="textCenter RowInput"
                                 width="full"
                                 onChange={({ e }: any) => handleUnitSalary(kp_unit_guid, e.target.value)}
                                 required
-                                status={ (isValidateOn && (parseFloat(unit_salary) === 0)) ? 'alert' : undefined}
+                                status={ (isValidateOn && (parseFloat(kp_unit_salary) === 0)) ? 'alert' : undefined}
                             />
                         </Layout>
                         <Layout flex={1}>
@@ -131,12 +116,7 @@ const TabSalary: FC = () => {
             </div>
             <hr/>
             
-            <Layout flex={4} className="aic jcfe">
-                {savedDate ? (
-                    <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
-                ) : null}
-                <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-            </Layout>
+            <SaveCostButton />
         </>
     );
 };

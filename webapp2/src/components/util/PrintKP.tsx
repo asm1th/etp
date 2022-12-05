@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Text } from "@consta/uikit/Text";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import KPRow from "../fragments/KP/KPRow";
 import { useAppSelector } from "../../hooks/redux";
 import { format } from "date-fns";

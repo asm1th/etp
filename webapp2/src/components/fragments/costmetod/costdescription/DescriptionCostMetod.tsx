@@ -1,7 +1,7 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { useAppSelector } from "../../../../hooks/redux";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Switch } from "@consta/uikit/Switch";
 import { Tabs, cnTabsTab } from "@consta/uikit/Tabs";
 import TabSalary from "./TabSalary";
@@ -90,6 +90,19 @@ const DescriptionCostMetod: FC = () => {
         setTabList(tabList)
     }
 
+    // useEffect(() => {
+    //     tabListChange(2, isCostDepreciation)
+    // }, [isCostDepreciation])
+    // useEffect(() => {
+    //     tabListChange(3, isCostOtherBfoh)
+    // }, [ isCostOtherBfoh])
+    // useEffect(() => {
+    //     tabListChange(6, isCostBtrip)
+    // }, [isCostBtrip])
+    // useEffect(() => {
+    //     tabListChange(7, isCostOther)
+    // }, [isCostOther])
+
     const onTabTimes = (id: number) => {
         tabListChange(id, false)
         if (id === 2) { setIsCostDepreciation(false) }
@@ -140,7 +153,7 @@ const DescriptionCostMetod: FC = () => {
                 value={tab}
                 onChange={({ value }) => setTab(value)}
                 items={tabList}
-                getLabel={(item) => item.label}
+                getItemLabel={(item:any) => item.label}
                 className="mb2 tabsFilled"
                 renderItem={({ label, checked, onChange, item }) => (
                     <>

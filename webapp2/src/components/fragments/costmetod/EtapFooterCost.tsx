@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Checkbox } from '@consta/uikit/Checkbox';
 import { Button } from "@consta/uikit/Button";
 import { IconCheck } from '@consta/uikit/IconCheck';
@@ -14,6 +14,7 @@ import { IStag } from "../../../models/ISamp";
 import { format } from "date-fns";
 import { Modal } from "@consta/uikit/Modal";
 import { numberWithSpaces } from "../../../helpers";
+import SaveCostButton from "./SaveCostButton";
 
 
 const EtapFooterCost = (props: { etapId: number }) => {
@@ -36,8 +37,8 @@ const EtapFooterCost = (props: { etapId: number }) => {
         dispatch(sampSlice.actions.setStageNoNds({ etapId: etapId, checked: checked }))
         if (!checked) {
             //setStagSumm_nds_comment("")
-            
-            
+
+
         }
     }
     const handleStageNdsComm = (etapId: number, value: string) => {
@@ -57,7 +58,7 @@ const EtapFooterCost = (props: { etapId: number }) => {
                 updateUsrp(usrp[0])
             });
         })
-        
+
         setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
     }
 
@@ -71,7 +72,7 @@ const EtapFooterCost = (props: { etapId: number }) => {
     //     //stags.forEach(stag => {
     //         currentStage.units.forEach(unit => {
     //             unit.usrps.forEach(usrp => {
-                    
+
     //                 if (usrp.prices_user === "" || parseFloat(usrp.prices_user) === 0 || usrp.nsu_menge === "" || parseFloat(usrp.nsu_menge) === 0 ||
     //                     (usrp.vat_rate === "NN" && usrp.nds_comm === "")
     //                 ) {
@@ -100,20 +101,20 @@ const EtapFooterCost = (props: { etapId: number }) => {
 
             <Layout>
                 <Layout flex={4} className="aic">
-                    <Text as="div" className="label mr1">
-                        Для расчета предложения необходимо<br/>
-                        заполнить информацию во вкладке расшифровка ставок.
-                    </Text>
+                    <Layout >
+                        <Text as="div" className="label mr1">
+                            Для расчета предложения необходимо<br />
+                            заполнить информацию во вкладке расшифровка ставок.
+                        </Text>
+                    </Layout>
+                    <Layout flex={1} className="aic jcc SubSummFooter">Итого</Layout>
                 </Layout>
-                <Layout flex={7} className="SubSummFooter">
-                    <Layout flex={1} className="aic jcc">Итого</Layout>
-                    <Layout flex={1} className="aic jcc">{parseFloat(currentStage.stage_laboriousness) == 0 ? "-- --" : currentStage.stage_laboriousness}</Layout>
-                    <Layout flex={1} className="aic jcc mr1"></Layout>
-                    <Layout flex={1} className="aic jcc mr1"></Layout>
-                    <Layout flex={1} className="aic jcc mr1">{parseFloat(currentStage.stage_price) == 0 ? "-- --" : numberWithSpaces(currentStage.stage_price)}</Layout>
-                    <Layout flex={1} className="aic jcc mr1"></Layout>
-                    <Layout flex={1} className="aic jcc">{parseFloat(currentStage.stage_price_nds) == 0 ? "-- --" : numberWithSpaces(currentStage.stage_price_nds)}</Layout>
-                </Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter">{parseFloat(currentStage.cost_stage_price_ei) == 0 ? "-- --" : numberWithSpaces(currentStage.cost_stage_price_ei)}</Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter pr1"></Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter pr1"></Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter pr1">{parseFloat(currentStage.cost_stage_price) == 0 ? "-- --" : numberWithSpaces(currentStage.cost_stage_price)}</Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter"></Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter SubSummFooterLast">{parseFloat(currentStage.cost_stage_price_nds) == 0 ? "-- --" : numberWithSpaces(currentStage.cost_stage_price_nds)}</Layout>
             </Layout>
             <Layout className="mt2">
                 <Layout className="aic" flex={7}>
@@ -136,19 +137,20 @@ const EtapFooterCost = (props: { etapId: number }) => {
                                 labelPosition="left"
                                 value={currentStage.nds_comm || ""}
                                 style={{ width: '135px' }}
-                                onChange={({ e }: any) => { handleStageNdsComm(props.etapId, e.target.value) }} 
-                                status={(currentStage.nds_comm === '' && currentStage.isNoNds) ? 'alert' : undefined}/>
+                                onChange={({ e }: any) => { handleStageNdsComm(props.etapId, e.target.value) }}
+                                status={(currentStage.nds_comm === '' && currentStage.isNoNds) ? 'alert' : undefined} />
                             <Text as="div" className="ml1">
                                 НК РФ
                             </Text>
                         </>) : null}
                 </Layout>
-                <Layout flex={4} className="aic jcfe">
+                {/* <Layout flex={4} className="aic jcfe">
                     {savedDate ? (
                         <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
                     ) : null}
                     <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-                </Layout>
+                </Layout> */}
+                <SaveCostButton/>
             </Layout>
 
             <Modal

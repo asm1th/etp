@@ -7,10 +7,10 @@ import logo from '../../assets/img/gazprom-neft-logo-rus.svg';
 import { useNavigate } from 'react-router-dom'
 import { Grid, GridItem } from '@consta/uikit/Grid';
 import { Card } from '@consta/uikit/Card';
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { Button } from '@consta/uikit/Button';
 import { Text } from '@consta/uikit/Text';
-import { ProgressStepBar } from '@consta/uikit/ProgressStepBarCanary';
+import { ProgressStepBar } from '@consta/uikit/ProgressStepBar';
 
 import Step1 from "../../components/reg/Step1";
 import Step2 from "../../components/reg/Step2";

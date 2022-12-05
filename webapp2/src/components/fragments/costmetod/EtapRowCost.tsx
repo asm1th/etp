@@ -1,4 +1,4 @@
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Text } from "@consta/uikit/Text";
 import { TextField } from "@consta/uikit/TextField";
 import { Button } from '@consta/uikit/Button';
@@ -8,7 +8,7 @@ import { Select } from '@consta/uikit/Select';
 import { Combobox } from '@consta/uikit/Combobox';
 import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
 import { sampSlice } from "../../../store/reducers/samp/sampSlice";
-import quan_unit from "../../../assets/quan_unit.json";
+import quan_unit from "../../../assets/quan_unit_cost.json";
 import { IStag } from "../../../models/ISamp";
 import { numberWithSpaces } from "../../../helpers";
 //import { validateEmailUtil } from "../reg/validate";
@@ -98,10 +98,10 @@ const EtapRowCost = (props: { etapId: number }) => {
         }
     }
 
-    const handleLaboriousness = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
+    const handlePricesUser = (kp_stage_guid: string, kp_unit_guid: string, value: string) => {
         let UnitFinder = { kp_stage_guid: kp_stage_guid, kp_unit_guid: kp_unit_guid, link_id: link }
         if (value === '' || value.match(/^([0-9]{1,11})?$/) || value.match(/^([0-9]{1,11}\.)?([0-9]{1,2})?$/)) {
-            dispatch(sampSlice.actions.setLaboriousness({ UnitFinder: UnitFinder, value: value }))
+            dispatch(sampSlice.actions.setPricesUser({ UnitFinder: UnitFinder, value: value }))
         }
     }
 
@@ -111,11 +111,7 @@ const EtapRowCost = (props: { etapId: number }) => {
                 kp_stage_guid, 
                 kp_unit_guid, 
                 opr_usl_unit,
-                opr_usl_unit_restr_menge, 
-                opr_usl_unit_restr_quan, 
-                usrps, 
-                man_number, 
-                laboriousness, 
+                usrps,
                 work_days,
                 sum_price_ei,
                 sum_price,
@@ -161,35 +157,36 @@ const EtapRowCost = (props: { etapId: number }) => {
                                     //disabled={opr_usl_unit_restr_quan === "" ? false : true}
                                     getItemLabel={(item) => item.MSEHL}
                                     getItemKey={(item) => item.MSEHI}
+                                    disabled
                                 />
                             </Layout>
                             <Layout flex={1}>
                                 <TextField
                                     maxLength={17}
-                                    name="man_number"
-                                    value={man_number}
+                                    name="nsu_menge"
+                                    value={curUsrp.nsu_menge}
                                     size="s"
                                     className="RowInput"
                                     onChange={({ e }: any) => handleManNumber(kp_stage_guid, kp_unit_guid, e.target.value)}
                                     //disabled={opr_usl_unit_restr_menge === "" ? false : true}
                                     required
-                                    status={ (isValidateOn && (parseFloat(man_number) === 0 || man_number === '')) ? 'alert' : undefined}
+                                    status={ (isValidateOn && (parseFloat(curUsrp.nsu_menge) === 0 || curUsrp.nsu_menge === '')) ? 'alert' : undefined}
                                 />
                             </Layout>
                             <Layout flex={1}>
                                 <TextField
                                     maxLength={20}
-                                    name="laboriousness"
-                                    value={laboriousness}
+                                    name="prices_user"
+                                    value={curUsrp.prices_user}
                                     size="s"
                                     className="RowInput"
-                                    onChange={({ e }: any) => handleLaboriousness(kp_stage_guid, kp_unit_guid, e.target.value)} 
+                                    onChange={({ e }: any) => handlePricesUser(kp_stage_guid, kp_unit_guid, e.target.value)} 
                                     required
-                                    status={(isValidateOn && (parseFloat(laboriousness) === 0 || laboriousness === '')) ? 'alert' : undefined}
+                                    status={(isValidateOn && (parseFloat(curUsrp.prices_user) === 0 || curUsrp.prices_user === '')) ? 'alert' : undefined}
                                 />
                             </Layout>
                             <Layout flex={1} className="aic jcc mr1">
-                                {parseFloat(work_days) == 0 ? "-- --" : work_days}
+                                {parseFloat(work_days) == 0 ? "-- --" : parseInt(work_days)}
                             </Layout>
 
                             <Layout flex={1} className="aic jcc mr1 calcFont sum_price_ei">

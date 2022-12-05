@@ -1,41 +1,27 @@
 import { FC, useEffect, useState } from "react";
 import { Text } from "@consta/uikit/Text";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux";
-import { useUpdateLinkMutation, useUpdateUsrpMutation } from "../../../../services/SampService";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { IconInfo } from '@consta/uikit/IconInfo';
-import { IconCheck } from '@consta/uikit/IconCheck';
 import { TextField } from "@consta/uikit/TextField";
 import { Button } from "@consta/uikit/Button";
 import PopoverCustom from "../../../util/PopoverCustom";
-import { format } from "date-fns";
 import { ICostOtherBfoh } from "../../../../models/ISamp";
 import { IconTrash } from "@consta/uikit/IconTrash";
 import { IconAdd } from "@consta/uikit/IconAdd";
 import { Modal } from "@consta/uikit/Modal";
 import { sampSlice } from "../../../../store/reducers/samp/sampSlice";
 import { numberWithSpaces } from "../../../../helpers";
+import SaveCostButton from "../SaveCostButton";
 
 
 const TabCostOtherBfoh: FC = () => {
     const dispatch = useAppDispatch()
     const {
-        stags,
-        link,
-        links,
         full_laboriousness,
-        cost_other_bfoh: itemList,
+        costs,
         cost_sums,
         isValidateOn } = useAppSelector(state => state.sampReducer)
-    const [updateLink, { isLoading: isUpdatingLink }] = useUpdateLinkMutation()
-    const [updateUsrp, { isLoading: isUpdatingUsrp }] = useUpdateUsrpMutation()
-
-    const [savedDate, setSavedDate] = useState<string>("")
-    const onSave = () => {
-
-
-        setSavedDate(format(new Date(), 'dd.MM.yyyy HH:mm:ss'))
-    }
 
     let full_sum_laboriousness = full_laboriousness ? parseFloat(full_laboriousness) / (164.4 / 8) : 0
 
@@ -54,13 +40,15 @@ const TabCostOtherBfoh: FC = () => {
         "price_per_user_per_month": "0",
     }
 
+    const itemList = costs.cost_other_bfoh
+
     const addItem = () => {
         item.key = itemList.length > 0 ? itemList[itemList.length - 1].key + 1 : 1
         dispatch(sampSlice.actions.addCostOtherBfoh(item))
     }
 
     useEffect(() => {
-        if ( itemList.length === 0) {
+        if (itemList.length === 0) {
             addItem() // начальный пустой массив
         }
     }, [itemList])
@@ -227,11 +215,11 @@ const TabCostOtherBfoh: FC = () => {
                             />
                         </Layout>
                         <Layout flex={3} className="jcc aic full_price">
-                            <Text>{parseFloat(full_price) == 0 ? "-- --" : full_price}</Text>
+                            <Text>{parseFloat(full_price) == 0 ? "-- --" : numberWithSpaces(full_price)}</Text>
                         </Layout>
                         <Layout flex={3} className="jcc aic full_sum_laboriousness">
                             {/* user_per_month */}
-                            <Text>{full_sum_laboriousness == 0 ? "-- --" : full_sum_laboriousness.toFixed(2)}</Text>
+                            <Text>{full_sum_laboriousness == 0 ? "-- --" : full_sum_laboriousness.toFixed(10)}</Text>
                         </Layout>
                         <Layout flex={3} className="jcc aic price_per_user_per_month">
                             <Text>{parseFloat(price_per_user_per_month) == 0 ? "-- --" : numberWithSpaces(price_per_user_per_month)}</Text>
@@ -257,23 +245,18 @@ const TabCostOtherBfoh: FC = () => {
             </Layout>
             <hr />
             <Layout className="mb1">
-                <Layout flex={9}></Layout>
-                <Layout flex={10} className="SubSummFooter">
-                    <Layout flex={3} className="aic jcc">Итого</Layout>
-                    <Layout flex={3} className="aic jcc">{parseFloat(cost_sums.cost_other_bfoh.sum_full_price) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_full_price)}</Layout>
-                    <Layout flex={3} className="aic jcc">{parseFloat(cost_sums.cost_other_bfoh.sum_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_user_per_month)}</Layout>
-                    <Layout flex={3} className="aic jcc">{parseFloat(cost_sums.cost_other_bfoh.sum_price_per_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_price_per_user_per_month)}</Layout>
-                    <Layout flex={1} className="aic jcc"></Layout>
-                </Layout>
+                <Layout flex={5}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={2}></Layout>
+                <Layout flex={3} className="aic jcc SubSummFooterLabel">Итого</Layout>
+                <Layout flex={3} className="aic jcc SubSummFooter">{parseFloat(cost_sums.cost_other_bfoh.sum_full_price) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_full_price)}</Layout>
+                <Layout flex={3} className="aic jcc SubSummFooter">{parseFloat(cost_sums.cost_other_bfoh.sum_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_user_per_month)}</Layout>
+                <Layout flex={3} className="aic jcc SubSummFooter">{parseFloat(cost_sums.cost_other_bfoh.sum_price_per_user_per_month) == 0 ? "-- --" : numberWithSpaces(cost_sums.cost_other_bfoh.sum_price_per_user_per_month)}</Layout>
+                <Layout flex={1} className="aic jcc SubSummFooter SubSummFooterLast"></Layout>
             </Layout>
 
-
-            <Layout flex={4} className="aic jcfe mt1">
-                {savedDate ? (
-                    <Text className="mr1 ml1 label tar">Сохранено {savedDate}</Text>
-                ) : null}
-                <Button label="Сохранить изменения" onClick={onSave} size="m" iconLeft={IconCheck} loading={isUpdatingLink || isUpdatingUsrp} />
-            </Layout>
+            <SaveCostButton/>
 
             <Modal
                 isOpen={isModalOpen}

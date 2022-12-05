@@ -19,7 +19,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks/redux";
 import { dashSlice } from "../../store/reducers/dash/dashSlice";
 import { authSlice } from "../../store/reducers/authRTK/authSlice";
 import { Modal } from "@consta/uikit/Modal";
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { IconClose } from '@consta/uikit/IconClose';
 
 

@@ -96,7 +96,7 @@ const ZayavkaForm = () => {
                 value={zakFormCurrentTab}
                 onChange={({ value }) => setTab(value)}
                 items={zakFormTabs}
-                getLabel={(item) => item.name}
+                getItemLabel={(item) => item.name}
                 className="mb1"
                 renderItem={({ item, onChange, checked }) => (
                     <button type="button" onClick={onChange} className={`TabsTab_size_m   ${cnTabsTab({ checked })} ${item.isValid ? 'valid' : 'notValid'}`}>

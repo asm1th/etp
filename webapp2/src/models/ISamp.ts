@@ -21,42 +21,14 @@ export interface ISamp {
     saveDate: string
     isValidateOn: boolean
 
+    sample_type: string
 
     //costmetod
     "full_laboriousness": string
+    costs: ICosts
 
-    "cntrb_oms": string  //Взносы в фонд ОМС
-    "cntrb_pension": string //Взносы в ПФ
-    "cntrb_disability": string//Отчисления по временной нетрудоспособности
-    "profitability": string //Рентабельность
-    "salary": ISalary[]
-    "cost_depreciation": ICostDepreciation[] // -> cost 
-    "cost_overhead": ICostOverhead[]
-    "btrip_price": string //Командировочные расходы(общая)
-    "cost_other_bfoh": ICostOtherBfoh[]
-    "cost_other": ICostOther[]
-    "cost_btrip": ICostBtrip[]
-
-    cost : {
-        "cntrb_oms": string  //Взносы в фонд ОМС
-        "cntrb_pension": string //Взносы в ПФ
-        "cntrb_disability": string//Отчисления по временной нетрудоспособности
-        "profitability": string //Рентабельность
-        "salary": ISalary[]
-        "cost_depreciation": ICostDepreciation[]
-        "cost_overhead": ICostOverhead[]
-        "btrip_price": string //Командировочные расходы(общая)
-        "cost_other_bfoh": ICostOtherBfoh[]
-        "cost_other": ICostOther[]
-        "cost_btrip": ICostBtrip[]
-        "kp_price_ei": string
-        "kp_price": string
-        "kp_price_nds": string
-    }
-
-    cost_sums : {
-
-        "cost_insurance":{
+    cost_sums: {
+        "cost_insurance": {
             "sum_cntrb_oms": string
             "sum_cntrb_pension": string
             "sum_cntrb_disability": string
@@ -72,9 +44,7 @@ export interface ISamp {
             "sum_user_per_month": string
             "sum_price_per_user_per_month": string
         }
-        "cost_overhead": {
-
-        }
+        "cost_overhead": string[]
         "cost_profitability": string
         "cost_other": {
             "sum_full_price": string
@@ -82,7 +52,9 @@ export interface ISamp {
             "sum_price_per_user_per_month": string
         }
         "cost_btrip": {
-            
+            "sum_full_price": "0",
+            "sum_user_per_month": "0",
+            "sum_price_per_user_per_month": "0",
         }
     }
 }
@@ -98,6 +70,10 @@ export interface IFileKP {
     "file_docid": string
 }
 
+export interface  IFileId  {
+    file_guid: string
+    bsid: string
+}
 
 export interface ILink {
     link: string
@@ -124,10 +100,9 @@ export interface IStag {
     isValid: boolean
     nds_comm: string
     //cost
-    stage_laboriousness: string
-    stage_price_ei: string
-    stage_price: string
-    stage_price_nds: string
+    cost_stage_price_ei: string
+    cost_stage_price: string
+    cost_stage_price_nds: string
 }
 
 export interface IUnit {
@@ -143,8 +118,6 @@ export interface IUnit {
     usrps: IUsrp[]
 
     //cost
-    man_number: string
-    laboriousness: string
     work_days: string
     sum_price_ei: string
     sum_price: string
@@ -181,16 +154,11 @@ export interface IFileTZ {
     description: string
 }
 
-export interface  IFileId  {
-    file_guid: string
-    bsid: string
-}
-
 
 //Заработная плата
-export interface ISalary  {          
+export interface ISalary {
     "kp_unit_guid": string //GUID КР
-    "unit_salary": string  //Заработная плата
+    "kp_unit_salary": string  //Заработная плата
 
     //for app
     "cost_name": string
@@ -199,6 +167,11 @@ export interface ISalary  {
     "cntrb_pension": string
     "cntrb_disability": string
     "profitability": string
+
+    "cost_overhead": string
+    "cost_time_per_month": string
+    "rate_per_month": string
+    "rate_per_day": string
 }
 
 //Амортизация
@@ -219,23 +192,24 @@ export interface ICostDepreciation {
 }
 
 //Накладные расходы(2 таблицы: Наименование затры и %)
-export interface ICostOverhead { 
-    "cost_id": number //ID
+export interface ICostOverhead {
+    "cost_id": string //ID
     "cost_description": string //Наименование
     "cost_value": string //Значение
 
     //
     "cost_array": ICostArray[]
-    "requered": boolean
+    "required": boolean
+    "summ_cost": string
 }
 
 export interface ICostArray {
     "cost_name": string
-    "value": string 
+    "value": string
 }
 
 //Прочие до НР
-export interface ICostOtherBfoh { 
+export interface ICostOtherBfoh {
     "kp_cost_guid": string //GUID затраты
     "cost_type": number  //2
     "cost_name": string //Наименование
@@ -267,7 +241,7 @@ export interface ICostOther {
 }
 
 //Командировочные расходы(по специалистам)
-export interface ICostBtrip { 
+export interface ICostBtrip {
     "kp_btrip_guid": string //GUID командировочных расходов 
     "kp_unit_guid": string //GUID КР
     "pers_count": string //Количество человек
@@ -275,7 +249,34 @@ export interface ICostBtrip {
     "btrip_cost": string //Проезд в одну сторону
     "btrip_day_cost": string //Проживание в 1 сутки
     "btrip_day_allow": string //Суточные
-
+    //added
     "key": number
     "cost_name": string
+    "full_price": string
+    "user_per_day": string
+    "user_per_month": string
+    "price_per_user_per_month": string
+}
+
+export interface ICosts {
+    "cntrb_oms": string  //Взносы в фонд ОМС
+    "cntrb_pension": string //Взносы в ПФ
+    "cntrb_disability": string//Отчисления по временной нетрудоспособности
+    "profitability": string //Рентабельность
+    "salary": ISalary[]
+    "cost_depreciation": ICostDepreciation[]
+    "cost_overhead": ICostOverhead[]
+    "btrip_price": string //Командировочные расходы(общая)
+    "cost_other_bfoh": ICostOtherBfoh[]
+    "cost_other": ICostOther[]
+    "cost_btrip": ICostBtrip[]
+    "cost_result": {
+        "kp_price_ei": string
+        "kp_price": string
+        "kp_price_nds": string
+    }
+
+    //added
+    "link": string
+    "kp_stage_guid": string
 }

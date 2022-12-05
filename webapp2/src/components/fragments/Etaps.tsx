@@ -1,6 +1,6 @@
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { Tabs, cnTabsTab } from '@consta/uikit/Tabs';
-import { Layout } from "@consta/uikit/LayoutCanary";
+import { Layout } from "@consta/uikit/Layout";
 import { Text } from "@consta/uikit/Text";
 import EtapRow from "./EtapRow";
 import EtapFooter from "./EtapFooter";
@@ -8,17 +8,13 @@ import KomandBar from "./KomandBar";
 import { IconInfo } from '@consta/uikit/IconInfo';
 import { useAppSelector } from "../../hooks/redux";
 import { IStag } from "../../models/ISamp"
-import { useFetchSampQuery } from "../../services/SampService";
 import PopoverCustom from "../util/PopoverCustom";
 
 
 
 const Etaps = (props: { isTravelShow: boolean }) => {
-    
-    const { link_id } = useAppSelector(state => state.authReducer)
-    //const params = useLocation().search;
-    //const this_samp_id = new URLSearchParams(params).get("samp") || kp_sample_guid || ''
-    const { data: samp } = useFetchSampQuery(link_id);
+
+    const { stags, isValidateOn } = useAppSelector(state => state.sampReducer)
 
     const [tab, setTab] = useState<IStag>({
         "kp_stage_guid": "",
@@ -34,10 +30,9 @@ const Etaps = (props: { isTravelShow: boolean }) => {
         "units": [],
 
         //cost
-        "stage_laboriousness": "",
-        "stage_price_ei":  "",
-        "stage_price":  "",
-        "stage_price_nds": "",
+        "cost_stage_price_ei": "",
+        "cost_stage_price": "",
+        "cost_stage_price_nds": "",
     });
 
     //popover
@@ -51,80 +46,76 @@ const Etaps = (props: { isTravelShow: boolean }) => {
 
     return (
         <>
-            {samp ? (
-                <>
-                    <PopoverCustom position={position} text={popoverText} />
-                    
-                    { props.isTravelShow ? (
-                        <KomandBar />
-                    ) : null }
+            <PopoverCustom position={position} text={popoverText} />
+
+            {props.isTravelShow ? (
+                <KomandBar />
+            ) : null}
+            <Layout>
+                <Tabs
+                    className="Tabs"
+                    linePosition="right"
+                    value={tab}
+                    onChange={({ value }) => setTab(value)}
+                    items={stags}
+                    getItemLabel={(item) => "этап " + item.opr_usl_stage_num}
+                    renderItem={({ label, checked, onChange, item }) => (
+                        <button type="button" onClick={onChange}
+                            className={`${cnTabsTab({ checked })} ${(isValidateOn && !item.isValid) ? 'unValid' : 'Valid'}`}>
+                            <span role="img" aria-label="img" className="tabNum">
+                                {/* {checked ? '🤘' : '✋'} */}
+                                {item.opr_usl_stage_num}
+                            </span>
+                            <span className="tabLabel">{label.split(' ')[0]}</span>
+                        </button>
+                    )}
+                />
+                <Layout flex={1} className="TabsPageContainer" direction="column">
+                    <Layout flex={1} direction="row" className="mb1 aib mt05">
+                        <Text as="div" className="subTitleOpr_usl_stageLabel mr2">
+                            Полное наименование этапа / услуги (работы):
+                        </Text>
+                        <Text as="div" className="labeltext subTitleOpr_usl_stage">
+                            {stags[tab.opr_usl_stage_num - 1].opr_usl_stage}
+                        </Text>
+                    </Layout>
                     <Layout>
-                        <Tabs
-                            className="Tabs"
-                            linePosition="right"
-                            value={tab}
-                            onChange={({ value }) => setTab(value)}
-                            items={samp.stags}
-                            getLabel={(item) => "этап "+item.opr_usl_stage_num}
-                            renderItem={({ label, checked, onChange, item}) => (
-                                <button type="button" onClick={onChange} 
-                                    className={`${cnTabsTab({ checked })} ${item.isValid ? 'Valid': 'unValid'}`}>
-                                    <span role="img" aria-label="img" className="tabNum">
-                                    {/* {checked ? '🤘' : '✋'} */}
-                                    {item.opr_usl_stage_num}
-                                    </span>
-                                    <span className="tabLabel">{label.split(' ')[0]}</span>
-                                </button>
-                                )}
-                        />
-                        <Layout flex={1} className="TabsPageContainer" direction="column">
-                            <Layout flex={1} direction="row" className="mb1 aib mt05">
-                                <Text as="div" className="subTitleOpr_usl_stageLabel mr2">
-                                    Полное наименование этапа / услуги (работы):
-                                </Text>
-                                <Text as="div" className="labeltext subTitleOpr_usl_stage">
-                                    {samp.stags[tab.opr_usl_stage_num - 1].opr_usl_stage}
-                                </Text>
-                            </Layout>
-                            <Layout>
-                                <Text as="div" className="Title Title2 mb1 weight700">
-                                    Состав этапа / услуги (работы)
-                                </Text>
-                            </Layout>
-                            <Layout className="tableHeader">
-                                <Layout flex={2} className="tar">
-                                    <Text className="label">
-                                        Наименование расценки
-                                    </Text>
-                                    <div onMouseMove={handleMouseMove} onMouseLeave={() => setPosition(undefined)}>
-                                        <IconInfo size="s" view="ghost" />
-                                    </div>
-                                </Layout>
-                                <Layout flex={2}>
-                                    <Text className="label" align="center">Единица измерения (ЕИ)</Text>
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Text className="label" align="center">Количество ЕИ</Text>
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Text className="label" align="center">Стоимость ЕИ </Text><span className="FieldLabel-Star">*</span>
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Text className="label" align="center">Ставка НДС</Text>
-                                </Layout>
-                                <Layout flex={1} className="mr1">
-                                    <Text className="label" align="center">Сумма без НДС</Text>
-                                </Layout>
-                                <Layout flex={1}>
-                                    <Text className="label" align="center">Сумма с НДС</Text>
-                                </Layout>
-                            </Layout>
-                            <EtapRow etapId={tab.opr_usl_stage_num} />
-                            <EtapFooter etapId={tab.opr_usl_stage_num} />
+                        <Text as="div" className="Title Title2 mb1 weight700">
+                            Состав этапа / услуги (работы)
+                        </Text>
+                    </Layout>
+                    <Layout className="tableHeader">
+                        <Layout flex={2} className="tar">
+                            <Text className="label">
+                                Наименование расценки
+                            </Text>
+                            <div onMouseMove={handleMouseMove} onMouseLeave={() => setPosition(undefined)}>
+                                <IconInfo size="s" view="ghost" />
+                            </div>
+                        </Layout>
+                        <Layout flex={2}>
+                            <Text className="label" align="center">Единица измерения (ЕИ)</Text>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Text className="label" align="center">Количество ЕИ</Text>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Text className="label" align="center">Стоимость ЕИ </Text><span className="FieldLabel-Star">*</span>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Text className="label" align="center">Ставка НДС</Text>
+                        </Layout>
+                        <Layout flex={1} className="mr1">
+                            <Text className="label" align="center">Сумма без НДС</Text>
+                        </Layout>
+                        <Layout flex={1}>
+                            <Text className="label" align="center">Сумма с НДС</Text>
                         </Layout>
                     </Layout>
-                </>
-            ) : null}
+                    <EtapRow etapId={tab.opr_usl_stage_num} />
+                    <EtapFooter etapId={tab.opr_usl_stage_num} />
+                </Layout>
+            </Layout>
         </>
     );
 };

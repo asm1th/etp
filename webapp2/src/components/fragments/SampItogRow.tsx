@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { Text } from "@consta/uikit/Text";
 import { useAppSelector } from "../../hooks/redux";
 

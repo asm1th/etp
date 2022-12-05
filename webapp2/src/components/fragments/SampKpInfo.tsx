@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 import { Text } from "@consta/uikit/Text";
 import { Card } from "@consta/uikit/Card";
-import { DatePicker } from '@consta/uikit/DatePickerCanary';
+import { DatePicker } from '@consta/uikit/DatePicker';
 import { Switch } from '@consta/uikit/Switch';
 import { IconCalendar } from '@consta/uikit/IconCalendar';
 import { useAppDispatch, useAppSelector } from "../../hooks/redux";

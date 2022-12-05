@@ -15,7 +15,7 @@ import GuidEnter from './GuidEnter';
 import { useAppDispatch } from "../../hooks/redux";
 import { authSlice } from '../../store/reducers/authRTK/authSlice';
 import { Text } from "@consta/uikit/Text";
-import { Layout } from '@consta/uikit/LayoutCanary';
+import { Layout } from '@consta/uikit/Layout';
 
 
 const RNMCapp: FC = () => {
