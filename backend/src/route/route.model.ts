@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { AllowNull, Column, DataType, HasMany, HasOne, Model, Table } from "sequelize-typescript";
 import { Samp } from "src/samp/samp.model";
-import { Cost } from "../cost/cost.model";
-import { Val } from "../val/val.model";
-import { Trip } from "../trip/trip.model";
+import { Cost } from "src/cost/cost.model";
+import { Value } from "src/value/value.model";
+import { Trip } from "src/trip/trip.model";
 
 interface RouteAttrs{
   route_guid: any;
@@ -49,8 +49,8 @@ export class Route extends Model<Route, RouteAttrs> {
   @HasMany(() => Cost)
   costs: Cost[];
 
-  @HasMany(() => Val)
-  value: Val[];
+  @HasMany(() => Value)
+  value: Value[];
 
   @HasMany(() => Trip)
   trips: Trip[];
