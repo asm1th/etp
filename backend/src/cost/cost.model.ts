@@ -4,17 +4,17 @@ import { Route } from "src/route/route.model";
 import { Stag } from "src/stag/stag.model";
 
 interface ValueAttrs {
-  kp_cost_guid: string;
-  kp_stage_guid: string;
+  kp_cost_guid: any;
+  kp_stage_guid: any;
   cost_type: string;
   cost_name: string;
   cost_meins: string;
-  cost_menge: string;
-  cost_month: string;
-  cost_months_use: string;
-  cost_months_useful: string;
-  cost_price: string;
-  cost_per_month: string;
+  cost_menge: any;
+  cost_month: number;
+  cost_months_use: number;
+  cost_months_useful: number;
+  cost_price: number;
+  cost_per_month: number;
 }
 
 @Table({tableName:'ztin_suz_kp_route', createdAt: false, updatedAt: false})
