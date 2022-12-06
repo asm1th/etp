@@ -1,7 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { BelongsTo, Column, DataType, ForeignKey, HasMany, HasOne, Model, Table } from "sequelize-typescript";
 import { Stag } from "../stag/stag.model";
-import { Route } from "../route/route.model";
+import { Usrp } from "src/usrp/usrp.model";
+import { Trip } from "src/trip/trip.model";
 
 interface UnitAttrs{
   kp_unit_guid: string;
@@ -19,12 +20,11 @@ interface UnitAttrs{
 @Table({tableName:'ztin_suz_kp_unit', createdAt: false, updatedAt: false})
 export class Unit extends Model<Unit, UnitAttrs> {
   @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'varchar(32)'})
-  @ForeignKey( () => Route)
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
   kp_unit_guid: string;
 
   @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
-  @ForeignKey( () => Stag)
+  @ForeignKey(() => Stag)
   @Column({type: DataType.STRING(32)})
   kp_stage_guid: string;
 
@@ -60,9 +60,12 @@ export class Unit extends Model<Unit, UnitAttrs> {
   @Column({type: DataType.BOOLEAN})
   fl_del: boolean;
 
-  @BelongsTo( () => Route) 
-  route: Route;
+  @BelongsTo( () => Stag) 
+  stag: Stag;
 
-  @HasMany( () => Stag) 
-  stags: Stag[];
+  @HasMany( () => Usrp) 
+  usrps: Usrp[];
+
+  @HasOne(() => Trip)
+  trip: Trip;
 }
