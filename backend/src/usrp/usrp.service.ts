@@ -19,7 +19,7 @@ export class UsrpService {
   async updateUsrp(dto: UpdateUsrpDTO){
     const usrp = await this.userRepository.findByPk(dto.kp_unit_guid);
     if (!usrp) {
-      throw new HttpException('Ключ расченки в шаблоне КП не найден', HttpStatus.NOT_FOUND);  
+      throw new HttpException('Ключ расценки в шаблоне КП не найден', HttpStatus.NOT_FOUND);  
     }
     usrp.kp_unit_guid = dto.kp_unit_guid;
     usrp.prices_user = dto.prices_user;

@@ -16,7 +16,7 @@ export class UnitController {
   }
 
   @ApiOperation({summary: 'Получить расценку в шаблоне КП'})
-  @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расченки в шаблоне КП" })
+  @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расценки в шаблоне КП" })
   @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Unit })
   @Get(':kp_unit_guid')
   getEntity(@Param('kp_unit_guid') kp_unit_guid: string){
@@ -24,7 +24,7 @@ export class UnitController {
   }
 
   @ApiOperation({summary: 'Получить расценку от контрагента в шаблоне КП'})
-  @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расченки в шаблоне КП" })
+  @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расценки в шаблоне КП" })
   @ApiParam({ name: "kp_link_guid", required: true, description: "Ключ для расценки контрагента в шаблоне КП" })
   @Get(':kp_unit_guid/:kp_link_guid')
   getEntityWithUsrp(@Param('kp_unit_guid') kp_unit_guid: string, 
