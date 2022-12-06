@@ -5,8 +5,8 @@ import { Usrp } from "src/usrp/usrp.model";
 import { Trip } from "src/trip/trip.model";
 
 interface UnitAttrs{
-  kp_unit_guid: string;
-  kp_stage_guid: string;
+  kp_unit_guid: any;
+  kp_stage_guid: any;
   opr_usl_unit_id: string;
   usl_quan_unit: string;
   opr_usl_unit: string;
@@ -19,14 +19,14 @@ interface UnitAttrs{
 
 @Table({tableName:'ztin_suz_kp_unit', createdAt: false, updatedAt: false})
 export class Unit extends Model<Unit, UnitAttrs> {
-  @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'varchar(32)'})
-  @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
-  kp_unit_guid: string;
+  @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
+  @Column({type: DataType.UUIDV4(), unique: true, primaryKey: true})
+  kp_unit_guid: any;
 
-  @ApiProperty({description: 'Ключ шаблона КП', example: 'varchar(32)'})
+  @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @ForeignKey(() => Stag)
-  @Column({type: DataType.STRING(32)})
-  kp_stage_guid: string;
+  @Column({type: DataType.UUIDV4()})
+  kp_stage_guid: any;
 
   @ApiProperty({description: 'ID Расценки', example: 'varchar(12)'})
   @Column({type: DataType.STRING(12)})
