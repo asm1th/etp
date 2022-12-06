@@ -3,25 +3,25 @@ import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from
 import { Unit } from "../unit/unit.model";
 
 interface UsrpAttrs{
-  kp_unit_guid: string;
-  link_id: string;
-  prices_user: number;
-  usl_quan_unit: string;
-  nsu_menge: number;
-  vat_rate: string;
-  alt_name_unit: string;
-  nds_comm: string;
-  price_date: Date;
-  price_time: Date;
-  num_of_spec: number;
-  labor_quan: number;
-  fl_del: boolean;
+  kp_usrp_guid: any;
+  kp_unit_guid: any
+  link_id: any
+  prices_user: number
+  usl_quan_unit: string
+  nsu_menge: number
+  vat_rate: string
+  alt_name_unit: string
+  nds_comm: string
+  price_date: Date
+  price_time: Date
+  num_of_spec: number
+  labor_quan: number
+  fl_del: boolean
 }
 
 @Table({tableName:'ztin_suz_kp_usrp', createdAt: false, updatedAt: false})
 export class Usrp extends Model<Usrp, UsrpAttrs> {
   @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
-  @ForeignKey(() => Unit)
   @AllowNull(false)
   @Column({type: DataType.UUIDV4})
   kp_usrp_guid: any;
@@ -31,9 +31,6 @@ export class Usrp extends Model<Usrp, UsrpAttrs> {
   @AllowNull(false)
   @Column({type: DataType.UUIDV4, primaryKey: true})
   kp_unit_guid: any;
-  
-  @BelongsTo(() => Unit)
-  unit: Unit;
 
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
@@ -84,4 +81,7 @@ export class Usrp extends Model<Usrp, UsrpAttrs> {
   @ApiProperty({description: '', example: 'boolean'})
   @Column({type: DataType.BOOLEAN})
   fl_del: boolean;
+  
+  @BelongsTo(() => Unit)
+  unit: Unit;
 }
