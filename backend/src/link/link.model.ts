@@ -1,23 +1,25 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { Column, DataType, Model, Table, HasMany, ForeignKey } from "sequelize-typescript";
-import { DateOnlyDataType, DecimalDataType, UUIDV4 } from "sequelize/types";
+import { Column, DataType, Model, Table, ForeignKey } from "sequelize-typescript";
 import { Route } from "../route/route.model";
 
 interface KpLinkAttrs{
   link: string;
-  kp_sample_guid: string;
+  kp_sample_guid: any;
   info_ka_email: string;
   info_ka_name: string;
-  kp_offer_expire_date: DateOnlyDataType;
-  travel_exp: DecimalDataType;
+  inn: string;
+  kpp: string;
+  kp_offer_expire_date: Date;
+  travel_exp: number;
   travel_exp_comm: string;
+  fl_del: boolean;
 }
 
 @Table({tableName:'ztin_suz_kp_link', createdAt: false, updatedAt: false})
 export class KpLink extends Model<KpLink, KpLinkAttrs> {
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'string(32)'})
   @Column({type: DataType.STRING(32), unique: true, primaryKey: true})
-  @ForeignKey( () => Route)
+  // @ForeignKey(() => Route)
   link: string;
 
   @ApiProperty({description: '', example: 'uuid'})
