@@ -23,18 +23,18 @@ interface UsrpAttrs{
 export class Usrp extends Model<Usrp, UsrpAttrs> {
   @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4})
+  @Column({type: DataType.UUIDV4, primaryKey: true})
   kp_usrp_guid: any;
 
-  @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
+  @ApiProperty({description: 'Ключ расценки', example: 'uuid'})
   @ForeignKey(() => Unit)
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUIDV4})
   kp_unit_guid: any;
 
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUIDV4})
   link_id: any;
 
   @ApiProperty({description: 'Стоимость расценки', example: 'decimal(17,2)'})
