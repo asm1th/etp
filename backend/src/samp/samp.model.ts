@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { BelongsTo, Column, DataType, Default, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
+import { AllowNull, BelongsTo, Column, DataType, Default, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
 import { Stag } from "../stag/stag.model";
 import { Route } from "../route/route.model";
 
@@ -23,7 +23,7 @@ interface SampAttrs{
 @Table({tableName:'ztin_suz_kp_samp', createdAt: false, updatedAt: false})
 export class Samp extends Model<Samp, SampAttrs> {
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
-  @Default(DataType.UUIDV4)
+  @AllowNull(false)
   @ForeignKey(() => Route)
   @Column({type: DataType.UUIDV4(), unique: true, primaryKey: true})
   kp_sample_guid: any;
@@ -53,10 +53,12 @@ export class Samp extends Model<Samp, SampAttrs> {
   kp_author: string;
   
   @ApiProperty({description: '', example: 'date(YYYYMMDD)'})
+  @AllowNull(false)
   @Column({type: DataType.DATEONLY()})
   kp_crt_date: Date;
   
   @ApiProperty({description: '', example: 'time(hh-mm-ss)'})
+  @AllowNull(false)
   @Column({type: DataType.TIME()})
   kp_crt_time: Date;
   
@@ -81,6 +83,7 @@ export class Samp extends Model<Samp, SampAttrs> {
   opr_usl_code: string;
   
   @ApiProperty({description: '', example: 'boolean'})
+  @AllowNull(false)
   @Column({type: DataType.BOOLEAN()})
   fl_del: boolean;
 

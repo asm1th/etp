@@ -63,6 +63,7 @@ export class Usrp extends Model<Usrp, UsrpAttrs> {
   nds_comm: string;
 
   @ApiProperty({description: 'Дата оплаты', example: 'date(YYYYMMDD)'})
+  @AllowNull(false)
   @Column({type: DataType.DATEONLY})
   price_date: Date;
 
@@ -79,6 +80,7 @@ export class Usrp extends Model<Usrp, UsrpAttrs> {
   labor_quan: number;
 
   @ApiProperty({description: '', example: 'boolean'})
+  @AllowNull(false)
   @Column({type: DataType.BOOLEAN})
   fl_del: boolean;
   
