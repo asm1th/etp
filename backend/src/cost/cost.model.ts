@@ -25,22 +25,22 @@ export class Cost extends Model<Cost, CostAttrs> {
   @Column({type: DataType.UUIDV4, primaryKey: true})
   kp_cost_guid: any;
 
-  @ApiProperty({description: '', example: 'uuid'})
+  @ApiProperty({description: 'Этап', example: 'uuid'})
   @ForeignKey(() => Stag)
   @Column({type: DataType.UUIDV4, primaryKey: true})
   kp_stage_guid: any;
 
-  @ApiProperty({description: 'Наименование', example: 'varchar(2)'})
+  @ApiProperty({description: 'Тип', example: 'varchar(2)'})
   @AllowNull(false)
   @Column({type: DataType.STRING(2)})
   cost_type: string;
 
-  @ApiProperty({description: '', example: 'varchar(2)'})
+  @ApiProperty({description: 'Наименование', example: 'varchar(2)'})
   @AllowNull(false)
   @Column({type: DataType.STRING(2)})
   cost_name: string;
 
-  @ApiProperty({description: '', example: 'varchar(3)'})
+  @ApiProperty({description: 'ЕИ', example: 'varchar(3)'})
   @AllowNull(false)
   @Column({type: DataType.STRING(3)})
   cost_meins: string;
