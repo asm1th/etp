@@ -1,8 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, HasOne, Model, Table } from "sequelize-typescript";
 import { Stag } from "../stag/stag.model";
-import { Usrp } from "src/usrp/usrp.model";
-import { Trip } from "src/trip/trip.model";
+import { Usrp } from "../usrp/usrp.model";
+import { Trip } from "../trip/trip.model";
 
 interface UnitAttrs{
   kp_unit_guid: any;

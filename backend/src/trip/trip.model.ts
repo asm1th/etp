@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
-import { Route } from "src/route/route.model";
-import { Unit } from "src/unit/unit.model";
+import { Route } from "../route/route.model";
+import { Unit } from "../unit/unit.model";
 
 interface TripAttrs {
   kp_btrip_guid: any;
@@ -13,7 +13,7 @@ interface TripAttrs {
   btrip_day_allow: number;
 }
 
-@Table({tableName:'ztin_suz_kp_route', createdAt: false, updatedAt: false})
+@Table({tableName:'ztin_suz_kp_btrip', createdAt: false, updatedAt: false})
 export class Trip extends Model<Trip, TripAttrs> {
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)

@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { BelongsTo, Column, DataType, Default, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Stag } from "src/stag/stag.model";
+import { Stag } from "../stag/stag.model";
 import { Route } from "../route/route.model";
 
 interface SampAttrs{

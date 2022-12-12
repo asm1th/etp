@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, Table } from "sequelize-typescript";
-import { Cost } from "src/cost/cost.model";
+import { Cost } from "../cost/cost.model";
 import { Samp } from "../samp/samp.model";
 import { Unit } from "../unit/unit.model";
 

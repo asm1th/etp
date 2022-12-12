@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { AllowNull, BelongsTo, Column, DataType, Model, Table } from "sequelize-typescript";
-import { Route } from "src/route/route.model";
+import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { Route } from "../route/route.model";
 
 interface ValueAttrs {
   kp_value_guid: any;
@@ -11,10 +11,11 @@ interface ValueAttrs {
   prop_desc: string;
 }
 
-@Table({tableName:'ztin_suz_kp_route', createdAt: false, updatedAt: false})
+@Table({tableName:'ztin_suz_kp_value', createdAt: false, updatedAt: false})
 export class Value extends Model<Value, ValueAttrs> {
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
+  @ForeignKey(() => Route)
   @Column({type: DataType.UUIDV4, primaryKey: true})
   kp_value_guid: any;
 

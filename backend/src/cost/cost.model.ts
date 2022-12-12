@@ -1,7 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
-import { Route } from "src/route/route.model";
-import { Stag } from "src/stag/stag.model";
+import { Route } from "../route/route.model";
+import { Stag } from "../stag/stag.model";
 
 interface CostAttrs {
   kp_cost_guid: any;
@@ -17,7 +17,7 @@ interface CostAttrs {
   cost_per_month: number;
 }
 
-@Table({tableName:'ztin_suz_kp_route', createdAt: false, updatedAt: false})
+@Table({tableName:'ztin_suz_kp_cost', createdAt: false, updatedAt: false})
 export class Cost extends Model<Cost, CostAttrs> {
   @ApiProperty({description: 'Ключ затраты', example: 'uuid'})
   @AllowNull(false)
