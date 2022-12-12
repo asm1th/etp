@@ -20,7 +20,7 @@ export class UsrpController {
   @ApiParam({ name: "link", required: true, description: "Ключ для расценки контрагента в шаблоне КП" })
   @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Usrp })
   @Get(':kp_unit_guid')
-  async getEntity(@Param('kp_unit_guid', new ParseUUIDPipe()) kp_unit_guid: string) {
+  async getEntity(@Param('kp_unit_guid', ParseUUIDPipe) kp_unit_guid: string) {
     return await this.UsrpService.getOneUsrp(kp_unit_guid)
   }
 

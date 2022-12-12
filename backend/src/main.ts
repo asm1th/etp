@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { Logger } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { JWTAuthGuard } from './auth/jwt-auth.guard';
@@ -18,6 +18,7 @@ async function bootstrap() {
     };
   }
   const app = await NestFactory.create(AppModule, { cors: true, httpsOptions });
+  app.useGlobalPipes(new ValidationPipe());
   const port = Number(process.env.PORT) || 5010;
   const hostname = process.env.HOSTNAME || 'localhost';
   const config = new DocumentBuilder()

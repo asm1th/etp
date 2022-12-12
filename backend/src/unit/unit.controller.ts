@@ -26,7 +26,7 @@ export class UnitController {
   @ApiOperation({summary: 'Получить расценку от контрагента в шаблоне КП'})
   @ApiParam({ name: "kp_unit_guid", required: true, description: "Ключ расценки в шаблоне КП" })
   @Get('usrp/:kp_unit_guid')
-  getEntityWithUsrp(@Param('kp_unit_guid', new ParseUUIDPipe()) kp_unit_guid: string) {
+  getEntityWithUsrp(@Param('kp_unit_guid', ParseUUIDPipe) kp_unit_guid: string) {
     return this.UnitService.getUnitWithUsrp(kp_unit_guid)
   }
 }
