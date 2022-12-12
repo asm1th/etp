@@ -6,6 +6,7 @@ import { getModelToken } from '@nestjs/sequelize';
 const usrpArr = [{
   'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
   'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
+  'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
   'prices_user': '9149793.13',
   'usl_quan_unit': 'rub',
   'nsu_menge': '1233.223',
@@ -16,6 +17,7 @@ const usrpArr = [{
 {
   'kp_usrp_guid': '47f82fc3-61c4-4389-b38c-ad727470d298',
   'kp_unit_guid': '99032b8d-0059-49c4-a679-223ada2d8d1b',
+  'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
   'prices_user': '903634.63',
   'usl_quan_unit': 'rub',
   'nsu_menge': '759060.224',
@@ -27,6 +29,7 @@ const usrpArr = [{
 const oneUsrp = {
   'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
   'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
+  'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
   'prices_user': '9149793.13',
   'usl_quan_unit': 'rub',
   'nsu_menge': '1233.223',
@@ -90,6 +93,7 @@ describe('UsrpService', () => {
       const updatedUsrp = {
         'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
         'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
+        'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
         'prices_user': 2314.13,
         'usl_quan_unit': 'am',
         'nsu_menge': 12353.645,
