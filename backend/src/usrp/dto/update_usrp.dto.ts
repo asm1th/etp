@@ -1,18 +1,18 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { DecimalDataType} from "sequelize/types";
-
 
 export class UpdateUsrpDTO {
-  @ApiProperty({description: 'Ключ расченки в шаблоне КП', example: 'varchar(32)'})
-  kp_unit_guid: string;
+  @ApiProperty({description: 'Ключ расценки', example: 'uuid'})
+  kp_usrp_guid: any;
+  @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
+  kp_unit_guid: any;
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'varchar(32)'})
   link_id: string;
   @ApiProperty({description: 'Стоимость расценки', example: 'decimal(17,2)'})
-  prices_user: DecimalDataType;
+  prices_user: number;
   @ApiProperty({description: 'Единица измерения', example: 'varchar(3)'})
   usl_quan_unit: string;
   @ApiProperty({description: 'Количество', example: 'decimal(13,3)'})
-  nsu_menge: DecimalDataType;
+  nsu_menge: number;
   @ApiProperty({description: 'Ставка НДС', example: 'varchar(2)'})
   vat_rate: string;
   @ApiProperty({description: 'Наименование расценки', example: 'varchar(1333)'})
