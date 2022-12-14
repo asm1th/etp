@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpStatus, Param, ParseUUIDPipe, Put } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, NotFoundException, Param, ParseUUIDPipe, Put } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UpdateUsrpDTO } from './dto/update_usrp.dto';
 import { Usrp } from './usrp.model';
@@ -19,15 +19,29 @@ export class UsrpController {
   @ApiOperation({summary: 'Получение цены от контрагентов'})
   @ApiParam({ name: "link", required: true, description: "Ключ для расценки контрагента в шаблоне КП" })
   @ApiResponse({ status: HttpStatus.OK, description: "Success", type: Usrp })
-  @Get(':kp_unit_guid')
-  async getEntity(@Param('kp_unit_guid', ParseUUIDPipe) kp_unit_guid: string) {
-    return await this.UsrpService.getOneUsrp(kp_unit_guid)
+  @Get(':kp_usrp_guid')
+  async getEntity(@Param('kp_usrp_guid', ParseUUIDPipe) kp_usrp_guid: string) {
+    const usrp = await this.UsrpService.getOneUsrp(kp_usrp_guid);
+    
+    if (!usrp) {
+      throw new NotFoundException('Ключ расценки в шаблоне КП не найден');
+    };
+
+    return usrp;
   }
 
   @ApiOperation({summary: 'Обновление данных по командировке в шаблоне КП'})
   @ApiResponse({ status: HttpStatus.OK, description: "Success", type: UpdateUsrpDTO })
-  @Put()
-  async modifyEntity(@Body() dto: UpdateUsrpDTO): Promise<Usrp> {
-    return await this.UsrpService.updateUsrp(dto)
+  @Put(':kp_usrp_guid')
+  async modifyEntity(
+    @Param('kp_usrp_guid', ParseUUIDPipe) kp_usrp_guid: string,
+    @Body() dto: UpdateUsrpDTO) {
+    const updatedUsrp = await this.UsrpService.updateUsrp(kp_usrp_guid, dto);
+
+    if (!updatedUsrp) {
+      throw new NotFoundException('Ключ расценки в шаблоне КП не найден');  
+    };
+
+    return updatedUsrp;
   }
 }
