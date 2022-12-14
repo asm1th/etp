@@ -104,7 +104,11 @@ describe('UsrpService', () => {
         update: jest.fn(() => updatedUsrp),
       } as any);
 
-      const retVal = await service.updateUsrp({
+      const kp_usrp_guid ='1934ed00-369c-447b-805d-376092cbce50'
+
+      const retVal = await service.updateUsrp(
+        kp_usrp_guid,
+        {
         'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
         'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
         'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
