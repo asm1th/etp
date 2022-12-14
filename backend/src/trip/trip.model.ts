@@ -18,21 +18,21 @@ export class Trip extends Model<Trip, TripAttrs> {
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_btrip_guid: any;
 
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Unit)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true})
   kp_unit_guid: any;
 
   @ApiProperty({description: '', example: 'number'})
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   pers_count: number;
 
   @ApiProperty({description: '', example: 'number'})
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   btrip_days: number;
 
   @ApiProperty({description: '', example: 'decimal(17, 2)'})

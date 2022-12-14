@@ -16,17 +16,17 @@ export class Value extends Model<Value, ValueAttrs> {
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_value_guid: any;
 
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true})
   kp_table_guid: any;
 
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true})
   kp_table_name: any;
 
   @ApiProperty({description: '', example: 'varchar(10)'})

@@ -22,12 +22,12 @@ export class Cost extends Model<Cost, CostAttrs> {
   @ApiProperty({description: 'Ключ затраты', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_cost_guid: any;
 
   @ApiProperty({description: 'Этап', example: 'uuid'})
   @ForeignKey(() => Stag)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true})
   kp_stage_guid: any;
 
   @ApiProperty({description: 'Тип', example: 'varchar(2)'})
@@ -52,17 +52,17 @@ export class Cost extends Model<Cost, CostAttrs> {
 
   @ApiProperty({description: 'Количество месяцев', example: 'number'})
   @AllowNull(false)
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   cost_month: number;
 
   @ApiProperty({description: 'Кол-во месяцев использования', example: 'number'})
   @AllowNull(false)
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   cost_months_use: number;
 
   @ApiProperty({description: 'Срок полезного использования', example: 'number'})
   @AllowNull(false)
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   cost_months_useful: number;
 
   @ApiProperty({description: 'Цена', example: 'decimal(17, 2)'})
@@ -72,7 +72,7 @@ export class Cost extends Model<Cost, CostAttrs> {
 
   @ApiProperty({description: 'Кол-во чел/мес', example: 'number'})
   @AllowNull(false)
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   cost_per_month: number;
 
   @BelongsTo(() => Stag)

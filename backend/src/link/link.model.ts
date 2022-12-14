@@ -19,12 +19,12 @@ interface KpLinkAttrs{
 export class KpLink extends Model<KpLink, KpLinkAttrs> {
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, unique: true, primaryKey: true})
+  @Column({type: DataType.UUID, unique: true, primaryKey: true, defaultValue: DataType.UUIDV4})
   link: any;
 
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4()})
+  @Column({type: DataType.UUID()})
   kp_sample_guid: any;
 
   @ApiProperty({description: 'Email', example: 'string(128)'})

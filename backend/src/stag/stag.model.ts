@@ -17,12 +17,12 @@ interface StagAttrs{
 export class Stag extends Model<Stag, StagAttrs> {
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4(), unique: true, primaryKey: true})
+  @Column({type: DataType.UUID(), unique: true, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_stage_guid: any;
 
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @ForeignKey(() => Samp) 
-  @Column({type: DataType.UUIDV4(), unique: false})
+  @Column({type: DataType.UUID(), unique: false})
   kp_sample_guid: any;
 
   @ApiProperty({description: 'ID этапа', example: 'varchar(12)'})

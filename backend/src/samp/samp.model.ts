@@ -25,7 +25,7 @@ export class Samp extends Model<Samp, SampAttrs> {
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUIDV4(), unique: true, primaryKey: true})
+  @Column({type: DataType.UUID(), unique: true, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_sample_guid: any;
   
   @ApiProperty({description: 'Идентификатор конкурса', example: 'varchar(12)'})

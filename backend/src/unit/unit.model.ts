@@ -20,12 +20,12 @@ interface UnitAttrs{
 @Table({tableName:'ztin_suz_kp_unit', createdAt: false, updatedAt: false})
 export class Unit extends Model<Unit, UnitAttrs> {
   @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
-  @Column({type: DataType.UUIDV4(), unique: true, primaryKey: true})
+  @Column({type: DataType.UUID(), unique: true, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_unit_guid: any;
 
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @ForeignKey(() => Stag)
-  @Column({type: DataType.UUIDV4()})
+  @Column({type: DataType.UUID()})
   kp_stage_guid: any;
 
   @ApiProperty({description: 'ID Расценки', example: 'varchar(12)'})

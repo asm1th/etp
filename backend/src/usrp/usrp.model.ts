@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { literal } from "sequelize/types";
 import { Unit } from "../unit/unit.model";
 
 interface UsrpAttrs{
@@ -23,18 +24,18 @@ interface UsrpAttrs{
 export class Usrp extends Model<Usrp, UsrpAttrs> {
   @ApiProperty({description: 'Ключ расценки в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4, primaryKey: true})
+  @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_usrp_guid: any;
 
   @ApiProperty({description: 'Ключ расценки', example: 'uuid'})
   @ForeignKey(() => Unit)
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4})
+  @Column({type: DataType.UUID})
   kp_unit_guid: any;
 
   @ApiProperty({description: 'Ключ для расценки контрагента в шаблоне КП', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUIDV4})
+  @Column({type: DataType.UUID})
   link_id: any;
 
   @ApiProperty({description: 'Стоимость расценки', example: 'decimal(17,2)'})
@@ -72,7 +73,7 @@ export class Usrp extends Model<Usrp, UsrpAttrs> {
   price_time: Date;
 
   @ApiProperty({description: '', example: 'int4'})
-  @Column({type: DataType.NUMBER})
+  @Column({type: DataType.INTEGER})
   num_of_spec: number;
 
   @ApiProperty({description: '', example: 'decimal(17, 2)'})
