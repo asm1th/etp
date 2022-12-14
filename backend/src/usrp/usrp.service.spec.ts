@@ -24,7 +24,7 @@ const usrpArr = [{
   'vat_rate': '13',
   'alt_name_unit': 'some alt name of unit',
   'nds_comm': '13%',
-}]
+}];
 
 const oneUsrp = {
   'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
@@ -36,7 +36,19 @@ const oneUsrp = {
   'vat_rate': '12',
   'alt_name_unit': 'Somethig',
   'nds_comm': '10%',
-}
+};
+
+const updatedUsrp = {
+  'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
+  'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
+  'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
+  'prices_user': 2314.13,
+  'usl_quan_unit': 'am',
+  'nsu_menge': 12353.645,
+  'vat_rate': '10',
+  'alt_name_unit': 'some unit alt',
+  'nds_comm': '20%',
+};
 
 describe('UsrpService', () => {
   let service: UsrpService;
@@ -51,9 +63,7 @@ describe('UsrpService', () => {
           useValue: {
             findAll: jest.fn(() => usrpArr),
             findOne: jest.fn(),
-            update: jest.fn(() => oneUsrp),
-            remove: jest.fn(),
-            destroy: jest.fn(() => oneUsrp),
+            update: jest.fn(() => updatedUsrp),
           },
         },
       ],
@@ -77,11 +87,11 @@ describe('UsrpService', () => {
   describe('getOneUsrp()', () => {
     it('should return a single usrp', async () => {
       const findSpy = jest.spyOn(model, 'findOne');
-      const kp_unit_guid = '99032b8d-0059-49c4-a679-223ada2d8d1b';
+      const kp_usrp_guid = '47f82fc3-61c4-4389-b38c-ad727470d298';
 
-      expect(service.getOneUsrp(kp_unit_guid));
+      expect(service.getOneUsrp(kp_usrp_guid));
       expect(findSpy).toBeCalledWith({
-        where: { kp_unit_guid: kp_unit_guid },
+        where: { kp_usrp_guid: kp_usrp_guid },
         include: { "all": true, "nested": true }
       });
     });
@@ -90,7 +100,11 @@ describe('UsrpService', () => {
   describe('updateUsrp', () => {
     it('should return the updated object', async () => {
       
-      const updatedUsrp = {
+      jest.spyOn(model, 'findOne').mockReturnValue({
+        update: jest.fn(() => updatedUsrp),
+      } as any);
+
+      const retVal = await service.updateUsrp({
         'kp_usrp_guid': '1934ed00-369c-447b-805d-376092cbce50',
         'kp_unit_guid': '55a69812-ace6-415f-8e9f-c4d78c5d933d',
         'link_id': 'cf91c409-47fb-4a7d-891b-6605e9c33b34',
@@ -100,24 +114,8 @@ describe('UsrpService', () => {
         'vat_rate': '10',
         'alt_name_unit': 'some unit alt',
         'nds_comm': '20%',
-      };
-      
-      const findSpy = jest.spyOn(model, 'findOne').mockReturnValue({
-        update: jest.fn(() => updatedUsrp),
-      } as any);
-
-      const kp_unit_guid = '55a69812-ace6-415f-8e9f-c4d78c5d933d';
-      const kp_usrp_guid = '1934ed00-369c-447b-805d-376092cbce50';
-      // expect(findSpy).toBeCalledWith({ where: { kp_unit_guid: kp_unit_guid } });
-
-      const retVal = await service.updateUsrp(updatedUsrp);
-      expect(findSpy).toBeCalledWith({
-        where: {
-          kp_unit_guid: kp_unit_guid,
-          kp_usrp_guid: kp_usrp_guid
-        }
       });
-      expect(retVal).toStrictEqual(updatedUsrp);
+      expect(retVal).toEqual(updatedUsrp);
     })
   })
 });
