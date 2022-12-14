@@ -1,4 +1,5 @@
-import { Body, Controller, Get, HttpStatus, NotFoundException, Param, ParseUUIDPipe, Put } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, NotFoundException, Param, ParseUUIDPipe, Put, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UpdateUsrpDTO } from './dto/update_usrp.dto';
 import { Usrp } from './usrp.model';
@@ -30,6 +31,7 @@ export class UsrpController {
     return usrp;
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @ApiOperation({summary: 'Обновление данных по командировке в шаблоне КП'})
   @ApiResponse({ status: HttpStatus.OK, description: "Success", type: UpdateUsrpDTO })
   @Put(':kp_usrp_guid')
