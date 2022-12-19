@@ -23,7 +23,7 @@ export class Route extends Model<Route, RouteAttrs> {
 
   @ApiProperty({description: 'Ключ ссылки', example: 'uuid'})
   @AllowNull(false)
-  @Column({type: DataType.UUID, primaryKey: true})
+  @Column({type: DataType.UUID})
   link_guid: any;
 
   @ApiProperty({description: 'Ключ расценки', example: 'uuid'})
