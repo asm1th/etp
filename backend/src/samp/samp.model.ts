@@ -88,7 +88,7 @@ export class Samp extends Model<Samp, SampAttrs> {
   fl_del: boolean;
 
   @BelongsTo(() => Route)
-  routes: Route;
+  route: Route;
 
   @HasMany(() => Stag)
   stages: Stag;
