@@ -13,6 +13,7 @@ import { Route } from './route/route.model';
 import { Cost } from './cost/cost.model';
 import { Trip } from './trip/trip.model';
 import { Value } from './value/value.model';
+import { RouteModule } from './route/route.module';
 
 @Module({
   controllers: [], 
@@ -33,7 +34,7 @@ import { Value } from './value/value.model';
               autoLoadModels: true,
               synchronize: true
             }), 
-            UsersModule, AuthModule, LinkModule, SampModule, StagModule, UnitModule, UsrpModule,
+            UsersModule, AuthModule, LinkModule, SampModule, StagModule, UnitModule, UsrpModule, RouteModule
 
 
   ],
