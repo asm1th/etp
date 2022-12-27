@@ -22,7 +22,7 @@ export class Value extends Model<Value, ValueAttrs> {
   @ApiProperty({description: 'Ссылка на таблицу route', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
+  @Column({type: DataType.UUID, defaultValue: DataType.UUIDV4})
   kp_route_guid: any;
 
   @ApiProperty({description: 'Ключ на ссылаемую таблицу', example: 'uuid'})
