@@ -1,13 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmpty, IsNotEmpty, IsUUID, Length } from "class-validator";
+import { IsNotEmpty, IsUUID, Length } from "class-validator";
 
 export class CreateValueDTO {
-  @ApiProperty({description: 'Ключ', example: 'uuid'})
-  kp_value_guid: any;
-
-  @ApiProperty({description: 'Ссылка на route', example: 'uuid'})
-  kp_route_guid: any;
-
   @ApiProperty({description: 'Ключ на ссылаемую таблицу', example: 'uuid'})
   @IsNotEmpty()
   @IsUUID()

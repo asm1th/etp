@@ -1,5 +1,5 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { AfterCreate, AllowNull, BeforeCreate, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { AfterCreate, AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { Route } from "../route/route.model";
 
 interface ValueAttrs {
@@ -51,7 +51,7 @@ export class Value extends Model<Value, ValueAttrs> {
 
   // Genarate uuid for kp_value_guid field in Route model and instert to Value into kp_value_guid field
   @AfterCreate
-  static async beforeCreateValue(value: Value) {
+  static async afterCreateValue(value: Value) {
     await Route.findOne({
       where: {route_guid: value.kp_route_guid}
     }).then(async route => {
