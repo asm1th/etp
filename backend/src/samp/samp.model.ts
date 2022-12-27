@@ -5,6 +5,7 @@ import { Route } from "../route/route.model";
 
 interface SampAttrs{
   kp_sample_guid: any;
+  kp_route_guid: any;
   konkurs_id: string;
   lot_id: string;
   kp_send_date: Date;
@@ -24,9 +25,14 @@ interface SampAttrs{
 export class Samp extends Model<Samp, SampAttrs> {
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @AllowNull(false)
-  @ForeignKey(() => Route)
   @Column({type: DataType.UUID(), unique: true, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_sample_guid: any;
+
+  @ApiProperty({description: 'Ссылка на таблицу route', example: 'uuid'})
+  @AllowNull(false)
+  @ForeignKey(() => Route)
+  @Column({type: DataType.UUID(), defaultValue: DataType.UUIDV4})
+  kp_route_guid: any;
   
   @ApiProperty({description: 'Идентификатор конкурса', example: 'varchar(12)'})
   @Column({type: DataType.STRING(12)})

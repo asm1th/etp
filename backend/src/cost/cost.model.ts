@@ -1,11 +1,12 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { AfterCreate, AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import { Route } from "../route/route.model";
 import { Stag } from "../stag/stag.model";
 
 interface CostAttrs {
   kp_cost_guid: any;
   kp_stage_guid: any;
+  kp_route_guid: any;
   cost_type: string;
   cost_name: string;
   cost_meins: string;
@@ -21,14 +22,19 @@ interface CostAttrs {
 export class Cost extends Model<Cost, CostAttrs> {
   @ApiProperty({description: 'Ключ затраты', example: 'uuid'})
   @AllowNull(false)
-  @ForeignKey(() => Route)
   @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_cost_guid: any;
-
+  
   @ApiProperty({description: 'Этап', example: 'uuid'})
   @ForeignKey(() => Stag)
   @Column({type: DataType.UUID, primaryKey: true})
   kp_stage_guid: any;
+
+  @ApiProperty({description: 'Сслыка на таблицу route', example: 'uuid'})
+  @AllowNull(false)
+  @ForeignKey(() => Route)
+  @Column({type: DataType.UUID, defaultValue: DataType.UUIDV4})
+  kp_route_guid: any;
 
   @ApiProperty({description: 'Тип', example: 'varchar(2)'})
   @AllowNull(false)
