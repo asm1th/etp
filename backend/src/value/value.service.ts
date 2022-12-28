@@ -2,12 +2,31 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Value } from './value.model';
 
+export interface CostProperties {
+  cntrb_oms: string;
+  cntrb_pension: string;
+  cntrb_disability: string;
+  profitability: string;
+  btrip_price: string;
+};
+
+export interface CostSalary {
+  kp_unit_guid: string;
+  kp_unit_salary: string;
+};
+
+export interface CostOverhead {
+  cost_id: string;
+  cost_value: string;
+  cost_description: string;
+}
+
 @Injectable()
 export class ValueService {
-    constructor(@InjectModel(Value) private valueRepository: typeof Value) { }
+  constructor(@InjectModel(Value) private valueRepository: typeof Value) { }
 
   // Getting cost properties from Value table
-  async getCostProperties(route_guid: string) {
+  public async getCostProperties(route_guid: string): Promise<CostProperties> {
     const valueProperties = await this.valueRepository.findAll({
       where: {
         kp_route_guid: route_guid,
@@ -16,7 +35,7 @@ export class ValueService {
       attributes: ['prop_name', 'prop_value']
     });
 
-    let properties = {};
+    let properties: CostProperties;
 
     for (let prop of valueProperties) {
       const propName = prop.prop_name;
@@ -27,7 +46,7 @@ export class ValueService {
   };
 
   // Getting cost salary from Value table
-  async getCostSalary(route_guid: string) {
+  public async getCostSalary(route_guid: string): Promise<CostSalary[]> {
     const valueSalary = await this.valueRepository.findAll({
       where: {
         kp_route_guid: route_guid,
@@ -36,7 +55,7 @@ export class ValueService {
       attributes: ['kp_table_guid', 'prop_value']
     });
 
-    let salary = [];
+    let salary: CostSalary[];
 
     for (let obj of valueSalary) {
       salary.push({
@@ -49,7 +68,7 @@ export class ValueService {
   };
 
   // Getting cost overhead from Value table
-  async getCostOverhead(route_guid: string) {
+  public async getCostOverhead(route_guid: string): Promise<CostOverhead[]> {
     const valueOverhead = await this.valueRepository.findAll({
       where: {
         kp_route_guid: route_guid,
@@ -58,7 +77,7 @@ export class ValueService {
       attributes: ['prop_desc', 'prop_name', 'prop_value']
     });
 
-    let overhead = [];
+    let overhead: CostOverhead[];
 
     for (let obj of valueOverhead) {
       let cost_id = obj.prop_name.split('_')[1];
