@@ -17,9 +17,14 @@ interface TripAttrs {
 export class Trip extends Model<Trip, TripAttrs> {
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
-  @ForeignKey(() => Route)
   @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_btrip_guid: any;
+
+  @ApiProperty({description: 'Ссылка на таблицу route', example: 'uuid'})
+  @AllowNull(false)
+  @ForeignKey(() => Route)
+  @Column({type: DataType.UUID(), defaultValue: DataType.UUIDV4})
+  kp_route_guid: any;
 
   @ApiProperty({description: '', example: 'uuid'})
   @AllowNull(false)
