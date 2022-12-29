@@ -11,7 +11,7 @@ export class RouteController {
   
   @ApiOperation({summary: 'Создание значения по ключу ссылки'})
   @ApiResponse({status: 201, type: Route})
-  @Post(':route_guid')
+  @Post('value/:route_guid')
   async createValue(
     @Param('route_guid', ParseUUIDPipe) route_guid: string,
     @Body() dto: CreateValueDTO[],
