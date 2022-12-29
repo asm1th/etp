@@ -11,7 +11,13 @@ export class SampService {
     return Samp;
   }
 
-  async getOneSamps(kp_sample_guid: string){
-    return this.userRepository.findOne({where: {kp_sample_guid}, include: { all: true, nested: true }});
+  async getOneSamps(kp_sample_guid: string) {
+    return await this.userRepository.findOne({
+      where: {kp_sample_guid},
+      include: [{
+        all: true,
+        nested: true
+      }]
+    });
   }
 }
