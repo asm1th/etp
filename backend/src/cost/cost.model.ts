@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { AfterCreate, AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { AllowNull, BelongsTo, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { Samp } from "src/samp/samp.model";
 import { Route } from "../route/route.model";
 import { Stag } from "../stag/stag.model";
 
@@ -24,6 +25,12 @@ export class Cost extends Model<Cost, CostAttrs> {
   @AllowNull(false)
   @Column({type: DataType.UUID, primaryKey: true, defaultValue: DataType.UUIDV4})
   kp_cost_guid: any;
+
+  @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
+  @AllowNull(false)
+  @ForeignKey(() => Samp)
+  @Column({type: DataType.UUID, primaryKey: true})
+  kp_samp_guid: any;
   
   @ApiProperty({description: 'Этап', example: 'uuid'})
   @ForeignKey(() => Stag)
@@ -33,7 +40,7 @@ export class Cost extends Model<Cost, CostAttrs> {
   @ApiProperty({description: 'Сслыка на таблицу route', example: 'uuid'})
   @AllowNull(false)
   @ForeignKey(() => Route)
-  @Column({type: DataType.UUID, defaultValue: DataType.UUIDV4})
+  @Column({type: DataType.UUID})
   kp_route_guid: any;
 
   @ApiProperty({description: 'Тип', example: 'varchar(2)'})
