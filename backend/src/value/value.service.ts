@@ -3,22 +3,32 @@ import { InjectModel } from '@nestjs/sequelize';
 import { Value } from './value.model';
 
 export interface CostProperties {
-  cntrb_oms: string;
-  cntrb_pension: string;
-  cntrb_disability: string;
-  profitability: string;
-  btrip_price: string;
+  [key: string]: string;
+  cntrb_oms?: string;
+  cntrb_pension?: string;
+  cntrb_disability?: string;
+  profitability?: string;
+  btrip_price?: string;
 };
 
 export interface CostSalary {
-  kp_unit_guid: string;
-  kp_unit_salary: string;
+  [key: string]: string;
+  kp_unit_guid?: string;
+  kp_unit_salary?: string;
 };
 
 export interface CostOverhead {
-  cost_id: string;
-  cost_value: string;
-  cost_description: string;
+  [key: string]: string;
+  cost_id?: string;
+  cost_value?: string;
+  cost_description?: string;
+}
+
+export interface CostResult {
+  [key: string]: string;
+  kp_price_nds?: string,
+  kp_price?: string,
+  kp_price_ei?: string,
 }
 
 @Injectable()
@@ -35,10 +45,10 @@ export class ValueService {
       attributes: ['prop_name', 'prop_value']
     });
 
-    let properties: CostProperties;
+    let properties: CostProperties = {};
 
     for (let prop of valueProperties) {
-      const propName = prop.prop_name;
+      const propName = prop.prop_name.toLowerCase();
       properties[propName] = prop.prop_value;
     };
 
@@ -55,7 +65,7 @@ export class ValueService {
       attributes: ['kp_table_guid', 'prop_value']
     });
 
-    let salary: CostSalary[];
+    let salary: CostSalary[] = [];
 
     for (let obj of valueSalary) {
       salary.push({
@@ -77,7 +87,7 @@ export class ValueService {
       attributes: ['prop_desc', 'prop_name', 'prop_value']
     });
 
-    let overhead: CostOverhead[];
+    let overhead: CostOverhead[] = [];
 
     for (let obj of valueOverhead) {
       let cost_id = obj.prop_name.split('_')[1];
@@ -90,4 +100,24 @@ export class ValueService {
     
     return overhead;
   };
+
+  // Getting cost result from Value table
+  public async getCostResults(route_guid: string): Promise<CostResult> {
+    const valueResults = await this.valueRepository.findAll({
+      where: {
+        kp_route_guid: route_guid,
+        kp_table_name: 'COST'
+      },
+      attributes: ['prop_name', 'prop_value']
+    });
+
+    let results: CostResult = {};
+
+    for (let res of valueResults) {
+      const resKey = res.prop_name.toLowerCase();
+      results[resKey] = res.prop_value;
+    };
+    
+    return results;
+  }
 }
