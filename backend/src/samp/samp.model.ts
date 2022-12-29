@@ -93,6 +93,10 @@ export class Samp extends Model<Samp, SampAttrs> {
   @Column({type: DataType.BOOLEAN()})
   fl_del: boolean;
 
+  @ApiProperty({description: 'Виртуальное поле для получения затрат'})
+  @Column({type: DataType.VIRTUAL})
+  costs: {};
+
   @BelongsTo(() => Route)
   route: Route;
 
