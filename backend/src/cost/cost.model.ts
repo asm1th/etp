@@ -28,7 +28,6 @@ export class Cost extends Model<Cost, CostAttrs> {
 
   @ApiProperty({description: 'Ключ шаблона КП', example: 'uuid'})
   @AllowNull(false)
-  @ForeignKey(() => Samp)
   @Column({type: DataType.UUID, primaryKey: true})
   kp_samp_guid: any;
   
