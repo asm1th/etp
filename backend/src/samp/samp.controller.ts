@@ -1,5 +1,6 @@
 import { Controller, Get, HttpStatus, Param } from '@nestjs/common';
 import { ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CostService } from 'src/cost/cost.service';
 import { ValueService } from 'src/value/value.service';
 import { Samp } from './samp.model';
 import { SampService } from './samp.service';
@@ -9,7 +10,8 @@ import { SampService } from './samp.service';
 export class SampController {
   constructor(
     private SampService: SampService,
-    private valueService: ValueService
+    private valueService: ValueService,
+    private costService: CostService
   ) { }
 
   @ApiOperation({summary: 'Получение всех шаблонов КП'})
@@ -26,12 +28,18 @@ export class SampController {
   async getEntity(@Param('kp_sample_guid') kp_sample_guid: string){
     const samp = await this.SampService.getOneSamps(kp_sample_guid);
     const route_guid = samp.kp_route_guid;
+    const samp_guid = samp.kp_sample_guid;
 
     // Getting cost properties
     const costProperies = await this.valueService.getCostProperties(route_guid);
     const costSalary = await this.valueService.getCostSalary(route_guid);
     const costOverhead = await this.valueService.getCostOverhead(route_guid);
     const costResult = await this.valueService.getCostResults(route_guid);
+
+    // Getting cost propertios from the Cost table
+    const costDeprecation = await this.costService.getCostDeprecation(samp_guid);
+    const costOtherBfoh = await this.costService.getCostOther(samp_guid, '2');
+    const costOther = await this.costService.getCostOther(samp_guid, '3');
 
     // Building samp model
     samp.costs = {
@@ -42,7 +50,10 @@ export class SampController {
       'profitability': costProperies.profitability,
       'cost_overhead': costOverhead,
       'cost_salary': costSalary,
-      'cost_result': costResult
+      'cost_result': costResult,
+      'cost_deprecation': costDeprecation,
+      'cost_other_bfoh': costOtherBfoh,
+      'cost_other': costOther
     };
 
     return samp;
