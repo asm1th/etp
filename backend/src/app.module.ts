@@ -9,11 +9,18 @@ import { SampModule } from './samp/samp.module';
 import { StagModule } from './stag/stag.module';
 import { UnitModule } from './unit/unit.module';
 import { UsrpModule } from './usrp/usrp.module';
+import { Route } from './route/route.model';
+import { Cost } from './cost/cost.model';
+import { Trip } from './trip/trip.model';
+import { Value } from './value/value.model';
+import { RouteModule } from './route/route.module';
+import { CostModule } from './cost/cost.module';
 
 @Module({
   controllers: [], 
   providers: [],
-  imports: [  
+  imports: [
+    SequelizeModule.forFeature([User, Route, Cost, Trip, Value]),
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`
     }),
@@ -25,10 +32,10 @@ import { UsrpModule } from './usrp/usrp.module';
               username: process.env.POSTGRES_USER,
               password: process.env.POSTGRES_PASSWORD,
               database: process.env.POSTGRES_DB,
-              models: [User],
-              autoLoadModels: true
+              autoLoadModels: true,
+              synchronize: true
             }), 
-            UsersModule, AuthModule, LinkModule, SampModule, StagModule, UnitModule, UsrpModule,
+            UsersModule, AuthModule, LinkModule, SampModule, StagModule, UnitModule, UsrpModule, RouteModule, CostModule
 
 
   ],
