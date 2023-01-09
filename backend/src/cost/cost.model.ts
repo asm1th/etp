@@ -34,7 +34,7 @@ export class Cost extends Model<Cost, CostAttrs> {
   
   @ApiProperty({description: 'Этап', example: 'uuid'})
   @ForeignKey(() => Stag)
-  @Column({type: DataType.UUID, primaryKey: true})
+  @Column({type: DataType.UUID})
   kp_stage_guid: any;
 
   @ApiProperty({description: 'Сслыка на таблицу route', example: 'uuid'})
